@@ -167,7 +167,8 @@
 	height: 20px;
 }
 #footer h4{
-	color: #ffffff;
+	padding-left: 4px;
+	color: #cccccc;
 }
 #footer a, #footer i{
 	float: left;
@@ -182,7 +183,7 @@
 }
 .copyright p{
 	margin: 0;
-	color: #cccccc;
+	color: #aaaaaa;
 	font-size: 0.875em;
 }
 .back-to-top{
