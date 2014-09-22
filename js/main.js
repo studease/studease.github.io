@@ -12,7 +12,7 @@
 		var doc = document.body || document.documentElement;
 		var index = (event.clientX < doc.clientWidth/2) ? slicease.img_p : slicease.img_n;
 		slicease.init();
-		slicease.run(index);
+		//slicease.run(index);
 	};
 };
 
