@@ -162,18 +162,18 @@
 #footer .foot-icon{
 	clear: left;
 	float: left;
-	padding: 4px;
-	width: 20px;
-	height: 20px;
+	padding: 3px;
+	width: 18px;
+	height: 18px;
 }
-#footer h4{
+#footer h5{
 	padding-left: 4px;
 	color: #cccccc;
 }
 #footer a, #footer i{
 	float: left;
 	padding: 4px;
-	font-size: 14px;
+	font-size: 12px;
 	color: #cccccc;
 }
 .copyright{
@@ -184,7 +184,7 @@
 .copyright p{
 	margin: 0;
 	color: #aaaaaa;
-	font-size: 0.875em;
+	font-size: 0.75em;
 }
 .back-to-top{
 	right: 20px;
