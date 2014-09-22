@@ -1,0 +1,202 @@
+﻿body{
+	margin: 0;
+	padding-top: 0px;
+	font-family: Verdana;
+}
+.pull-left{
+	float: left;
+}
+.pull-right{
+	float: right;
+}
+.clearfix{
+	clear:both;
+}
+.center{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+#header{
+	clear: both;
+}
+
+.top-bar{
+	width: 100%;
+	height: 36px;
+	line-height: 36px;
+	color: #ffffff;
+	background: #25292C;
+}
+.top-bar .container{
+	width: 960px;
+}
+.top-left-icon{
+	padding: 2px 4px 2px 0;
+	width: 16px;
+	height: 16px;
+}
+.top-left a{
+	float: left;
+	padding-right: 20px;
+	font-size: 12px;
+	color: #cccccc;
+}
+.top-right{
+	padding: 4px 0 4px 0;
+}
+
+.nav-bar{
+	width: 100%;
+	height: 64px;
+	background: #323B44;
+	box-shadow: 3px 3px 5px #000000;
+}
+.nav-bar .container{
+	width: 960px;
+}
+
+.logo a{
+	font-size: 1.8em;
+	font-weight: bold;
+	line-height: 2em;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.nav-menu{
+	
+}
+.nav-menu ul{
+	margin: 0;
+	padding: 0;
+}
+.nav-menu ul li{
+	float: left;
+  list-style-type: none;
+  position: relative;
+}
+.nav-menu ul li a{
+	padding: 25px 14px;
+	float: left;
+	font-family: Verdana;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 1em;
+	color: #cccccc;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+.nav-menu ul li a:hover, .nav-menu ul li a:focus, .nav-menu ul li.active > a{
+	color: #ffffff;
+	background-color: #252C34;
+}
+.nav-menu ul li .arrow{
+	margin-left: 8px;
+	width: 9px;
+	height: 6px;
+	display: inline-block;
+	vertical-align: middle;
+	background: url("../images/arrow-main-nav.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+.nav-menu ul li > ul{
+	display: none;
+	left: 0;
+	top: 100%;
+	position: absolute;
+	background-color: #323B44;
+}
+.nav-menu ul li:hover > ul{
+	display: block;
+}
+.nav-menu ul li > ul li, .nav-menu ul li > ul li a{
+	display: block;
+	float: none;
+}
+.nav-menu ul li > ul li{
+	/*width: 200px;*/
+}
+.nav-menu ul li > ul li a{
+	padding: 16px 20px;
+	font-size: 12px;
+	text-decoration: none;
+}
+
+
+#main{
+	clear: both;
+}
+#main .container{
+	width: 960px;
+	height: 750px;
+	background: #cccccc;
+}
+.slicease{
+	height: 500px;
+	background: #666666;
+}
+.slicease canvas{
+	background: #666666;
+}
+
+
+#footer{
+	clear: both;
+}
+#footer .container{
+	width: 960px;
+}
+.footer-main{
+	width: 100%;
+	height: 180px;
+	background: #323B44;
+}
+.friendly-links, .about-me, .contact{
+	width: 300px;
+	padding-right: 30px;
+}
+.contact{
+	padding-right: 0;
+}
+#footer .foot-icon{
+	clear: left;
+	float: left;
+	padding: 4px;
+	width: 20px;
+	height: 20px;
+}
+#footer h4{
+	color: #ffffff;
+}
+#footer a, #footer i{
+	float: left;
+	padding: 4px;
+	font-size: 14px;
+	color: #cccccc;
+}
+.copyright{
+	padding: 1.2em;
+	text-align: center;
+	background: #25292C;
+}
+.copyright p{
+	margin: 0;
+	color: #cccccc;
+	font-size: 0.875em;
+}
+.back-to-top{
+	right: 20px;
+	bottom: 20px;
+	width: 40px;
+	height: 40px;
+	display: none;
+	position: fixed;
+	cursor: pointer;
+	border-radius: 2px;
+	filter: alpha(opacity:80);
+	opacity: 0.8;
+	background: #aaaaaa;
+}
+
+

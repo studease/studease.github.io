@@ -1,0 +1,4 @@
+﻿@import url("global.css") screen;
+@import url("small.css") screen and (max-device-width: 400px);
+
+
