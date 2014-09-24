@@ -9,8 +9,20 @@
 .pull-right{
 	float: right;
 }
+.clearfix:before, .clearfix:after{
+	content: "";
+	display: block;
+}
+.clearfix:after{
+	clear: both;
+	overflow: hidden;
+}
 .clearfix{
-	clear:both;
+	zoom: 1; /* for ie6 & ie7 */
+}
+.clear{
+	clear: both;
+	display: block;
 }
 .center{
 	margin-left: auto;
@@ -19,7 +31,7 @@
 
 
 #header{
-	clear: both;
+	
 }
 
 .top-bar{
@@ -38,14 +50,15 @@
 	height: 16px;
 }
 .top-left a{
-	float: left;
 	padding-right: 20px;
+	width: 420px;
 	display: block;
 	font-size: 12px;
 	color: #cccccc;
 }
 .top-right{
 	padding: 4px 0 4px 0;
+	width: 162px;
 }
 
 .nav-bar{
@@ -75,8 +88,8 @@
 }
 .nav-menu ul li{
 	float: left;
-  list-style-type: none;
-  position: relative;
+	list-style-type: none;
+	position: relative;
 }
 .nav-menu ul li a{
 	padding: 25px 14px;
@@ -126,7 +139,7 @@
 
 
 #main{
-	clear: both;
+	
 }
 #main .container{
 	width: 960px;
@@ -143,7 +156,7 @@
 
 
 #footer{
-	clear: both;
+	
 }
 #footer .container{
 	width: 960px;
