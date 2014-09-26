@@ -1,25 +1,26 @@
 ﻿Animation = function(duration, startValue, endValue, params){
 	//Params
-	this.duration = duration || 60;
+	this.duration = duration || 1200;
 	this.startValue = startValue || 0;
 	this.endValue = endValue || 1;
 	
 	//Available settings
-	this.easers = [];
-	this.fractions = [];
+	this.timingFunction = TimingFunction.EASE;
 	
-	this.playBehavior = PlayBehavior.AUTO;
+	this.repeatCount = 0; //repeat < 0: No time limit
 	this.repeatBehavior = RepeatBehavior.LOOP;
-	
-	this.repeatCount = 1; //repeat <= 0: No time limit
 	this.complete = null;
 	
 	this.repeatDelay = 0;
 	this.startDelay = 0;
 	
+	this.unitValue = this.endValue - this.startValue;
+	this.easing = null;
+	
 	//Runtime args
 	this.currentCount = 0;
 	
+	//Init
 	this.setup(params);
 };
 
@@ -39,60 +40,40 @@ Animation.prototype.setup = function(params){
 	return 0;
 };
 
-Animation.prototype.add = function(easer, fraction){
-	if(easer == null){
-		return -1;
-	}
-	
-	this.easers.push(easer);
-	this.fractions.push(fraction || 1);
-	
-	return this.easers.length;
-};
-
 Animation.prototype.ease = function(time){
-	var t = time - this.startDelay;
-	var n = Math.floor(t / (this.duration+this.repeatDelay));
-	t %= this.duration + this.repeatDelay;
-	t = t>this.duration ? this.duration : t;
-	var f = t / this.duration;
-	
-	if(f == 1){
-		return this.endValue;
+	if(this.easing == null){
+		switch(this.timingFunction){
+			case TimingFunction.LINEAR:
+				this.easing = new Linear();
+			break;
+			case TimingFunction.EASE:
+				this.easing = new Ease();
+			break;
+			case TimingFunction.EASE_IN:
+				this.easing = new EaseIn();
+			break;
+			case TimingFunction.EASE_OUT:
+				this.easing = new EaseOut();
+			break;
+			case TimingFunction.EASE_IN_OUT:
+				this.easing = new EaseInOut();
+			break;
+			default:
+				
+		}
 	}
 	
-	var eased = 0;
-	for(var i=0; i<this.fractions.length; i++){
-		var easer = this.easers[i];
-		
-		if(f > eased + this.fractions[i]){
-			eased += this.fractions[i];
-			continue;
-		}
-		
-		if(easer.easingType == 'elastic'){
-			if(i > 0){
-				var last = this.easers[i-1];
-				easer.velocity = last.currentVelocity;
-			}
-		}
-		eased += easer.ease((f-eased)/this.fractions[i]);
-		break;
+	if(this.easing == null){
+		return 0;
 	}
 	
-	var value = this.startValue + (this.endValue-this.startValue) * eased;
+	var eased = this.easing.ease(time/this.duration).y;
 	
-	return value;
+	if(time >= this.duration && this.complete != null){
+		this.complete.doit();
+	}
+	
+	return this.startValue + this.unitValue * eased;
 };
 
 
-var PlayBehavior = {
-	AUTO: 0,
-	ABSOLUTE: 1,
-	NEGATIVE: -1
-};
-
-var RepeatBehavior = {
-	LOOP: 0,
-	REVERSE: -1
-};

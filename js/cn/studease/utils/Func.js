@@ -1,7 +1,7 @@
 ﻿Func = function(){
 	this.func = null;
 	this.thisArg = null;
-	this.args = [];
+	this.args = null;
 };
 	
 Func.prototype.setup = function(func, thisArg, args){
@@ -11,7 +11,7 @@ Func.prototype.setup = function(func, thisArg, args){
 	
 	this.func = func;
 	this.thisArg = thisArg;
-	this.args = args || this.args;
+	this.args = args;
 	
 	return 0;
 };
@@ -21,5 +21,5 @@ Func.prototype.doit = function(){
 		return -1;
 	}
 	
-	this.func.apply(this.thisArg, this.args.concat(arguments));
+	this.func.apply(this.thisArg, this.args==null?arguments:this.args.concat(arguments));
 };

@@ -6,14 +6,17 @@
 	};
 	
 	var slicease = new Slicease();
-	slicease.setup({canvId:'canvas', images:['images/contents/img1.png', 'images/contents/img2.png', 'images/contents/img3.png'], pieces:[4, 5, 3]});
-	var slicbox = document.getElementById('slicease');
+	slicease.setup({canvas_id:'canvas', images:['images/contents/img1.png', 'images/contents/img2.png', 'images/contents/img3.png'], pieces:[5, 4, 6]});
+	slicease.init();
+	slicease.play();
+	
+	/*var slicbox = document.getElementById('slicease');
 	slicbox.onclick = function(event){
 		var doc = document.body || document.documentElement;
 		var index = (event.clientX < doc.clientWidth/2) ? slicease.img_p : slicease.img_n;
 		slicease.init();
 		//slicease.run(index);
-	};
+	};*/
 };
 
 window.onscroll = function(){
