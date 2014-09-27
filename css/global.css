@@ -24,6 +24,9 @@
 	clear: both;
 	display: block;
 }
+.relative{
+	position: relative;
+}
 .center{
 	margin-left: auto;
 	margin-right: auto;
@@ -68,6 +71,7 @@
 	height: 64px;
 	background: #323B44;
 	box-shadow: 0 3px 5px #000000;
+	z-index: 9999;
 }
 .nav-bar .container{
 	width: 960px;
@@ -154,6 +158,68 @@
 }
 .slicease canvas{
 	background: #666666;
+}
+.se-ctrl-pn{
+	padding: 0;
+	width: 960px;
+	height: 380px;
+	position: absolute;
+	top: 49px;
+	filter: Alpha(opacity=0);
+	opacity: 0;
+}
+.se-ctrl-pn:hover{
+	padding: 0;
+	width: 960px;
+	height: 380px;
+	position: absolute;
+	top: 49px;
+	filter: Alpha(opacity=100);
+	opacity: 1;
+}
+.ctrl-prev-next{
+	width: 40px;
+	height: 380px;
+	line-height: 380px;
+	vertical-align: middle;
+	cursor: pointer;
+	background: #ffffff;
+	filter: Alpha(opacity=10);
+	opacity: 0.1;
+}
+.ctrl-prev-next:hover{
+	width: 40px;
+	height: 380px;
+	line-height: 380px;
+	vertical-align: middle;
+	cursor: pointer;
+	background: #ffffff;
+	filter: Alpha(opacity=30);
+	opacity: 0.3;
+}
+.se-ctrl-n{
+	width: 960px;
+	height: 20px;
+	position: absolute;
+	top: 460px;
+}
+.se-ctrl-n ul{
+	padding: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+	width: 100px;
+}
+.se-ctrl-n ul li{
+	float: left;
+	list-style-type: none;
+	padding: 0 10px 0 0;
+	height: 20px;
+}
+.se-ctrl-n ul li a{
+	padding: 3px 6px 2px 6px;
+	font-size: 12px;
+	cursor: pointer;
+	background: #cccccc;
 }
 
 
