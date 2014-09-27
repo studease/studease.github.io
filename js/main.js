@@ -1,16 +1,13 @@
 ﻿var slicease;
 
 window.onload = function(){
-	var scroll_btn = document.getElementById('scroll_btn');
-	scroll_btn.onclick = function(){
-		var left = document.body.scrollLeft || document.documentElement.scrollLeft;
-		window.scrollTo(left, 0);
-	};
-	
 	slicease = new Slicease();
+	var markfunc = new Func();
+	markfunc.setup(markIndex);
 	var config = {canvas_id: 'canvas', 
 		images: ['images/contents/img1.png', 'images/contents/img2.png', 'images/contents/img3.png'], 
-		pieces: [5, 4, 6]
+		pieces: [5, 4, 6],
+		mark_func: markfunc
 	};
 	slicease.setup(config);
 	slicease.init();
@@ -23,6 +20,13 @@ window.onload = function(){
 	var se_next = document.getElementById('se_next');
 	se_next.onclick = function(event){
 		slicease.play();
+	};
+	
+	
+	var scroll_btn = document.getElementById('scroll_btn');
+	scroll_btn.onclick = function(){
+		var left = document.body.scrollLeft || document.documentElement.scrollLeft;
+		window.scrollTo(left, 0);
 	};
 };
 

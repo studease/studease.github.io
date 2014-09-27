@@ -20,6 +20,7 @@
 	this.screen_z = 700;
 	this.object_z = 800;
 	
+	this.mark_func = null;
 	this.strokeStyle = 'rgb(0,0,250)';
 	this.sideColor = '#999999';
 	
@@ -199,7 +200,10 @@ Slicease.prototype.play = function(index, direction){
 	
 	this.startDrawing();
 	
-	markIndex(this.img_c);
+	if(this.mark_func != null){
+		this.mark_func.doit(this.img_c);
+	}
+	
 	return this.img_c;
 };
 Slicease.prototype.prev = function(){
