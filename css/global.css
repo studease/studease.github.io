@@ -126,6 +126,7 @@
 	top: 100%;
 	position: absolute;
 	background-color: #323B44;
+	z-index: 9998;
 }
 .nav-menu ul li:hover > ul{
 	display: block;
@@ -177,7 +178,7 @@
 	filter: Alpha(opacity=100);
 	opacity: 1;
 }
-.ctrl-prev-next{
+.ctrl-prev-next, .ctrl-prev-next:hover{
 	width: 40px;
 	height: 380px;
 	line-height: 380px;
@@ -188,12 +189,6 @@
 	opacity: 0.1;
 }
 .ctrl-prev-next:hover{
-	width: 40px;
-	height: 380px;
-	line-height: 380px;
-	vertical-align: middle;
-	cursor: pointer;
-	background: #ffffff;
 	filter: Alpha(opacity=30);
 	opacity: 0.3;
 }
