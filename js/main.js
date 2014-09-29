@@ -47,11 +47,11 @@ function markIndex(index){
 		}
 		
 		if(i == index){
-			a.style.background = '#cccccc';
+			a.style.background = '#c8cdd4';
 			continue;
 		}
 		
-		a.style.background = '#999999';
+		a.style.background = '#868e98';
 	}
 }
 
