@@ -150,7 +150,6 @@
 }
 #main .container{
 	width: 960px;
-	height: 750px;
 	background: #ffffff;
 }
 .slicease{
@@ -215,6 +214,9 @@
 	font-size: 12px;
 	cursor: pointer;
 	background: #868e98;
+}
+.m-other{
+	height: 750px;
 }
 
 

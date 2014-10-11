@@ -1,6 +1,8 @@
 ﻿var slicease;
 
 window.onload = function(){
+	prettyPrint();
+	
 	slicease = new Slicease();
 	var markfunc = new Func();
 	markfunc.setup(markIndex);
@@ -14,20 +16,26 @@ window.onload = function(){
 	slicease.play();
 	
 	var se_prev = document.getElementById('se_prev');
-	se_prev.onclick = function(event){
-		slicease.prev();
-	};
+	if(se_prev){
+		se_prev.onclick = function(event){
+			slicease.prev();
+		};
+	}
 	var se_next = document.getElementById('se_next');
-	se_next.onclick = function(event){
-		slicease.play();
-	};
+	if(se_next){
+		se_next.onclick = function(event){
+			slicease.play();
+		};
+	}
 	
 	
 	var scroll_btn = document.getElementById('scroll_btn');
-	scroll_btn.onclick = function(){
-		var left = document.body.scrollLeft || document.documentElement.scrollLeft;
-		window.scrollTo(left, 0);
-	};
+	if(scroll_btn){
+		scroll_btn.onclick = function(){
+			var left = document.body.scrollLeft || document.documentElement.scrollLeft;
+			window.scrollTo(left, 0);
+		};
+	}
 };
 
 function play(n){
