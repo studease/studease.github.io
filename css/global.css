@@ -24,6 +24,9 @@
 	clear: both;
 	display: block;
 }
+.clrleft{
+	clear: left;
+}
 .relative{
 	position: relative;
 }
@@ -231,20 +234,28 @@
 	height: 180px;
 	background: #323B44;
 }
-.friendly-links, .about-me, .contact{
-	width: 300px;
-	padding-right: 30px;
+.footer-main .container > ul, .footer-main .container > ul li ul, .footer-main .container > ul li ol{
+	padding: 0;
 }
-.contact{
-	padding-right: 0;
+.footer-main .container > ul li{
+	width: 320px;
+	float: left;
+	list-style-type: none;
 }
-#footer .foot-icon{
+.footer-main .container > ul li ul li{
+	list-style-type: none;
+}
+.footer-main .container > ul li ul li svg{
 	clear: left;
 	float: left;
 	padding: 3px;
 	width: 18px;
 	height: 18px;
 }
+.footer-main .container ol li{
+	width: 150px;
+}
+
 #footer h5{
 	padding-left: 4px;
 	color: #c8cdd4;
@@ -253,7 +264,7 @@
 	float: left;
 	padding: 4px;
 	font-size: 12px;
-	color: #c8cdd4;
+	color: #aaaaaa;
 }
 .copyright{
 	padding: 1.2em;
