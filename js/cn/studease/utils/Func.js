@@ -1,7 +1,9 @@
-﻿Func = function(){
+﻿Func = function(func, thisArg, args){
 	this.func = null;
 	this.thisArg = null;
 	this.args = null;
+	
+	this.setup(func, thisArg, args);
 };
 	
 Func.prototype.setup = function(func, thisArg, args){
@@ -22,4 +24,12 @@ Func.prototype.doit = function(){
 	}
 	
 	this.func.apply(this.thisArg, this.args==null?arguments:this.args.concat(arguments));
+};
+
+Func.prototype.doit2 = function(){
+	if(this.func == null || typeof this.func != 'function'){
+		return -1;
+	}
+	
+	this.func.apply(this.thisArg, this.args==null?arguments[0]:this.args.concat(arguments[0]));
 };

@@ -7,7 +7,6 @@
 	<title>StudEase.cn</title>
 	<link rel="shortcut icon" href="favicon.ico">
 	<link rel="stylesheet" type="text/css" href="css/global.css" />
-	<link rel="stylesheet" type="text/css" href="css/prettify.css" />
 	<link rel="stylesheet" type="text/css" media="screen and (max-device-width: 600px)" href="css/small.css" />
 </head>
 <body>
@@ -74,14 +73,14 @@
 								<li>
 									<a href="#">Games<i class='arrow'></i></a>
 									<ul>
-										<li><a href='#'>Eradication</a></li>
+										<li><a href='game/square.html' target="_self">Square</a></li>
 										<li><a href='#'>Tower</a></li>
 									</ul>
 								</li>
 								<li>
 									<a href="#">Open-sourced<i class='arrow'></i></a>
 									<ul>
-										<li><a target='_self' href='open/slicease.html'>Slicease.js (MIT)</a></li>
+										<li><a href='open/slicease.html' target='_self'>Slicease.js (MIT)</a></li>
 									</ul>
 								</li>
 								<li>
@@ -183,6 +182,7 @@
 			</div>
 		</footer>
 	</div>
+	
 	<script type="text/javaScript" src="js/cn/studease/global.js"></script>
 	<script type="text/javaScript" src="js/cn/studease/utils/Func.js"></script>
 	<script type="text/javaScript" src="js/cn/studease/utils/Timer.js"></script>
@@ -195,8 +195,90 @@
 	<script type="text/javaScript" src="js/cn/studease/animation/easing/Ease.js"></script>
 	<script type="text/javaScript" src="js/cn/studease/animation/easing/Linear.js"></script>
 	<script type="text/javaScript" src="js/cn/studease/slicease/Slicease.js"></script>
-	<script type="text/javascript" src="js/prettify/prettify.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript">
+		var slicease;
+		
+		window.onload = function(){
+			slicease = new Slicease();
+			var markfunc = new Func();
+			markfunc.setup(markIndex);
+			var config = {canvas_id: 'canvas', 
+				images: ['images/contents/img1.png', 'images/contents/img2.png', 'images/contents/img3.png'], 
+				pieces: [5, 4, 6],
+				mark_func: markfunc
+			};
+			slicease.setup(config);
+			slicease.init();
+			slicease.play();
+			
+			var se_prev = document.getElementById('se_prev');
+			if(se_prev){
+				se_prev.onclick = function(event){
+					slicease.prev();
+				};
+			}
+			var se_next = document.getElementById('se_next');
+			if(se_next){
+				se_next.onclick = function(event){
+					slicease.play();
+				};
+			}
+			
+			
+			var scroll_btn = document.getElementById('scroll_btn');
+			if(scroll_btn){
+				scroll_btn.onclick = function(){
+					var left = document.body.scrollLeft || document.documentElement.scrollLeft;
+					window.scrollTo(left, 0);
+				};
+			}
+		};
+		
+		function play(n){
+			if(slicease != null){
+				slicease.play(n);
+			}
+		}
+		function markIndex(index){
+			if(index < 0){
+				return;
+			}
+			
+			for(var i=0; i<slicease.images.length; i++){
+				var a = document.getElementById('indx_' + i);
+				if(a == null){
+					continue;
+				}
+				
+				if(i == index){
+					a.style.background = '#c8cdd4';
+					continue;
+				}
+				
+				a.style.background = '#868e98';
+			}
+		}
+		
+		window.onscroll = function(){
+			var top = document.body.scrollTop || document.documentElement.scrollTop;
+			var nav = document.getElementById('nav-bar');
+			if(top > 36){
+				nav.style.position = 'fixed';
+				nav.style.top = '0px';
+			}
+			else{
+				nav.style.position = 'static';
+			}
+			
+			var scroll_btn = document.getElementById('scroll_btn');
+			if(top > 50){
+				scroll_btn.style.display = 'inline';
+			}
+			else{
+				scroll_btn.style.display = 'none';
+			}
+		};
+	</script>
 	<script>
 		window._bd_share_config = {
 			"common":{"bdSnsKey":{},"bdDesc":"Studease.js 1.0 上线了\\o/ \n项目地址: https://github.com/studease/Slicease","bdText":"StudEase.cn","bdComment":"StudEase.cn已同步更新，猛戳这里看效果!（注：需较新版浏览器支持，推荐chrome, opera, safari, firefox，及相应内核的封装版）","bdPic":"","bdMini":"2","bdStyle":"0","bdSize":"16"},"share":{},
