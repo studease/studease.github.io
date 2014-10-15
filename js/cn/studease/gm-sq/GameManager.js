@@ -101,7 +101,8 @@ GameManager.prototype.move = function(direction){
 			var cell = P(x, y);
 			var tile = self.grid.getContent(cell);
 			if(tile){
-				delete tile.merged;
+				tile.save();
+				tile.merged = null;
 				var farthest = self.getFarthestPosition(cell, vector);
 				if(!!farthest.merged){
 					self.grid.insertTile(farthest);
@@ -238,7 +239,7 @@ GameManager.prototype.addTile = function(tile){
 	if(tile.previousPosition){
 		// Make sure that the tile gets rendered in the previous position first
 		window.requestAnimationFrame(function(){
-			classes[2] = self.positionClass({ x: tile.x, y: tile.y });
+			classes[2] = self.positionClass(P(tile.x, tile.y));
 			self.applyClasses(wrapper, classes); // Update the position
 		});
 	}
