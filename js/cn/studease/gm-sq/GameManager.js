@@ -182,6 +182,7 @@ GameManager.prototype.positionsEqual = function(first, second){
 };
 
 GameManager.prototype.restart = function(){
+	this.clearContainer(this.tileContainer);
 	this.grid = null;
 	this.init();
 };
@@ -226,28 +227,23 @@ GameManager.prototype.addTile = function(tile){
 	var position = tile.previousPosition || P(tile.x, tile.y);
 	var positionClass = this.positionClass(position);
 	
-	// We can't use classlist because it somehow glitches when replacing classes
 	var classes = ["tile", "tile-" + tile.value, positionClass];
-	
 	if(tile.value > 2048) classes.push("tile-super");
-	
 	this.applyClasses(wrapper, classes);
 	
 	inner.classList.add("tile-inner");
-	inner.innerHTML = '<img src="http://res.tx3.netease.com/qt/14/0325_2048/zuan2/'+tile.value+'.jpg" />';
+	inner.innerHTML = '<img src="../images/gm-sq/'+tile.value+'.jpg" />';
 	
 	if(tile.previousPosition){
-		// Make sure that the tile gets rendered in the previous position first
 		window.requestAnimationFrame(function(){
 			classes[2] = self.positionClass(P(tile.x, tile.y));
-			self.applyClasses(wrapper, classes); // Update the position
+			self.applyClasses(wrapper, classes);
 		});
 	}
 	else if(tile.merged){
 		classes.push("tile-merged");
 		this.applyClasses(wrapper, classes);
 		
-		// Render the tiles that merged
 		tile.merged.forEach(function(merged){
 			self.addTile(merged);
     	});
@@ -257,10 +253,7 @@ GameManager.prototype.addTile = function(tile){
 		this.applyClasses(wrapper, classes);
 	}
 	
-	// Add the inner part of the tile to the wrapper
 	wrapper.appendChild(inner);
-	
-	// Put the tile on the board
 	this.tileContainer.appendChild(wrapper);
 };
 GameManager.prototype.positionClass = function(position){
