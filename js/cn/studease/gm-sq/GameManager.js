@@ -190,6 +190,7 @@ GameManager.prototype.positionsEqual = function(first, second){
 };
 
 GameManager.prototype.restart = function(){
+	this.score = this.lastScore = 0;
 	this.clearContainer(this.tileContainer);
 	this.grid = null;
 	this.init();
