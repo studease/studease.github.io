@@ -27,7 +27,11 @@ GameManager.prototype.setup = function(config){
 };
 
 GameManager.prototype.init = function(){
+	this.scoreContainer = document.querySelector(".score-container");
 	this.tileContainer = document.querySelector(".tile-container");
+	
+	this.lastScore = 0;
+	this.updateScore();
 	
 	if(this.grid == null){
 		this.grid = new Grid(this.size);
@@ -39,6 +43,8 @@ GameManager.prototype.init = function(){
 			this.addTile(tile);
 		}
 	}
+	
+	
 };
 
 GameManager.prototype.addRandomTile = function(){
@@ -90,12 +96,12 @@ GameManager.prototype.onKeyDown = function(event){
 	}
 };
 GameManager.prototype.move = function(direction){
-	var self = this;
-	
 	var vector = this.getVector(direction);
 	var traversals = this.buildTraversals(vector);
 	var moved = false;
+	this.lastScore = this.score;
 	
+	var self = this;
 	traversals.x.forEach(function(x){
 		traversals.y.forEach(function(y){
 			var cell = P(x, y);
@@ -109,6 +115,8 @@ GameManager.prototype.move = function(direction){
 					self.grid.removeTile(tile);
 					
 					tile.update(farthest);
+					
+					self.score += farthest.value;
 				}
 				else{
 					self.moveTile(tile, farthest);
@@ -207,6 +215,8 @@ GameManager.prototype.requestAnimationFrame = function(){
 			}
 		});
 	});
+	
+	this.updateScore();
 };
 
 GameManager.prototype.clearContainer = function(container){
@@ -265,6 +275,21 @@ GameManager.prototype.normalizePosition = function(position){
 };
 GameManager.prototype.applyClasses = function(element, classes){
 	element.setAttribute("class", classes.join(" "));
+};
+
+GameManager.prototype.updateScore = function(){
+	this.clearContainer(this.scoreContainer);
+	
+	this.scoreContainer.textContent = this.score;
+	
+	var difference = this.score - this.lastScore;
+	if(difference > 0){
+		var addition = document.createElement("div");
+		addition.classList.add("score-addition");
+		addition.textContent = "+" + difference;
+		
+		this.scoreContainer.appendChild(addition);
+	}
 };
 
 

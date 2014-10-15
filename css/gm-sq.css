@@ -11,6 +11,36 @@
 	background: none repeat scroll 0 0 #bbada0;
 }
 
+.scores-container{
+	float: right;
+	text-align: right;
+	
+	font-size: 25px;
+	font-weight: bold;
+	line-height: 47px;
+	color: rgba(119, 110, 101, 0.9);
+}
+.score-container{
+	margin-top: 8px;
+	padding: 15px 25px;
+	height: 25px;
+	border-radius: 3px;
+	
+	text-align: center;
+	display: inline-block;
+	position: relative;
+}
+.score-container .score-addition{
+	font-size: 25px;
+	font-weight: bold;
+	line-height: 25px;
+	color: rgba(119, 110, 101, 0.9);
+	right: 30px;
+	position: absolute;
+	z-index: 100;
+	animation: 600ms ease-in 0s normal both 1 move-up;
+}
+
 .grid-container{
 	position: absolute;
 	z-index: 1;
