@@ -1,10 +1,12 @@
-﻿GameManager = function(size, config){
-	this.size = size || 4;//Size of the grid
+﻿GameManager = function(req, config){
+	this.req = req;
 	
 	//Available settings
+	this.size = 4;//Size of the grid
 	this.startTiles = 2;
 	
 	//Runtime params
+	this.puppet = null;
 	this.grid = null;
 	this.score = 0;
 	
@@ -31,6 +33,10 @@ GameManager.prototype.init = function(){
 	this.scoreContainer = document.querySelector(".score-container");
 	this.tileContainer = document.querySelector(".tile-container");
 	
+	this.puppetScoreAddition = document.getElementById('puppet-score-addition');
+	this.puppetScoreContainer = document.getElementById('puppet-score-container');
+	this.puppetTileContainer = document.getElementById('puppet-tile-container');
+	
 	this.lastScore = 0;
 	this.updateScore();
 	
@@ -38,33 +44,86 @@ GameManager.prototype.init = function(){
 		this.grid = new Grid(this.size);
 	}
 	
-	for(var i=0; i<this.startTiles; i++){
-		var tile = this.addRandomTile();
-		if(tile != null){
-			this.addTile(tile);
-		}
-	}
+	this.send('READY');
 };
 
-GameManager.prototype.addRandomTile = function(){
-	var avaiCells = this.grid.getAvailableCells();
-	if(avaiCells == null || avaiCells.length == 0){
-		return null;
+GameManager.prototype.send = function(cmd, params){
+	if(!this.req){
+		return;
 	}
 	
-	var index = Math.floor(Math.random() * avaiCells.length);
-	var value = Math.random() < 0.9 ? 2 : 4;
-	var tile = new Tile(avaiCells[index], value);
+	var raws = [];
+	var raw = new Object();
+	raw.cmd = cmd;
+	raw.chl = this.req.chl++;
+	if(params != null && typeof params == 'object'){
+		raw.params = params;
+	}
+	raw.ssid = this.req.ssid;
+	raws.push(raw);
 	
+	try{console.log('==> ' + raws.toSource());}catch(e){};
+	this.req.socket.emit('2048', raws);
+};
+
+GameManager.prototype.onRaw = function(raws){
+	var data = raws[0].data;
+	
+	switch(raws[0].raw){
+		case 'INIT':
+			this.puppet = data.puppet;
+			this.size = data.size;
+			for(var i=0; i<data.tiles.length; i++){
+				this.addRandomTile(this.clone(data.tiles[i]));
+				this.addTile(this.clone(data.tiles[i]));
+			}
+			this.listen();
+		break;
+		case 'RANDOM':
+			this.addRandomTile(this.clone(data.tile));
+			this.addTile(this.clone(data.tile));
+			this.listen();
+		break;
+		case 'PUPPET':
+			this.actuate(data);
+		break;
+		case 'RES':
+			
+		break;
+		case 'ERR':
+			
+		break;
+	}
+};
+GameManager.prototype.clone = function(tile){
+	var _tile = new Tile(P(tile.x,tile.y), tile.value);
+	_tile.previousPosition = tile.previousPosition;
+	_tile.merged = tile.merged;
+	return _tile;
+};
+
+GameManager.prototype.addRandomTile = function(tile){
 	this.grid.insertTile(tile);
-	return tile;
 };
 
+var _on_keydown;
 GameManager.prototype.listen = function(){
-	var _on_keydown = new Func(this.onKeyDown, this);
-	document.addEventListener("keydown", function(event){
-    	_on_keydown.doit(event);
-	});
+	if(!_on_keydown){
+		_on_keydown = new Func(this.onKeyDown, this);
+	}
+	
+	document.addEventListener("keydown", this.keyDownHandler);
+};
+GameManager.prototype.keyDownHandler = function(event){
+	var el = document.activeElement;
+	if(el.type == "textarea" || el.type == "input"){
+		return;
+	}
+	
+	_on_keydown.doit(event);
+};
+GameManager.prototype.removeListener = function(){
+	document.removeEventListener("keydown", this.keyDownHandler);
 };
 GameManager.prototype.onKeyDown = function(event){
 	var modifiers = event.altKey || event.ctrlKey || event.metaKey || event.shiftKey;
@@ -129,8 +188,12 @@ GameManager.prototype.move = function(direction){
 	});
 	
 	if(moved){
-		this.addRandomTile();
+		this.send('MOVE', {
+			direction: direction,
+			score: this.score
+		});
 		
+		this.removeListener();
 		this.actuate();
 	}
 };
@@ -196,27 +259,36 @@ GameManager.prototype.restart = function(){
 };
 
 
-GameManager.prototype.actuate = function(){
+GameManager.prototype.actuate = function(puppetData){
 	var self = this;
 	
 	var _rq_animation = new Func(this.requestAnimationFrame, this);
 	window.requestAnimationFrame(function(){
-		_rq_animation.doit();
+		_rq_animation.doit(puppetData);
 	});
 };
-GameManager.prototype.requestAnimationFrame = function(){
-	this.clearContainer(this.tileContainer);
+GameManager.prototype.requestAnimationFrame = function(puppetData){
+	if(!puppetData){
+		this.clearContainer(this.tileContainer);
+	}
+	else{
+		this.clearContainer(this.puppetTileContainer);
+	}
 	
 	var self = this;
-	this.grid.cells.forEach(function(column){
+	var isPuppet = !!puppetData;
+	var grid = isPuppet ? puppetData.grid : this.grid;
+	grid.cells.forEach(function(column){
 		column.forEach(function(cell){
 			if(cell){
-				self.addTile(cell);
+				self.addTile(cell, isPuppet);
 			}
 		});
 	});
 	
-	this.updateScore();
+	var score = isPuppet ? puppetData.score : null;
+	var lastScore = isPuppet ? puppetData.lastScore : null;
+	this.updateScore(score, lastScore);
 };
 
 GameManager.prototype.clearContainer = function(container){
@@ -225,7 +297,7 @@ GameManager.prototype.clearContainer = function(container){
 	}
 };
 
-GameManager.prototype.addTile = function(tile){
+GameManager.prototype.addTile = function(tile, isPuppet){
 	if(!tile.value){
 		return;
 	}
@@ -235,7 +307,7 @@ GameManager.prototype.addTile = function(tile){
 	var wrapper = document.createElement("div");
 	var inner = document.createElement("div");
 	var position = tile.previousPosition || P(tile.x, tile.y);
-	var positionClass = this.positionClass(position);
+	var positionClass = this.positionClass(position, isPuppet);
 	
 	var classes = ["tile", "tile-" + tile.value, positionClass];
 	if(tile.value > 2048) classes.push("tile-super");
@@ -246,7 +318,7 @@ GameManager.prototype.addTile = function(tile){
 	
 	if(tile.previousPosition){
 		window.requestAnimationFrame(function(){
-			classes[2] = self.positionClass(P(tile.x, tile.y));
+			classes[2] = self.positionClass(P(tile.x, tile.y), isPuppet);
 			self.applyClasses(wrapper, classes);
 		});
 	}
@@ -255,7 +327,7 @@ GameManager.prototype.addTile = function(tile){
 		this.applyClasses(wrapper, classes);
 		
 		tile.merged.forEach(function(merged){
-			self.addTile(merged);
+			self.addTile(merged, isPuppet);
     	});
 	}
 	else{
@@ -264,11 +336,13 @@ GameManager.prototype.addTile = function(tile){
 	}
 	
 	wrapper.appendChild(inner);
-	this.tileContainer.appendChild(wrapper);
+	
+	var tileContainer = isPuppet ? this.puppetTileContainer : this.tileContainer;
+	tileContainer.appendChild(wrapper);
 };
-GameManager.prototype.positionClass = function(position){
+GameManager.prototype.positionClass = function(position, isPuppet){
 	position = this.normalizePosition(position);
-	return "tile-position-" + position.x + "-" + position.y;
+	return (isPuppet?"p-":"") + "tile-position-" + position.x + "-" + position.y;
 };
 GameManager.prototype.normalizePosition = function(position){
 	return P(position.x+1, position.y+1);
@@ -277,7 +351,15 @@ GameManager.prototype.applyClasses = function(element, classes){
 	element.setAttribute("class", classes.join(" "));
 };
 
-GameManager.prototype.updateScore = function(){
+GameManager.prototype.updateScore = function(puppetScore, puppetLastScore){
+	if(puppetScore != null){
+		this.puppetScoreContainer.textContent = puppetScore;
+		
+		var difference = puppetScore - puppetLastScore;
+		this.puppetScoreAddition.textContent = difference>0 ? ("+"+difference) : '';
+		return;
+	}
+	
 	this.scoreContainer.textContent = this.score;
 	
 	var difference = this.score - this.lastScore;

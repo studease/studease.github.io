@@ -8,6 +8,7 @@
 	<link rel="shortcut icon" href="../favicon.ico">
 	<link rel="stylesheet" type="text/css" href="../css/global.css" />
 	<link rel="stylesheet" type="text/css" href="../css/gm-sq.css" />
+	<link rel="stylesheet" type="text/css" href="../css/chat.css" />
 	<link rel="stylesheet" type="text/css" media="screen and (max-device-width: 600px)" href="../css/small.css" />
 </head>
 <body>
@@ -102,24 +103,11 @@
 		<div id='main' class="clear">
 			<div class='container center'>
 				<div class="games-container">
-					<div class="ctrls-container pull-right">
-						Control:<BR/>
-						<div class="ctrl-container">
-							UP, DOWN, LEFT, RIGHT<BR/>
-							<i>or</i><BR/>
-							W, S, A, D
-						</div><BR/>
-						Restart:
-						<div class="ctrl-container">
-							R
-						</div>
-					</div>
-					
-					<div class="self-container">
+					<div class="self-container pull-left">
 						<div class="scores-container">
 							<div class="score-addition"></div>
 							Score: 
-							<div class="score-container"></div>
+							<div class="score-container">0</div>
 						</div>
 						<div class="game-container">
 							<div class="grid-container">
@@ -154,9 +142,54 @@
 						</div>
 					</div>
 					
-					<div class="clear exchange-container">
-						<a href="2048-pk.html">Online</a>
+					<div class="puppet-container pull-right">
+						<div class="scores-container">
+							<div class="score-addition" id="puppet-score-addition"></div>
+							Score: 
+							<div class="score-container" id="puppet-score-container">0</div>
+						</div>
+						<div class="game-container">
+							<div class="grid-container">
+								<div class="grid-row">
+									<div class="grid-cell"></div>
+									<div class="grid-cell"></div>
+									<div class="grid-cell"></div>
+									<div class="grid-cell"></div>
+								</div>
+									<div class="grid-row">
+									<div class="grid-cell"></div>
+									<div class="grid-cell"></div>
+									<div class="grid-cell"></div>
+									<div class="grid-cell"></div>
+								</div>
+								<div class="grid-row">
+									<div class="grid-cell"></div>
+									<div class="grid-cell"></div>
+									<div class="grid-cell"></div>
+									<div class="grid-cell"></div>
+								</div>
+								<div class="grid-row">
+									<div class="grid-cell"></div>
+									<div class="grid-cell"></div>
+									<div class="grid-cell"></div>
+									<div class="grid-cell"></div>
+								</div>
+							</div>
+							<div class="tile-container" id="puppet-tile-container">
+								
+							</div>
+						</div>
+						
+						<div class="clear exchange-container">
+							<a href="2048.html">Standalone</a>
+						</div>
 					</div>
+				</div>
+				
+				<div class="chat-container">
+					<textarea id="m-display" class="m-display" readonly="readonly"></textarea>
+					<textarea id="m-input" class="m-input pull-left" onkeypress="return onKeyPress(event)"></textarea>
+					<a class="m-send pull-right" onclick="sendMessage()">Enter</a>
 				</div>
 			</div>
 		</div>
@@ -217,16 +250,40 @@
 		</footer>
 	</div>
 	
+	<script type="text/javaScript" src="../js/cn/studease/global.js"></script>
 	<script type="text/javaScript" src="../js/cn/studease/utils/Func.js"></script>
 	<script type="text/javaScript" src="../js/cn/studease/utils/P.js"></script>
+	<script type="text/javaScript" src="../js/cn/studease/event/Event.js"></script>
+	<script type="text/javaScript" src="../js/cn/studease/chat/index.js"></script>
+	<script type="text/javaScript" src="../js/cn/studease/chat/Client.js"></script>
+	<script type="text/javaScript" src="../js/cn/studease/chat/Channel.js"></script>
+	<script type="text/javaScript" src="../js/cn/studease/chat/Request.js"></script>
+	<script type="text/javaScript" src="../js/cn/studease/chat/socket.io.js"></script>
 	<script type="text/javaScript" src="../js/cn/studease/gm-sq/Tile.js"></script>
 	<script type="text/javaScript" src="../js/cn/studease/gm-sq/Grid.js"></script>
-	<script type="text/javaScript" src="../js/cn/studease/gm-sq/GameManager.js"></script>
+	<script type="text/javaScript" src="../js/cn/studease/gm-sq/PkGameManager.js"></script>
 	<script type="text/javascript">
+		var URL_SERVER = 'http://14.17.122.168:6688/';
+		var IId = String(Math.floor(Math.random()*999));
+		var IPwd = '000000';
+		var IName = 'user'+IId;
+		var IChannels = ['2048'];
+		
+		var client = new CxChat.Client();
+		client.onRaw('IDENT', onIdent);
+		client.onRaw('CHANNEL', onChannelInfo);
+		client.onRaw('JOIN', onJoin);
+		client.onRaw('LEFT', onLeft);
+		client.onRaw('SENT', onSent);
+		client.onRaw('DATA', onData);
+		client.onRaw('USERLIST', onUsers);
+		client.onRaw('ERR', onError);
+		client.onRaw('2048', onGameMsg);
+		client.onRaw('DISCONNECT', onDisconnect);
+		
+		var gm;
 		window.onload = function(){
-			var gm = new GameManager();
-			gm.init();
-			gm.listen();
+			client.connect(URL_SERVER, {id:IId, pwd:IPwd});
 			
 			
 			var scroll_btn = document.getElementById('scroll_btn');
@@ -237,6 +294,95 @@
 				};
 			}
 		};
+		
+		function onIdent(raws){
+			try{log('onIdent: ' + raws[0].data.toSource());}catch(e){};
+			client.join(IChannels);
+		}
+		function onChannelInfo(raws){
+			try{log('onChannelInfo: ' + raws[0].data.toSource());}catch(e){};
+			
+			if(raws[0].data.pipe.properties.name == '2048'){
+				gm = new GameManager(client.req);
+				gm.init();
+			}
+		}
+		function onJoin(raws){
+			try{log('onJoin: ' + raws[0].data.toSource());}catch(e){};
+		}
+		function onLeft(raws){
+			try{log('onLeft: ' + raws[0].data.toSource());}catch(e){};
+		}
+		function onSent(raws){
+			try{log('onSent: ' + raws[0].data.toSource());}catch(e){};
+		}
+		function onData(raws){
+			try{log('onData: ' + raws[0].data.toSource());}catch(e){};
+		}
+		function onUsers(raws){
+			try{log('onUsers: ' + raws[0].data.toSource());}catch(e){};
+		}
+		function onError(raws){
+			try{log('onError: ' + raws[0].data.toSource());}catch(e){};
+		}
+		function onGameMsg(raws){
+			try{log('onGameMsg(' + raws[0].raw + '): ' + raws[0].data.toSource());}catch(e){};
+			
+			gm.onRaw(raws);
+		}
+		function onDisconnect(){
+			log('disconnected');
+		}
+		
+		function sendMessage(message){
+			var area = document.getElementById('m-input');
+			var msg = message || area.value;
+			
+			if(msg.length <= 0){
+				log('Please type in message!');
+				return;
+			}
+			else if(msg.length > 40){
+				msg = msg.substr(0, 40) + '...';
+			}
+			
+			var channel = client.channels[IChannels[0]];
+			channel.send(msg);
+			
+			clearInput();
+		}
+		
+		function onKeyPress(e){
+			var event = window.event || e;
+			
+			if(event.keyCode != 13){
+				return;
+			}
+			
+			if(event.ctrlKey){
+				document.getElementById('m-input').value += '\n';
+			}
+			else{
+				sendMessage();
+				
+				if(window.event){
+					window.event.returnValue = false;
+				}
+				else{
+					event.preventDefault();
+				}
+			}
+		}
+		
+		function log(msg){
+			var area = document.getElementById('m-display');
+			area.value += msg + '\n';
+			area.scrollTop = area.scrollHeight;
+		}
+		function clearInput(){
+			var area = document.getElementById('m-input');
+			area.value = '';
+		}
 		
 		window.onscroll = function(){
 			var top = document.body.scrollTop || document.documentElement.scrollTop;
