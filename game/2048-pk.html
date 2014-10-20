@@ -304,8 +304,11 @@
 			log('onChannelInfo: ' + raws[0].data.pipe.properties.name);
 			
 			if(raws[0].data.pipe.properties.name == '2048'){
-				gm = new GameManager(client.req);
-				gm.init();
+				if(gm == null){
+					gm = new GameManager(client.req);
+					gm.init();
+				}
+				gm.getReady();
 			}
 		}
 		function onJoin(raws){

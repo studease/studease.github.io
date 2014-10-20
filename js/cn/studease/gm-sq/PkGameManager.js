@@ -37,10 +37,12 @@ GameManager.prototype.init = function(){
 	this.puppetScoreContainer = document.getElementById('puppet-score-container');
 	this.puppetTileContainer = document.getElementById('puppet-tile-container');
 	
-	this.updateScore();
-	
-	if(this.grid == null){
-		this.grid = new Grid(this.size);
+	this.grid = new Grid(this.size);
+};
+
+GameManager.prototype.getReady = function(){
+	if(!this.req){
+		return;
 	}
 	
 	this.send('READY');
@@ -72,11 +74,7 @@ GameManager.prototype.onRaw = function(raws){
 		case 'INIT':
 			this.size = data.size;
 			this.puppet = data.puppet;
-			
-			this.score = this.lastScore = 0;
-			this.clearContainer(this.tileContainer);
-			this.updateScore();
-			this.grid = new Grid(this.size);
+			this.reset();
 			
 			for(var i=0; i<data.tiles.length; i++){
 				this.addRandomTile(this.clone(data.tiles[i]));
@@ -256,11 +254,14 @@ GameManager.prototype.positionsEqual = function(first, second){
 	return first.x === second.x && first.y === second.y;
 };
 
-GameManager.prototype.restart = function(){
+GameManager.prototype.reset = function(){
 	this.score = this.lastScore = 0;
 	this.clearContainer(this.tileContainer);
-	this.grid = null;
 	this.init();
+};
+GameManager.prototype.restart = function(){
+	this.reset();
+	this.getReady();
 };
 
 
