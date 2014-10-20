@@ -71,13 +71,13 @@ GameManager.prototype.onRaw = function(raws){
 	switch(raws[0].raw){
 		case 'INIT':
 			this.size = data.size;
+			this.puppet = data.puppet;
+			
 			this.score = this.lastScore = 0;
 			this.clearContainer(this.tileContainer);
 			this.updateScore();
 			this.grid = new Grid(this.size);
 			
-			this.puppet = data.puppet;
-			this.size = data.size;
 			for(var i=0; i<data.tiles.length; i++){
 				this.addRandomTile(this.clone(data.tiles[i]));
 				this.addTile(this.clone(data.tiles[i]));
