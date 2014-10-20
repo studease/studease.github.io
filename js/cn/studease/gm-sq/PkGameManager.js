@@ -3,12 +3,12 @@
 	
 	//Available settings
 	this.size = 4;//Size of the grid
-	this.startTiles = 2;
 	
 	//Runtime params
 	this.puppet = null;
 	this.grid = null;
 	this.score = 0;
+	this.lastScore = 0;
 	
 	this.setup(config);
 };
@@ -37,7 +37,6 @@ GameManager.prototype.init = function(){
 	this.puppetScoreContainer = document.getElementById('puppet-score-container');
 	this.puppetTileContainer = document.getElementById('puppet-tile-container');
 	
-	this.lastScore = 0;
 	this.updateScore();
 	
 	if(this.grid == null){
@@ -71,6 +70,12 @@ GameManager.prototype.onRaw = function(raws){
 	
 	switch(raws[0].raw){
 		case 'INIT':
+			this.size = data.size;
+			this.score = this.lastScore = 0;
+			this.clearContainer(this.tileContainer);
+			this.updateScore();
+			this.grid = new Grid(this.size);
+			
 			this.puppet = data.puppet;
 			this.size = data.size;
 			for(var i=0; i<data.tiles.length; i++){
