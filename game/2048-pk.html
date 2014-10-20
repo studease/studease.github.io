@@ -296,11 +296,12 @@
 		};
 		
 		function onIdent(raws){
-			try{log('onIdent: ' + raws[0].data.toSource());}catch(e){};
+			log('onIdent: ' + raws[0].data.user.properties.id
+				+ ' - ' + raws[0].data.ssid);
 			client.join(IChannels);
 		}
 		function onChannelInfo(raws){
-			try{log('onChannelInfo: ' + raws[0].data.toSource());}catch(e){};
+			log('onChannelInfo: ' + raws[0].data.pipe.properties.name);
 			
 			if(raws[0].data.pipe.properties.name == '2048'){
 				gm = new GameManager(client.req);
@@ -308,25 +309,53 @@
 			}
 		}
 		function onJoin(raws){
-			try{log('onJoin: ' + raws[0].data.toSource());}catch(e){};
+			log('User(' + raws[0].data.user.properties.id
+				+ ' - ' + raws[0].data.user.pubid
+				+ ') joined channel(' + raws[0].data.pipe.properties.name + ').');
 		}
 		function onLeft(raws){
-			try{log('onLeft: ' + raws[0].data.toSource());}catch(e){};
+			log('User(' + raws[0].data.user.properties.id
+				+ ' - ' + raws[0].data.user.pubid
+				+ ') left channel(' + raws[0].data.pipe.properties.name + ').');
 		}
 		function onSent(raws){
-			try{log('onSent: ' + raws[0].data.toSource());}catch(e){};
+			log(raws[0].data.user.properties.id
+				+ ' @' + (raws[0].data.pipe.properties.name || raws[0].data.pipe.properties.id)
+				+ ': ' + raws[0].data.msg);
 		}
 		function onData(raws){
-			try{log('onData: ' + raws[0].data.toSource());}catch(e){};
+			log(raws[0].data.user.properties.id
+				+ ' @' + (raws[0].data.pipe.properties.name || raws[0].data.pipe.properties.id)
+				+ ': ' + raws[0].data.msg);
 		}
 		function onUsers(raws){
 			try{log('onUsers: ' + raws[0].data.toSource());}catch(e){};
 		}
 		function onError(raws){
-			try{log('onError: ' + raws[0].data.toSource());}catch(e){};
+			log('Error: ' + raws[0].data.code + ' - ' + raws[0].data.value);
 		}
 		function onGameMsg(raws){
-			try{log('onGameMsg(' + raws[0].raw + '): ' + raws[0].data.toSource());}catch(e){};
+			//try{log('onGameMsg(' + raws[0].raw + '): ' + raws[0].data.toSource());}catch(e){};
+			
+			switch(raws[0].raw){
+				case 'INIT':
+					log('User(' + raws[0].data.puppet.properties.id
+					+ ' - ' + raws[0].data.puppet.pubid + ') joins with you.');
+				break;
+				case 'RANDOM':
+					
+				break;
+				case 'PUPPET':
+					
+				break;
+				case 'RES':
+					log('You ' + (raws[0].data.winner.properties.id==IId ? 'win' : 'lose') + '!!'
+						+ ' (' + raws[0].data.code + ' - ' + raws[0].data.value + ')');
+				break;
+				case 'ERR':
+					log('Exception: ' + raws[0].data.code + ' - ' + raws[0].data.value);
+				break;
+			}
 			
 			gm.onRaw(raws);
 		}
