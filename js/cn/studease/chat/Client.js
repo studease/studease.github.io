@@ -170,6 +170,8 @@ CxChat.Client.prototype.quit = function(){
 	}
 	
 	this.req.send('QUIT');
+	this.socket.disconnect();
+	this.socket.close();
 };
 
 CxChat.Client.prototype.setSession = function(key, value){
