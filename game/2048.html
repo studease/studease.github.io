@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<title>2048 - StudEase.cn</title>
-	<link rel="shortcut icon" href="../favicon.ico">
+	<link rel="shortcut icon" href="../images/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="../css/global.css" />
 	<link rel="stylesheet" type="text/css" href="../css/gm-sq.css" />
 	<link rel="stylesheet" type="text/css" media="screen and (max-device-width: 600px)" href="../css/small.css" />
@@ -253,10 +253,12 @@
 		
 		window.onscroll = function(){
 			var top = document.body.scrollTop || document.documentElement.scrollTop;
+			var left = document.body.scrollLeft || document.documentElement.scrollLeft;
 			var nav = document.getElementById('nav-bar');
 			if(top > 36){
 				nav.style.position = 'fixed';
 				nav.style.top = '0px';
+				nav.style.left = -left+'px';
 			}
 			else{
 				nav.style.position = 'static';

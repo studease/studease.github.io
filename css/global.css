@@ -267,7 +267,7 @@
 	color: #aaaaaa;
 }
 .copyright{
-	padding: 1.2em;
+	padding: 1.2em 0;
 	text-align: center;
 	background: #25292C;
 }
@@ -288,6 +288,12 @@
 	filter: alpha(opacity:80);
 	opacity: 0.8;
 	background: #aaaaaa;
+}
+
+@media only screen and (max-width: 960px){
+	.top-bar, .nav-bar, .footer-main, .copyright{
+		width: 960px;
+	}
 }
 
 
