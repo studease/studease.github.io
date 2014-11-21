@@ -1,35 +1,20 @@
-﻿.games-container{
+﻿.gamecontainer {
 	margin: 20px auto;
-	width: 960px;
+	width: 720px;
 }
-.self-container{
-	margin: 0 auto;
-	width: 500px;
-}
-.puppet-container, .ctrls-container{
-	margin: 0 15px;
-	width: 400px;
-}
-.puppet-container{
-	
-}
+.gamecontainer.online {width:1200px;}
 
-.ctrls-container{
-	width: 200px;
-	margin-top: 210px;
-	font-size: 14px;
-	font-weight: bold;
-	line-height: 26px;
-	color: rgba(119, 110, 101, 0.9);
-}
-.ctrls-container .ctrl-container{
-	padding: 10px 0;
-	border-radius: 3px;
+.gamecontainer .description {float:left; margin:167px 0 0 0; width:200px;}
+.gamecontainer .description ul {margin-bottom:20px;}
+.gamecontainer .description ul li b {color:rgba(119,110,101,0.9);}
+.gamecontainer .description ul li span {
+	margin: 10px 0;
+	width: 400px;
 	color: #868e98;
 	display: inline-block;
 }
 
-.scores-container{
+.scores-container {
 	font-size: 25px;
 	font-weight: bold;
 	line-height: 42px;
@@ -37,14 +22,14 @@
 	color: rgba(119, 110, 101, 0.9);
 	position: relative;
 }
-.score-addition, .score-container{
+.score-addition, .score-container {
 	padding: 0 15px;
 	height: 25px;
 	border-radius: 3px;
 	text-align: center;
 	display: inline-block;
 }
-.score-addition{
+.score-addition {
 	right: 0;
 	height: 25px;
 	font-size: 25px;
@@ -55,11 +40,21 @@
 	z-index: 100;
 	animation: 600ms ease-in 0s normal both 1 move-up;
 }
-.score-container{
+.score-container {
 	margin-top: 22px;
 }
 
-.game-container{
+.gamecontent.self {
+	float: left;
+	margin-right: 20px;
+	width: 500px;
+}
+.gamecontent.puppet {
+	float: right;
+	width: 400px;
+}
+
+.gameboard {
 	-moz-user-select: none;
 	width: 500px;
 	height: 500px;
@@ -72,10 +67,7 @@
 	position: relative;
 	background: none repeat scroll 0 0 #bbada0;
 }
-.puppet-container .game-container{
-	width: 400px;
-	height: 400px;
-}
+.gamecontent.puppet .gameboard {width:400px; height:400px;}
 
 .grid-container{
 	position: absolute;
@@ -100,7 +92,7 @@
 	border-radius: 3px;
 	background: none repeat scroll 0 0 rgba(238, 228, 218, 0.35);
 }
-.puppet-container .grid-cell{
+.gamecontent.puppet .grid-cell{
 	width: 81.25px;
 	height: 81.25px;
 }
@@ -117,7 +109,7 @@
 	line-height: 116.25px;
 	width: 107px;
 }
-.puppet-container .tile, .puppet-container .tile .tile-inner, .puppet-container .tile .tile-inner img{
+.gamecontent.puppet .tile, .gamecontent.puppet .tile .tile-inner, .gamecontent.puppet .tile .tile-inner img{
 	height: 82px;
 	line-height: 91.25px;
 	width: 82px;
@@ -134,7 +126,7 @@
 	text-align: center;
 	z-index: 10;
 }
-.puppet-container .tile .tile-inner{
+.gamecontent.puppet .tile .tile-inner{
 	font-size: 45px;
 }
 .tile.tile-2 .tile-inner{
@@ -256,17 +248,5 @@
 	transform: translate(288px, 288px);
 }
 
-
-.exchange-container{
-	margin-bottom: 20px;
-	padding-top: 10px;
-	text-align: center;
-}
-.exchange-container a{
-	margin: 0 auto;
-	padding: 4px 12px;
-	cursor: pointer;
-	background: #868e98;
-}
 
 

@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8"/>
+	<title>JS继承测试</title>
+	<link rel="stylesheet" type="text/css" href="/css/base.css" media="all"/>
+	
+	<script type="text/javascript">
+		Function.prototype.extends = function(_super){
+			if(typeof _super !== 'function'){
+				throw new Error('fatal error: Function.prototype.extends expects a constructor of class.');
+			}
+			
+			var func = function(){};
+			func.prototype = _super.prototype;
+			this.prototype = new func();
+			this.prototype.constructor = this;
+			this._super = _super;
+			
+			return this;
+		};
+
+		var A = function(n){
+			this.n = --n;
+		};
+		A.prototype.m = function(){
+			return ++this.n;
+		};
+		
+		var B = function(nm){
+			A.call(this, nm);
+			this.nm = nm;
+		};
+		B.extends(A);
+		B.prototype.mx = function(){
+			return ++this.nm;
+		};
+		
+		var _b = new B(2);
+		alert('a.n:' + _b.n + ', b.m:' + _b.nm + ', a.m():' + _b.m() + ', b.mx():' + _b.mx());
+		
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+	<style type="text/css">
+		.box{
+			width: 100px;
+			height: 100px;
+			background: blue;
+			transition: transform 100ms ease-in-out 0s;
+		}
+		.tile-position-1-1{
+			transform: translate(0px, 0px);
+		}
+		.tile-position-1-2{
+			transform: translate(0px, 121px);
+		}
+	</style>
+</head>
+
+<body>
+	<div class="box tile.tile-position-1-1"></div>
+	
+	<script>
+		window.onload = function(){
+			var box = document.querySelector(".box");
+			window.requestAnimationFrame(function(){
+				var classes = ["box", "tile-position-1-1"];
+				classes[1] = "tile-position-1-2";
+				box.setAttribute("class", classes.join(" "));
+			});
+	};
+	</script>
+</body>
+</html>

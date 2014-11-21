@@ -4,114 +4,111 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<title>Slicease.js - StudEase.cn</title>
+	<title>Slicease.js - Open - StudEase.cn</title>
+	<meta name="robots" content="index, follow" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+	<meta name="author" content="Lane Walker" />
+	
 	<link rel="shortcut icon" href="../images/favicon.ico">
-	<link rel="stylesheet" type="text/css" href="../css/global.css" />
-	<link rel="stylesheet" type="text/css" href="../css/prettify.css" />
-	<link rel="stylesheet" type="text/css" media="screen and (max-device-width: 600px)" href="../css/small.css" />
+	<link rel="stylesheet" type="text/css" href="../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="../css/2048.css" />
 </head>
 <body>
-	<div style='display:none;'>
-	<svg version="1.1" id="icons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1024px" height="1024px" viewBox="0 0 1024 1024" enable-background="new 0 0 1024 1024" xml:space="preserve">
-		<path id="icon_location" fill="#cccccc" d="M512.46592 747.408128c-197.216256 0-357.791744-159.056896-357.791744-354.630656 0-33.906688 5.056512-67.731456 14.695424-100.734976 44.480512-177.87392 270.907392-378.620928 344.713216-440.144896 74.708992 62.246912 304.21504 265.554944 345.238528 441.901056l-0.64 0.147456 5.704704 36.21376c3.933184 21.05856 5.59104 42.190848 5.59104 62.616576C869.977088 588.351232 709.632 747.408128 512.46592 747.408128zM517.735424 304.775936c-89.765888 0-162.939904 72.27904-162.939904 161.010688 0 89.05216 73.174016 161.49504 162.939904 161.49504 89.708544 0 162.78528-72.443904 162.78528-161.49504C680.520704 377.054976 607.444992 304.775936 517.735424 304.775936z" transform="translate(0, 812) scale(1, -1)"/>
-		<path id="icon_phone" fill="#cccccc" d="M902.4 21.088c8.384 12.928 5.632 30.016-6.272 39.68L732.736 193.76c-5.888 4.672-11.904 7.04-17.984 7.04-11.264 0-20.48-7.68-24.512-12.352l-34.112-35.136c-13.632-13.632-30.528-20.928-48.512-20.928s-36.16 7.168-53.824 21.312c-27.648 22.4-60.416 52.928-91.968 85.632C428.864 271.2 398.08 304.096 375.36 332.064c-27.904 34.816-28.16 73.856-0.576 102.08l36.928 35.776c0.192 0.192 21.184 19.328 3.776 40.96L282.304 674.528c-5.76 7.04-14.208 11.072-23.104 11.072C253.44 685.6 247.68 684 244.16 681.696L239.424 678.112 185.728 627.68l-3.84-4.032c-15.616-20.352-56.96-90.496-42.88-144.384 12.544-47.936 98.752-201.856 218.88-325.056l17.856-17.856c123.392-120.448 277.376-206.656 325.248-219.072 7.36-1.92 15.488-2.944 24.128-2.944 44.224 0 95.744 27.072 118.848 44.736l4.224 3.648 50.24 53.376L902.4 21.088z" transform="translate(0, 812) scale(1, -1)"/>
-		<path id="icon_email" fill="#cccccc" d="M153.341 506.874C174.169 495.79 462.6 314.457 473.333 308.75c10.742-5.712 24.651-8.467 38.667-8.467 14.017 0 27.926 2.755 38.667 8.467 10.735 5.707 299.16 187.04 319.994 198.124C891.5 517.948 911.226 556 872.933 556L151.062 556C112.799 556 132.5 517.948 153.341 506.874zM879.482 438.605c-23.666-12.223-314.324-187.649-328.817-195.126-14.499-7.493-24.649-8.467-38.667-8.467-14.016 0-24.165 0.974-38.667 8.467-14.491 7.477-305.133 182.903-328.817 195.126-16.657 8.593-16.516-1.485-16.516-9.27 0-7.787 0-344.84 0-344.84C128 66.797 151.825 44 170.316 44l683.367 0C872.175 44 896 66.797 896 84.496c0 0 0 337.053 0 344.84C896 437.12 896.157 447.199 879.482 438.605z" transform="translate(0, 812) scale(1, -1)"/>
-		<path id="icon_top" fill="#ffffff" d="M825.568 256.672l-287.392 289.28C531.808 552.352 523.488 555.424 515.2 555.36 514.08 555.456 513.12 556 512 556c-4.672 0-9.024-1.088-13.024-2.88-4.032-1.536-7.872-3.872-11.136-7.136l-259.328-258.88c-12.512-12.48-12.544-32.736-0.032-45.248 6.24-6.272 14.432-9.408 22.656-9.408 8.192 0 16.352 3.136 22.624 9.344L480 447.712 480-116c0-17.696 14.336-32 32-32s32 14.304 32 32L544 449.28l236.192-237.728c6.24-6.272 14.496-9.44 22.688-9.44s16.32 3.104 22.56 9.312C838.016 223.872 838.048 244.16 825.568 256.672zM864 620 160 620C142.336 620 128 634.336 128 652s14.336 32 32 32l704 0c17.696 0 32-14.336 32-32S881.696 620 864 620z" transform="translate(0, 812) scale(1, -1)"/>
-		<path id="icon_prev" fill="#272636" d="M658.29178-191.504117l223.006914 0L398.119373 291.657405 881.298746 812 658.291782 812 175.112507 291.657405 658.29178-191.504117z" transform="translate(0, 812) scale(1, -1)"/>
-		<path id="icon_next" fill="#272636" d="M881.298746 291.657405 398.119373 812 175.112486 812 658.29178 291.657405 175.112507-191.504117l223.006914 0L881.298746 291.657405z" transform="translate(0, 812) scale(1, -1)"/>
-	</svg>
-	</div>
-	
-	<div class='wrap'>
-		<header id='header' class="clear">
-			<div class='top-bar'>
-				<div class='container center'>
-					<div class='top-left pull-left'>
-						<div class='top-left-icon pull-left'>
-							<svg viewBox='0 0 1024 1024'><use xlink:href='#icon_phone'></use></svg>
-						</div>
-						<a class='pull-left'>Phone: 182 2408 8983</a>
-						<div class='top-left-icon pull-left'>
-							<svg viewBox='0 0 1024 1024'><use xlink:href='#icon_email'></use></svg>
-						</div>
-						<a class='pull-left'>Email: 670292548@qq.com</a>
-					</div>
-					<div class='top-right pull-right'>
-						<div class="bdsharebuttonbox">
-							<a href="#" class="bds_more" data-cmd="more"></a>
-							<a href="#" class="bds_qzone" data-cmd="qzone"></a>
-							<a href="#" class="bds_tsina" data-cmd="tsina"></a>
-							<a href="#" class="bds_tqq" data-cmd="tqq"></a>
-							<a href="#" class="bds_sqq" data-cmd="sqq"></a>
-							<a href="#" class="bds_renren" data-cmd="renren"></a>
-							<a href="#" class="bds_weixin" data-cmd="weixin"></a>
-						</div>
+<div style='display:none;'>
+<svg version="1.1" id="icons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1024px" height="1024px" viewBox="0 0 1024 1024" enable-background="new 0 0 1024 1024" xml:space="preserve">
+	<path id="icon_location" fill="#8a8989" d="M512.46592 747.408128c-197.216256 0-357.791744-159.056896-357.791744-354.630656 0-33.906688 5.056512-67.731456 14.695424-100.734976 44.480512-177.87392 270.907392-378.620928 344.713216-440.144896 74.708992 62.246912 304.21504 265.554944 345.238528 441.901056l-0.64 0.147456 5.704704 36.21376c3.933184 21.05856 5.59104 42.190848 5.59104 62.616576C869.977088 588.351232 709.632 747.408128 512.46592 747.408128zM517.735424 304.775936c-89.765888 0-162.939904 72.27904-162.939904 161.010688 0 89.05216 73.174016 161.49504 162.939904 161.49504 89.708544 0 162.78528-72.443904 162.78528-161.49504C680.520704 377.054976 607.444992 304.775936 517.735424 304.775936z" transform="translate(0, 812) scale(1, -1)"/>
+	<path id="icon_phone" fill="#8a8989" d="M902.4 21.088c8.384 12.928 5.632 30.016-6.272 39.68L732.736 193.76c-5.888 4.672-11.904 7.04-17.984 7.04-11.264 0-20.48-7.68-24.512-12.352l-34.112-35.136c-13.632-13.632-30.528-20.928-48.512-20.928s-36.16 7.168-53.824 21.312c-27.648 22.4-60.416 52.928-91.968 85.632C428.864 271.2 398.08 304.096 375.36 332.064c-27.904 34.816-28.16 73.856-0.576 102.08l36.928 35.776c0.192 0.192 21.184 19.328 3.776 40.96L282.304 674.528c-5.76 7.04-14.208 11.072-23.104 11.072C253.44 685.6 247.68 684 244.16 681.696L239.424 678.112 185.728 627.68l-3.84-4.032c-15.616-20.352-56.96-90.496-42.88-144.384 12.544-47.936 98.752-201.856 218.88-325.056l17.856-17.856c123.392-120.448 277.376-206.656 325.248-219.072 7.36-1.92 15.488-2.944 24.128-2.944 44.224 0 95.744 27.072 118.848 44.736l4.224 3.648 50.24 53.376L902.4 21.088z" transform="translate(0, 812) scale(1, -1)"/>
+	<path id="icon_email" fill="#8a8989" d="M153.341 506.874C174.169 495.79 462.6 314.457 473.333 308.75c10.742-5.712 24.651-8.467 38.667-8.467 14.017 0 27.926 2.755 38.667 8.467 10.735 5.707 299.16 187.04 319.994 198.124C891.5 517.948 911.226 556 872.933 556L151.062 556C112.799 556 132.5 517.948 153.341 506.874zM879.482 438.605c-23.666-12.223-314.324-187.649-328.817-195.126-14.499-7.493-24.649-8.467-38.667-8.467-14.016 0-24.165 0.974-38.667 8.467-14.491 7.477-305.133 182.903-328.817 195.126-16.657 8.593-16.516-1.485-16.516-9.27 0-7.787 0-344.84 0-344.84C128 66.797 151.825 44 170.316 44l683.367 0C872.175 44 896 66.797 896 84.496c0 0 0 337.053 0 344.84C896 437.12 896.157 447.199 879.482 438.605z" transform="translate(0, 812) scale(1, -1)"/>
+	<path id="icon_top" fill="#ffffff" d="M256 620l512 0 0-64-512 0 0 64ZM256 300 384 300 384 44 640 44 640 300 768 300 512 556Z" transform="translate(0, 812) scale(1, -1)"/>
+	<path id="icon_prev" fill="#272636" d="M658.29178-191.504117l223.006914 0L398.119373 291.657405 881.298746 812 658.291782 812 175.112507 291.657405 658.29178-191.504117z" transform="translate(0, 812) scale(1, -1)"/>
+	<path id="icon_next" fill="#272636" d="M881.298746 291.657405 398.119373 812 175.112486 812 658.29178 291.657405 175.112507-191.504117l223.006914 0L881.298746 291.657405z" transform="translate(0, 812) scale(1, -1)"/>
+</svg>
+</div>
+
+<div class='wrap'>
+	<!-- HEADER -->
+    <header id='header'>
+		<div id='outertopbar'>
+			<section id='topbarcontainer'>
+				<ul class="left">
+					<li><svg viewBox='0 0 1024 1024'><use xlink:href='#icon_phone'></use></svg><a>Phone: 182 2408 8983</a></li>
+					<li><svg viewBox='0 0 1024 1024'><use xlink:href='#icon_email'></use></svg><a>Email: 670292548@qq.com</a></li>
+				</ul>
+				<div class="right">
+					<div class="bdsharebuttonbox">
+						<a href="#" class="bds_more" data-cmd="more"></a>
+						<a href="#" class="bds_qzone" data-cmd="qzone"></a>
+						<a href="#" class="bds_tsina" data-cmd="tsina"></a>
+						<a href="#" class="bds_tqq" data-cmd="tqq"></a>
+						<a href="#" class="bds_sqq" data-cmd="sqq"></a>
+						<a href="#" class="bds_renren" data-cmd="renren"></a>
+						<a href="#" class="bds_weixin" data-cmd="weixin"></a>
 					</div>
 				</div>
-			</div>
-			
-			<div class='nav-bar clear'>
-				<div id='nav-bar' class='nav-bar'>
-					<div class='container center'>
-						<div class='logo pull-left'>
-							<a href='../index.html'>StudEase.cn</a>
-						</div>
-						<nav class='nav-menu pull-right'>
-							<ul>
-								<li>
-									<a href='../index.html'>Home</a>
-								</li>
-								<li>
-									<a href="#">Studies<i class='arrow'></i></a>
-									<ul>
-										<li><a href='#'>Computer_based</a></li>
-										<li><a href='#'>Driving</a></li>
-									</ul>
-								</li>
-								<li>
-									<a href="#">Games<i class='arrow'></i></a>
-									<ul>
-										<li><a href='../game/2048.html'>2048</a></li>
-										<li><a href='../game/2048-online.html'>2048_Online</a></li>
-										<li><a href='#'>Tower</a></li>
-									</ul>
-								</li>
-								<li class='active'>
-									<a href="#">Open<i class='arrow'></i></a>
-									<ul>
-										<li><a href='slicease.html'>Slicease.js(MIT)</a></li>
-									</ul>
-								</li>
-								<li>
-									<a href="#">Sub<i class='arrow'></i></a>
-									<ul>
-										<li><a href='http://sumzee.com/' target='_blank'>Sumzee_Decor</a></li>
-										<li><a href='#'>Note_Trade</a></li>
-										<li><a href='http://py.studease.cn/' target='_blank'>Python</a></li>
-									</ul>
-								</li>
-								<li>
-									<a href="#">Blog<i class='arrow'></i></a>
-									<ul>
-										<li><a href='http://blog.csdn.net/icysky1989' target='_blank'>CSDN_Blog</a></li>
-										<li><a href='http://weibo.com/u/5308017583' target='_blank'>Sina_Weibo</a></li>
-										<li><a href='http://t.qq.com/lanewalker' target='_blank'>Tencent_Weibo</a></li>
-										<li><a href='http://lanewalker.blog.163.com' target='_blank'>163_Blog</a></li>
-									</ul>
-								</li>
-								<li>
-									<a href="#">Contact</a>
-								</li>
-							</ul>
-						</nav>
-					</div>
-				</div>
-			</div>
-		</header>
+				<div class="clear"></div>
+			</section>
+		</div>
+		<div class="clear"></div>
 		
-		<div id='main' class="clear">
-			<div class='container center'>
-				<h2>Slicease.js (MIT)</h2>
+		<div id='outernavbar'>
+			<div id='navbar'>
+				<section id='navbarcontainer'>
+	            	<div id="logo" class="frontpage"><a href='/' title="StudEase.cn">StudEase.cn</a></div>
+	                <nav>
+	                    <ul id="topnav" class="sf-menu">
+	                        <li><a href="/">Home</a></li>
+	                        <li><a href="#">Study</a>
+	                        	<ul>
+	                            	<li><a href="#">Computer-based</a></li>
+	                            	<li><a href='#'>Driving</a></li>
+	                            </ul>
+	                        </li>
+	                        <li><a href="#">Game</a>
+								<ul>
+									<li><a href='../game/2048.html'>2048</a></li>
+									<li><a href='../game/2048-online.html'>2048-Online</a></li>
+									<li><a href='#'>Tower</a></li>
+								</ul>
+	                        </li>
+	                        <li><a href="#" class="current">Open</a>
+								<ul>
+									<li><a href='../open/slicease.html'>Slicease.js (MIT)</a></li>
+								</ul>
+							</li>
+							<li><a href="#">Sub</a>
+								<ul>
+									<li><a href='http://sumzee.com/' target='_blank'>Sumzee Decor</a></li>
+									<li><a href='#'>Note Trade</a></li>
+									<li><a href='http://py.studease.cn/' target='_blank'>Python</a></li>
+								</ul>
+							</li>
+							<li><a href="#">Blog</a>
+								<ul>
+									<li><a href='http://blog.csdn.net/icysky1989' target='_blank'>CSDN Blog</a></li>
+									<li><a href='http://t.qq.com/lanewalker' target='_blank'>Tencent Weibo</a></li>
+									<li><a href='http://weibo.com/u/5308017583' target='_blank'>Sina Weibo</a></li>
+									<li><a href='http://lanewalker.blog.163.com' target='_blank'>163 Blog</a></li>
+								</ul>
+							</li>
+							<li><a href="#">Contact</a></li>
+	                    </ul>
+	                </nav>
+		            <div class="clear"></div>
+				</section>
+			</div>
+		</div>
+		<!--<div class="nav-shadow"></div>-->
+	</header>
+    <!-- END HEADER -->
+	
+	<!-- MAIN CONTENT -->
+    <div id="outermain">
+    	<section id="maincontainer">
+    		<div class="maincontent">
+    			<h1 class="pagetitle">Slicease.js (MIT)</h1>
+    			<div id="breadcrumb"><a href="/">Home</a> >> <a href="#">Open</a> >> Slicease.js</div>
+				
 				<p>
 					[source] <a href='https://github.com/studease/Slicease' target='_blank'>
 						https://github.com/studease/Slicease
@@ -127,7 +124,7 @@
 				<p>
 					This is a 3D image rotator with animation easing based on Bezier curve, 
 					which was planned as the tile of my proposed website. 
-					<br/><br/>
+					<br/>
 					It is built with html5 canvas and pure javascript, and easy to config. 
 					This project is open-sourced with MIT lisence. Enjoy it wherever you like :)
 				</p>
@@ -163,112 +160,110 @@ slicease.play();
 					There are several cfgs named 'easing_xxx', and you can have a look at the Slicease.init function once you want to 
 					change the easing params or redefine the easing functions. 
 				</p>
-				<br/><br/>
 			</div>
+			<div class="clear"></div>
+        </section>
+    </div>
+    <!-- END MAIN CONTENT -->
+	
+	<!-- FOOTER -->
+	<footer id='footer'>
+		<div id="outerfooter">
+			<section id="footercontainer">
+				<ul>
+					<li><h5>Links</h5>
+						<ol class="footerlinks">
+							<li><a href="http://sumzee.com/" target="_blank">Sumzee Decor</a></li>
+							<li><a href="http://blog.csdn.net/icysky1989" target="_blank">CSDN Blog</a></li>
+							<li><a href="https://github.com/studease/Slicease" target="_blank">Slicease.js</a></li>
+							<li><a href="http://t.qq.com/lanewalker" target="_blank">Tencent Weibo</a></li>
+							<li><a href="http://share.baidu.com/" target="_blank">Baidu Share</a></li>
+							<li><a href="http://weibo.com/u/5308017583" target="_blank">Sina Weibo</a></li>
+							<li><a href="https://code.google.com/p/google-code-prettify" target="_blank">Prettify.js</a></li>
+							<li><a href="http://lanewalker.blog.163.com/" target="_blank">163 Blog</a></li>
+							<li><a href="http://iconfont.cn/" target="_blank">Iconfont</a></li>
+						</ol>
+						<div class="clear"></div>
+					</li>
+					<li><h5>About Me</h5>
+						
+						<div class="clear"></div>
+					</li>
+					<li><h5>Contact</h5>
+						<ul class="footercontact">
+							<li><svg viewBox='0 0 1024 1024'><use xlink:href='#icon_location'></use></svg>
+								<a>Address: </a><i>ChengDu, China</i>
+							</li>
+							<li><svg viewBox='0 0 1024 1024'><use xlink:href='#icon_phone'></use></svg>
+								<a>Phone: </a><i>182 2408 8983</i>
+							</li>
+							<li><svg viewBox='0 0 1024 1024'><use xlink:href='#icon_email'></use></svg>
+								<a>Email: </a><i>670292548@qq.com</i>
+							</li>
+						</ul>
+						<div class="clear"></div>
+					</li>
+				</ul>
+				<div class="clear"></div>
+			</section>
 		</div>
 		
-		<footer id='footer' class="clear">
-			<div class='footer-main'>
-				<div class='container center'>
-					<ul>
-						<li>
-							<h5>Friendly Links</h5>
-							<ol>
-								<li>
-									<a href="http://sumzee.com/" target="_blank">Sumzee Decor</a>
-								</li>
-								<li>
-									<a href="http://blog.csdn.net/icysky1989" target="_blank">CSDN Blog</a>
-								</li>
-								<li>
-									<a href="https://github.com/studease/Slicease" target="_blank">Slicease.js</a>
-								</li>
-								<li>
-									<a href="http://share.baidu.com/" target="_blank">Baidu Share</a>
-								</li>
-								<li>
-									<a href="https://code.google.com/p/google-code-prettify" target="_blank">Prettify.js</a>
-								</li>
-								<li>
-									<a href="http://iconfont.cn/" target="_blank">Iconfont</a>
-								</li>
-							</ol>
-						</li>
-						<li>
-							<h5>About Me</h5>
-						</li>
-						<li>
-							<h5>Contact</h5>
-							<ul>
-								<li>
-									<svg viewBox='0 0 1024 1024'><use xlink:href='#icon_location'></use></svg>
-									<a>Address: </a><i>ChengDu, China</i>
-								</li>
-								<li>
-									<svg viewBox='0 0 1024 1024'><use xlink:href='#icon_phone'></use></svg>
-									<a>Phone: </a><i>182 2408 8983</i>
-								</li>
-								<li>
-									<svg viewBox='0 0 1024 1024'><use xlink:href='#icon_email'></use></svg>
-									<a>Email: </a><i>670292548@qq.com</i>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class='copyright'>
-				<p>Copyright © 2014 Studease.cn | All Rights Reserved</p>
-			</div>
-			<div id='scroll_btn' class='back-to-top' title="Back to Top!">
-				<svg viewBox='0 0 1024 1024'><use xlink:href='#icon_top'></use></svg>
-			</div>
-		</footer>
-	</div>
-	
-	<script type="text/javascript" src="../js/prettify/prettify.js"></script>
-	<script type="text/javascript">
-		window.onload = function(){
-			prettyPrint();
-			
-			var scroll_btn = document.getElementById('scroll_btn');
-			if(scroll_btn){
-				scroll_btn.onclick = function(){
-					var left = document.body.scrollLeft || document.documentElement.scrollLeft;
-					window.scrollTo(left, 0);
-				};
-			}
-		};
+		<div id="outercopyright">
+			<section id='copyright'>
+				<a>Copyright © 2014 Studease.cn | All Rights Reserved</a>
+			</section>
+		</div>
 		
-		window.onscroll = function(){
-			var top = document.body.scrollTop || document.documentElement.scrollTop;
-			var left = document.body.scrollLeft || document.documentElement.scrollLeft;
-			var nav = document.getElementById('nav-bar');
-			if(top > 36){
-				nav.style.position = 'fixed';
-				nav.style.top = '0px';
-				nav.style.left = -left+'px';
-			}
-			else{
-				nav.style.position = 'static';
-			}
-			
-			var scroll_btn = document.getElementById('scroll_btn');
-			if(top > 50){
-				scroll_btn.style.display = 'inline';
-			}
-			else{
-				scroll_btn.style.display = 'none';
-			}
-		};
-	</script>
-	<script>
-		window._bd_share_config = {
-			"common":{"bdSnsKey":{},"bdDesc":"Studease.js 1.0 上线了\\o/ \n项目地址: https://github.com/studease/Slicease","bdText":"StudEase.cn","bdComment":"StudEase.cn已同步更新，猛戳这里看效果!（注：需较新版浏览器支持，推荐chrome, opera, safari, firefox，及相应内核的封装版）","bdPic":"","bdMini":"2","bdStyle":"0","bdSize":"16"},"share":{},
-			"image":{"viewList":["qzone","tsina","tqq","sqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},
-			"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","sqq","renren","weixin"]}
-		};
-		with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-	</script>
+		<div id='scroll-up' title="Back to Top">
+			<svg viewBox='0 0 1024 1024'><use xlink:href='#icon_top'></use></svg>
+		</div>
+	</footer>
+	<!-- END FOOTER -->
+</div>
+
+<script type="text/javascript" src="../js/prettify/prettify.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		prettyPrint();
+		
+		var scroll_btn = document.getElementById('scroll-up');
+		if(scroll_btn){
+			scroll_btn.onclick = function(){
+				var left = document.body.scrollLeft || document.documentElement.scrollLeft;
+				window.scrollTo(left, 0);
+			};
+		}
+	};
+	
+	window.onscroll = function(){
+		var top = document.body.scrollTop || document.documentElement.scrollTop;
+		var left = document.body.scrollLeft || document.documentElement.scrollLeft;
+		var nav = document.getElementById('navbar');
+		if(top > 36){
+			nav.style.position = 'fixed';
+			nav.style.top = '0px';
+			nav.style.left = -left+'px';
+		}
+		else{
+			nav.style.position = 'static';
+		}
+		
+		var scroll_btn = document.getElementById('scroll-up');
+		if(top > 50){
+			scroll_btn.style.display = 'inline';
+		}
+		else{
+			scroll_btn.style.display = 'none';
+		}
+	};
+</script>
+<script>
+	window._bd_share_config = {
+		"common":{"bdSnsKey":{},"bdDesc":"Studease.js 1.0 上线了\\o/ \n项目地址: https://github.com/studease/Slicease","bdText":"StudEase.cn","bdComment":"StudEase.cn已同步更新，猛戳这里看效果!（注：需较新版浏览器支持，推荐chrome, opera, safari, firefox，及相应内核的封装版）","bdPic":"","bdMini":"2","bdStyle":"0","bdSize":"16"},"share":{},
+		"image":{"viewList":["qzone","tsina","tqq","sqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},
+		"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","sqq","renren","weixin"]}
+	};
+	with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
 </body>
 </html>

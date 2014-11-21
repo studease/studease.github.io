@@ -1,4 +1,156 @@
 ﻿@import url("global.css") screen;
-@import url("small.css") screen and (max-device-width: 400px);
+@import url("small.css") screen and (max-device-width: 600px);
+
+
+/* top bar */
+#topbarcontainer .left {
+	float: left;
+	margin: 0;
+	padding: 6px 0;
+	list-style-type: none;
+}
+#topbarcontainer .left li {
+	float: left;
+	margin: 0;
+	padding: 2px 10px 2px 0px;
+	display: inline;
+	list-style-type: none;
+	background: transparent;
+}
+#topbarcontainer .left span {height:20px; display:inline-block;}
+#topbarcontainer .left svg {float:left; width:20px; height:20px;}
+#topbarcontainer .left a {float:left; margin-left:2px; color:#8a8989;}
+
+#topbarcontainer .right {
+	float: right;
+	padding: 4px 0;
+	width: 162px;
+}
+
+/* logo */
+#logo {float:left; width:183px;}
+
+/* nav */
+#topnav {float:right;}
+
+/* slidease */
+#canvas {
+	background: transparent;
+}
+
+.sliderhover {
+	padding: 0;
+	width: 1200px;
+	height: 380px;
+	position: absolute;
+	top: 49px;
+	filter: Alpha(opacity=0);
+	opacity: 0;
+}
+.sliderhover:hover {
+	padding: 0;
+	width: 1200px;
+	height: 380px;
+	position: absolute;
+	top: 49px;
+	filter: Alpha(opacity=100);
+	opacity: 1;
+}
+#slidetoprev, #slidetoprev:hover, #slidetonext, #slidetonext:hover {
+	width: 40px;
+	height: 380px;
+	line-height: 380px;
+	vertical-align: middle;
+	cursor: pointer;
+	background: #585862;
+	filter: Alpha(opacity=10);
+	opacity: 0.1;
+}
+#slidetoprev:hover, #slidetonext:hover {
+	filter: Alpha(opacity=30);
+	opacity: 0.3;
+}
+#pagercontainer {
+	width: 1200px;
+	height: 20px;
+	position: absolute;
+	top: 460px;
+}
+#pagercontainer ul {
+	padding: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+	width: 100px;
+}
+#pagercontainer ul li {
+	float: left;
+	list-style-type: none;
+	padding: 0 10px 0 0;
+	height: 20px;
+}
+#pagercontainer ul li a {
+	padding: 3px 8px;
+	font-size: 12px;
+	cursor: pointer;
+	background: #868e98;
+}
+#pagercontainer ul li .current {background:#c8cdd4;}
+#pagercontainer ul li a:hover {background:#a6aeb8;}
+
+/* main content */
+#othercontent {
+	padding-top: 2em;
+	height: 500px;
+}
+
+/* article container */
+.articlecontainer {}
+
+/* footer */
+#footercontainer {padding:20px 4px;}
+#footercontainer ul, #footercontainer ol{margin:0;}
+#footercontainer li{list-style-type:none;}
+
+#footercontainer > ul > li {float:left;}
+#footercontainer > ul > li:last-child {float:right;}
+#footercontainer > ul > li h5 {color:#c8cdd4;}
+
+.footerlinks {width:300px;}
+.footerlinks li {float:left; margin-bottom:0.5em; width:140px;}
+.footerlinks li a{color:#8a8989;}
+
+.footercontact li {margin-bottom:0.5em;}
+.footercontact li svg {float:left; width:20px; height:20px;}
+.footercontact li a, .footercontact li i {color:#8a8989;}
+
+
+/* chat */
+.chatcontainer {
+	float: left;
+	margin: 74px 20px 0 0;
+	width: 260px;
+	height: 500px;
+}
+
+#msg-display {
+	width: 246px;
+	height: 438px;
+	resize: none;
+}
+
+#msg-input {
+	float: left;
+	margin-top: 4px;
+	width: 186px;
+	height: 30px;
+	resize: none;
+}
+
+.sendbtn {
+	float: right;
+	margin-top: 4px;
+	padding: 11px 13px;
+}
+
 
 
