@@ -48,28 +48,25 @@
 	opacity: 0;
 }
 .sliderhover:hover {
-	padding: 0;
-	width: 1200px;
-	height: 380px;
-	position: absolute;
-	top: 49px;
 	filter: Alpha(opacity=100);
 	opacity: 1;
 }
-#slidetoprev, #slidetoprev:hover, #slidetonext, #slidetonext:hover {
+#slidetoprev, #slidetonext {
 	width: 40px;
 	height: 380px;
 	line-height: 380px;
 	vertical-align: middle;
 	cursor: pointer;
-	background: #585862;
-	filter: Alpha(opacity=10);
-	opacity: 0.1;
 }
-#slidetoprev:hover, #slidetonext:hover {
-	filter: Alpha(opacity=30);
-	opacity: 0.3;
+#slidetoprev svg, #slidetonext svg {
+	filter: Alpha(opacity=20);
+	opacity: 0.2;
 }
+#slidetoprev:hover svg, #slidetonext:hover svg {
+	filter: Alpha(opacity=50);
+	opacity: 0.5;
+}
+
 #pagercontainer {
 	width: 1200px;
 	height: 20px;
