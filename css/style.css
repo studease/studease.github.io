@@ -95,6 +95,9 @@
 #pagercontainer ul li a:hover {background:#a6aeb8;}
 
 /* main content */
+.latestnews li {padding:0.5em 0;}
+.latestnews li i {font-size:12px;}
+
 #othercontent {
 	padding-top: 2em;
 	height: 500px;
