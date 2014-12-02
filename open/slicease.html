@@ -12,6 +12,7 @@
 	
 	<link rel="shortcut icon" href="../images/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="../css/prettify.css" />
 	<link rel="stylesheet" type="text/css" href="../css/2048.css" />
 </head>
 <body>
@@ -146,7 +147,7 @@
 					Then, as the index.html does, here we go~
 				</p>
 
-<?prettify lang=css linenums=true?>
+<?prettify lang=js linenums=true?>
 <pre class="prettyprint">
 var slicease = new Slicease();
 var markfunc = new Func();
@@ -161,7 +162,7 @@ slicease.setup(config);
 slicease.init();
 slicease.play();
 </pre>
-
+<br/>
 				<p>
 					The 'pieces' in the config means how many cubes of each image should be separated.
 					'mark_func' must be typed with Func, not just a function.
