@@ -210,6 +210,14 @@
 				pieces: [10, 8, 7, 4]
 			}
 		});
+		
+		var scroll_btn = document.getElementById('scroll-up');
+		if(scroll_btn){
+			scroll_btn.onclick = function(){
+				var left = document.body.scrollLeft || document.documentElement.scrollLeft;
+				window.scrollTo(left, 0);
+			};
+		}
 	};
 	
 	window.onscroll = function(){
