@@ -235,6 +235,7 @@ footer, #outerfooter, #outercopyright {width:100%; background:#f1efda;}
 #beforecontent, #maincontainer, #footercontainer{
 	width:1200px; margin:0 auto;
 }
+#outerslider, #slidercontainer { height: 500px; }
 
 @media only screen and (max-width:1200px){
 	header, #outertopbar, #outernavbar, #navbar,
