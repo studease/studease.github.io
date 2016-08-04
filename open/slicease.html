@@ -110,16 +110,21 @@
     			<div id="breadcrumb"><a href="/">Home</a> >> <a href="#">Open</a> >> Slicease.js</div>
 				
 				<p>
-					[source] <a href='https://github.com/studease/Slicease' target='_blank'>
+					[SOURCE] <a href='https://github.com/studease/Slicease' target='_blank'>
 						https://github.com/studease/Slicease
 					</a><br/>
-					[中文教程] <a href="http://blog.csdn.net/icysky1989/article/details/39624155" target='_blank'>
+					[ZH_DOC] <a href="http://blog.csdn.net/icysky1989/article/details/39624155" target='_blank'>
 						http://blog.csdn.net/icysky1989/article/details/39624155
-					</a><br/>
-					[CSDN] <a href="http://download.csdn.net/detail/icysky1989/7984519" target='_blank'>
-						http://download.csdn.net/detail/icysky1989/7984519
 					</a>
 				</p>
+				
+				<p>
+					This is a 3D image rotator using html5 canvas, designed for my homepage.
+					<br/><br/>
+					It is built on html5 canvas and wrote in pure javascript. Unlike with the css3 animation, the control points of bezier curve are not limited in the range of 0 to 1, so is the number of the points. It also has a powerful and easy-to-understand configuration.
+					<br/>
+				</p>
+				
 				<h4>Latest News</h4>
 				<ul class="latestnews">
 					<li>Slicease.js 2.0 released.<i> - Dec. 30, 2015</i></li>
@@ -136,24 +141,15 @@
 						<a href='https://github.com/studease/Slicease' target='_blank'>GitHub.</a><i> - Sep. 28, 2014</i></li>
 					<li><a href="https://github.com/studease/Slicease" target='_blank'>Slicease.js</a> 1.0 released.<i> - Sep. 28, 2014</i></li>
 				</ul>
-				<h4>About</h4>
+				
+				<h4>Example</h4>
 				<p>
-					This is a 3D image rotator designed for my personal homepage.
-					<br/><br/>
-					It is built on html5 canvas and wrote in pure javascript. Unlike with the css3 animation, the control points of bezier curve are not limited in the range of 0 to 1, 
-					so is the number of the points. It also has a powerful and easy-to-understand configuration.
-					<br/><br/>
-					This project is open-sourced with MIT lisence. Enjoy it wherever you like :)
-				</p>
-				<h4>Usage</h4>
-				<p>
-					You just need to name out a container and get your images ready.
-					Here's the basic settings you may need:
+					The example below will find the element with an id of sli-box and render a slicer into it.
 				</p>
 
 <?prettify lang=js linenums=true?>
 <pre class="prettyprint">
-var sli = slicease('slidercontainer').setup({
+var sli = slicease('sli-box').setup({
 	width: 1200,
 	height: 500,
 	sources: ['images/contents/img1.png', 'images/contents/img2.png', 'images/contents/img3.png'],
@@ -165,11 +161,60 @@ var sli = slicease('slidercontainer').setup({
 </pre>
 <br/>
 				<p>
-					For more configurations, please search for the variables named '_defaults'.
+					For more configurations, please check cn/studease/embed/slicease.embed.config.js.
 				</p>
+
+<?prettify lang=js linenums=true?>
+<pre class="prettyprint">
+_defaults = {
+	sources: [],
+	width: 480,
+	height: 270,
+	controls: true,
+	canvas: {},
+	display: {},
+	pager: {},
+	interval: 3500,
+	renderMode: renderMode.CANVAS,
+	fallback: true
+}
+</pre>
+<br/>
+				<p>
+					And also cn/studease/core/renders/slicease.core.renders.canvas.js.
+				</p>
+
+<?prettify lang=js linenums=true?>
+<pre class="prettyprint">
+_defaults = {
+...
+animation: [{
+	properties: {
+		rotateX: { keyframes: { from: 0, to: 90 } },
+		scaleX: { keyframes: { from: 1, '40%': 0.9, to: 1 }, 'timing-function': 'linear' },
+		z: { keyframes: { from: 0, '40%': -800, '80%': 0 }, 'timing-function': 'ease-out' }
+	},
+	duration: 1200,
+	'timing-function': 'elastic',
+	delay: 0,
+	'iteration-count': 1,
+	direction: 'normal'
+}, {
+...
+</pre>
+<br/>
+				<p>
+					You can easily change the params here, or setup a new animation array at the very front initialization.
+				</p>
+				
 				<h4>Modify</h4>
 				<p>
 					Please check the test/index.html for scripts sequence.
+				</p>
+				
+				<h4>Software License</h4>
+				<p>
+					This project is open-sourced with MIT lisence. Enjoy it wherever you like :)
 				</p>
 			</div>
 			<div class="clear"></div>
@@ -184,7 +229,6 @@ var sli = slicease('slidercontainer').setup({
 				<ul>
 					<li><h5>Links</h5>
 						<ol class="footerlinks">
-							<li><a href="http://sumzee.com/" target="_blank">Sumzee Decor</a></li>
 							<li><a href="http://blog.csdn.net/icysky1989" target="_blank">CSDN Blog</a></li>
 							<li><a href="https://github.com/studease/Slicease" target="_blank">Slicease.js</a></li>
 							<li><a href="http://t.qq.com/lanewalker" target="_blank">Tencent Weibo</a></li>
@@ -276,9 +320,9 @@ var sli = slicease('slidercontainer').setup({
 	window._bd_share_config = {
 		"common":{
 			"bdSnsKey":{},
-			"bdDesc":"Slicease.js 2.0发布",
-			"bdText":"StudEase.cn",
-			"bdComment":"项目地址：https://github.com/studease/Slicease，StudEase.cn已同步更新，猛戳这里看效果！（注：需较新版浏览器支持，推荐chrome, opera, safari, firefox，及相应内核的封装版）",
+			"bdDesc":"slicease.js 2.0发布",
+			"bdText":"studease.cn",
+			"bdComment":"项目地址：https://github.com/studease/Slicease，studease.cn已同步更新，猛戳这里看效果！（注：需较新版浏览器支持，推荐chrome, opera, safari, firefox，及相应内核的封装版）",
 			"bdPic":"http://studease.cn/images/contents/slicease.min.png",
 			"bdMini":"2","bdStyle":"0","bdSize":"16"
 		},
