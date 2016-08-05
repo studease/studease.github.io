@@ -4,15 +4,15 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<title>2048 - game - studease.cn</title>
+	<title>chatease.js - open - studease.cn</title>
 	<meta name="robots" content="index, follow" />
-    <meta name="keywords" content="2048,html5,game,webgame,网页游戏,2048单机版" />
-    <meta name="description" content="This is a web game similar to 2048. Take a break and have fun." />
+    <meta name="keywords" content="chatease,chatease.js,websocket,sockjs,chat,chatroom,聊天室,网页聊天室" />
+    <meta name="description" content="This is a client-side script of chat room, transmitting through websocket, with skin build in." />
 	<meta name="author" content="Tony Lau" />
 	
 	<link rel="shortcut icon" href="../images/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="../css/style.css" />
-	<link rel="stylesheet" type="text/css" href="../css/2048.css" />
+	<link rel="stylesheet" type="text/css" href="../css/prettify.css" />
 </head>
 <body>
 <div style='display:none;'>
@@ -65,14 +65,14 @@
 										<li><a href='http://blog.csdn.net/icysky1989'>IT</a></li>
 									</ul>
 								</li>
-								<li><a href="#">OPEN</a>
+								<li><a href="#" class="current">OPEN</a>
 									<ul>
 										<li><a href='open/slicease.html'>slicease.js 2.0</a></li>
 										<li><a href='open/chatease.html'>chatease.js</a></li>
 										<li><a href='open/chatease-server.html'>chatease-server</a></li>
 									</ul>
 								</li>
-								<li><a href="#" class="current">GAME</a>
+								<li><a href="#">GAME</a>
 									<ul>
 										<li><a href='game/2048.html'>2048</a></li>
 										<li><a href='game/2048-online.html'>2048 online</a></li>
@@ -106,72 +106,123 @@
     <div id="outermain">
     	<section id="maincontainer">
     		<div class="maincontent">
-    			<h1 class="pagetitle">Game: 2048</h1>
-    			<div id="breadcrumb"><a href="/">HOME</a> >> <a href="#">GAME</a> >> 2048</div>
-    			
-		    	<div class="gamecontainer">
-		    		<div class="gamecontent self">
-						<div class="scores-container">
-							<div class="score-addition"></div>
-							Score: 
-							<div class="score-container"></div>
-						</div>
-						<div class="gameboard">
-							<div class="grid-container">
-								<div class="grid-row">
-									<div class="grid-cell"></div>
-									<div class="grid-cell"></div>
-									<div class="grid-cell"></div>
-									<div class="grid-cell"></div>
-								</div>
-									<div class="grid-row">
-									<div class="grid-cell"></div>
-									<div class="grid-cell"></div>
-									<div class="grid-cell"></div>
-									<div class="grid-cell"></div>
-								</div>
-								<div class="grid-row">
-									<div class="grid-cell"></div>
-									<div class="grid-cell"></div>
-									<div class="grid-cell"></div>
-									<div class="grid-cell"></div>
-								</div>
-								<div class="grid-row">
-									<div class="grid-cell"></div>
-									<div class="grid-cell"></div>
-									<div class="grid-cell"></div>
-									<div class="grid-cell"></div>
-								</div>
-							</div>
-							<div class="tile-container"></div>
-						</div>
-					</div>
-					
-					<div class="description">
-						<ul>
-							<li>
-								<b>Control:</b>
-								<span>
-									UP, DOWN, LEFT, RIGHT<br/>
-									<i>or</i><br/>
-									W, S, A, D
-								</span>
-							</li>
-							<li>
-								<b>Restart:</b>
-								<span>R</span>
-							</li>
-						</ul>
-						
-						<div class="row" style="width: 100%;">
-							<a href="2048-online.html" class="button">Online</a>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="clear"></div>
-				</div>
-		        <div class="clear"></div>
+    			<h1 class="pagetitle">chatease.js</h1>
+    			<div id="breadcrumb"><a href="/">HOME</a> >> <a href="#">OPEN</a> >> chatease.js</div>
+				
+				<p>
+					[source] <a href='https://github.com/studease/chatease' target='_blank'>
+						https://github.com/studease/chatease
+					</a>
+				</p>
+				
+				<p>
+					This is a client-side script of chat room, transmitting through websocket, with skin build in.
+					<br/>
+				</p>
+				
+				<h4>Latest News</h4>
+				<ul class="latestnews">
+					<li><a href="https://github.com/studease/chatease" target='_blank'>Chatease.js</a> beta released.<i> - Aug. 1, 2016</i></li>
+				</ul>
+				
+				<h4>Tested</h4>
+				<ul class="latestnews">
+					<li>Chrome</li>
+					<li>Firefox</li>
+					<li>Opera</li>
+					<li>Safari</li>
+					<li>IE10-11, Edge</li>
+					<li>IE5-9 (With modified sockjs)</li>
+				</ul>
+				
+				<h4>Example</h4>
+				<h5>Basic configuraion:</h5>
+				<p>
+					The example below will find the element with an id of chatwrap and render a dialog into it.
+				</p>
+
+<?prettify lang=js linenums=true?>
+<pre class="prettyprint">
+&lt;div id='chatwrap'&gt;&lt;/div&gt;
+...
+var chat = chatease('chatwrap').setup({
+    width: 300,
+    height: 464,
+    url: 'ws://192.168.1.202/websocket/websck'
+});
+</pre>
+<br/>
+				<h5>More configuraion:</h5>
+				<p>
+					Please have a look at cn/studease/embed/chatease.embed.config.js.
+				</p>
+
+<?prettify lang=js linenums=true?>
+<pre class="prettyprint">
+_defaults = {
+    url: 'ws://' + window.location.host + '/websocket/websck',
+    width: 300,
+    height: 450,
+    renderMode: renderModes.DEFAULT,
+    retryDelay: 3,
+    maxRetries: 0,
+    messageInterval: 0,
+    maxlog: 50,
+    fallback: true
+}
+</pre>
+<br/>
+				<h5>Add callback:</h5>
+
+<?prettify lang=js linenums=true?>
+<pre class="prettyprint">
+var chat = chatease('chatwrap').setup({
+    ...
+    events: {
+        onReady: function(e) {
+            console.log('onReady');
+        },
+        ...
+    }
+});
+</pre>
+<br/>
+				<p>
+					For more events, check cn/studease/api/chatease.api.js.
+				</p>
+
+<?prettify lang=js linenums=true?>
+<pre class="prettyprint">
+_eventMapping = {
+    onError: events.ERROR,
+    onReady: events.chatease_READY,
+    onConnect: events.chatease_CONNECT,
+    onIdent: events.chatease_INDENT,
+    onMessage: events.chatease_MESSAGE,
+    onJoin: events.chatease_JOIN,
+    onLeft: events.chatease_LEFT,
+    onNickClick: events.chatease_VIEW_NICKCLICK,
+    onClose: events.chatease_CLOSE
+}
+</pre>
+<br/>
+				<h5>Interface:</h5>
+				<ul class="latestnews">
+					<li>send(message, userId)</li>
+					<li>resize(width, height)</li>
+				</ul>
+				
+				<h5>Server-side sample project:</h5>
+				<p>
+					<a href='open/chatease-server.html' target='_blank'>chatease-server</a>
+				</p>
+				
+				<h4>Software License</h4>
+				<p>
+					MIT.
+				</p>
 			</div>
+			<div class="clear"></div>
         </section>
     </div>
     <!-- END MAIN CONTENT -->
@@ -239,17 +290,10 @@
 	<!-- END FOOTER -->
 </div>
 
-<script type="text/javaScript" src="../js/cn/studease/utils/Func.js"></script>
-<script type="text/javaScript" src="../js/cn/studease/utils/P.js"></script>
-<script type="text/javaScript" src="../js/cn/studease/2048/Tile.js"></script>
-<script type="text/javaScript" src="../js/cn/studease/2048/Grid.js"></script>
-<script type="text/javaScript" src="../js/cn/studease/2048/GameManager.js"></script>
+<script type="text/javascript" src="../js/prettify/prettify.js"></script>
 <script type="text/javascript">
 	window.onload = function(){
-		var gm = new GameManager();
-		gm.init();
-		gm.listen();
-		
+		prettyPrint();
 		
 		var scroll_btn = document.getElementById('scroll-up');
 		if(scroll_btn){
@@ -286,10 +330,10 @@
 	window._bd_share_config = {
 		"common":{
 			"bdSnsKey":{},
-			"bdDesc":"一起来玩2048吧，休闲娱乐就要单机畅玩，聊天交友就选双人在线！",
+			"bdDesc":"chatease.js",
 			"bdText":"studease.cn",
-			"bdComment":"（注：需较新版浏览器支持，推荐chrome, opera, safari, firefox，及相应内核的封装版）",
-			"bdPic":"http://studease.cn/images/contents/effect-2048.jpg",
+			"bdComment":"Chatease.js是一个WebSocket网页聊天室项目，源码（https://github.com/studease/chatease）。",
+			"bdPic":"http://studease.cn/images/contents/slicease.min.png",
 			"bdMini":"2","bdStyle":"0","bdSize":"16"
 		},
 		"share":{},

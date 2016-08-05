@@ -4,15 +4,15 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<title>2048 - game - studease.cn</title>
+	<title>chatease.js - open - studease.cn</title>
 	<meta name="robots" content="index, follow" />
-    <meta name="keywords" content="2048,html5,game,webgame,网页游戏,2048单机版" />
-    <meta name="description" content="This is a web game similar to 2048. Take a break and have fun." />
+    <meta name="keywords" content="chatease,chatease-server,websocket,spring-websocket,sockjs,chat,chatroom,网页聊天室,网页聊天室服务端" />
+    <meta name="description" content="This is a client-side script of chat room, transmitting through websocket, with skin build in." />
 	<meta name="author" content="Tony Lau" />
 	
 	<link rel="shortcut icon" href="../images/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="../css/style.css" />
-	<link rel="stylesheet" type="text/css" href="../css/2048.css" />
+	<link rel="stylesheet" type="text/css" href="../css/prettify.css" />
 </head>
 <body>
 <div style='display:none;'>
@@ -65,14 +65,14 @@
 										<li><a href='http://blog.csdn.net/icysky1989'>IT</a></li>
 									</ul>
 								</li>
-								<li><a href="#">OPEN</a>
+								<li><a href="#" class="current">OPEN</a>
 									<ul>
 										<li><a href='open/slicease.html'>slicease.js 2.0</a></li>
 										<li><a href='open/chatease.html'>chatease.js</a></li>
 										<li><a href='open/chatease-server.html'>chatease-server</a></li>
 									</ul>
 								</li>
-								<li><a href="#" class="current">GAME</a>
+								<li><a href="#">GAME</a>
 									<ul>
 										<li><a href='game/2048.html'>2048</a></li>
 										<li><a href='game/2048-online.html'>2048 online</a></li>
@@ -105,73 +105,40 @@
 	<!-- MAIN CONTENT -->
     <div id="outermain">
     	<section id="maincontainer">
-    		<div class="maincontent">
-    			<h1 class="pagetitle">Game: 2048</h1>
-    			<div id="breadcrumb"><a href="/">HOME</a> >> <a href="#">GAME</a> >> 2048</div>
-    			
-		    	<div class="gamecontainer">
-		    		<div class="gamecontent self">
-						<div class="scores-container">
-							<div class="score-addition"></div>
-							Score: 
-							<div class="score-container"></div>
-						</div>
-						<div class="gameboard">
-							<div class="grid-container">
-								<div class="grid-row">
-									<div class="grid-cell"></div>
-									<div class="grid-cell"></div>
-									<div class="grid-cell"></div>
-									<div class="grid-cell"></div>
-								</div>
-									<div class="grid-row">
-									<div class="grid-cell"></div>
-									<div class="grid-cell"></div>
-									<div class="grid-cell"></div>
-									<div class="grid-cell"></div>
-								</div>
-								<div class="grid-row">
-									<div class="grid-cell"></div>
-									<div class="grid-cell"></div>
-									<div class="grid-cell"></div>
-									<div class="grid-cell"></div>
-								</div>
-								<div class="grid-row">
-									<div class="grid-cell"></div>
-									<div class="grid-cell"></div>
-									<div class="grid-cell"></div>
-									<div class="grid-cell"></div>
-								</div>
-							</div>
-							<div class="tile-container"></div>
-						</div>
-					</div>
-					
-					<div class="description">
-						<ul>
-							<li>
-								<b>Control:</b>
-								<span>
-									UP, DOWN, LEFT, RIGHT<br/>
-									<i>or</i><br/>
-									W, S, A, D
-								</span>
-							</li>
-							<li>
-								<b>Restart:</b>
-								<span>R</span>
-							</li>
-						</ul>
-						
-						<div class="row" style="width: 100%;">
-							<a href="2048-online.html" class="button">Online</a>
-						</div>
-						<div class="clear"></div>
-					</div>
-					<div class="clear"></div>
-				</div>
-		        <div class="clear"></div>
+    		<div class="maincontent" style='min-height: 640px;'>
+    			<h1 class="pagetitle">chatease-server</h1>
+    			<div id="breadcrumb"><a href="/">HOME</a> >> <a href="#">OPEN</a> >> chatease-server</div>
+				
+				<p>
+					[source] <a href='https://github.com/studease/chatease-server' target='_blank'>
+						https://github.com/studease/chatease-server
+					</a>
+				</p>
+				
+				<p>
+					This is a server-side sample project of maven for chatease, using spring-websocket.
+					<br/>
+				</p>
+				
+				<h4>Latest News</h4>
+				<ul class="latestnews">
+					<li><a href="https://github.com/studease/chatease-server" target='_blank'>Chatease-server</a> beta released.<i> - Aug. 4, 2016</i></li>
+				</ul>
+				
+				<h4>Build & Run</h4>
+				<p>
+					You may have an user login system, and need to control the chatting behavior. Then supply an interface to verify and return the user info.
+				</p>
+				<p>
+					To have a quick test, make the userinfo.json file available from http://localhost:81/websocket/userinfo.json.
+				</p>
+				
+				<h4>Software License</h4>
+				<p>
+					MIT.
+				</p>
 			</div>
+			<div class="clear"></div>
         </section>
     </div>
     <!-- END MAIN CONTENT -->
@@ -239,17 +206,10 @@
 	<!-- END FOOTER -->
 </div>
 
-<script type="text/javaScript" src="../js/cn/studease/utils/Func.js"></script>
-<script type="text/javaScript" src="../js/cn/studease/utils/P.js"></script>
-<script type="text/javaScript" src="../js/cn/studease/2048/Tile.js"></script>
-<script type="text/javaScript" src="../js/cn/studease/2048/Grid.js"></script>
-<script type="text/javaScript" src="../js/cn/studease/2048/GameManager.js"></script>
+<script type="text/javascript" src="../js/prettify/prettify.js"></script>
 <script type="text/javascript">
 	window.onload = function(){
-		var gm = new GameManager();
-		gm.init();
-		gm.listen();
-		
+		prettyPrint();
 		
 		var scroll_btn = document.getElementById('scroll-up');
 		if(scroll_btn){
@@ -286,10 +246,10 @@
 	window._bd_share_config = {
 		"common":{
 			"bdSnsKey":{},
-			"bdDesc":"一起来玩2048吧，休闲娱乐就要单机畅玩，聊天交友就选双人在线！",
+			"bdDesc":"chatease.js",
 			"bdText":"studease.cn",
-			"bdComment":"（注：需较新版浏览器支持，推荐chrome, opera, safari, firefox，及相应内核的封装版）",
-			"bdPic":"http://studease.cn/images/contents/effect-2048.jpg",
+			"bdComment":"Chatease.js是一个WebSocket网页聊天室项目，源码（https://github.com/studease/chatease）。",
+			"bdPic":"http://studease.cn/images/contents/slicease.min.png",
 			"bdMini":"2","bdStyle":"0","bdSize":"16"
 		},
 		"share":{},
