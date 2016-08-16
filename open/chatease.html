@@ -135,7 +135,7 @@
 					<li>Opera</li>
 					<li>Safari</li>
 					<li>IE10-11, Edge</li>
-					<li>IE7-9 (With modified sockjs)</li>
+					<li>IE7-9 (using sockjs)</li>
 				</ul>
 				
 				<h4>Example</h4>
@@ -151,7 +151,8 @@
 var chat = chatease('chatwrap').setup({
     width: 300,
     height: 464,
-    url: 'ws://192.168.1.202/websocket/websck'
+    url: 'ws://192.168.1.202/websocket/websck',
+    channel: 1
 });
 </pre>
 <br/>
@@ -166,12 +167,18 @@ _defaults = {
     url: 'ws://' + window.location.host + '/websocket/websck',
     width: 300,
     height: 450,
-    renderMode: renderModes.DEFAULT, // 'def'
-    retryDelay: 3000, // ms
+    channel: 1,
+    maxlength: 30, // 0: no limit, uint: n bytes
     maxRetries: 0, // -1: never, 0: always, uint: n times
-    messageInterval: 0, // ms
-    maxlog: 50,
-    fallback: true
+    retryDelay: 3000, // ms
+    render: {
+        name: renderModes.DEFAULT, // 'def'
+        skin: {
+            name: skinModes.DEFAULT // 'def'
+        }
+    },
+    keywords: '',
+    maxRecords: 50
 }
 </pre>
 <br/>
@@ -197,22 +204,27 @@ var chat = chatease('chatwrap').setup({
 <?prettify lang=js linenums=true?>
 <pre class="prettyprint">
 _eventMapping = {
-    onError: events.ERROR,
-    onReady: events.CHATEASE_READY,
-    onConnect: events.CHATEASE_CONNECT,
-    onIdent: events.CHATEASE_INDENT,
-    onMessage: events.CHATEASE_MESSAGE,
-    onJoin: events.CHATEASE_JOIN,
-    onLeft: events.CHATEASE_LEFT,
-    onNickClick: events.CHATEASE_VIEW_NICKCLICK,
-    onClose: events.CHATEASE_CLOSE
+    onError: events.ERROR, // Error occured.
+    onReady: events.CHATEASE_READY, // Initialized, or UI is ready.
+    onConnect: events.CHATEASE_CONNECT, // Server connected.
+    onIdent: events.CHATEASE_INDENT, // Joined channel.
+    onMessage: events.CHATEASE_MESSAGE, // Got message.
+    onJoin: events.CHATEASE_JOIN, // Someone joined in.
+    onLeft: events.CHATEASE_LEFT, // Someone left.
+    onNickClick: events.CHATEASE_VIEW_NICKCLICK, // Clicked someone's nickname.
+    onClose: events.CHATEASE_CLOSE // Connection closed.
 }
 </pre>
 <br/>
 				<h5>Interface:</h5>
 				<ul class="latestnews">
-					<li>send(message, userId)</li>
-					<li>resize(width, height)</li>
+					<li>send(data)
+						<p>data: An object which will be sent in json format.</p>
+					</li>
+					<li>resize(width, height)
+						<p>width: Width in px.
+						</br>height: Hieght in px.</p>
+					</li>
 				</ul>
 				
 				<h5>Server-side sample project:</h5>
