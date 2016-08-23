@@ -152,7 +152,8 @@ var chat = chatease('chatwrap').setup({
     width: 300,
     height: 464,
     url: 'ws://192.168.1.202/websocket/websck',
-    channel: 1
+    channel: 1,
+    token: ''
 });
 </pre>
 <br/>
@@ -168,6 +169,8 @@ _defaults = {
     width: 300,
     height: 450,
     channel: 1,
+    token: '',
+    keywords: '',
     maxlength: 30, // 0: no limit, uint: n bytes
     maxRetries: 0, // -1: never, 0: always, uint: n times
     retryDelay: 3000, // ms
@@ -177,7 +180,6 @@ _defaults = {
             name: skinModes.DEFAULT // 'def'
         }
     },
-    keywords: '',
     maxRecords: 50
 }
 </pre>
@@ -229,7 +231,7 @@ _eventMapping = {
 				
 				<h5>Server-side sample project:</h5>
 				<p>
-					<a href='/open/chatease-server.html' target='_blank'>chatease-server</a>
+					<a href='../open/chatease-server.html' target='_blank'>chatease-server</a>
 				</p>
 				
 				<h4>Software License</h4>
