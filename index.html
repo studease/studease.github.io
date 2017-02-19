@@ -213,13 +213,11 @@
 
 <script type="text/javascript">
 	window.onload = function(){
-		var sli = slicease('slidercontainer').setup({
+		slicease('slidercontainer').setup({
 			width: 1200,
 			height: 500,
 			sources: ['images/contents/img1.png', 'images/contents/img2.png', 'images/contents/img3.png'],
-			canvas: {
-				pieces: [9, 10, 8, 3]
-			}
+			range: '3-9'
 		});
 		
 		var scroll_btn = document.getElementById('scroll-up');
