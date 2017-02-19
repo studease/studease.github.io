@@ -67,8 +67,8 @@
 								</li>
 								<li><a href="#" class="current">OPEN</a>
 									<ul>
+										<li><a href='/open/slicease.html'>slicease.js 3.0</a></li>
 										<li><a href='/open/playease.html'>playease.js</a></li>
-										<li><a href='/open/slicease.html'>slicease.js 2.0</a></li>
 										<li><a href='/open/chatease.html'>chatease.js</a></li>
 										<li><a href='/open/chatease-server.html'>chatease-server</a></li>
 									</ul>
@@ -107,12 +107,12 @@
     <div id="outermain">
     	<section id="maincontainer">
     		<div class="maincontent">
-    			<h1 class="pagetitle">slicease.js 2.0</h1>
+    			<h1 class="pagetitle">slicease.js 3.0</h1>
     			<div id="breadcrumb"><a href="/">HOME</a> >> <a href="#">OPEN</a> >> slicease.js</div>
 				
 				<p>
-					[source] <a href='https://github.com/studease/Slicease' target='_blank'>
-						https://github.com/studease/Slicease
+					[source] <a href='https://github.com/studease/slicease' target='_blank'>
+						https://github.com/studease/slicease
 					</a><br/>
 					[zh_doc] <a href="http://blog.csdn.net/icysky1989/article/details/39624155" target='_blank'>
 						http://blog.csdn.net/icysky1989/article/details/39624155
@@ -121,26 +121,25 @@
 				
 				<p>
 					This is a 3D image rotator using html5 canvas, designed for my homepage.
-					<br/><br/>
-					It is built on html5 canvas and wrote in pure javascript. Unlike with the css3 animation, the control points of bezier curve are not limited in the range of 0 to 1, so is the number of the points. It also has a powerful and easy-to-understand configuration.
 					<br/>
 				</p>
 				
 				<h4>Latest News</h4>
 				<ul class="latestnews">
-					<li><a href="https://github.com/studease/Slicease" target='_blank'>Slicease.js</a> 2.0 released.<i> - Dec. 30, 2015</i></li>
-					<li><a href="https://github.com/studease/Slicease" target='_blank'>Slicease.js</a> won a glory of <b>22 Best Weekly Web Design & Development Resources</b> at 
+					<li><a href="https://github.com/studease/slicease" target='_blank'>Slicease.js</a> 3.0 released.<i> - Feb. 20, 2017</i></li>
+					<li><a href="https://github.com/studease/slicease" target='_blank'>Slicease.js</a> 2.0 released.<i> - Dec. 30, 2015</i></li>
+					<li><a href="https://github.com/studease/slicease" target='_blank'>Slicease.js</a> won a glory of <b>22 Best Weekly Web Design & Development Resources</b> at 
 						<a href="http://www.jqueryscript.net/blog/Weekly-Web-Design-Development-News-Collective-59.html" target='_blank'>jqueryscript.net</a>, 
 						and reprinted by many others, e.g. 
 							<a href="http://www.techinfine.com/Post/177077/22-Best-Weekly-Web-Design-Development-Resources-8" target='_blank'>techinfine.com</a> & 
 							<a href="http://www.neodesigngeeks.com/22-best-weekly-web-design-development-resources-8/" target='_blank'>neodesigngeeks.com</a> & 
 							<a href="http://www.open-open.com/news/view/19e9ce8" target='_blank'>open-open.com</a>, etc.<i> - Nov. 25, 2014</i></li>
 					<li>Implemented the Elastic.js, a new animation easing, in 
-						<a href="https://github.com/studease/Slicease" target='_blank'>slicease.js</a> 1.0.02.<i> - Nov. 24, 2014</i></li>
+						<a href="https://github.com/studease/slicease" target='_blank'>slicease.js</a> 1.0.02.<i> - Nov. 24, 2014</i></li>
 					<li>Tutorials of slicease.js on 
 						<a href="http://blog.csdn.net/icysky1989/article/details/39624155" target='_blank'>CSDN</a> & 
-						<a href='https://github.com/studease/Slicease' target='_blank'>GitHub.</a><i> - Sep. 28, 2014</i></li>
-					<li><a href="https://github.com/studease/Slicease" target='_blank'>Slicease.js</a> 1.0 released.<i> - Sep. 28, 2014</i></li>
+						<a href='https://github.com/studease/slicease' target='_blank'>GitHub.</a><i> - Sep. 28, 2014</i></li>
+					<li><a href="https://github.com/studease/slicease" target='_blank'>Slicease.js</a> 1.0 released.<i> - Sep. 28, 2014</i></li>
 				</ul>
 				
 				<h4>Example</h4>
@@ -150,14 +149,11 @@
 
 <?prettify lang=js linenums=true?>
 <pre class="prettyprint">
-var sli = slicease('sli-box').setup({
-	width: 1200,
-	height: 500,
-	sources: ['images/contents/img1.png', 'images/contents/img2.png', 'images/contents/img3.png'],
-	renderMode: 'canvas',// default mode
-	canvas: {
-		pieces: [9, 10, 8, 3]
-	}
+slicease('slicer').setup({
+    width: 1200,
+    height: 500,
+    sources: ['images/img1.png', 'images/img2.png', 'images/img3.png'],
+    range: '3-6'
 });
 </pre>
 <br/>
@@ -168,45 +164,22 @@ var sli = slicease('sli-box').setup({
 <?prettify lang=js linenums=true?>
 <pre class="prettyprint">
 _defaults = {
-	sources: [],
-	width: 480,
-	height: 270,
-	controls: true,
-	canvas: {},
-	display: {},
-	pager: {},
-	interval: 3500,
-	renderMode: renderMode.CANVAS,
-	fallback: true
+    width: 640,
+    height: 360,
+    sources: [],
+    range: '3-10',
+    controls: true,
+    interval: 5000,
+    render: {
+        name: rendermodes.DEFAULT,
+        precision: precisions.HIGH_P
+    },
+    skin: {
+        name: skinmodes.DEFAULT
+    }
 }
 </pre>
 <br/>
-				<p>
-					And also cn/studease/core/renders/slicease.core.renders.canvas.js.
-				</p>
-
-<?prettify lang=js linenums=true?>
-<pre class="prettyprint">
-_defaults = {
-...
-animation: [{
-	properties: {
-		rotateX: { keyframes: { from: 0, to: 90 } },
-		scaleX: { keyframes: { from: 1, '40%': 0.9, to: 1 }, 'timing-function': 'linear' },
-		z: { keyframes: { from: 0, '40%': -800, '80%': 0 }, 'timing-function': 'ease-out' }
-	},
-	duration: 1200,
-	'timing-function': 'elastic',
-	delay: 0,
-	'iteration-count': 1,
-	direction: 'normal'
-}, {
-...
-</pre>
-<br/>
-				<p>
-					You can easily change the params here, or setup a new animation array at the very front initialization.
-				</p>
 				
 				<h4>Modify</h4>
 				<p>
@@ -230,8 +203,8 @@ animation: [{
 				<ul>
 					<li><h5>LINKS</h5>
 						<ol class="footerlinks">
+							<li><a href="https://github.com/studease/slicease" target="_blank">Slicease.js</a></li>
 							<li><a href="https://github.com/studease/playease" target="_blank">Playease.js</a></li>
-							<li><a href="https://github.com/studease/Slicease" target="_blank">Slicease.js</a></li>
 							<li><a href="https://github.com/studease/chatease" target="_blank">Chatease.js</a></li>
 							<li><a href="https://github.com/studease/chatease-server" target="_blank">Chatease-server</a></li>
 							<li><a href="http://share.baidu.com/" target="_blank">Baidu Share</a></li>
@@ -329,7 +302,7 @@ animation: [{
 			"bdSnsKey":{},
 			"bdDesc":"slicease.js 2.0发布",
 			"bdText":"studease.cn",
-			"bdComment":"Slicease.js是一个3D图片轮播项目，源码（https://github.com/studease/Slicease），studease.cn已同步更新，猛戳这里看效果！",
+			"bdComment":"Slicease.js是一个3D图片轮播项目，源码（https://github.com/studease/slicease），studease.cn已同步更新，猛戳这里看效果！",
 			"bdPic":"http://studease.cn/images/contents/slicease.min.png",
 			"bdMini":"2","bdStyle":"0","bdSize":"16"
 		},
