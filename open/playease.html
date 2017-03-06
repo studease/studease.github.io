@@ -143,7 +143,10 @@ playease('player').setup({
     width: 640,
     height: 360,
     cors: 'no-cors',
-    poster: 'sample.png'
+    poster: 'sample.png',
+    render: {
+        name: 'flv'
+    }
 });
 </pre>
 <br/>
@@ -303,7 +306,10 @@ _eventMapping = {
 			height: 360,
 			cors: 'no-cors',
 			autoplay: false,
-			poster: '../images/contents/playease.poster.png'
+			poster: '../images/contents/playease.poster.png',
+			render: {
+				name: 'flv'
+			}
 		});
 		
 		prettyPrint();

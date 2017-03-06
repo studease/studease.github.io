@@ -120,7 +120,7 @@
 				</p>
 				
 				<p>
-					This is a server-side maven project for <a href='/open/chatease.html' target='_blank'>chatease.js</a>, using spring-websocket.
+					This is a websocket server for chatting.
 					<br/>
 				</p>
 				
@@ -129,12 +129,33 @@
 					<li><a href="https://github.com/studease/chatease-server" target='_blank'>Chatease-server</a> beta released.<i> - Aug. 4, 2016</i></li>
 				</ul>
 				
-				<h4>Build & Run</h4>
+				<h4>Build</h4>
 				<p>
-					You may have an user login system, and need to control the chatting behavior. Then provide the interfaces to return json datas.
+					Note: LUA is no longer used.
 				</p>
+				
+				<h5>CMake</h5>
 				<p>
-					By default, webapp/data/*.json is used. And visitor mode is used while the userinfo.json is not available.
+					To build chatease-server, you need CMake 3.5 and or above. Then run:
+				</p>
+
+<?prettify lang=js linenums=true?>
+<pre class="prettyprint">
+mkdir build 
+cd build
+cmake ..
+</pre>
+<br/>
+				<h5>Run</h5>
+
+<?prettify lang=js linenums=true?>
+<pre class="prettyprint">
+sudo ./chatease-server
+</pre>
+<br/>
+				<h4>Websocket Client</h4>
+				<p>
+					<a href='../open/chatease.html' target='_blank'>chatease.js</a>
 				</p>
 				
 				<h4>Software License</h4>

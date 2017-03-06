@@ -150,11 +150,9 @@
 &lt;div id='chatwrap'&gt;&lt;/div&gt;
 ...
 var chat = chatease('chatwrap').setup({
+    url: 'ws://localhost/chatease/ch1',
     width: 300,
-    height: 464,
-    url: 'ws://192.168.1.202/websocket/websck',
-    channel: 1,
-    token: ''
+    height: 464
 });
 </pre>
 <br/>
@@ -166,22 +164,20 @@ var chat = chatease('chatwrap').setup({
 <?prettify lang=js linenums=true?>
 <pre class="prettyprint">
 _defaults = {
-    url: 'ws://' + window.location.host + '/websocket/websck',
+    url: 'ws://' + window.location.host + '/chatease/ch1',
     width: 300,
     height: 450,
-    channel: 1,
-    token: '',
     keywords: '',
-    maxlength: 30, // 0: no limit, uint: n bytes
-    maxRetries: 0, // -1: never, 0: always, uint: n times
-    retryDelay: 3000, // ms
+    maxlength: 30,    // -1: no limit
+    maxrecords: 50,
+    maxretries: -1,   // -1: always
+    retrydelay: 3000,
     render: {
-        name: renderModes.DEFAULT, // 'def'
-        skin: {
-            name: skinModes.DEFAULT // 'def'
-        }
+        name: rendermodes.DEFAULT
     },
-    maxRecords: 50
+    skin: {
+        name: skinmodes.DEFAULT
+    }
 }
 </pre>
 <br/>
@@ -230,7 +226,7 @@ _eventMapping = {
 					</li>
 				</ul>
 				
-				<h5>Server-side sample project:</h5>
+				<h4>Websocket Server</h4>
 				<p>
 					<a href='../open/chatease-server.html' target='_blank'>chatease-server</a>
 				</p>
