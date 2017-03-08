@@ -158,7 +158,7 @@ playease('player').setup({
 <?prettify lang=js linenums=true?>
 <pre class="prettyprint">
 _defaults = {
-    url: 'http://' + window.location.host + '/vod/sample.flv',
+    url: 'http://' + window.location.host + '/vod/sample.mp4',
     width: 640,
     height: 360,
     cors: 'no-cors',
@@ -213,13 +213,13 @@ _eventMapping = {
 <br/>
 				<h5>Interface:</h5>
 				<ul class="latestnews">
-					<li>play()</li>
+					<li>play(url)</li>
 					<li>pause()</li>
-					<li>seek(time)</li>
+					<li>seek(offset)</li>
 					<li>stop()</li>
-					<li>volume()</li>
+					<li>volume(vol)</li>
 					<li>mute(bool)</li>
-					<li>fullscreen(esc)</li>
+					<li>fullscreen(bool)</li>
 					<li>resize(width, height)</li>
 				</ul>
 				
