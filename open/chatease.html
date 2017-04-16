@@ -120,7 +120,7 @@
 				</p>
 				
 				<p>
-					This is a client-side script of chat room, transmitting through websocket, with skin build in.
+					This is a client-side script for websocket chatting, with skin built in.
 					<br/>
 				</p>
 				
@@ -136,7 +136,7 @@
 					<li>Opera</li>
 					<li>Safari</li>
 					<li>IE10-11, Edge</li>
-					<li>IE7-9 (using sockjs)</li>
+					<li>IE7-9 (using sockjs, not supported by chatease-server for now)</li>
 				</ul>
 				
 				<h4>Example</h4>
@@ -150,7 +150,7 @@
 &lt;div id='chatwrap'&gt;&lt;/div&gt;
 ...
 var chat = chatease('chatwrap').setup({
-    url: 'ws://localhost/chatease/ch1',
+    url: 'ws://localhost/ch1?token=123456',
     width: 300,
     height: 464
 });
@@ -164,7 +164,7 @@ var chat = chatease('chatwrap').setup({
 <?prettify lang=js linenums=true?>
 <pre class="prettyprint">
 _defaults = {
-    url: 'ws://' + window.location.host + '/chatease/ch1',
+    url: 'ws://' + window.location.host + '/ch1?token=123456',
     width: 300,
     height: 450,
     keywords: '',
@@ -203,15 +203,16 @@ var chat = chatease('chatwrap').setup({
 <?prettify lang=js linenums=true?>
 <pre class="prettyprint">
 _eventMapping = {
-    onError: events.ERROR, // Error occured.
-    onReady: events.CHATEASE_READY, // Initialized, or UI is ready.
-    onConnect: events.CHATEASE_CONNECT, // Server connected.
-    onIdent: events.CHATEASE_INDENT, // Joined channel.
-    onMessage: events.CHATEASE_MESSAGE, // Got message.
-    onJoin: events.CHATEASE_JOIN, // Someone joined in.
-    onLeft: events.CHATEASE_LEFT, // Someone left.
-    onNickClick: events.CHATEASE_VIEW_NICKCLICK, // Clicked someone's nickname.
-    onClose: events.CHATEASE_CLOSE // Connection closed.
+    onError: events.ERROR,
+    onReady: events.CHATEASE_READY,
+    onConnect: events.CHATEASE_CONNECT,
+    onIdent: events.CHATEASE_INDENT,
+    onMessage: events.CHATEASE_MESSAGE,
+    onJoin: events.CHATEASE_JOIN,
+    onLeft: events.CHATEASE_LEFT,
+    onUsers: events.CHATEASE_USERS,
+    onNickClick: events.CHATEASE_VIEW_NICKCLICK,
+    onClose: events.CHATEASE_CLOSE
 }
 </pre>
 <br/>
