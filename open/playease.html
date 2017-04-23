@@ -129,7 +129,9 @@
 				</ul>
 				
 				<h4>Example (Uncompleted, coming soon.)</h4>
-				<div id="player"></div>
+				<div id='fp' style='margin: 2rem auto; width: 640px; height: 400px; top: 0; left: 0;'>
+					<div id='player'></div>
+				</div>
 				<h5>Basic configuraion:</h5>
 				<p>
 					The example below will find the element with an id of player and render a video into it.
@@ -335,6 +337,16 @@ _eventMapping = {
 			poster: '../images/contents/playease.poster.png',
 			render: {
 				name: 'flv'
+			},
+			events: {
+				onFullpage: function(e) {
+					var fp = document.getElementById('fp');
+					fp.style.margin = e.exit ? '2rem auto' : '0';
+					fp.style.width = e.exit ? '640px' : '100%';
+					fp.style.height = e.exit ? '400px' : '100%';
+					fp.style.position = e.exit ? 'relative' : 'fixed';
+					fp.style['z-index'] = e.exit ? '0' : 9001;
+				}
 			}
 		});
 		
