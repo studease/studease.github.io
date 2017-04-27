@@ -118,7 +118,7 @@
 				</p>
 				
 				<p>
-					Playease.js is a html5 flv video player.
+					This is a HTML5 media player for FLV live streaming, FLV VoD and original HTML5 media sources, eg. Ogg, Mpeg4, WebM, HLS. It also supports RTMP streaming for MSIE with flash embed in.
 					<br/>
 				</p>
 				
@@ -130,7 +130,7 @@
 				</ul>
 				
 				<h4>Example (Uncompleted, coming soon.)</h4>
-				<div id='fp' style='margin: 0 auto; width: 100%; max-width: 640px; top: 0; left: 0;'>
+				<div id='fp' style='margin: 4rem auto; width: 100%; max-width: 640px; top: 0; left: 0;'>
 					<div id='player'></div>
 				</div>
 				<h5>Basic configuraion:</h5>
@@ -345,7 +345,7 @@ _eventMapping = {
 			},
 			events: {
 				onFullpage: function(e) {
-					fp.style.margin = e.exit ? '0 auto' : '0';
+					fp.style.margin = e.exit ? '4rem auto' : '0';
 					fp.style.height = e.exit ? 'auto' : '100%';
 					fp.style.position = e.exit ? 'relative' : 'fixed';
 					fp.style['max-width'] = e.exit ? '640px' : '100%';
