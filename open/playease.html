@@ -124,12 +124,13 @@
 				
 				<h4>Latest News</h4>
 				<ul class="latestnews">
+					<li>Added support of self-adaption, and flash for MSIE. - <a href="https://github.com/studease/playease" target='_blank'>playease.js</a>  1.0.33.<i> - Apr. 27, 2017</i></li>
 					<li>Added UI controls for <a href="https://github.com/studease/playease" target='_blank'>playease.js</a> - version 1.0.08.<i> - Apr. 17, 2017</i></li>
 					<li><a href="https://github.com/studease/playease" target='_blank'>Playease.js</a> beta released - An html5 flv video player.<i> - Feb. 10, 2017</i></li>
 				</ul>
 				
 				<h4>Example (Uncompleted, coming soon.)</h4>
-				<div id='fp' style='margin: 2rem auto; width: 640px; height: 400px; top: 0; left: 0;'>
+				<div id='fp' style='margin: 0 auto; width: 100%; max-width: 640px; top: 0; left: 0;'>
 					<div id='player'></div>
 				</div>
 				<h5>Basic configuraion:</h5>
@@ -221,8 +222,8 @@ _eventMapping = {
     onReloading: events.PLAYEASE_RELOADING,
     onSeeking: events.PLAYEASE_SEEKING,
     onStopped: events.PLAYEASE_STOPPED,
-    onReported: events.PLAYEASE_REPORTED,
-    onMuted: events.PLAYEASE_MUTED,
+    onReport: events.PLAYEASE_REPORT,
+    onMute: events.PLAYEASE_MUTE,
     onVolume: events.PLAYEASE_VOLUME,
     onHD: events.PLAYEASE_HD,
     onBullet: events.PLAYEASE_BULLET,
@@ -326,8 +327,12 @@ _eventMapping = {
 <script type="text/javascript" src="../js/prettify/prettify.js"></script>
 <script type="text/javascript">
 	window.onload = function(){
-		playease('player').setup({
-			url: '/vod/sample.flv',
+		var fp = document.getElementById('fp');
+		var width = fp.clientWidth;
+		var height = width * 9 / 16 + 40;
+		
+		var player = playease('player').setup({
+			url: '/vod/sample.mp4',
 			width: 640,
 			height: 360,
 			type: 'vod',
@@ -336,15 +341,14 @@ _eventMapping = {
 			autoplay: false,
 			poster: '../images/contents/playease.poster.png',
 			render: {
-				name: 'flv'
+				name: 'def'
 			},
 			events: {
 				onFullpage: function(e) {
-					var fp = document.getElementById('fp');
-					fp.style.margin = e.exit ? '2rem auto' : '0';
-					fp.style.width = e.exit ? '640px' : '100%';
-					fp.style.height = e.exit ? '400px' : '100%';
+					fp.style.margin = e.exit ? '0 auto' : '0';
+					fp.style.height = e.exit ? 'auto' : '100%';
 					fp.style.position = e.exit ? 'relative' : 'fixed';
+					fp.style['max-width'] = e.exit ? '640px' : '100%';
 					fp.style['z-index'] = e.exit ? '0' : 9001;
 				}
 			}
