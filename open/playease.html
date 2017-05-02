@@ -176,15 +176,18 @@ _defaults = {
     autoplay: true,
     playsinline: true,
     poster: '',
+    report: true,
     debug: false,
     bulletscreen: {
         enable: true,
         fontsize: 14,
         alpha: alphas.LOW,
-        position: positions.FULLSCREEN
+        position: positions.FULLSCREEN,
+        visible: true
     },
     render: {
-        name: rendermodes.DEFAULT
+        name: rendermodes.DEFAULT,
+        swf: 'swf/playease.swf'
     },
     skin: {
         name: skinmodes.DEFAULT
@@ -343,7 +346,8 @@ _eventMapping = {
 			autoplay: false,
 			poster: '../images/contents/playease.poster.png',
 			render: {
-				name: 'def'
+				name: 'def',
+				swf: '../swf/playease.swf'
 			},
 			events: {
 				onFullpage: function(e) {
