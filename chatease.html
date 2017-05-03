@@ -1,0 +1,248 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Chatease.js - StudEase.cn</title>
+	
+	<meta charset="utf-8">
+	<meta name="robots" content="index, follow" />
+	<meta name="keywords" content="slicease.js,playease.js,chatease.js,chatease-server,rtmpmate" />
+	<meta name="description" content="" />
+	<meta name="author" content="Tony Lau" />
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta content="yes" name="apple-mobile-web-app-capable"/>
+	<meta content="yes" name="apple-touch-fullscreen"/>
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<meta name="App-Config" content="fullscreen=yes, useHistoryState=yes, transition=yes"/>
+	
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link type='text/css' rel='stylesheet' href='css/style.css' />
+	<link type='text/css' rel='stylesheet' href='css/prettify.min.css' />
+	
+	<script type='text/javascript' src='js/prettify/min/prettify.min.js'></script>
+</head>
+<body ontouchstart=''>
+	<header>
+		<div class='topbar'>
+		<section>
+			<ul class='info'>
+				<li><span class='icon-card'>Name: Tony Lau</span></li>
+				<li><span class='icon-phone'>Phone: +8618224088983</span></li>
+				<li><span class='icon-email'>Email: 670292548@qq.com</span></li>
+				<li><span class='icon-address'>Address: Chongqing, China</span></li>
+			</ul>
+		</section>
+		</div>
+		
+		<nav>
+		<section>
+			<span class='logo'>
+				<a href='.' title='studease.cn'>StudEase</a>
+			</span>
+			
+			<div class='menu-toggle'></div>
+			
+			<ul>
+				<li><a href='.'>HOME</a></li>
+				<li><a href='about.html'>ABOUT</a></li>
+				<li><a href='index.html#news'>NEWS</a></li>
+				<li><a href='solutions.html'>SOLUTIONS</a></li>
+				<li class='current'>
+					<a href='projects.html'>PROJECTS</a>
+					<ul>
+						<li><a href='slicease.html'>slicease.js 3.0</a></li>
+						<li><a href='chatease.html'>chatease.js</a></li>
+						<li><a href='chatease-server.html'>chatease-server</a></li>
+						<li><a href='playease.html'>playease.js</a></li>
+						<li><a href='http://rtmpmate.com' target='_blank'>rtmpmate</a></li>
+					</ul>
+				</li>
+				<li><a href='contact.html'>CONTACT</a></li>
+				<li><a href='blog.html'>BLOG</a></li>
+			</ul>
+		</section>
+		</nav>
+	</header>
+	
+	<div class='wrap'>
+		<div>
+		<section>
+			<p>
+				[source] <a href='https://github.com/studease/chatease' target='_blank'>https://github.com/studease/chatease</a><br/>
+				[zh_doc] <a href="http://blog.csdn.net/icysky1989/article/details/52138527" target='_blank'>http://blog.csdn.net/icysky1989/article/details/52138527</a>
+			</p>
+			
+			<p>
+				This is a client-side script for websocket chat.
+			</p>
+			
+			<h2>News</h2>
+			<ul class='u5 square'>
+				<li>First stable version for websocket chat released: chatease.js 1.0.05, chatease-server 1.0.14.<i> - Apr. 13, 2017</i></li>
+				<li><a href='chatease.html'>Chatease.js</a>, a client-side script for websocket chat, beta released.<i> - Aug. 1, 2016</i></li>
+			</ul>
+			
+			<h2>Tested</h2>
+			<ul class='u5 square'>
+				<li>Chrome</li>
+				<li>Firefox</li>
+				<li>Opera</li>
+				<li>Safari</li>
+				<li>IE10-11, Edge</li>
+				<li>IE7-9 (using sockjs, not supported by chatease-server for now)</li>
+			</ul>
+			
+			<h2>Example</h2>
+			<p>
+				The example below will find the element with an id of "chatwrap" and render a dialog into it.
+			</p>
+
+<?prettify lang=js linenums=true?>
+<pre class='prettyprint'>
+&lt;div id='chatwrap'&gt;&lt;/div&gt;
+...
+var chat = chatease('chatwrap').setup({
+    url: 'ws://localhost/ch1?token=123456',
+    width: 300,
+    height: 464
+});
+</pre>
+<br/>
+
+			<p>
+				For more configurations, please check cn/studease/embed/chatease.embed.config.js.
+			</p>
+
+<?prettify lang=js linenums=true?>
+<pre class='prettyprint'>
+_defaults = {
+    url: 'ws://' + window.location.host + '/ch1?token=123456',
+    width: 300,
+    height: 450,
+    keywords: '',
+    maxlength: 30,    // -1: no limit
+    maxrecords: 50,
+    maxretries: -1,   // -1: always
+    retrydelay: 3000,
+    render: {
+        name: rendermodes.DEFAULT
+    },
+    skin: {
+        name: skinmodes.DEFAULT
+    }
+}
+</pre>
+<br/>
+
+			<h2>Add Callbacks</h2>
+
+<?prettify lang=js linenums=true?>
+<pre class='prettyprint'>
+var chat = chatease('chatwrap').setup({
+    ...
+    events: {
+        onReady: function(e) {
+            console.log('onReady');
+        },
+        ...
+    }
+});
+</pre>
+<br/>
+
+			<p>
+				For more events, please check cn/studease/api/chatease.api.js.
+			</p>
+
+<?prettify lang=js linenums=true?>
+<pre class='prettyprint'>
+_eventMapping = {
+    onError: events.ERROR,
+    onReady: events.CHATEASE_READY,
+    onConnect: events.CHATEASE_CONNECT,
+    onIdent: events.CHATEASE_INDENT,
+    onMessage: events.CHATEASE_MESSAGE,
+    onJoin: events.CHATEASE_JOIN,
+    onLeft: events.CHATEASE_LEFT,
+    onUsers: events.CHATEASE_USERS,
+    onNickClick: events.CHATEASE_VIEW_NICKCLICK,
+    onClose: events.CHATEASE_CLOSE
+}
+</pre>
+<br/>
+
+			<h2>Interfaces</h2>
+			<ul class='u5 square'>
+				<li>
+					<a>send(data)</a>
+					<p>
+						data: An object which will be sent in json format.
+					</p>
+				</li>
+				<li>
+					<a>resize(width, height)</a>
+					<p>
+						width: Width in px.</br>
+						height: Hieght in px.
+					</p>
+				</li>
+			</ul>
+			
+			<h2>Websocket Server</h2>
+			<p>
+				<a href='chatease-server.html' target='_blank'>chatease-server</a>
+			</p>
+			
+			<h2>Software License</h2>
+			<p>
+				MIT.
+			</p>
+		</section>
+		</div>
+	</div>
+	
+	<footer>
+		<div class='footerall'>
+		<section>
+			<ul>
+				<li>
+					<a href='faq.html' target='_blank'>
+						<strong>FAQ</strong>
+						<span>Check for the articles<br/>and known issues</span>
+					</a>
+				</li>
+				<li>
+					<a href='solutions.html' target='_blank'>
+						<strong>SOLUTIONS</strong>
+						<span>Low latency and<br/>cross-platform</span>
+					</a>
+				</li>
+				<li>
+					<a href='contact.html' target='_blank'>
+						<strong>CONTACT</strong>
+						<span>+8618224088983<br/>670292548@qq.com</span>
+					</a>
+				</li>
+				<li>
+					<a href='donate.html' target='_blank'>
+						<strong>DONATE</strong>
+						<span>Contribute by<br/>making a donation ￥</span>
+					</a>
+				</li>
+			</ul>
+		</section>
+		</div>
+		
+		<div class='copyright'>
+		<section>
+			<span>Copyright &copy; 2014-2017 studease.cn | All Rights Reserved</span>
+		</section>
+		</div>
+	</footer>
+	
+	<script type='text/javascript'>
+		window.onload = function(){
+			prettyPrint();
+		};
+	</script>
+</body>

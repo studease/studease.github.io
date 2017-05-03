@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
-	<title>Home - StudEase.cn</title>
+	<title>Contact - StudEase.cn</title>
 	
 	<meta charset="utf-8">
 	<meta name="robots" content="index, follow" />
@@ -17,9 +17,6 @@
 	
 	<link rel="shortcut icon" href="images/favicon.ico">
 	<link type='text/css' rel='stylesheet' href='css/style.css' />
-	
-	<script type='text/javascript' src='js/gl-matrix-min.js'></script>
-	<script type='text/javascript' src='js/slicease.min.js'></script>
 </head>
 <body ontouchstart=''>
 	<header>
@@ -43,7 +40,7 @@
 			<div class='menu-toggle'></div>
 			
 			<ul>
-				<li class='current'><a href='.'>HOME</a></li>
+				<li><a href='.'>HOME</a></li>
 				<li><a href='about.html'>ABOUT</a></li>
 				<li><a href='index.html#news'>NEWS</a></li>
 				<li><a href='solutions.html'>SOLUTIONS</a></li>
@@ -57,44 +54,17 @@
 						<li><a href='http://rtmpmate.com' target='_blank'>rtmpmate</a></li>
 					</ul>
 				</li>
-				<li><a href='contact.html'>CONTACT</a></li>
+				<li class='current'><a href='contact.html'>CONTACT</a></li>
 				<li><a href='blog.html'>BLOG</a></li>
 			</ul>
 		</section>
 		</nav>
 	</header>
 	
-	<div class='slider'>
-	<section>
-		<div id='slicer'></div>
-	</section>
-	</div>
-	
 	<div class='wrap'>
-		<div class='news'>
+		<div>
 		<section>
-			<div id='news'>
-				<h2>News</h2>
-				<ul class='u5 square'>
-					<li>Planning to build an HTML5 live streaming server: <a href='http://rtmpmate.com' target='_blank'>rtmpmate</a>.<i> - Apr. 22, 2017</i></li>
-					<li>Introduced self-adaption display, and added flash render for MSIE 8, in <a href='playease.html'>playease.js</a> 1.0.33.<i> - Apr. 27, 2017</i></li>
-					<li>Added UI controls for <a href='playease.html'>playease.js</a> at version 1.0.08.<i> - Apr. 17, 2017</i></li>
-					<li>First stable version for websocket chat released: chatease.js 1.0.05, chatease-server 1.0.14.<i> - Apr. 13, 2017</i></li>
-					<li><a href='slicease.html'>Slicease.js</a> 3.0 released: Using WebGL.<i> - Feb. 20, 2017</i></li>
-					<li><a href='playease.html'>Playease.js</a>, an HTML5 media player for FLV live streaming, beta released.<i> - Feb. 10, 2017</i></li>
-					<li><a href='chatease-server.html'>Chatease-server</a>, a websocket chat server coded in C, beta released.<i> - Aug. 4, 2016</i></li>
-					<li><a href='chatease.html'>Chatease.js</a>, a client-side script for websocket chat, beta released.<i> - Aug. 1, 2016</i></li>
-					<li><a href='slicease.html'>Slicease.js</a> 2.0 released: New features, e.g. MVC, event-driven, etc.<i> - Dec. 30, 2015</i></li>
-					<li>
-						<a href='slicease.html'>Slicease.js</a> won a glory of <b>"22 Best Weekly Web Design & Development Resources"</b> at 
-						<a href='http://www.jqueryscript.net/blog/Weekly-Web-Design-Development-News-Collective-59.html' target='_blank'>jqueryscript.net</a>, 
-						<a href='http://www.techinfine.com/Post/177077/22-Best-Weekly-Web-Design-Development-Resources-8' target='_blank'>techinfine.com</a>, 
-						<a href='http://www.open-open.com/news/view/19e9ce8' target='_blank'>open-open.com</a>, etc.<i> - Nov. 25, 2014</i>
-					</li>
-					<li><a href='slicease.html'>Slicease.js</a>, which is a 3D image rotator, 1.0 released.<i> - Sep. 28, 2014</i></li>
-					<li>This blog came to be available.<i> - Sep. 22, 2014</i></li>
-				</ul>
-			</div>
+			
 		</section>
 		</div>
 	</div>
@@ -115,7 +85,7 @@
 						<span>Low latency and<br/>cross-platform</span>
 					</a>
 				</li>
-				<li>
+				<li class='current'>
 					<a href='contact.html' target='_blank'>
 						<strong>CONTACT</strong>
 						<span>+8618224088983<br/>670292548@qq.com</span>
@@ -139,13 +109,6 @@
 	</footer>
 	
 	<script type='text/javascript'>
-		var prt = document.getElementById('slicer').parentNode;
 		
-		var slicer = slicease('slicer').setup({
-			width: prt.clientWidth,
-			height: prt.clientHeight,
-			sources: ['images/slider/img1.png', 'images/slider/img2.png', 'images/slider/img3.png', 'images/slider/img4.png'],
-			range: '3-9'
-		});
 	</script>
 </body>
