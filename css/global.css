@@ -39,21 +39,56 @@ section {
 	max-width: 100rem;
 }
 
-.center {
-	text-align: center;
-}
-
 p {
 	margin: 2rem 0;
 }
 
 a {
-	color: #bdbdbd;
+	color: #BDBDBD;
 	text-decoration: none;
+}
+a:active, a:focus, a:hover {
+	outline: 0;
 }
 
 i {
-	color: #bdbdbd;
+	color: #BDBDBD;
+}
+
+input {
+	padding: 2px 6px;
+	font-family: sans-serif;
+	font-size: 1.4rem;
+	border: none;
+}
+
+.center {
+	text-align: center;
+}
+
+.btn {
+	padding: .6rem 1.4rem;
+	font-style: normal;
+	font-weight: bold;
+	text-align: center;
+	text-transform: uppercase;
+	white-space: nowrap;
+	word-spacing: normal;
+	border: none;
+	border-radius: .1875rem;
+	cursor: pointer;
+	display: inline-block;
+	-webkit-font-smoothing: subpixel-antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	transition: 150ms ease-in-out;
+	transition-property: background-color, color;
+}
+.btn.red {
+	color: #FFFFFF;
+	background-color: #FF0046;
+}
+.btn.red:hover {
+	background-color: #97052D;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -205,7 +240,7 @@ nav section > ul > li a {
 	padding: 2rem 1rem;
 	font-size: 1.4rem;
 	font-weight: bold;
-	color: #bdbdbd;
+	color: #BDBDBD;
 	line-height: 6rem;
 	cursor: pointer;
 }
@@ -342,6 +377,7 @@ nav section > ul > li:hover ul {
 
 .wrap {
 	margin: 4rem 0;
+	font-family: sans-serif;
 }
 .wrap .pay {
 	margin: 0 auto;

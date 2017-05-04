@@ -1,8 +1,17 @@
 ﻿@import url("global.css") screen;
 
+/**
+ * index
+ */
+
 #slicer canvas {
 	background-color: transparent;
 }
+
+
+/**
+ * solutions
+ */
 
 .features, .features section, .features .container {
 	overflow: hidden;
@@ -48,4 +57,25 @@
 .features .container a h4 {
 	margin: 1rem 0;
 }
+}
+
+
+/**
+ * playease
+ */
+
+.input-container {
+	margin-top: .8rem;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: stretch;
+}
+.input-container input {
+	margin-right: .6rem;
+	flex: 1 1 auto;
+	background-color: #999999;
+}
+.input-container .btn {
+	flex: 0 0 4rem;
 }
