@@ -304,7 +304,7 @@ _eventMapping = {
 		var width = fp.clientWidth;
 		var height = width * 9 / 16 + 40;
 		
-		fp.style.height = height + 'px';
+		//fp.style.height = height + 'px';
 		
 		var player = playease('player').setup({
 			width: width,
@@ -325,8 +325,8 @@ _eventMapping = {
 			events: {
 				onFullpage: function(e) {
 					fp.style.margin = e.exit ? '4rem auto' : '0';
-					fp.style.height = e.exit ? height + 'px' : '100%';
-					fp.style.position = e.exit ? 'relative' : 'fixed';
+					fp.style.height = e.exit ? 'auto' : '100%';
+					fp.style.position = e.exit ? 'inherit' : 'fixed';
 					fp.style.maxWidth = e.exit ? '640px' : '100%';
 					fp.style.zIndex = e.exit ? '0' : 100;
 				}
