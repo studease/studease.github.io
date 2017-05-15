@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
-	<title>Chatease.js - StudEase.cn</title>
+	<title>chatease.js - StudEase.cn</title>
 	
 	<meta charset="utf-8">
 	<meta name="robots" content="index, follow" />
@@ -20,6 +20,7 @@
 	<link type='text/css' rel='stylesheet' href='css/prettify.min.css' />
 	
 	<script type='text/javascript' src='js/prettify/min/prettify.min.js'></script>
+	<script type='text/javascript' src='js/chatease.min.js'></script>
 </head>
 <body ontouchstart=''>
 	<header>
@@ -94,6 +95,10 @@
 			</ul>
 			
 			<h2>Example</h2>
+			<div id='chatwrap' style='margin: 4rem auto; width: 100%; height: 400px; max-width: 640px;'>
+				<div id='chat'></div>
+			</div>
+			
 			<p>
 				The example below will find the element with an id of "chatwrap" and render a dialog into it.
 			</p>
@@ -104,8 +109,8 @@
 ...
 var chat = chatease('chatwrap').setup({
     url: 'ws://localhost/ch1?token=123456',
-    width: 300,
-    height: 464
+    width: 100%,
+    height: 100%
 });
 </pre>
 <br/>
@@ -118,8 +123,8 @@ var chat = chatease('chatwrap').setup({
 <pre class='prettyprint'>
 _defaults = {
     url: 'ws://' + window.location.host + '/ch1?token=123456',
-    width: 300,
-    height: 450,
+    width: 100%,
+    height: 100%,
     keywords: '',
     maxlength: 30,    // -1: no limit
     maxrecords: 50,
@@ -242,8 +247,15 @@ _eventMapping = {
 	</footer>
 	
 	<script type='text/javascript'>
-		window.onload = function(){
+		window.onload = function() {
 			prettyPrint();
 		};
+		
+		var chat = chatease('chat').setup({
+			url: 'ws://192.168.1.228/ch1?token=123456',
+			width: '100%',
+			height: '100%',
+			maxretries: 0
+		});
 	</script>
 </body>
