@@ -188,8 +188,8 @@
 		cw.style.width = (width - 20) * 0.3 + 'px';
 		
 		var player = playease('player').setup({
-			width: '100%',
-			height: '100%',
+			width: (width - 20) * 0.7,
+			height: height,
 			file: '/vod/sample.mp4',
 			/*sources: [{
 				file: '/vod/sample.flv',
@@ -215,8 +215,8 @@
 		
 		var chat = chatease('chat').setup({
 			url: 'ws://192.168.1.228/ch1?token=123456',
-			width: '100%',
-			height: '100%',
+			width: (width - 20) * 0.3,
+			height: height,
 			maxretries: 0,
 			events: {
 				onMessage: function(e) {
