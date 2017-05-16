@@ -199,7 +199,7 @@
 			cors: 'no-cors',
 			controls: true,
 			autoplay: false,
-			poster: 'images/poster.png',
+			//poster: 'images/poster.png',
 			render: {
 				name: 'def',
 				swf: 'swf/playease.swf'
@@ -217,7 +217,12 @@
 			url: 'ws://192.168.1.228/ch1?token=123456',
 			width: '100%',
 			height: '100%',
-			maxretries: 0
+			maxretries: 0,
+			events: {
+				onMessage: function(e) {
+					player.shoot(e.data);
+				}
+			}
 		});
 		
 		if (!window.addEventListener) {
