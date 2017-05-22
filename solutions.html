@@ -21,7 +21,7 @@
 	
 	<script type='text/javascript' src='js/prettify/min/prettify.min.js'></script>
 	<script type='text/javascript' src='js/playease.min.js'></script>
-	<script type='text/javascript' src='js/chatease.min.js'></script>
+	<script type='text/javascript' src='js/chatease.js'></script>
 </head>
 <body ontouchstart=''>
 	<header>
@@ -80,11 +80,11 @@
 		
 		<div class=''>
 		<section>
-			<div id='samplewrap' style='margin: 4rem auto; width: 100%;'>
-				<div id='playwrap' style='float: left; height: 100%; top: 0; left: 0;'>
+			<div class='samplewrap'>
+				<div class='playwrap' id='playwrap'>
 					<div id='player'></div>
 				</div>
-				<div id='chatwrap' style='float: right; height: 100%;'>
+				<div class='chatwrap' id='chatwrap'>
 					<div id='chat'></div>
 				</div>
 			</div>
@@ -175,21 +175,9 @@
 	</footer>
 	
 	<script type='text/javascript'>
-		var sw = document.getElementById('samplewrap');
-		var pw = document.getElementById('playwrap');
-		var cw = document.getElementById('chatwrap');
-		
-		var width = sw.clientWidth;
-		var height = Math.max((width - 20) * 0.7 * 9 / 16 + 40, 300);
-		
-		sw.style.height = height + 'px';
-		
-		pw.style.width = (width - 20) * 0.7 + 'px';
-		cw.style.width = (width - 20) * 0.3 + 'px';
-		
 		var player = playease('player').setup({
-			width: (width - 20) * 0.7,
-			height: height,
+			width: 640,
+			height: 400,
 			file: '/vod/sample.mp4',
 			/*sources: [{
 				file: '/vod/sample.flv',
@@ -199,24 +187,26 @@
 			cors: 'no-cors',
 			controls: true,
 			autoplay: false,
-			//poster: 'images/poster.png',
+			poster: 'images/poster.png',
 			render: {
 				name: 'def',
 				swf: 'swf/playease.swf'
 			},
 			events: {
 				onFullpage: function(e) {
-					pw.style.width = e.exit ? (width - 20) * 0.7 + 'px' : '100%';
-					pw.style.position = e.exit ? 'inherit' : 'fixed';
-					pw.style.zIndex = e.exit ? '0' : 100;
+					var pw = document.getElementById('playwrap');
+					pw.style.width = e.exit ? '' : '100%';
+					pw.style.height = e.exit ? '' : '100%';
+					pw.style.position = e.exit ? '' : 'fixed';
+					pw.style.zIndex = e.exit ? '' : 100;
 				}
 			}
 		});
 		
 		var chat = chatease('chat').setup({
 			url: 'ws://222.180.239.126:6688/ch1?token=123456',
-			width: (width - 20) * 0.3,
-			height: height,
+			width: 320,
+			height: 400,
 			maxretries: 0,
 			events: {
 				onMessage: function(e) {
@@ -225,24 +215,23 @@
 			}
 		});
 		
-		if (!window.addEventListener) {
-			window.addEventListener = window.attachEvent;
+		setTimeout(function() {
+			onResize();
+		}, 20);
+		
+		try {
+			window.addEventListener('resize', onResize);
+		} catch (err) {
+			window.attachEvent('onresize', onResize);
 		}
-		window.addEventListener('resize', function(e) {
-			setTimeout(function() {
-				width = sw.clientWidth;
-				height = Math.max((width - 20) * 0.7 * 9 / 16 + 40, 300);
-				
-				sw.style.height = height + 'px';
-				
-				if (pw.style.width !== '100%') {
-					pw.style.width = (width - 20) * 0.7 + 'px';
-				}
-				
-				cw.style.width = (width - 20) * 0.3 + 'px';
-				
+		
+		function onResize(e) {
+			//setTimeout(function() {
+				var pw = document.getElementById('playwrap');
+				var cw = document.getElementById('chatwrap');
+				cw.style.height = pw.clientHeight + 'px';
 				chat.resize();
-			}, 0);
-		});
+			//}, 0);
+		}
 	</script>
 </body>
