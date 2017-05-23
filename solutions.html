@@ -175,50 +175,53 @@
 	</footer>
 	
 	<script type='text/javascript'>
-		var player = playease('player').setup({
-			width: 640,
-			height: 400,
-			file: '/vod/sample.mp4',
-			/*sources: [{
-				file: '/vod/sample.flv',
-				type: 'flv'
-			}],*/
-			type: 'vod',
-			cors: 'no-cors',
-			controls: true,
-			autoplay: false,
-			poster: 'images/poster.png',
-			render: {
-				name: 'def',
-				swf: 'swf/playease.swf'
-			},
-			events: {
-				onReady: function(e) {
-					setTimeout(function() {
-						onResize();
-					}, 0);
+		var player, chat;
+		window.onload = function(e) {
+			player = playease('player').setup({
+				width: 640,
+				height: 400,
+				file: '/vod/sample.mp4',
+				/*sources: [{
+					file: '/vod/sample.flv',
+					type: 'flv'
+				}],*/
+				type: 'vod',
+				cors: 'no-cors',
+				controls: true,
+				autoplay: false,
+				poster: 'images/poster.png',
+				render: {
+					name: 'def',
+					swf: 'swf/playease.swf'
 				},
-				onFullpage: function(e) {
-					var pw = document.getElementById('playwrap');
-					pw.style.width = e.exit ? '' : '100%';
-					pw.style.height = e.exit ? '' : '100%';
-					pw.style.position = e.exit ? '' : 'fixed';
-					pw.style.zIndex = e.exit ? '' : 100;
+				events: {
+					onReady: function(e) {
+						setTimeout(function() {
+							onResize();
+						}, 0);
+					},
+					onFullpage: function(e) {
+						var pw = document.getElementById('playwrap');
+						pw.style.width = e.exit ? '' : '100%';
+						pw.style.height = e.exit ? '' : '100%';
+						pw.style.position = e.exit ? '' : 'fixed';
+						pw.style.zIndex = e.exit ? '' : 100;
+					}
 				}
-			}
-		});
-		
-		var chat = chatease('chat').setup({
-			url: 'ws://222.180.239.126:6688/ch1?token=123456',
-			width: 320,
-			height: 400,
-			maxretries: 0,
-			events: {
-				onMessage: function(e) {
-					player.shoot(e.data);
+			});
+			
+			chat = chatease('chat').setup({
+				url: 'ws://222.180.239.126:6688/ch1?token=123456',
+				width: 320,
+				height: 400,
+				maxretries: 0,
+				events: {
+					onMessage: function(e) {
+						player.shoot(e.data);
+					}
 				}
-			}
-		});
+			});
+		}
 		
 		try {
 			window.addEventListener('resize', onResize);
