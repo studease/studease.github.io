@@ -193,6 +193,11 @@
 				swf: 'swf/playease.swf'
 			},
 			events: {
+				onReady: function(e) {
+					setTimeout(function() {
+						onResize();
+					}, 0);
+				},
 				onFullpage: function(e) {
 					var pw = document.getElementById('playwrap');
 					pw.style.width = e.exit ? '' : '100%';
@@ -215,10 +220,6 @@
 			}
 		});
 		
-		setTimeout(function() {
-			onResize();
-		}, 20);
-		
 		try {
 			window.addEventListener('resize', onResize);
 		} catch (err) {
@@ -226,12 +227,10 @@
 		}
 		
 		function onResize(e) {
-			//setTimeout(function() {
-				var pw = document.getElementById('playwrap');
-				var cw = document.getElementById('chatwrap');
-				cw.style.height = pw.clientHeight + 'px';
-				chat.resize();
-			//}, 0);
+			var pw = document.getElementById('playwrap');
+			var cw = document.getElementById('chatwrap');
+			cw.style.height = pw.clientHeight + 'px';
+			chat.resize();
 		}
 	</script>
 </body>
