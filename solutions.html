@@ -175,7 +175,8 @@
 	</footer>
 	
 	<script type='text/javascript'>
-		var player = playease('player').setup({
+		var player, chat;
+		player = playease('player').setup({
 			width: 640,
 			height: 400,
 			file: '/vod/sample.mp4',
@@ -193,6 +194,11 @@
 				swf: 'swf/playease.swf'
 			},
 			events: {
+				onReady: function(e) {
+					if (chat) {
+						chat.resize();
+					}
+				},
 				onFullpage: function(e) {
 					var pw = document.getElementById('playwrap');
 					pw.style.width = e.exit ? '' : '100%';
@@ -203,7 +209,7 @@
 			}
 		});
 		
-		var chat = chatease('chat').setup({
+		chat = chatease('chat').setup({
 			url: 'ws://222.180.239.126:6688/ch1?token=123456',
 			width: 320,
 			height: 400,
