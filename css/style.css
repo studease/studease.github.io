@@ -16,11 +16,11 @@
 .samplewrap {
 	margin: 4rem auto;
 	width: 100%;
+	position: relative;
 	overflow: hidden;
 }
 
 .samplewrap .playwrap {
-	float: left;
 	width: 68%;
 	height: 100%;
 	top: 0;
@@ -28,25 +28,22 @@
 }
 
 .samplewrap .chatwrap {
-	float: right;
 	width: 30%;
 	height: 100%;
+	right: 0;
+	bottom: 0;
+	position: absolute;
 }
 
 @media only screen and (max-width: 568px) {
 .samplewrap .playwrap {
-	float: none;
 	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
 }
 
 .samplewrap .chatwrap {
-	float: none;
 	margin-top: 2rem;
 	width: 100%;
-	height: 100%;
+	position: relative;
 }
 }
 
