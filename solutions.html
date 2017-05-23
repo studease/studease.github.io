@@ -220,18 +220,5 @@
 				}
 			}
 		});
-		
-		try {
-			window.addEventListener('resize', onResize);
-		} catch (err) {
-			window.attachEvent('onresize', onResize);
-		}
-		
-		function onResize(e) {
-			var pw = document.getElementById('playwrap');
-			var cw = document.getElementById('chatwrap');
-			cw.style.height = pw.clientHeight + 'px';
-			chat.resize();
-		}
 	</script>
 </body>
