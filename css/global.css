@@ -57,7 +57,7 @@ i {
 }
 
 input {
-	padding: 2px 6px;
+	padding: .2rem .6rem;
 	font-family: sans-serif;
 	font-size: 1.4rem;
 	border: none;
