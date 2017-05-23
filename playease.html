@@ -296,7 +296,7 @@ _eventMapping = {
 	</footer>
 	
 	<script type='text/javascript'>
-		window.onload = function(){
+		window.onload = function() {
 			prettyPrint();
 		};
 		
@@ -304,11 +304,10 @@ _eventMapping = {
 		var width = fp.clientWidth;
 		var height = width * 9 / 16 + 40;
 		
-		//fp.style.height = height + 'px';
-		
 		var player = playease('player').setup({
 			width: width,
 			height: height,
+			aspectratio: '16:9',
 			file: '/vod/sample.mp4',
 			/*sources: [{
 				file: '/vod/sample.flv',
@@ -326,10 +325,10 @@ _eventMapping = {
 			events: {
 				onFullpage: function(e) {
 					fp.style.margin = e.exit ? '4rem auto' : '0';
-					fp.style.height = e.exit ? 'auto' : '100%';
-					fp.style.position = e.exit ? 'inherit' : 'fixed';
+					fp.style.height = e.exit ? '' : '100%';
+					fp.style.position = e.exit ? '' : 'fixed';
 					fp.style.maxWidth = e.exit ? '640px' : '100%';
-					fp.style.zIndex = e.exit ? '0' : 100;
+					fp.style.zIndex = e.exit ? '' : 100;
 				}
 			}
 		});

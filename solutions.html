@@ -179,6 +179,7 @@
 		player = playease('player').setup({
 			width: 640,
 			height: 400,
+			aspectratio: '16:9',
 			file: '/vod/sample.mp4',
 			/*sources: [{
 				file: '/vod/sample.flv',
@@ -188,7 +189,7 @@
 			cors: 'no-cors',
 			controls: true,
 			autoplay: false,
-			poster: 'images/poster.png',
+			//poster: 'images/poster.png',
 			render: {
 				name: 'def',
 				swf: 'swf/playease.swf'
@@ -210,7 +211,10 @@
 		});
 		
 		chat = chatease('chat').setup({
-			url: 'ws://222.180.239.126:6688/ch1?token=123456',
+			url: 'ws://222.180.239.126:6688/ch1?name=游客' + (function() {
+				var id = Math.ceil(Math.random() * 100);
+				return chatease.utils.pad(id, 3);
+			})(),
 			width: 320,
 			height: 400,
 			maxretries: 0,
