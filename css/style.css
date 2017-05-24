@@ -119,6 +119,7 @@
 	padding: 2px 1%;
 	width: 98%;
 	height: 24px;
+	line-height: 24px;
 	background-color: #999999;
 }
 .input-container .btn {
