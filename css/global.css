@@ -17,9 +17,9 @@ html {
 body {
 	margin: 0;
 	font-family: Karbon, Helvetica, Arial, sans-serif;
-	font-size: 1.4rem;
 	font-style: normal;
-	line-height: 1.6rem;
+	font-size: 14px;
+	line-height: 18px;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	color: #E6E6E6;
@@ -37,11 +37,11 @@ header, footer, .wrap {
 section {
 	margin: 0 auto;
 	width: 100%;
-	max-width: 100rem;
+	max-width: 1000px;
 }
 
 p {
-	margin: 2rem 0;
+	margin: 20px 0;
 }
 
 a {
@@ -57,9 +57,9 @@ i {
 }
 
 input {
-	padding: .2rem .6rem;
+	padding: 2px 6px;
 	font-family: sans-serif;
-	font-size: 1.4rem;
+	font-size: 14px;
 	border: none;
 }
 
@@ -68,15 +68,17 @@ input {
 }
 
 .btn {
-	padding: .6rem 1.4rem;
+	padding: 6px 14px;
 	font-style: normal;
 	font-weight: bold;
+	font-size: 14px;
+	line-height: 16px;
 	text-align: center;
 	text-transform: uppercase;
 	white-space: nowrap;
 	word-spacing: normal;
 	border: none;
-	border-radius: .1875rem;
+	border-radius: 2px;
 	cursor: pointer;
 	display: inline-block;
 	-webkit-font-smoothing: subpixel-antialiased;
@@ -96,61 +98,61 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: bold;
 }
 h1, h2, h3 {
-	margin-top: 1.6rem;
-	margin-bottom: 1.2rem;
+	margin-top: 16px;
+	margin-bottom: 12px;
 }
 h4, h5, h6 {
-	margin-top: 1.2rem;
-	margin-bottom: 1.0rem;
+	margin-top: 12px;
+	margin-bottom: 10px;
 }
 h1 {
-	font-size: 2.2rem;
+	font-size: 22px;
 }
 h2 {
-	font-size: 2.0rem;
+	font-size: 20px;
 }
 h3 {
-	font-size: 1.8rem;
+	font-size: 18px;
 }
 h4 {
-	font-size: 1.6rem;
+	font-size: 16px;
 }
 h5 {
-	font-size: 1.4rem;
+	font-size: 14px;
 }
 h6 {
-	font-size: 1.2rem;
+	font-size: 12px;
 }
 
 ul.u1 li {
-	margin: 2.2rem 0 0 2.2rem;
-	font-size: 2.2rem;
-	line-height: 2.2rem;
+	margin: 22px 0 0 22px;
+	font-size: 22px;
+	line-height: 22px;
 }
 ul.u2 li {
-	margin: 2.0rem 0 0 2.0rem;
-	font-size: 2.0rem;
-	line-height: 2.0rem;
+	margin: 20px 0 0 20px;
+	font-size: 20px;
+	line-height: 20px;
 }
 ul.u3 li {
-	margin: 1.8rem 0 0 1.8rem;
-	font-size: 1.8rem;
-	line-height: 1.8rem;
+	margin: 18px 0 0 18px;
+	font-size: 18px;
+	line-height: 18px;
 }
 ul.u4 li {
-	margin: 1.6rem 0 0 1.8rem;
-	font-size: 1.6rem;
-	line-height: 1.6rem;
+	margin: 16px 0 0 18px;
+	font-size: 16px;
+	line-height: 16px;
 }
 ul.u5 li {
-	margin: 1.4rem 0 0 1.6rem;
-	font-size: 1.4rem;
-	line-height: 1.4rem;
+	margin: 14px 0 0 16px;
+	font-size: 14px;
+	line-height: 14px;
 }
 ul.u6 li {
-	margin: 1.2rem 0 0 1.4rem;
-	font-size: 1.2rem;
-	line-height: 1.2rem;
+	margin: 12px 0 0 14px;
+	font-size: 12px;
+	line-height: 12px;
 }
 ul.square {
 	list-style-type: square;
@@ -168,7 +170,7 @@ ul.circle {
 	list-style-type: none;
 }
 .info span {
-	padding-left: 1.6rem;
+	padding-left: 16px;
 	color: #999999;
 	background-position: left;
 }
@@ -187,9 +189,9 @@ ul.circle {
 
 
 .topbar {
-	padding: 1rem 0;
-	font-size: 1.2rem;
-	line-height: 2.0rem;
+	padding: 10px 0;
+	font-size: 12px;
+	line-height: 20px;
 	background-color: #171717;
 }
 .topbar section .info {
@@ -197,7 +199,7 @@ ul.circle {
 }
 .topbar section .info li {
 	float: left;
-	margin-right: 1rem;
+	margin-right: 10px;
 }
 
 @media only screen and (max-width: 568px) {
@@ -217,10 +219,10 @@ nav section .logo {
 	float: left;
 }
 nav section .logo a {
-	font-size: 3rem;
+	font-size: 30px;
 	font-weight: bold;
 	color: #E6E6E6;
-	line-height: 6rem;
+	line-height: 60px;
 }
 
 nav section > ul {
@@ -230,7 +232,7 @@ nav section > ul {
 }
 nav section > ul > li {
 	float: left;
-	margin-left: .5rem;
+	margin-left: 5px;
 	display: block;
 }
 nav section > ul > li.current, nav section > ul > li:hover {
@@ -238,11 +240,11 @@ nav section > ul > li.current, nav section > ul > li:hover {
 	box-shadow: inset 0 -4px 0 0 #0B7EF4;
 }
 nav section > ul > li a {
-	padding: 2rem 1rem;
-	font-size: 1.4rem;
+	padding: 20px 10px;
+	font-size: 14px;
 	font-weight: bold;
 	color: #BDBDBD;
-	line-height: 6rem;
+	line-height: 60px;
 	cursor: pointer;
 }
 nav section > ul > li.current > a, nav section > ul > li:hover > a {
@@ -265,9 +267,9 @@ nav section > ul > li ul li:hover {
 	background-color: #454545;
 }
 nav section > ul > li ul li a {
-	padding: 1rem 2rem;
-	font-size: 1.2rem;
-	line-height: 3rem;
+	padding: 10px 20px;
+	font-size: 12px;
+	line-height: 30px;
 }
 nav section > ul > li ul li:hover a {
 	color: #E6E6E6;
@@ -275,20 +277,20 @@ nav section > ul > li ul li:hover a {
 
 nav section .menu-toggle {
 	float: right;
-	width: 4rem;
-	height: 4rem;
+	width: 40px;
+	height: 40px;
 	background-image: url(../images/icon/menu.png);
 	display: none;
 }
 
 @media only screen and (max-width: 568px) {
 nav section .menu-toggle {
-	margin: 1rem;
+	margin: 10px;
 	display: block;
 }
 nav section .menu-toggle:hover ~ ul,
 nav section .menu-toggle ~ ul:hover {
-	height: 21rem;
+	height: 210px;
 }
 
 nav section > ul {
@@ -303,7 +305,7 @@ nav section > ul > li {
 	margin-left: 0;
 }
 nav section > ul > li a {
-	line-height: 3rem;
+	line-height: 30px;
 }
 
 nav section > ul > li ul {
@@ -314,7 +316,7 @@ nav section > ul > li ul {
 	display: block;
 }
 nav section > ul > li:hover ul {
-	height: 15.6rem;
+	height: 156px;
 }
 }
 
@@ -377,33 +379,33 @@ nav section > ul > li:hover ul {
 }
 
 .wrap {
-	margin: 4rem 0;
+	margin: 40px 0;
 	font-family: sans-serif;
 }
 .wrap .pay {
 	margin: 0 auto;
-	max-width: 54rem;
+	max-width: 540px;
 	overflow: hidden;
 }
 .wrap .pay .alipay, .wrap .pay .wxpay {
-	width: 25rem;
-	height: 36.5rem;
+	width: 250px;
+	height: 365px;
 }
 
 .wrap .heart {
 	float: left;
-	margin: 0 2rem;
-	width: 5.5rem;
-	height: 5.5rem;
+	margin: 0 20px;
+	width: 64px;
+	height: 64px;
 	background-image: url(../images/heart.png);
 }
 
-@media only screen and (max-width: 44rem) {
+@media only screen and (max-width: 568px) {
 .wrap .pay {
-	width: 25rem;
+	width: 250px;
 }
 .wrap .pay .wxpay {
-	margin-top: 2rem;
+	margin-top: 20px;
 }
 }
 
@@ -419,14 +421,14 @@ nav section > ul > li:hover ul {
 	
 }
 .footerall section > ul {
-	padding: 2rem 0 4rem;
+	padding: 20px 0 40px;
 	width: 100%;
 	list-style-type: none;
 	overflow: hidden;
 }
 .footerall section > ul > li {
 	float: left;
-	margin-top: 2rem;
+	margin-top: 20px;
 	width: 25%;
 	text-align: center;
 }
@@ -435,7 +437,7 @@ nav section > ul > li:hover ul {
 	display: block;
 }
 .footerall section > ul > li > a:before {
-	margin: 0 auto 1rem;
+	margin: 0 auto 10px;
 	width: 80%;
 	height: 4px;
 	content: '';
@@ -452,7 +454,7 @@ nav section > ul > li:hover ul {
 	border-bottom: solid 1px transparent;
 }
 .footerall section > ul > li > a > span {
-	margin-top: 1rem;
+	margin-top: 10px;
 	text-align: center;
 	display: block;
 }
@@ -464,8 +466,8 @@ nav section > ul > li:hover ul {
 }
 
 .copyright {
-	padding: 2rem 0;
-	font-size: 1.2rem;
+	padding: 20px 0;
+	font-size: 12px;
 	color: #999999;
 	text-align: center;
 	background-color: #171717;
