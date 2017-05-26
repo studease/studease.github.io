@@ -281,7 +281,15 @@ _eventMapping = {
 			})(),
 			width: 640,
 			height: 400,
-			maxretries: 0
+			maxretries: -1,
+			events: {
+				onMessage: function(e) {
+					//player.shoot(e.data);
+				},
+				onUsers: function(e) {
+					console.log('Online: ' + e.channel.total + '.');
+				}
+			}
 		});
 	</script>
 </body>
