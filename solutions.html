@@ -209,13 +209,18 @@
 			width: 640,
 			height: 400,
 			aspectratio: '16:9',
-			file: '/vod/sample.mp4',
-			/*sources: [{
-				file: '/vod/sample.flv',
-				type: 'flv'
-			}],*/
+			//file: '/vod/sample.mp4',
+			sources: [{
+				file: 'rtmp://cclive.qcus.cn/teach/sample',
+				type: 'flash'
+			}, {
+				file: 'http://cchls.qcus.cn/teach/sample/index.m3u8',
+				type: 'def'
+			}],
 			type: 'live',
 			cors: 'no-cors',
+			bufferTime: 1,
+			maxretries: 0,
 			controls: true,
 			autoplay: false,
 			//poster: 'images/poster.png',
@@ -240,8 +245,8 @@
 		});
 		
 		chat = chatease('chat').setup({
-			url: 'ws://118.190.79.29/ch1?name=游客' + (function() {
-				var id = Math.ceil(Math.random() * 100);
+			url: 'ws://118.190.79.29/tony?name=游客' + (function() {
+				var id = Math.ceil(Math.random() * 1000);
 				return chatease.utils.pad(id, 3);
 			})(),
 			width: 320,
