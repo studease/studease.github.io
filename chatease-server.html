@@ -71,7 +71,7 @@
 				<li><a href='index.html#news'>NEWS</a></li>
 				<li><a href='solutions.html'>SOLUTIONS</a></li>
 				<li class='current'>
-					<a href='projects.html'>PROJECTS</a>
+					<a href='#'>PROJECTS</a>
 					<ul>
 						<li><a href='slicease.html'>slicease.js 3.0</a></li>
 						<li><a href='chatease.html'>chatease.js</a></li>
@@ -99,19 +99,19 @@
 				This is a websocket chat server coded in C.
 			</p>
 			
-			<h2>News</h2>
+			<h3>News</h3>
 			<ul class='u5 square'>
 				<li>First stable version for websocket chat released: chatease.js 1.0.05, chatease-server 1.0.14.<i> - Apr. 13, 2017</i></li>
 				<li><a href='chatease-server.html'>Chatease-server</a>, a websocket chat server coded in C, beta released.<i> - Aug. 4, 2016</i></li>
 			</ul>
 			
-			<h2>Preparation</h2>
+			<h3>Preparation</h3>
 			<p>
 				Supply an interface to return a JSON object formatted as /data/userinfo.json.<br/>
 				While the client is connecting to upgrade protocol, we send an identify upstream request to get the user info, which decides whether the operation will be satisfied.
 			</p>
 			
-			<h2>Build</h2>
+			<h3>Build</h3>
 			<p>
 				To build chatease-server, you need CMake 3.5 and or above. Then run:
 			</p>
@@ -124,7 +124,7 @@ cmake ..
 </pre>
 <br/>
 
-			<h2>Run</h2>
+			<h3>Run</h3>
 
 <?prettify lang=js linenums=true?>
 <pre class='prettyprint'>
@@ -132,12 +132,12 @@ sudo ./chatease-server
 </pre>
 <br/>
 
-			<h2>Websocket Client</h2>
+			<h3>Websocket Client</h3>
 			<p>
 				<a href='chatease.html' target='_blank'>chatease.js</a>
 			</p>
 			
-			<h2>Software License</h2>
+			<h3>Software License</h3>
 			<p>
 				MIT.
 			</p>

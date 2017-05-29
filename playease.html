@@ -44,6 +44,7 @@
 	
 	<script type='text/javascript' src='js/prettify/min/prettify.min.js'></script>
 	<script type='text/javascript' src='js/playease.min.js'></script>
+	<script type='text/javascript' src='js/chatease.min.js'></script>
 </head>
 <body ontouchstart=''>
 	<header>
@@ -72,7 +73,7 @@
 				<li><a href='index.html#news'>NEWS</a></li>
 				<li><a href='solutions.html'>SOLUTIONS</a></li>
 				<li class='current'>
-					<a href='projects.html'>PROJECTS</a>
+					<a href='#'>PROJECTS</a>
 					<ul>
 						<li><a href='slicease.html'>slicease.js 3.0</a></li>
 						<li><a href='chatease.html'>chatease.js</a></li>
@@ -99,22 +100,29 @@
 				This is a HTML5 media player for FLV live streaming. It also supports FLV VoD and original HTML5 media resources, eg. Ogg, Mpeg4, WebM, HLS, and RTMP streaming for MSIE with flash embed in.
 			</p>
 			
-			<h2>News</h2>
+			<h3>News</h3>
 			<ul class='u5 square'>
 				<li>Introduced self-adaption display, and added flash render for MSIE 8, in <a href='playease.html'>playease.js</a> 1.0.33.<i> - Apr. 27, 2017</i></li>
 				<li>Added UI controls for <a href='playease.html'>playease.js</a> at version 1.0.08.<i> - Apr. 17, 2017</i></li>
 				<li><a href='playease.html'>Playease.js</a>, an HTML5 media player for FLV live streaming, beta released.<i> - Feb. 10, 2017</i></li>
 			</ul>
 			
-			<h2>Example</h2>
-			<div id='fp' style='margin: 40px auto; width: 100%; max-width: 640px; top: 0; left: 0;'>
+			<h3>Example</h3>
+			<div class='ol-status' style='width: 100%; max-width: 640px;'>
+				<label>Online: </label>
+				<span id='ol-users'>0</span>
+			</div>
+			<div id='playwrap' style='width: 100%; max-width: 640px; top: 0; left: 0;'>
 				<div id='player'></div>
-				<div class='input-container'>
-					<span>
-						<input id='url-input' value='/vod/sample.mp4' />
-					</span>
-					<a class='btn red' onclick='playTheURL();'>Play</a>
-				</div>
+			</div>
+			<div id='chatwrap' style='width: 100%; max-width: 640px; height: 400px; display: none;'>
+				<div id='chat'></div>
+			</div>
+			<div class='input-container' style='width: 100%; max-width: 640px;'>
+				<span>
+					<input id='url-input' value='/vod/sample.mp4'>
+				</span>
+				<a class='btn red' onclick='playTheURL();'>Play</a>
 			</div>
 			
 			<p>
@@ -186,7 +194,7 @@ _defaults = {
 </pre>
 <br/>
 
-			<h2>Add Callbacks</h2>
+			<h3>Add Callbacks</h3>
 
 <?prettify lang=js linenums=true?>
 <pre class='prettyprint'>
@@ -229,7 +237,7 @@ _eventMapping = {
 </pre>
 <br/>
 
-			<h2>Interfaces</h2>
+			<h3>Interfaces</h3>
 			<ul class='u5 square'>
 				<li>
 					<a>play(url)</a>
@@ -276,7 +284,7 @@ _eventMapping = {
 			</ul>
 			<br/>
 			
-			<h2>Software License</h2>
+			<h3>Software License</h3>
 			<p>
 				MIT.
 			</p>
@@ -328,11 +336,15 @@ _eventMapping = {
 			prettyPrint();
 		};
 		
-		var fp = document.getElementById('fp');
-		var width = fp.clientWidth;
+		var player, chat, users;
+		
+		users = document.getElementById('ol-users');
+		
+		var pw = document.getElementById('playwrap');
+		var width = pw.clientWidth;
 		var height = width * 9 / 16 + 40;
 		
-		var player = playease('player').setup({
+		player = playease('player').setup({
 			width: width,
 			height: height,
 			aspectratio: '16:9',
@@ -354,11 +366,33 @@ _eventMapping = {
 			},
 			events: {
 				onFullpage: function(e) {
-					fp.style.margin = e.exit ? '40px auto' : '0';
-					fp.style.height = e.exit ? '' : '100%';
-					fp.style.position = e.exit ? '' : 'fixed';
-					fp.style.maxWidth = e.exit ? '640px' : '100%';
-					fp.style.zIndex = e.exit ? '' : 100;
+					pw.style.margin = e.exit ? '40px auto' : '0';
+					pw.style.height = e.exit ? '' : '100%';
+					pw.style.position = e.exit ? '' : 'fixed';
+					pw.style.maxWidth = e.exit ? '640px' : '100%';
+					pw.style.zIndex = e.exit ? '' : 100;
+				}
+			}
+		});
+		
+		chat = chatease('chat').setup({
+			url: 'ws://118.190.79.29/001?name=tony&role=48',
+			width: 320,
+			height: 400,
+			maxretries: -1,
+			render: {
+				name: 'def',
+				swf: 'swf/chatease.swf'
+			},
+			events: {
+				onIdent: function(e) {
+					users.innerText = e.channel.total || 0;
+				},
+				onMessage: function(e) {
+					player.shoot(e.data);
+				},
+				onUsers: function(e) {
+					users.innerText = e.channel.total;
 				}
 			}
 		});

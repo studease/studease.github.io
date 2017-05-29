@@ -40,9 +40,7 @@
 	<![endif]-->
 	
 	<link type='text/css' rel='stylesheet' href='css/style.css' />
-	<link type='text/css' rel='stylesheet' href='css/prettify.min.css' />
 	
-	<script type='text/javascript' src='js/prettify/min/prettify.min.js'></script>
 	<script type='text/javascript' src='js/playease.min.js'></script>
 	<script type='text/javascript' src='js/chatease.min.js'></script>
 </head>
@@ -73,7 +71,7 @@
 				<li><a href='index.html#news'>NEWS</a></li>
 				<li class='current'><a href='solutions.html'>SOLUTIONS</a></li>
 				<li>
-					<a href='projects.html'>PROJECTS</a>
+					<a href='#'>PROJECTS</a>
 					<ul>
 						<li><a href='slicease.html'>slicease.js 3.0</a></li>
 						<li><a href='chatease.html'>chatease.js</a></li>
@@ -92,7 +90,7 @@
 	<div class='wrap'>
 		<div class='center'>
 		<section>
-			<h2>VIDEO & MESSAGE SOLUTIONS</h2>
+			<h3>VIDEO & MESSAGE SOLUTIONS</h3>
 			<p>
 				Beyond our open-sourced projects and rich experience in live broadcast field,<br/>
 				we provide solutions to support your online video and real-time message strategy<br/>
@@ -103,11 +101,16 @@
 		
 		<div class=''>
 		<section>
+			<div class='ol-status'>
+				<label>Online: </label>
+				<span id='ol-users'>0</span>
+			</div>
+			
 			<div class='samplewrap'>
-				<div class='playwrap' id='playwrap'>
+				<div id='playwrap'>
 					<div id='player'></div>
 				</div>
-				<div class='chatwrap' id='chatwrap'>
+				<div id='chatwrap'>
 					<div id='chat'></div>
 				</div>
 			</div>
@@ -204,7 +207,10 @@
 	</footer>
 	
 	<script type='text/javascript'>
-		var player, chat;
+		var player, chat, users;
+		
+		users = document.getElementById('ol-users');
+		
 		player = playease('player').setup({
 			width: 640,
 			height: 400,
@@ -253,11 +259,14 @@
 			height: 400,
 			maxretries: -1,
 			events: {
+				onIdent: function(e) {
+					users.innerText = e.channel.total || 0;
+				},
 				onMessage: function(e) {
 					player.shoot(e.data);
 				},
 				onUsers: function(e) {
-					console.log('Online: ' + e.channel.total + '.');
+					users.innerText = e.channel.total;
 				}
 			}
 		});

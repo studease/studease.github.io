@@ -71,7 +71,7 @@
 				<li><a href='index.html#news'>NEWS</a></li>
 				<li><a href='solutions.html'>SOLUTIONS</a></li>
 				<li>
-					<a href='projects.html'>PROJECTS</a>
+					<a href='#'>PROJECTS</a>
 					<ul>
 						<li><a href='slicease.html'>slicease.js 3.0</a></li>
 						<li><a href='chatease.html'>chatease.js</a></li>
@@ -88,11 +88,71 @@
 	</header>
 	
 	<div class='wrap'>
-		<div>
+		<article id='slicease'>
 		<section>
-			
+			<h3>slicease.js</h3>
+			<p>
+				Known Issues and Planned Features: 
+			</p>
+			<ul class='u5 square'>
+				<li>Self-adaption and resize feature.</li>
+				<li>Reversed rolling.</li>
+				<li>Control component.</li>
+			</ul>
 		</section>
-		</div>
+		</article>
+		
+		<article id='chatease'>
+		<section>
+			<h3>chatease.js</h3>
+			<p>
+				Known Issues and Planned Features: 
+			</p>
+			<ul class='u5 square'>
+				<li>
+					Couldn't establish connection in IE8/9.<br/>
+					<p><a>A: </a>Make sure that flash is installed and the URL of swf is specified correctly, while websocket is not supported by IE8/9 natively.</p>
+				</li>
+				<li>Nickname format error in some version of IE10/11.</li>
+			</ul>
+		</section>
+		</article>
+		
+		<article id='chatease-server'>
+		<section>
+			<h3>chatease-server</h3>
+			<p>
+				Known Issues and Planned Features: 
+			</p>
+			<ul class='u5 square'>
+				<li>Online user amount doesn't specified in "onIdent" callback.</li>
+				<li>Bad upgrade request won't get the explanation before the connection is closed.</li>
+				<li>Read and parse configuration file.</li>
+				<li>Smooth restart.</li>
+				<li>Backstage management system.</li>
+			</ul>
+		</section>
+		</article>
+		
+		<article id='playease'>
+		<section>
+			<h3>playease.js</h3>
+			<p>
+				Known Issues and Planned Features: 
+			</p>
+			<ul class='u5 square'>
+				<li>
+					"Player is not ready yet!"<br/>
+					<p><a>A: </a>Make sure that flash is installed and the URL of swf is specified correctly, while video tag is not supported by IE8 natively.</p>
+				</li>
+				<li>Buffering display.</li>
+				<li>Logo component.</li>
+				<li>Context menu component.</li>
+				<li>Bitrate menu overlay.</li>
+				<li>Buffer control in "flv" and "wss" renders.</li>
+			</ul>
+		</section>
+		</article>
 	</div>
 	
 	<footer>

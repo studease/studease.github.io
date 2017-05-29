@@ -16,13 +16,13 @@ html {
 
 body {
 	margin: 0;
-	font-family: Karbon, Helvetica, Arial, sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-style: normal;
 	font-size: 14px;
-	line-height: 18px;
+	line-height: 1.5;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	color: #E6E6E6;
+	color: #BDBDBD;
 	background-color: #303030;
 }
 
@@ -32,6 +32,30 @@ header, footer, .wrap {
 
 .topbar, nav, .footerall, .copyright {
 	width: 100%;
+}
+
+article:first-child {
+	margin-top: 0;
+}
+article {
+	margin: 40px 0;
+}
+article section {
+	padding-top: 20px;
+	border-top: 1px solid #555A64;
+}
+article section img {
+	margin: 0 auto !important;
+	max-width: 100% !important;
+	height: auto !important;
+	display: block;
+}
+article section .btn-container {
+	margin-top: 40px;
+	text-align: center;
+}
+article section .btn-container .btn {
+	padding: 10px 18px;
 }
 
 section {
@@ -53,12 +77,13 @@ a:active, a:focus, a:hover {
 }
 
 i {
+	font-size: 12px;
 	color: #BDBDBD;
 }
 
-input {
+input, textarea {
 	padding: 2px 6px;
-	font-family: sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
 	border: none;
 }
@@ -93,8 +118,30 @@ input {
 .btn.red:hover {
 	background-color: #97052D;
 }
+.btn.blue {
+	color: #FFFFFF;
+	background-color: #0B7EF4;
+}
+.btn.blue:hover {
+	background-color: #0966C3;
+}
+.btn.white {
+	color: #0B7EF4;
+	background-color: #FFFFFF;
+}
+.btn.white:hover {
+	background-color: #E6E6E6;
+}
+.btn.gray {
+	color: #695F4B;
+	background-color: #E6E6E6;
+}
+.btn.gray:hover {
+	background-color: #96A0B4;
+}
 
 h1, h2, h3, h4, h5, h6 {
+	color: #E6E6E6;
 	font-weight: bold;
 }
 h1, h2, h3 {
@@ -210,6 +257,7 @@ ul.circle {
 
 
 nav {
+	font-family: Karbon, Helvetica, Arial, 'Open Sans', sans-serif;
 	background-color: #242424;
 }
 nav section {
@@ -380,8 +428,15 @@ nav section > ul > li:hover ul {
 
 .wrap {
 	margin: 40px 0;
-	font-family: sans-serif;
 }
+
+.wrap a:not(.btn):link, .wrap a:not(.btn):visited {
+	color: #FFFFFF;
+}
+.wrap a:active:not(.btn):link, .wrap a:focus:not(.btn):link, .wrap a:hover:not(.btn):link {
+	text-decoration: underline;
+}
+
 .wrap .pay {
 	margin: 0 auto;
 	max-width: 540px;
@@ -451,6 +506,7 @@ nav section > ul > li:hover ul {
 	color: #E6E6E6;
 }
 .footerall section > ul > li > a:hover strong {
+	text-decoration: underline;
 	border-bottom: solid 1px transparent;
 }
 .footerall section > ul > li > a > span {

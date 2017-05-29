@@ -40,6 +40,8 @@
 	<![endif]-->
 	
 	<link type='text/css' rel='stylesheet' href='css/style.css' />
+	
+	<script type='text/javascript' src='js/chatease.min.js'></script>
 </head>
 <body ontouchstart=''>
 	<header>
@@ -68,7 +70,7 @@
 				<li><a href='index.html#news'>NEWS</a></li>
 				<li><a href='solutions.html'>SOLUTIONS</a></li>
 				<li>
-					<a href='projects.html'>PROJECTS</a>
+					<a href='#'>PROJECTS</a>
 					<ul>
 						<li><a href='slicease.html'>slicease.js 3.0</a></li>
 						<li><a href='chatease.html'>chatease.js</a></li>
@@ -85,9 +87,25 @@
 	</header>
 	
 	<div class='wrap'>
-		<div>
+		<div class='center'>
 		<section>
-			
+			<h3>Contact Us</h3>
+			<p>
+				Talk with a video expert about how to meet your video goals.<br/><br/>
+				<i>(Dial the number or post to the email address at the top or bottom of the page if you don't get a replay timely.)</i>
+			</p>
+		</section>
+		</div>
+		
+		<div class=''>
+		<section>
+			<div class='ol-status' style='width: 100%; max-width: 640px;'>
+				<label>Online: </label>
+				<span id='ol-users'>0</span>
+			</div>
+			<div id='chatwrap' style='width: 100%; max-width: 640px; height: 400px;'>
+				<div id='chat'></div>
+			</div>
 		</section>
 		</div>
 	</div>
@@ -132,6 +150,29 @@
 	</footer>
 	
 	<script type='text/javascript'>
+		var chat, users;
 		
+		users = document.getElementById('ol-users');
+		
+		chat = chatease('chat').setup({
+			url: 'ws://118.190.79.29/001?name=游客' + (function() {
+				var id = Math.ceil(Math.random() * 1000);
+				return chatease.utils.pad(id, 3);
+			})(),
+			width: 640,
+			height: 400,
+			maxretries: -1,
+			events: {
+				onIdent: function(e) {
+					users.innerText = e.channel.total || 0;
+				},
+				onMessage: function(e) {
+					//player.shoot(e.data);
+				},
+				onUsers: function(e) {
+					users.innerText = e.channel.total;
+				}
+			}
+		});
 	</script>
 </body>
