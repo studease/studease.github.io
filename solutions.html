@@ -217,10 +217,10 @@
 			aspectratio: '16:9',
 			//file: '/vod/sample.mp4',
 			sources: [{
-				file: 'rtmp://cclive.qcus.cn/teach/sample',
+				file: 'rtmp://cclive.qcus.cn/teach/stream01',
 				type: 'flash'
 			}, {
-				file: 'http://cchls.qcus.cn/teach/sample/index.m3u8',
+				file: 'http://cchls.qcus.cn/teach/stream01/index.m3u8',
 				type: 'def'
 			}],
 			type: 'live',
@@ -251,10 +251,7 @@
 		});
 		
 		chat = chatease('chat').setup({
-			url: 'ws://118.190.79.29/001?name=游客' + (function() {
-				var id = Math.ceil(Math.random() * 1000);
-				return chatease.utils.pad(id, 3);
-			})(),
+			url: 'ws://118.190.79.29/ch1?name=&role=64',
 			width: 320,
 			height: 400,
 			maxretries: -1,
