@@ -257,7 +257,7 @@
 		
 		var params = window.location.search;
 		if (params) {
-			url = 'ws://118.190.79.29/ch1?name=&' + params.substr(1);
+			url = 'ws://118.190.79.29/ch1' + params;
 		}
 		
 		chat = chatease('chat').setup({
