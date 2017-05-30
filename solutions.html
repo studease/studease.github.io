@@ -250,8 +250,18 @@
 			}
 		});
 		
+		var url = 'ws://118.190.79.29/ch1?name=游客' + (function() {
+			var id = Math.ceil(Math.random() * 1000);
+			return chatease.utils.pad(id, 3);
+		})();
+		
+		var params = window.location.search;
+		if (params) {
+			url = 'ws://118.190.79.29/ch1?name=&' + params.substr(1);
+		}
+		
 		chat = chatease('chat').setup({
-			url: 'ws://118.190.79.29/ch1?name=&role=64',
+			url: url,
 			width: 320,
 			height: 400,
 			maxretries: -1,
