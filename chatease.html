@@ -292,7 +292,7 @@ _eventMapping = {
 			maxretries: -1,
 			events: {
 				onIdent: function(e) {
-					users.innerText = e.channel.total || 0;
+					users.innerText = e.channel.total;
 				},
 				onMessage: function(e) {
 					//player.shoot(e.data);
