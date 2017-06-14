@@ -107,8 +107,11 @@
 			
 			<h3>Preparation</h3>
 			<p>
-				Supply an interface to return a JSON object formatted as /data/userinfo.json.<br/>
-				While the client is connecting to upgrade protocol, we send an identify upstream request to get the user info, which decides whether the operation will be satisfied.
+			For Enterprise Edition, supply an interface to return a JSON object formatted as /data/userinfo.json.</br>
+			While the client is connecting to upgrade protocol, we send an identify upstream request to get the user info, which decides whether the operation will be satisfied.
+			</p>
+			<p>
+			The Preview Edition won't send the identify upstream request.
 			</p>
 			
 			<h3>Build</h3>
