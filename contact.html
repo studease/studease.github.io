@@ -155,16 +155,15 @@
 		users = document.getElementById('ol-users');
 		
 		chat = chatease('chat').setup({
-			url: (function() {
-				var url = 'ws://118.190.79.29/001';
+			url: 'ws://118.190.79.29/001' + (function() {
 				var params = window.location.search;
 				if (params) {
-					return url + params;
+					return params;
 				}
 				
 				var id = Math.ceil(Math.random() * 1000);
 				
-				return url + '?name=游客' + chatease.utils.pad(id, 3);
+				return '?name=游客' + chatease.utils.pad(id, 3);
 			})(),
 			width: 640,
 			height: 400,
