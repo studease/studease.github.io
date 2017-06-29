@@ -305,6 +305,9 @@ _eventMapping = {
 				},
 				onUsers: function(e) {
 					users.innerText = e.channel.total;
+				},
+				onClose: function(e) {
+					users.innerText = 0;
 				}
 			}
 		});
