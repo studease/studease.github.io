@@ -283,5 +283,13 @@
 				}
 			}
 		});
+		
+		if (playease.utils.isMobile()) {
+			window.addEventListener('resize', function(e) {
+				setTimeout(function() {
+					player.fullscreen(!playease.utils.isHorizontal());
+				}, 500);
+			});
+		}
 	</script>
 </body>

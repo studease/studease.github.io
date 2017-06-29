@@ -413,6 +413,14 @@ _eventMapping = {
 			}
 		});
 		
+		if (playease.utils.isMobile()) {
+			window.addEventListener('resize', function(e) {
+				setTimeout(function() {
+					player.fullscreen(!playease.utils.isHorizontal());
+				}, 500);
+			});
+		}
+		
 		function playTheURL() {
 			var input = document.getElementById('url-input');
 			var url = input.value;
