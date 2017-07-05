@@ -141,11 +141,13 @@ playease('player').setup({
         file: '/vod/sample.mp4',
         type: 'def'
     }],*/
-    type: 'vod',
-    cors: 'no-cors',
+    mode: 'vod',
     controls: true,
     autoplay: true,
     poster: 'sample.png',
+    loader: {
+        mode: 'cors'
+    },
     render: {
         name: 'flv'
     }
@@ -162,32 +164,38 @@ playease('player').setup({
 _defaults = {
     width: 640,
     height: 400,
+    aspectratio: '16:9',
     file: '',
     sources: [],
-    type: rendertypes.VOD,
-    cors: 'no-cors',
+    mode: rendermodes.VOD,
     bufferTime: .1,
     maxretries: 0,
     retrydelay: 3000,
     controls: true,
     autoplay: true,
+    airplay: 'allow',
     playsinline: true,
     poster: '',
     report: true,
     debug: false,
+    loader: {
+        mode: iomodes.CORS
+    },
     bulletscreen: {
         enable: true,
         fontsize: 14,
+        interval: 30,
+        duration: 12000,
         alpha: alphas.LOW,
         position: positions.FULLSCREEN,
         visible: true
     },
     render: {
-        name: rendermodes.DEFAULT,
+        name: rendertypes.DEFAULT,
         swf: 'swf/playease.swf'
     },
     skin: {
-        name: skinmodes.DEFAULT
+        name: skintypes.DEFAULT
     },
     events: {}
 };
@@ -353,13 +361,15 @@ _eventMapping = {
 				file: '/vod/sample.flv',
 				type: 'flv'
 			}],*/
-			type: 'vod',
-			cors: 'cors',
+			mode: 'vod',
 			bufferTime: 1,
 			maxretries: 0,
 			controls: true,
 			autoplay: false,
 			poster: 'images/poster.png',
+			loader: {
+				mode: 'cors'
+			},
 			render: {
 				name: 'def',
 				swf: 'swf/playease.swf'
