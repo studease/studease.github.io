@@ -356,18 +356,19 @@ _eventMapping = {
 			width: width,
 			height: height,
 			aspectratio: '16:9',
-			file: '/vod/sample.mp4',
-			/*sources: [{
-				file: '/vod/sample.flv',
+			//file: '/vod/sample.mp4',
+			sources: [{
+				file: 'http://ccws.qcus.cn/teach/stream02.flv',
 				type: 'flv'
-			}],*/
-			mode: 'vod',
+			}],
+			mode: 'live',
 			bufferTime: 1,
 			maxretries: 0,
 			controls: true,
 			autoplay: false,
 			poster: 'images/poster.png',
 			loader: {
+				name: 'websocket-loader',
 				mode: 'cors'
 			},
 			render: {
