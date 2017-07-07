@@ -359,7 +359,7 @@ _eventMapping = {
 			//file: '/vod/sample.mp4',
 			sources: [{
 				file: 'http://ccws.qcus.cn/teach/stream02.flv',
-				type: 'flv'
+				type: 'wss'
 			}, {
 				file: 'rtmp://cclive.qcus.cn/teach/stream02',
 				type: 'flash'
@@ -374,7 +374,6 @@ _eventMapping = {
 			autoplay: false,
 			poster: 'images/poster.png',
 			loader: {
-				name: 'websocket-loader',
 				mode: 'cors'
 			},
 			render: {
