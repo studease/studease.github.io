@@ -358,11 +358,17 @@ _eventMapping = {
 			aspectratio: '16:9',
 			//file: '/vod/sample.mp4',
 			sources: [{
+				file: 'http://ccflv.qcus.cn/teach/stream02.flv',
+				type: 'flv',
+				label: '1080P-FLV'
+			}, {
 				file: 'ws://ccws.qcus.cn/teach/stream02.flv',
-				type: 'flv'
+				type: 'flv',
+				label: '1080P-WS'
 			}, {
 				file: 'rtmp://cclive.qcus.cn/teach/stream02',
-				type: 'flash'
+				type: 'flash',
+				label: '1080P-FLASH'
 			}, {
 				file: 'http://cchls.qcus.cn/teach/stream02/index.m3u8',
 				type: 'def'
@@ -375,6 +381,9 @@ _eventMapping = {
 			poster: 'images/poster.png',
 			loader: {
 				mode: 'cors'
+			},
+			logo: {
+				file: ''
 			},
 			render: {
 				name: 'def',
