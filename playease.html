@@ -375,22 +375,15 @@ _eventMapping = {
 			aspectratio: '16:9',
 			//file: '/vod/sample.mp4',
 			sources: [{
-				file: 'http://ccflv.qcus.cn/teach/stream02.flv',
+				file: '/vod/sample.flv',
 				type: 'flv',
 				label: 'HTTP-FLV'
 			}, {
-				file: 'ws://ccws.qcus.cn/teach/stream02.flv',
-				type: 'flv',
-				label: 'WS-FLV'
-			}, {
-				file: 'rtmp://cclive.qcus.cn/teach/stream02',
-				type: 'flash',
-				label: 'RTMP-STREAM'
-			}, {
-				file: 'http://cchls.qcus.cn/teach/stream02/index.m3u8',
-				type: 'def'
+				file: '/vod/sample.mp4',
+				type: 'def',
+				label: 'HTTP-MP4'
 			}],
-			mode: 'live',
+			mode: 'vod',
 			bufferTime: 1,
 			maxretries: 0,
 			controls: true,
