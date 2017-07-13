@@ -417,15 +417,6 @@ nav section > ul > li:hover ul {
  * Wrap
  */
 
-.alipay {
-	float: left;
-	background-image: url(../images/alipay.jpg);
-}
-.wxpay {
-	float: right;
-	background-image: url(../images/wxpay.jpg);
-}
-
 .wrap {
 	margin: 40px 0;
 	text-align: justify;
@@ -449,13 +440,19 @@ nav section > ul > li:hover ul {
 	width: 250px;
 	height: 365px;
 }
+.wrap .pay .alipay {
+	float: left;
+}
+.wrap .pay .wxpay {
+	float: right;
+}
 
 .wrap .heart {
 	float: left;
 	margin: 0 20px;
 	width: 64px;
 	height: 64px;
-	background-image: url(../images/heart.png);
+	background-image: url(../images/content/heart.png);
 }
 
 @media only screen and (max-width: 568px) {
