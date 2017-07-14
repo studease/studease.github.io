@@ -64,6 +64,10 @@
 }
 }
 
+.pe-skin-def .pe-contextmenu ul li a:hover:not(.btn):link {
+	text-decoration: none;
+}
+
 
 /**
  * input-container
