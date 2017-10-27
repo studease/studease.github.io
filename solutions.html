@@ -271,10 +271,16 @@
 				},
 				onFullpage: function(e) {
 					var pw = document.getElementById('playwrap');
-					pw.style.width = e.exit ? '' : '100%';
+					pw.style.width = e.exit ? '' : '80%';
 					pw.style.height = e.exit ? '' : '100%';
 					pw.style.position = e.exit ? '' : 'fixed';
 					pw.style.zIndex = e.exit ? '' : 100;
+					
+					var cw = document.getElementById('chatwrap');
+					cw.style.width = e.exit ? '' : '20%';
+					cw.style.height = e.exit ? '' : '100%';
+					cw.style.position = e.exit ? '' : 'fixed';
+					cw.style.zIndex = e.exit ? '' : 99;
 					
 					if (chat) {
 						chat.resize();
