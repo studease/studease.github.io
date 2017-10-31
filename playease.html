@@ -76,9 +76,9 @@
 					<a href='#'>PROJECTS</a>
 					<ul>
 						<li><a href='slicease.html'>slicease.js 3.0</a></li>
+						<li><a href='playease.html'>playease.js</a></li>
 						<li><a href='chatease.html'>chatease.js</a></li>
 						<li><a href='chatease-server.html'>chatease-server</a></li>
-						<li><a href='playease.html'>playease.js</a></li>
 						<li><a href='http://rtmpmate.com' target='_blank'>rtmpmate</a></li>
 					</ul>
 				</li>
@@ -139,6 +139,7 @@
 playease('player').setup({
     width: 640,
     height: 400,
+    aspectratio: '16:9',
     file: '/vod/sample.flv',
     /*sources: [{
         file: 'http://127.0.0.1/live/sample.flv',
@@ -174,7 +175,8 @@ playease('player').setup({
     //poster: 'sample.png',
     //report: true,
     loader: {
-        //name: 'xhr-chunked-loader',
+        name: 'xhr-chunked-loader',
+        chunkSize: 2 * 1024 * 1024,
         mode: 'cors'
     },
     logo: {
@@ -189,6 +191,7 @@ playease('player').setup({
     },*/
     render: {
         name: 'def',
+        bufferLength: 4 * 1024 * 1024,
         swf: '../swf/playease.swf'
     }
 });
@@ -311,16 +314,19 @@ _eventMapping = {
 					<a>report()</a>
 				</li>
 				<li>
-					<a>mute()</a>
+					<a>mute(mute)</a>
 				</li>
 				<li>
 					<a>volume(vol)</a>
 				</li>
 				<li>
+					<a>videoOff(off)</a>
+				</li>
+				<li>
 					<a>hd(index)</a>
 				</li>
 				<li>
-					<a>bullet()</a>
+					<a>bullet(enable)</a>
 				</li>
 				<li>
 					<a>fullpage(exit)</a>
@@ -390,7 +396,6 @@ _eventMapping = {
 		};
 		
 		var player, chat, users;
-		
 		users = document.getElementById('ol-users');
 		
 		var pw = document.getElementById('playwrap');
@@ -417,7 +422,10 @@ _eventMapping = {
 			controls: true,
 			autoplay: false,
 			//poster: 'images/content/poster.png',
+			//report: true,
 			loader: {
+				name: 'xhr-chunked-loader',
+				chunkSize: 2 * 1024 * 1024,
 				mode: 'cors'
 			},
 			logo: {
@@ -432,11 +440,12 @@ _eventMapping = {
 			},
 			render: {
 				name: 'def',
+				bufferLength: 4 * 1024 * 1024,
 				swf: 'swf/playease.swf'
 			},
 			events: {
 				onFullpage: function(e) {
-					pw.style.margin = e.exit ? '40px auto' : '0';
+					pw.style.margin = e.exit ? '0 auto' : '0';
 					pw.style.height = e.exit ? '' : '100%';
 					pw.style.position = e.exit ? '' : 'fixed';
 					pw.style.maxWidth = e.exit ? '640px' : '100%';
