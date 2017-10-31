@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>TEST PAGE</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	<meta name="viewport" content="user-scalable=no, width=device-width" />
+	
+	<style type='text/css' media='screen'>
+		body {
+			margin: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrapper" style="background-color:#999;width:100%;height:100%;">
+		<video id="vid" controls x5-playsinline x5-video-player-type="h5" x5-video-player-fullscreen="true" src="http://pili-vod.qiniu.qcus.cn/sample.mp4" style="background-color:#000;width:100%;height:100%;"></video>
+	</div>
+	
+<script type="text/javascript">
+	var _wrapper = document.getElementById('wrapper');
+	var _video = document.getElementById('vid');
+	_video.addEventListener("x5videoenterfullscreen", function() {
+		//alert('x5videoenterfullscreen');
+		_video.style["object-position"]= "0px 0px";
+	});
+	/*_video.addEventListener("x5videoexitfullscreen", function() {
+		alert('x5videoexitfullscreen');
+	});*/
+	
+	window.onresize = function() {
+		//alert('onresize ' + window.innerWidth + ' ' + window.innerHeight);
+		/*_video.style.width = 640 + "px";
+		_video.style.height = 360 + "px";*/
+	};
+	
+	document.addEventListener('fullscreenchange', function(e) {
+		alert('fullscreenchange');
+	});
+	document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+		//alert('WeixinJSBridgeReady');
+		//_video.play();
+	});
+	
+	//alert(navigator.userAgent);
+</script>
+</body>
