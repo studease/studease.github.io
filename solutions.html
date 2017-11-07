@@ -207,10 +207,17 @@
 	</footer>
 	
 	<script type='text/javascript'>
-		var player, chat, users;
-		users = document.getElementById('ol-users');
+		var player, chat;
+		var users = document.getElementById('ol-users');
+		var pw = document.getElementById('playwrap');
+		var cw = document.getElementById('chatwrap');
+		var events = playease.events;
 		
-		player = playease('player').setup({
+		player = playease('player');
+		player.addEventListener(events.PLAYEASE_READY, onReady);
+		player.addEventListener(events.PLAYEASE_FULLPAGE, onFullpage);
+		player.addEventListener(events.RESIZE, onResize);
+		player.setup({
 			width: 640,
 			height: 400,
 			aspectratio: '16:9',
@@ -264,61 +271,69 @@
 			render: {
 				name: 'def',
 				swf: 'swf/playease.swf'
-			},
-			events: {
-				onReady: function(e) {
-					if (chat) {
-						chat.resize();
-					}
-				},
-				onFullpage: function(e) {
-					var pw = document.getElementById('playwrap');
-					pw.style.position = e.exit ? '' : 'fixed';
-					pw.style.zIndex = e.exit ? '' : 100;
-					
-					var cw = document.getElementById('chatwrap');
-					cw.style.position = e.exit ? '' : 'fixed';
-					cw.style.zIndex = e.exit ? '' : 99;
-					
-					if (playease.utils.isMobile()) {
-						pw.style.width = e.exit ? '' : '100%';
-						pw.style.height = e.exit ? '' : '44%';
-						
-						cw.style.width = e.exit ? '' : '100%';
-						cw.style.height = e.exit ? '' : '56%';
-					} else {
-						pw.style.width = e.exit ? '' : '80%';
-						pw.style.height = e.exit ? '' : '100%';
-						
-						cw.style.width = e.exit ? '' : '20%';
-						cw.style.height = e.exit ? '' : '100%';
-					}
-					
-					if (chat) {
-						chat.resize();
-					}
-				}/*,
-				onResize: function(e) {
-					if (playease.utils.isAndroid() && playease.utils.isQQBrowser()) {
-						var video = document.getElementById('player').firstChild.lastChild;
-						video.style.width = window.innerWidth + "px";
-						video.style.height = window.innerHeight + "px";
-						video.style['object-position'] = 'center top';
-						
-						var controlbar = document.getElementById('player').childNodes[1];
-						controlbar.style.top = e.height - 40 + "px";
-						controlbar.style.position = "absolute";
-						
-						var next = document.getElementById('chatwrap');
-						next.style.top = e.height + "px";
-						next.style.position = "absolute";
-					}
-				}*/
 			}
 		});
 		
-		chat = chatease('chat').setup({
-			url: 'ws://118.190.79.29/001' + (function() {
+		function onReady(e) {
+			if (chat) {
+				chat.resize();
+			}
+		}
+		
+		function onFullpage(e) {
+			pw.style.position = e.exit ? '' : 'fixed';
+			pw.style.zIndex = e.exit ? '' : 100;
+			
+			cw.style.position = e.exit ? '' : 'fixed';
+			cw.style.zIndex = e.exit ? '' : 99;
+			
+			if (playease.utils.isMobile()) {
+				pw.style.width = e.exit ? '' : '100%';
+				pw.style.height = e.exit ? '' : '44%';
+				
+				cw.style.width = e.exit ? '' : '100%';
+				cw.style.height = e.exit ? '' : '56%';
+			} else {
+				pw.style.width = e.exit ? '' : '80%';
+				pw.style.height = e.exit ? '' : '100%';
+				
+				cw.style.width = e.exit ? '' : '20%';
+				cw.style.height = e.exit ? '' : '100%';
+			}
+			
+			if (chat) {
+				chat.resize();
+			}
+		}
+		
+		function onResize(e) {
+			if (playease.utils.isAndroid() && playease.utils.isQQBrowser()) {
+				var video = document.getElementById('player').firstChild.lastChild;
+				video.style.width = window.innerWidth + "px";
+				video.style.height = window.innerHeight + "px";
+				video.style['object-position'] = 'center top';
+				
+				var controlbar = document.getElementById('player').childNodes[1];
+				controlbar.style.top = e.height - 40 + "px";
+				controlbar.style.position = "absolute";
+				
+				var next = document.getElementById('chatwrap');
+				next.style.top = e.height + "px";
+				next.style.bottom = '0px';
+				next.style.position = "absolute";
+				next.style.zIndex = 999;
+			}
+		}
+		
+		events = chatease.events;
+		
+		chat = chatease('chat');
+		chat.addEventListener(events.CHATEASE_INDENT, onIdent);
+		chat.addEventListener(events.CHATEASE_MESSAGE, onMessage);
+		chat.addEventListener(events.CHATEASE_USERS, onUsers);
+		chat.addEventListener(events.CHATEASE_CLOSE, onClose);
+		chat.setup({
+			url: 'ws://chat.qcus.cn/001' + (function() {
 				var params = window.location.search;
 				if (params) {
 					return params;
@@ -331,21 +346,30 @@
 			width: 320,
 			height: 400,
 			maxretries: -1,
-			events: {
-				onIdent: function(e) {
-					users.innerText = e.channel.total;
-				},
-				onMessage: function(e) {
-					player.shoot(e.data);
-				},
-				onUsers: function(e) {
-					users.innerText = e.channel.total;
-				},
-				onClose: function(e) {
-					users.innerText = 0;
-				}
+			render: {
+				name: 'def',
+				title: 'CHATEASE ' + chatease.version,
+				swf: 'swf/chatease.swf'
 			}
 		});
+		
+		function onIdent(e) {
+			users.innerText = e.channel.total;
+		}
+		
+		function onMessage(e) {
+			if (player) {
+				player.shoot(e.data);
+			}
+		}
+		
+		function onUsers(e) {
+			users.innerText = e.channel.total;
+		}
+		
+		function onClose(e) {
+			users.innerText = 0;
+		}
 		
 		if (playease.utils.isMobile()) {
 			window.addEventListener('resize', function(e) {

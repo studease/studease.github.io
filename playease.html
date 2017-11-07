@@ -134,9 +134,21 @@
 
 <?prettify lang=js linenums=true?>
 <pre class='prettyprint'>
-&lt;div id='player'&gt;&lt;/div&gt;
+&lt;div id='playwrap' style='margin: 0 auto; width: 100%; max-width: 640px; top: 0; left: 0;'&gt;
+	&lt;div id='player'&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id='others' style='width: 100%;'&gt;
+	...
+&lt;/div&gt;
 ...
-playease('player').setup({
+
+var pw = document.getElementById('playwrap');
+var events = playease.events;
+
+var player = playease('player');
+player.addEventListener(events.PLAYEASE_FULLPAGE, onFullpage);
+player.addEventListener(events.RESIZE, onResize);
+player.setup({
     width: 640,
     height: 400,
     aspectratio: '16:9',
@@ -195,6 +207,36 @@ playease('player').setup({
         swf: '../swf/playease.swf'
     }
 });
+
+function onFullpage(e) {
+    pw.style.margin = e.exit ? '0 auto' : '0';
+    pw.style.height = e.exit ? '' : '100%';
+    pw.style.position = e.exit ? '' : 'fixed';
+    pw.style.maxWidth = e.exit ? '640px' : '100%';
+    pw.style.zIndex = e.exit ? '' : '99';
+}
+
+function onResize(e) {
+    // x5-playsinline
+    if (playease.utils.isAndroid() && playease.utils.isQQBrowser()) {
+        var video = document.getElementById('player').firstChild.lastChild;
+        video.style.width = window.innerWidth + 'px';
+        video.style.height = window.innerHeight + 'px';
+        video.style['object-position'] = 'center top';
+        
+        var controlbar = document.getElementById('player').childNodes[1];
+        controlbar.style.top = e.height - 40 + 'px';
+        controlbar.style.position = 'absolute';
+        
+        var next = document.getElementById('others');
+        next.style.top = e.height + 'px';
+        next.style.bottom = '0px';
+        next.style.position = 'absolute';
+        next.style.zIndex = 999;
+    }
+    
+    // Something else
+}
 </pre>
 <br/>
 
@@ -265,6 +307,19 @@ playease('player').setup({
         ...
     }
 });
+
+// or
+
+var events = playease.events;
+var player = playease('player');
+player.addEventListener(events.PLAYEASE_READY, onReady);
+player.setup({
+    ...
+});
+
+function onReady(e) {
+    console.log('onReady');
+}
 </pre>
 <br/>
 
@@ -399,16 +454,16 @@ _eventMapping = {
 			prettyPrint();
 		};
 		
-		var player, chat, users;
-		users = document.getElementById('ol-users');
-		
+		var player, chat;
+		var users = document.getElementById('ol-users');
 		var pw = document.getElementById('playwrap');
-		var width = pw.clientWidth;
-		var height = width * 9 / 16 + 40;
+		var events = playease.events;
 		
-		player = playease('player').setup({
-			width: width,
-			height: height,
+		var player = playease('player');
+		player.addEventListener(events.PLAYEASE_FULLPAGE, onFullpage);
+		player.setup({
+			width: pw.clientWidth,
+			height: pw.clientWidth * 9 / 16 + 40,
 			aspectratio: '16:9',
 			//file: '/vod/sample.mp4',
 			sources: [{
@@ -446,24 +501,30 @@ _eventMapping = {
 				name: 'def',
 				bufferLength: 4 * 1024 * 1024,
 				swf: 'swf/playease.swf'
-			},
-			events: {
-				onFullpage: function(e) {
-					pw.style.margin = e.exit ? '0 auto' : '0';
-					pw.style.height = e.exit ? '' : '100%';
-					pw.style.position = e.exit ? '' : 'fixed';
-					pw.style.maxWidth = e.exit ? '640px' : '100%';
-					pw.style.zIndex = e.exit ? '' : 100;
-					
-					if (chat) {
-						chat.resize();
-					}
-				}
 			}
 		});
 		
-		chat = chatease('chat').setup({
-			url: 'ws://118.190.79.29/001' + (function() {
+		function onFullpage(e) {
+			pw.style.margin = e.exit ? '0 auto' : '0';
+			pw.style.height = e.exit ? '' : '100%';
+			pw.style.position = e.exit ? '' : 'fixed';
+			pw.style.maxWidth = e.exit ? '640px' : '100%';
+			pw.style.zIndex = e.exit ? '' : 100;
+			
+			if (chat) {
+				chat.resize();
+			}
+		}
+		
+		events = chatease.events;
+		
+		chat = chatease('chat');
+		chat.addEventListener(events.CHATEASE_INDENT, onIdent);
+		chat.addEventListener(events.CHATEASE_MESSAGE, onMessage);
+		chat.addEventListener(events.CHATEASE_USERS, onUsers);
+		chat.addEventListener(events.CHATEASE_CLOSE, onClose);
+		chat.setup({
+			url: 'ws://chat.qcus.cn/001' + (function() {
 				var params = window.location.search;
 				if (params) {
 					return params;
@@ -478,23 +539,28 @@ _eventMapping = {
 			maxretries: -1,
 			render: {
 				name: 'def',
+				title: 'CHATEASE ' + chatease.version,
 				swf: 'swf/chatease.swf'
-			},
-			events: {
-				onIdent: function(e) {
-					users.innerText = e.channel.total;
-				},
-				onMessage: function(e) {
-					player.shoot(e.data);
-				},
-				onUsers: function(e) {
-					users.innerText = e.channel.total;
-				},
-				onClose: function(e) {
-					users.innerText = 0;
-				}
 			}
 		});
+		
+		function onIdent(e) {
+			users.innerText = e.channel.total;
+		}
+		
+		function onMessage(e) {
+			if (player) {
+				player.shoot(e.data);
+			}
+		}
+		
+		function onUsers(e) {
+			users.innerText = e.channel.total;
+		}
+		
+		function onClose(e) {
+			users.innerText = 0;
+		}
 		
 		if (playease.utils.isMobile()) {
 			window.addEventListener('resize', function(e) {
