@@ -26,6 +26,17 @@
  * solutions
  */
 
+.qr-code {
+	width: 110px;
+	height: 100%;
+	top: 0;
+	right: 0;
+	position: absolute;
+}
+@media only screen and (max-width: 800px) {
+	position: relative;
+}
+
 .samplewrap {
 	margin: 40px auto;
 	width: 100%;

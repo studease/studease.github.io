@@ -1,0 +1,237 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Solutions - StudEase.cn</title>
+	
+	<meta charset="utf-8">
+	<meta name="robots" content="index, follow" />
+	<meta name="keywords" content="slicease.js,playease.js,chatease.js,chatease-server,rtmpmate" />
+	<meta name="description" content="" />
+	<meta name="author" content="Tony Lau" />
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta content="yes" name="apple-mobile-web-app-capable"/>
+	<meta content="yes" name="apple-touch-fullscreen"/>
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<meta name="App-Config" content="fullscreen=yes, useHistoryState=yes, transition=yes"/>
+	
+	<link rel="shortcut icon" href="images/favicon.ico">
+	
+	<!--[if lt IE 9]>
+	<script type='text/javascript'>
+		(function() {
+			if (!/*@cc_on!@*/0) {
+				return;
+			}
+			
+			var e = "abbr, article, aside, audio, canvas, datalist, details, dialog, eventsource, figure, footer, header, hgroup, mark, menu, meter, nav, output, progress, section, time, video".split(', ');
+			var i = e.length;
+			while (i--) {
+				document.createElement(e[i]);
+			}
+		})()
+	</script>
+	
+	<style type='text/css' media='screen'>
+		article, aside, dialog, footer, header, section, footer, nav, figure, menu {
+			display: block;
+		}
+	</style>
+	<![endif]-->
+	
+	<style type='text/css' media='screen'>
+html {
+	font-size: 10px;
+}
+
+body {
+	margin: 0;
+	font-family: Karbon, Helvetica, Arial, sans-serif;
+	font-style: normal;
+	font-size: 14px;
+	line-height: 18px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: #E6E6E6;
+	background-color: #303030;
+}
+
+a {
+	color: #BDBDBD;
+	text-decoration: none;
+}
+a:active, a:focus, a:hover {
+	outline: 0;
+}
+
+.ol-status {
+	padding: 0 8px 0 30px;
+	top: -20px;
+	right: 0;
+	position: absolute;
+	background-color: #606060;
+	background-image: url(images/icon/eye.png);
+	background-repeat: no-repeat;
+	background-position: 8px;
+	z-index: 9999;
+}
+	</style>
+	
+	<script type='text/javascript' src='js/playease.min.js'></script>
+	<script type='text/javascript' src='js/chatease.min.js'></script>
+</head>
+<body ontouchstart=''>
+	<div id='ol-users' class='ol-status'>0</div>
+	<div id='playwrap' style='width:100%; top:0; left:0; position:relative;'>
+		<div id='player'></div>
+	</div>
+	<div id='chatwrap' style='width: 100%; background: red;'>
+		<div id='chat'></div>
+	</div>
+	
+	<script type='text/javascript'>
+		var player, chat;
+		var users = document.getElementById('ol-users');
+		var pw = document.getElementById('playwrap');
+		var cw = document.getElementById('chatwrap');
+		var events = playease.events;
+		
+		player = playease('player');
+		player.addEventListener(events.RESIZE, onResize);
+		player.setup({
+			width: pw.clientWidth,
+			height: pw.clientWidth * 9 / 16 + 40,
+			aspectratio: '16:9',
+			//file: '/vod/sample.mp4',
+			sources: [{
+				file: 'http://ccflv.qcus.cn/teach/stream02.flv',
+				type: 'flv',
+				label: 'HTTP-FLV'
+			}, {
+				file: 'ws://ccws.qcus.cn/teach/stream02.flv',
+				type: 'flv',
+				label: 'WS-FLV'
+			}, {
+				file: 'ws://127.0.0.1:8080/teach/stream02',
+				type: 'wss',
+				label: 'WS-fMP4'
+			}, {
+				file: 'http://origin.qcus.cn:1935/teach/stream02/manifest.mpd',
+				type: 'dash',
+				label: 'MPEG-DASH'
+			}, {
+				file: 'rtmp://cclive.qcus.cn/teach/stream02',
+				type: 'flash',
+				label: 'RTMP-STREAM'
+			}, {
+				file: 'http://cchls.qcus.cn/teach/stream02/index.m3u8',
+				type: 'def'
+			}],
+			mode: 'live',
+			bufferTime: 1,
+			maxretries: 0,
+			controls: true,
+			autoplay: false,
+			//poster: 'images/poster.png',
+			//report: true,
+			loader: {
+				/*name: 'xhr-chunked-loader',
+				chunkSize: 2 * 1024 * 1024,*/
+				mode: 'cors'
+			},
+			logo: {
+				file: 'images/content/playease-logo.png'
+			},
+			bulletscreen: {
+				enable: true,
+				visible: true
+			},
+			/*fullpage: {
+				visible: true
+			},*/
+			render: {
+				name: 'def',
+				swf: 'swf/playease.swf'
+			}
+		});
+		
+		function onResize(e) {
+			if (playease.utils.isAndroid() && playease.utils.isQQBrowser()) {
+				var video = document.getElementById('player').firstChild.lastChild;
+				video.style.width = window.innerWidth + 'px';
+				video.style.height = window.innerHeight + 'px';
+				video.style['object-position'] = 'center top';
+				
+				var controlbar = document.getElementById('player').childNodes[1];
+				controlbar.style.top = e.height - 40 + 'px';
+				controlbar.style.position = 'absolute';
+			}
+			
+			users.style.top = e.height + 10 + 'px';
+			
+			var next = document.getElementById('chatwrap');
+			next.style.top = e.height + 'px';
+			next.style.bottom = '0px';
+			next.style.position = 'absolute';
+			next.style.zIndex = 999;
+			
+			if (chat) {
+				chat.resize();
+			}
+		}
+		
+		events = chatease.events;
+		
+		chat = chatease('chat');
+		chat.addEventListener(events.CHATEASE_INDENT, onIdent);
+		chat.addEventListener(events.CHATEASE_MESSAGE, onMessage);
+		chat.addEventListener(events.CHATEASE_USERS, onUsers);
+		chat.addEventListener(events.CHATEASE_CLOSE, onClose);
+		chat.setup({
+			url: 'ws://chat.qcus.cn/001' + (function() {
+				var params = window.location.search;
+				if (params) {
+					return params;
+				}
+				
+				var id = Math.ceil(Math.random() * 1000);
+				
+				return '?name=游客' + chatease.utils.pad(id, 3);
+			})(),
+			width: 320,
+			height: 400,
+			maxretries: -1,
+			render: {
+				name: 'def',
+				title: '',
+				swf: 'swf/chatease.swf'
+			}
+		});
+		
+		function onIdent(e) {
+			users.innerText = e.channel.total;
+		}
+		
+		function onMessage(e) {
+			if (player) {
+				player.shoot(e.data);
+			}
+		}
+		
+		function onUsers(e) {
+			users.innerText = e.channel.total;
+		}
+		
+		function onClose(e) {
+			users.innerText = 0;
+		}
+		
+		if (playease.utils.isMobile()) {
+			window.addEventListener('resize', function(e) {
+				setTimeout(function() {
+					player.fullscreen(!playease.utils.isHorizontal());
+				}, 500);
+			});
+		}
+	</script>
+</body>
