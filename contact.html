@@ -150,12 +150,15 @@
 	</footer>
 	
 	<script type='text/javascript'>
-		var chat, users;
+		var users = document.getElementById('ol-users');
+		var events = chatease.events;
 		
-		users = document.getElementById('ol-users');
-		
-		chat = chatease('chat').setup({
-			url: 'ws://118.190.79.29/001' + (function() {
+		var chat = chatease('chat');
+		chat.addEventListener(events.CHATEASE_INDENT, onIdent);
+		chat.addEventListener(events.CHATEASE_USERS, onUsers);
+		chat.addEventListener(events.CHATEASE_CLOSE, onClose);
+		chat.setup({
+			url: 'ws://chat.qcus.cn/001' + (function() {
 				var params = window.location.search;
 				if (params) {
 					return params;
@@ -167,21 +170,25 @@
 			})(),
 			width: 640,
 			height: 400,
+			maxlength: 50,
 			maxretries: -1,
-			events: {
-				onIdent: function(e) {
-					users.innerText = e.channel.total;
-				},
-				onMessage: function(e) {
-					//player.shoot(e.data);
-				},
-				onUsers: function(e) {
-					users.innerText = e.channel.total;
-				},
-				onClose: function(e) {
-					users.innerText = 0;
-				}
+			render: {
+				name: 'def',
+				title: 'CHATEASE ' + chatease.version,
+				swf: 'swf/chatease.swf'
 			}
 		});
+		
+		function onIdent(e) {
+			users.innerText = e.channel.total;
+		}
+		
+		function onUsers(e) {
+			users.innerText = e.channel.total;
+		}
+		
+		function onClose(e) {
+			users.innerText = 0;
+		}
 	</script>
 </body>
