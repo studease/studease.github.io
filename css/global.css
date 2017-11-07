@@ -126,15 +126,15 @@ input, textarea {
 	background-color: #0966C3;
 }
 .btn.white {
-	color: #0B7EF4;
+	color: #000000;
 	background-color: #FFFFFF;
 }
 .btn.white:hover {
-	background-color: #E6E6E6;
+	background-color: #E0E0E0;
 }
 .btn.gray {
-	color: #695F4B;
-	background-color: #E6E6E6;
+	color: #000000;
+	background-color: #E0E0E0;
 }
 .btn.gray:hover {
 	background-color: #96A0B4;
