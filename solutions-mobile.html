@@ -5,7 +5,7 @@
 	
 	<meta charset="utf-8">
 	<meta name="robots" content="index, follow" />
-	<meta name="keywords" content="slicease.js,playease.js,chatease.js,chatease-server,rtmpmate" />
+	<meta name="keywords" content="playease.js,chatease.js,chatease-server,rtmpmate,微信直播,弹幕直播" />
 	<meta name="description" content="" />
 	<meta name="author" content="Tony Lau" />
 	
@@ -127,7 +127,8 @@ a:active, a:focus, a:hover {
 				label: 'RTMP-STREAM'
 			}, {
 				file: 'http://cchls.qcus.cn/teach/stream02/index.m3u8',
-				type: 'def'
+				type: 'def',
+				label: 'HLS-TS'
 			}],
 			mode: 'live',
 			bufferTime: 1,
@@ -148,9 +149,9 @@ a:active, a:focus, a:hover {
 				enable: true,
 				visible: true
 			},
-			/*fullpage: {
-				visible: true
-			},*/
+			fullpage: {
+				visible: !playease.utils.isMobile()
+			},
 			render: {
 				name: 'def',
 				swf: 'swf/playease.swf'
