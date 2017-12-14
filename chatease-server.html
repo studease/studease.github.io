@@ -5,7 +5,7 @@
 	
 	<meta charset="utf-8">
 	<meta name="robots" content="index, follow" />
-	<meta name="keywords" content="chatease-server,websocket,聊天室,服务器,高并发" />
+	<meta name="keywords" content="kiwichatd,chatease-server,websocket,高并发,聊天室,服务器" />
 	<meta name="description" content="This is a websocket chat server coded in C." />
 	<meta name="author" content="Tony Lau" />
 	
@@ -76,7 +76,7 @@
 						<li><a href='slicease.html'>slicease.js 3.0</a></li>
 						<li><a href='playease.html'>playease.js</a></li>
 						<li><a href='chatease.html'>chatease.js</a></li>
-						<li><a href='chatease-server.html'>chatease-server</a></li>
+						<li><a href='kiwichatd.html'>kiwichatd</a></li>
 						<li><a href='http://rtmpmate.com' target='_blank'>rtmpmate</a></li>
 					</ul>
 				</li>
@@ -91,8 +91,8 @@
 		<div>
 		<section>
 			<p>
-				[source] <a href='https://github.com/studease/chatease-server' target='_blank'>https://github.com/studease/chatease-server</a><br/>
-				[zh_doc] <a href='http://blog.csdn.net/icysky1989/article/details/52138527' target='_blank'>http://blog.csdn.net/icysky1989/article/details/52138527</a>
+				[source] <a href='https://github.com/studease/chatease-server' target='_blank'>https://github.com/studease/chatease-server (1.1)</a><br/>
+				[中文] <a href='http://blog.csdn.net/icysky1989/article/details/52138527' target='_blank'>http://blog.csdn.net/icysky1989/article/details/52138527</a>
 			</p>
 			
 			<p>
@@ -101,6 +101,7 @@
 			
 			<h3>News</h3>
 			<ul class='u5 square'>
+				<li>This server was renamed as <a href='kiwichatd.html'>kiwichatd</a> at version 2.0, and closed source.<i> - Dec. 13, 2017</i></li>
 				<li>Fixed bad request caused crash, & incomplete http header caused endless loop issues in version 1.0.39.<i> - Aug. 15, 2017</i></li>
 				<li>First stable version for websocket chat released: chatease.js 1.0.05, chatease-server 1.0.14.<i> - Apr. 13, 2017</i></li>
 				<li><a href='chatease-server.html'>Chatease-server</a>, a websocket chat server coded in C, beta released.<i> - Aug. 4, 2016</i></li>
@@ -108,23 +109,22 @@
 			
 			<h3>Preparation</h3>
 			<p>
-			For Enterprise Edition, supply an interface to return a JSON object formatted as /data/userinfo.json.</br>
-			While the client is connecting to upgrade protocol, we send an identify upstream request to get the user info, which decides whether the operation will be satisfied.
+				For the Enterprise Edition, supply an interface to return a JSON object formatted as /data/userinfo.json.</br>
+				While a client is connecting to upgrade protocol, it sends an identify upstream request, carrying channel and token params, to get the user info, which will decide whether the operation will be satisfied.
 			</p>
 			<p>
-			The Preview Edition won't send the identify upstream request.
+				The Preview Edition is more like a stand-alone server. The user info, includes name, icon, role, and channel state could be present in params. However, this is not safe.
 			</p>
 			
 			<h3>Build</h3>
 			<p>
-				To build chatease-server, you need CMake 3.5 and or above. Then run:
+				To build chatease-server, you need CMake 3.5 and or above, and OpenSSL installed. Then run:
 			</p>
 
 <?prettify lang=js linenums=true?>
 <pre class='prettyprint'>
-mkdir build 
-cd build
-cmake ..
+cmake .
+make
 </pre>
 <br/>
 
@@ -136,7 +136,7 @@ sudo ./start.sh
 </pre>
 <br/>
 
-			<h3>Websocket Client</h3>
+			<h3>Client</h3>
 			<p>
 				<a href='chatease.html' target='_blank'>chatease.js</a>
 			</p>

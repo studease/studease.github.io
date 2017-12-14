@@ -118,6 +118,13 @@ input, textarea {
 .btn.red:hover {
 	background-color: #97052D;
 }
+.btn.green {
+	color: #FFFFFF;
+	background-color: #4CAE4C;
+}
+.btn.green:hover {
+	background-color: #449d44;
+}
 .btn.blue {
 	color: #FFFFFF;
 	background-color: #0B7EF4;
@@ -133,11 +140,12 @@ input, textarea {
 	background-color: #E0E0E0;
 }
 .btn.gray {
-	color: #000000;
-	background-color: #E0E0E0;
+	color: #7fc77f;
+	background-color: #3D3D3D;
 }
 .btn.gray:hover {
-	background-color: #96A0B4;
+	color: #4CAE4C;
+	background-color: #303030;
 }
 
 h1, h2, h3, h4, h5, h6 {

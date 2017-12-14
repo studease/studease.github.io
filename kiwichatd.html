@@ -1,12 +1,12 @@
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
-	<title>Home - StudEase.cn</title>
+	<title>kiwichatd - StudEase.cn</title>
 	
 	<meta charset="utf-8">
 	<meta name="robots" content="index, follow" />
-	<meta name="keywords" content="slicease.js,playease.js,chatease.js,kiwichatd,chatease-server,rtmpmate" />
-	<meta name="description" content="" />
+	<meta name="keywords" content="kiwichatd,chatease-server,websocket,高并发,聊天室,服务器" />
+	<meta name="description" content="This is a websocket chat server coded in C." />
 	<meta name="author" content="Tony Lau" />
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -40,9 +40,9 @@
 	<![endif]-->
 	
 	<link type='text/css' rel='stylesheet' href='css/style.css' />
+	<link type='text/css' rel='stylesheet' href='css/prettify.min.css' />
 	
-	<script type='text/javascript' src='js/gl-matrix-min.js'></script>
-	<script type='text/javascript' src='js/slicease.min.js'></script>
+	<script type='text/javascript' src='js/prettify/min/prettify.min.js'></script>
 </head>
 <body ontouchstart=''>
 	<header>
@@ -66,11 +66,11 @@
 			<div class='menu-toggle'></div>
 			
 			<ul>
-				<li class='current'><a href='.'>HOME</a></li>
+				<li><a href='.'>HOME</a></li>
 				<li><a href='about.html'>ABOUT</a></li>
 				<li><a href='index.html#news'>NEWS</a></li>
 				<li><a href='solutions.html'>SOLUTIONS</a></li>
-				<li>
+				<li class='current'>
 					<a href='#'>PROJECTS</a>
 					<ul>
 						<li><a href='slicease.html'>slicease.js 3.0</a></li>
@@ -87,40 +87,64 @@
 		</nav>
 	</header>
 	
-	<div class='slider'>
-	<section>
-		<div id='slicer'></div>
-	</section>
-	</div>
-	
 	<div class='wrap'>
-		<div class='news'>
+		<div>
 		<section>
-			<div id='news'>
-				<h3>News</h3>
-				<ul class='u5 square'>
-					<li>The chatease-server was renamed as <a href='kiwichatd.html'>kiwichatd</a> at version 2.0, and closed source.<i> - Dec. 13, 2017</i></li>
-					<li>New feature of <a href='playease.html'>playease.js</a>: MPEG-DASH.<i> - Aug. 10, 2017</i></li>
-					<li>Added support for MSIE 8 & 9 of <a href='chatease.html'>chatease.js</a>, using flash.<i> - May 12, 2017</i></li>
-					<li>Planning to build an HTML5 live streaming server: <a href='http://rtmpmate.com' target='_blank'>rtmpmate</a>.<i> - Apr. 22, 2017</i></li>
-					<li>Introduced self-adaption display, and added flash render for MSIE 8, in <a href='playease.html'>playease.js</a> 1.0.33.<i> - Apr. 27, 2017</i></li>
-					<li>Added UI controls for <a href='playease.html'>playease.js</a> at version 1.0.08.<i> - Apr. 17, 2017</i></li>
-					<li>First stable version for websocket chat released: chatease.js 1.0.05, chatease-server 1.0.14.<i> - Apr. 13, 2017</i></li>
-					<li><a href='slicease.html'>Slicease.js</a> 3.0 released: Using WebGL.<i> - Feb. 20, 2017</i></li>
-					<li><a href='playease.html'>Playease.js</a>, an HTML5 media player for FLV live streaming, beta released.<i> - Feb. 10, 2017</i></li>
-					<li><a href='chatease-server.html'>Chatease-server</a>, a websocket chat server coded in C, beta released.<i> - Aug. 4, 2016</i></li>
-					<li><a href='chatease.html'>Chatease.js</a>, a client-side script for websocket chat, beta released.<i> - Aug. 1, 2016</i></li>
-					<li><a href='slicease.html'>Slicease.js</a> 2.0 released: New features, e.g. MVC, event-driven, etc.<i> - Dec. 30, 2015</i></li>
-					<li>
-						<a href='slicease.html'>Slicease.js</a> won a glory of <b>"22 Best Weekly Web Design & Development Resources"</b> at 
-						<a href='http://www.jqueryscript.net/blog/Weekly-Web-Design-Development-News-Collective-59.html' target='_blank'>jqueryscript.net</a>, 
-						<a href='http://www.techinfine.com/Post/177077/22-Best-Weekly-Web-Design-Development-Resources-8' target='_blank'>techinfine.com</a>, 
-						<a href='http://www.open-open.com/news/view/19e9ce8' target='_blank'>open-open.com</a>, etc.<i> - Nov. 25, 2014</i>
-					</li>
-					<li><a href='slicease.html'>Slicease.js</a>, which is a 3D image rotator, 1.0 released.<i> - Sep. 28, 2014</i></li>
-					<li>This blog came to be available.<i> - Sep. 22, 2014</i></li>
-				</ul>
-			</div>
+			<p>
+				[source] <a href='https://github.com/studease/chatease-server' target='_blank'>https://github.com/studease/chatease-server (1.1)</a><br/>
+				[中文] <a href='http://blog.csdn.net/icysky1989/article/details/52138527' target='_blank'>http://blog.csdn.net/icysky1989/article/details/52138527</a>
+			</p>
+			
+			<p>
+				This is a websocket chat server coded in C.
+			</p>
+			
+			<h3>News</h3>
+			<ul class='u5 square'>
+				<li>This server was renamed as <a href='kiwichatd.html'>kiwichatd</a> at version 2.0, and closed source.<i> - Dec. 13, 2017</i></li>
+				<li>Fixed bad request caused crash, & incomplete http header caused endless loop issues in version 1.0.39.<i> - Aug. 15, 2017</i></li>
+				<li>First stable version for websocket chat released: chatease.js 1.0.05, chatease-server 1.0.14.<i> - Apr. 13, 2017</i></li>
+				<li><a href='chatease-server.html'>Chatease-server</a>, a websocket chat server coded in C, beta released.<i> - Aug. 4, 2016</i></li>
+			</ul>
+			
+			<h3>Download</h3>
+			<h5>Linux Static Builds</h5>
+			<p>
+				release: 2.0.00
+			</p>
+			<p>
+				x86: <a class='btn green' href='static/kiwichatd-x86-2.0.00-static.zip'>32-bit and 64-bit for kernel 3.9 and above</a>
+			</p>
+			
+			<h3>Preparation</h3>
+			<p>
+				For the Enterprise Edition, supply an interface to return a JSON object formatted as /data/userinfo.json.</br>
+				While a client is connecting to upgrade protocol, it sends an identify upstream request, carrying channel and token params, to get the user info, which will decide whether the operation will be satisfied.
+			</p>
+			<p>
+				The Preview Edition is more like a stand-alone server. The user info, includes name, icon, role, and channel state could be present in params. However, this is not safe.
+			</p>
+			
+			<h3>Run</h3>
+			<p>
+				Install OpenSSL at first. Then run:
+			</p>
+
+<?prettify lang=js linenums=true?>
+<pre class='prettyprint'>
+sudo ./start.sh
+</pre>
+<br/>
+
+			<h3>Client</h3>
+			<p>
+				<a href='chatease.html' target='_blank'>chatease.js</a>
+			</p>
+			
+			<h3>Software License</h3>
+			<p>
+				Closed source.
+			</p>
 		</section>
 		</div>
 	</div>
@@ -165,13 +189,8 @@
 	</footer>
 	
 	<script type='text/javascript'>
-		var prt = document.getElementById('slicer').parentNode;
-		
-		var slicer = slicease('slicer').setup({
-			width: prt.clientWidth,
-			height: prt.clientHeight,
-			sources: ['images/slider/img1.png', 'images/slider/img2.png', 'images/slider/img3.png', 'images/slider/img4.png'],
-			range: '3-9'
-		});
+		window.onload = function() {
+			prettyPrint();
+		};
 	</script>
 </body>
