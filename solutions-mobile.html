@@ -235,8 +235,24 @@ a:active, a:focus, a:hover {
 		}
 		
 		if (playease.utils.isMobile()) {
+			var videoHeight = window.innerWidth * 9 / 16 + 40;
+			cw.style.height = (function() {
+				if (playease.utils.isMobile() && !playease.utils.isHorizontal()) {
+					var videoHeight = window.innerWidth * 9 / 16 + 40;
+					return window.innerHeight - videoHeight;
+				}
+				
+				return 400;
+			})() + 'px';
+			
 			window.addEventListener('resize', function(e) {
 				setTimeout(function() {
+					if (!playease.utils.isHorizontal()) {
+						var cw = document.getElementById('chatwrap');
+						var videoHeight = window.innerWidth * 9 / 16 + 50;
+						cw.style.height = (window.innerHeight - videoHeight) + 'px';
+					}
+					
 					player.fullscreen(!playease.utils.isHorizontal());
 				}, 500);
 			});
