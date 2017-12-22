@@ -77,6 +77,7 @@ a:active, a:focus, a:hover {
 }
 	</style>
 	
+	<script type='text/javascript' src='js/bscroll.min.js'></script>
 	<script type='text/javascript' src='js/playease.min.js'></script>
 	<script type='text/javascript' src='js/chatease.min.js'></script>
 </head>
@@ -205,6 +206,7 @@ a:active, a:focus, a:hover {
 			height: 400,
 			maxlength: 50,
 			maxretries: -1,
+			smoothing: chatease.utils.isMobile(),
 			debug: true,
 			render: {
 				name: 'def',

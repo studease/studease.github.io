@@ -43,6 +43,7 @@
 	<link type='text/css' rel='stylesheet' href='css/prettify.min.css' />
 	
 	<script type='text/javascript' src='js/prettify/min/prettify.min.js'></script>
+	<script type='text/javascript' src='js/bscroll.min.js'></script>
 	<script type='text/javascript' src='js/chatease.min.js'></script>
 </head>
 <body ontouchstart=''>
@@ -175,10 +176,12 @@ _defaults = {
     width: 640,
     height: 400,
     keywords: '',
-    maxlength: 30,    // -1: no limit
+    maxlength: 30,  // -1: no limit
     maxrecords: 50,
-    maxretries: -1,   // -1: always
+    maxretries: -1, // -1: always
     retrydelay: 3000,
+    smoothing: false,
+    debug: false,
     render: {
         name: rendermodes.DEFAULT,
         title: 'CHATEASE ' + chatease.version,
@@ -337,6 +340,7 @@ _eventMapping = {
 			height: 400,
 			maxlength: 50,
 			maxretries: -1,
+			smoothing: chatease.utils.isMobile(),
 			debug: true,
 			render: {
 				name: 'def',

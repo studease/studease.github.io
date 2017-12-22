@@ -43,6 +43,7 @@
 	<link type='text/css' rel='stylesheet' href='css/prettify.css' />
 	
 	<script type='text/javascript' src='js/prettify/min/prettify.min.js'></script>
+	<script type='text/javascript' src='js/bscroll.min.js'></script>
 	<script type='text/javascript' src='js/playease.min.js'></script>
 	<script type='text/javascript' src='js/chatease.min.js'></script>
 </head>
@@ -539,6 +540,7 @@ _eventMapping = {
 			height: 400,
 			maxlength: 50,
 			maxretries: -1,
+			smoothing: chatease.utils.isMobile(),
 			debug: true,
 			render: {
 				name: 'none',
