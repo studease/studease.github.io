@@ -92,50 +92,46 @@
 		<section>
 			<h2>kiwichatd</h2>
 			<p>
-				[source] <a href='https://github.com/studease/chatease-server' target='_blank'>https://github.com/studease/chatease-server (1.1)</a><br/>
-				[中文] <a href='http://blog.csdn.net/icysky1989/article/details/52138527' target='_blank'>http://blog.csdn.net/icysky1989/article/details/52138527</a>
+				[source] <a href='https://github.com/studease/kiwichatd' target='_blank'>https://github.com/studease/kiwichatd</a><br/>
+				[中文] <a href='http://blog.csdn.net/icysky1989/article/details/52138527' target='_blank'>http://blog.csdn.net/icysky1989/article/details/52138527</a><br/>
+				公众号：STUDEASE<br/>
+				QQ群：528109813
 			</p>
 			
 			<p>
-				This is a websocket chat server coded in C.
+				This is a high-performance websocket chat server coded in C.
 			</p>
 			
 			<h3>News</h3>
 			<ul class='u5 square'>
-				<li>This server was renamed as <a href='kiwichatd.html'>kiwichatd</a> at version 2.0, and closed source.<i> - Dec. 13, 2017</i></li>
+				<li>This server was renamed as <a href='kiwichatd.html'>kiwichatd</a> at version 2.0.<i> - Dec. 13, 2017</i></li>
 				<li>Fixed bad request caused crash, & incomplete http header caused endless loop issues in version 1.0.39.<i> - Aug. 15, 2017</i></li>
 				<li>First stable version for websocket chat released: chatease.js 1.0.05, chatease-server 1.0.14.<i> - Apr. 13, 2017</i></li>
 				<li><a href='chatease-server.html'>Chatease-server</a>, a websocket chat server coded in C, beta released.<i> - Aug. 4, 2016</i></li>
 			</ul>
 			
-			<h3>Download</h3>
-			<h5>Linux Static Builds</h5>
-			<b>
-				32-bit and 64-bit for kernel 3.9 and above
-			</b>
-			<p>
-				release: 2.0.02<br/>
-				x86: <a href='static/kiwichatd-x86-latest-static.zip'>kiwichatd-x86-latest-static.zip</a>
-			</p>
-			
-			<h3>License Key</h3>
-			<p>
-				If you need the license key of Enterprise Edition, please <a class='btn green' href='contact.html' target='_blank'>contact</a> me.
-			</p>
-			
-			<h3>Preparation</h3>
+			<h3>Description</h3>
 			<p>
 				For the Enterprise Edition, supply an interface to return a JSON object formatted as /data/userinfo.json.<br/>
-				While a client is connecting to upgrade protocol, it sends an identify upstream request, carrying channel and token params, to get the user info, which will decide whether the operation will be satisfied.
+				While a client connecting to upgrade protocol, it sends an identify upstream request, carrying channel and token params, to get the user info, which will decide whether the operation will be satisfied.
 			</p>
 			<p>
 				The Preview Edition is more like a stand-alone server. The user info, includes name, icon, role, and channel state could be present in params. However, this is not safe.
 			</p>
 			
-			<h3>Run</h3>
+			<h3>Build</h3>
 			<p>
-				Install OpenSSL at first. Then run:
+				To build kiwichatd, you need CMake 3.5 and or above, and OpenSSL installed. Then run:
 			</p>
+
+<?prettify lang=js linenums=true?>
+<pre class='prettyprint'>
+cmake .
+make
+</pre>
+<br/>
+
+			<h3>Run</h3>
 
 <?prettify lang=js linenums=true?>
 <pre class='prettyprint'>
@@ -143,9 +139,21 @@ sudo ./start.sh
 </pre>
 <br/>
 
+			<h3>Download</h3>
+			<h5>Linux Static Builds</h5>
+			<b>
+				32-bit and 64-bit for kernel 3.9 and above
+			</b><br/>
+			x86: <a href='static/kiwichatd-x86-latest-static.zip'>kiwichatd-x86-latest-static.zip</a>
+			
 			<h3>Client</h3>
 			<p>
 				<a href='chatease.html' target='_blank'>chatease.js</a>
+			</p>
+			
+			<h3>License</h3>
+			<p>
+				MIT
 			</p>
 		</section>
 		</div>
