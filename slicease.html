@@ -121,10 +121,12 @@
 <?prettify lang=js linenums=true?>
 <pre class='prettyprint'>
 slicease('slicer').setup({
-    width: 1200,
-    height: 500,
+    width: 1000,
+    height: 460,
     sources: ['images/img1.png', 'images/img2.png', 'images/img3.png', 'images/img4.png'],
-    range: '3-9'
+    range: '3-9',
+    cubic: '5,4',
+    distance: 12
 });
 </pre>
 <br/>
@@ -138,17 +140,24 @@ slicease('slicer').setup({
 _defaults = {
     width: 640,
     height: 360,
+    aspectratio: '',
     sources: [],
     range: '3-9',
-    controls: true,
+    cubic: '5,4',
+    distance: 12,
     interval: 5000,
+    controls: true,
+    debug: false,
     render: {
-        name: rendermodes.DEFAULT,
+        name: rendertypes.DEFAULT,
         precision: precisions.HIGH_P,
         profile: [0.6, 0.6, 0.6, 1.0]
     },
     skin: {
-        name: skinmodes.DEFAULT
+        name: skintypes.DEFAULT
+    },
+    events: {
+        
     }
 }
 </pre>
