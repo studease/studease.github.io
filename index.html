@@ -171,9 +171,29 @@
 		var slicer = slicease('slicer').setup({
 			width: prt.clientWidth,
 			height: prt.clientHeight,
-			sources: ['images/slider/img1.png', 'images/slider/img2.png', 'images/slider/img3.png', 'images/slider/img4.png', 'images/slider/img5.png'],
+			sources: [{
+				file: 'images/img1.png',
+				link: 'http://studease.cn/slicease',
+				target: '_blank'
+			}, {
+				file: 'images/img2.png',
+				link: 'http://studease.cn/playease',
+				target: '_blank'
+			}, {
+				file: 'images/img3.png',
+				link: 'http://studease.cn/chatease',
+				target: '_blank'
+			}, {
+				file: 'images/img4.png',
+				link: 'http://studease.cn/kiwichatd',
+				target: '_blank'
+			}, {
+				file: 'images/img5.png',
+				link: 'https://github.com/studease/kiwistrmd',
+				target: '_blank'
+			}],
 			range: '3-9',
-			cubic: '5,4',
+			cubic: '10,4',
 			distance: 12
 		});
 	</script>
