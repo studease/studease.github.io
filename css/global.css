@@ -432,7 +432,7 @@ nav section > ul > li:hover ul {
 	word-wrap: break-word;
 }
 
-.wrap a:not(.btn):link, .wrap a:not(.btn):visited {
+.wrap a:not(.btn):link, .wrap a:not(.btn):visited, .wrap a.note {
 	color: #FFFFFF;
 }
 .wrap a:active:not(.btn):link, .wrap a:focus:not(.btn):link, .wrap a:hover:not(.btn):link {

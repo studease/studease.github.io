@@ -133,7 +133,8 @@
 			</div>
 			
 			<p>
-				The example below will find the element with an id of "player" and render a player into it.
+			The example below shows how to play a flv vod. It will find the element with an id of "player" and render a player into it.</br>
+			Note: To play <a class='note'>flv live streams</a>, comment <a class='note'>line 54, 55, 70</a> out.
 			</p>
 
 <?prettify lang=js linenums=true?>
@@ -191,8 +192,8 @@ player.setup({
     //poster: 'sample.png',
     //report: true,
     loader: {
-        name: 'xhr-chunked-loader',
-        chunkSize: 2 * 1024 * 1024,
+        name: 'xhr-chunked-loader', // For flv render in vod mode only. Otherwise, don't name it out.
+        chunkSize: 2 * 1024 * 1024, // For xhr-chunked-loader only
         mode: 'cors'
     },
     logo: {
@@ -207,7 +208,7 @@ player.setup({
     },*/
     render: {
         name: 'def',
-        bufferLength: 4 * 1024 * 1024,
+        bufferLength: 4 * 1024 * 1024, // For flv render in vod mode only
         swf: '../swf/playease.swf'
     }
 });
@@ -245,8 +246,8 @@ function onResize(e) {
 <br/>
 
 			<p>
-			For more configurations, please check cn/studease/embed/playease.embed.config.js.<br/>
-			Component config is at the front of their sources.
+				For more configurations, please check 
+				<a href='https://github.com/studease/playease/blob/master/cn/studease/embed/playease.embed.config.js#L18' target='_blank'>cn/studease/embed/playease.embed.config.js</a>.
 			</p>
 
 <?prettify lang=js linenums=true?>
@@ -295,6 +296,103 @@ _defaults = {
         
     }
 };
+</pre>
+<br/>
+
+			<h3>Components</h3>
+			<p>
+				<ul class='u5 square'>
+					<li>Logo</li>
+				</ul>
+			</p>
+
+<?prettify lang=js linenums=true?>
+<pre class='prettyprint'>
+positions = {
+    TOP_LEFT:     'top-left',
+    TOP_RIGHT:    'top-right',
+    BOTTOM_LEFT:  'bottom-left',
+    BOTTOM_RIGHT: 'bottom-right'
+};
+
+playease('player').setup({
+    ...
+    logo: {
+        file: 'logo.png',
+        link: 'http://studease.cn/playease',
+        target: '_blank',
+        margin: '3% 5%',
+        visible: true,
+        position: positions.TOP_RIGHT
+    }
+});
+</pre>
+<br/>
+
+			<p>
+				<ul class='u5 square'>
+					<li>Context Menu</li>
+				</ul>
+			</p>
+
+<?prettify lang=js linenums=true?>
+<pre class='prettyprint'>
+positions = {
+    TOP_LEFT:     'top-left',
+    TOP_RIGHT:    'top-right',
+    BOTTOM_LEFT:  'bottom-left',
+    BOTTOM_RIGHT: 'bottom-right'
+};
+
+playease('player').setup({
+    ...
+    contextmenu: {
+        items: [{
+        	icon: '',
+        	text: 'Home',
+        	link: 'studease.cn',
+        	target: '_blank'
+        }]
+    }
+});
+</pre>
+<br/>
+
+			<p>
+				<ul class='u5 square'>
+					<li>Bullet Screen</li>
+				</ul>
+			</p>
+
+<?prettify lang=js linenums=true?>
+<pre class='prettyprint'>
+alphas = {
+    NONE: 1,
+    LOW:  0.75,
+    MID:  0.5,
+    HIGH: 0.25
+},
+positions = {
+    FULLSCREEN: 0,
+    TOP:        1,
+    BOTTOM:     2
+};
+
+playease('player').setup({
+    ...
+    bulletscreen: {
+        width: 640,
+        height: 360,
+        enable: true,
+        fontsize: 14,
+        lineHeight: 20,
+        interval: 30,
+        duration: 10000,
+        alpha: alphas.LOW,
+        position: positions.FULLSCREEN,
+        visible: true
+    }
+});
 </pre>
 <br/>
 
