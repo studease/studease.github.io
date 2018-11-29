@@ -195,16 +195,13 @@ player.setup({
         chunkSize: 2 * 1024 * 1024, // For xhr-chunked-loader only
         mode: 'cors'
     },
-    logo: {
-        file: 'logo.png'
-    },
     bulletscreen: {
         enable: true,
         visible: true
     },
-    /*fullpage: {
-        visible: true
-    },*/
+    fullpage: {
+        visible: false
+    },
     render: {
         name: 'def',
         bufferLength: 4 * 1024 * 1024, // For flv render in vod mode only
@@ -273,9 +270,6 @@ _defaults = {
         //chunkSize: 2 * 1024 * 1024, // For xhr-chunked-loader only
         mode: iomodes.CORS
     },
-    logo: {
-        visible: true
-    },
     bulletscreen: {
         enable: true,
         visible: false
@@ -299,35 +293,6 @@ _defaults = {
 <br/>
 
 			<h3>Components</h3>
-			<p>
-				<ul class='u5 square'>
-					<li>Logo</li>
-				</ul>
-			</p>
-
-<?prettify lang=js linenums=true?>
-<pre class='prettyprint'>
-positions = {
-    TOP_LEFT:     'top-left',
-    TOP_RIGHT:    'top-right',
-    BOTTOM_LEFT:  'bottom-left',
-    BOTTOM_RIGHT: 'bottom-right'
-};
-
-playease('player').setup({
-    ...
-    logo: {
-        file: 'logo.png',
-        link: 'http://studease.cn/playease',
-        target: '_blank',
-        margin: '3% 5%',
-        visible: true,
-        position: positions.TOP_RIGHT
-    }
-});
-</pre>
-<br/>
-
 			<p>
 				<ul class='u5 square'>
 					<li>Context Menu</li>
