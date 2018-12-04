@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta name="robots" content="index, follow" />
 	<meta name="keywords" content="rtmpmate,rtmp,websocket,高并发,聊天室,服务器" />
-	<meta name="description" content="This is a websocket chat server, and rtmp media server which transforming rtmp packages into fmp4 stream." />
+	<meta name="description" content="This is not only a websocket chat server, but also a functional media server." />
 	<meta name="author" content="Tony Lau" />
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -106,6 +106,19 @@
 				<li><a href='rtmpmate.html'>Rtmpmate</a>, a websocket chat server & functional media server, beta released.<i> - Oct. 31, 2018</i></li>
 			</ul>
 			
+			<h3>Requirement</h3>
+			<p>
+				<ul class='u5 square'>
+					<li>SQLite3</li>
+				</ul>
+			</p>
+
+<?prettify lang=js linenums=true?>
+<pre class='prettyprint'>
+# go get github.com/mattn/go-sqlite3
+# go install github.com/mattn/go-sqlite3
+</pre>
+
 			<h3>Static Builds</h3>
 			<ul class='u5 square'>
 				<li>Windows: <a href='static/rtmpmate-win32-latest.zip'>rtmpmate-win32-latest.zip</a></li>
