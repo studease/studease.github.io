@@ -180,34 +180,28 @@ h6 {
 }
 
 ul.u1 li {
-	margin: 22px 0 0 22px;
+	margin: 0 0 0 22px;
 	font-size: 22px;
-	line-height: 22px;
 }
 ul.u2 li {
-	margin: 20px 0 0 20px;
+	margin: 0 0 0 20px;
 	font-size: 20px;
-	line-height: 20px;
 }
 ul.u3 li {
-	margin: 18px 0 0 18px;
+	margin: 0 0 0 18px;
 	font-size: 18px;
-	line-height: 18px;
 }
 ul.u4 li {
-	margin: 16px 0 0 18px;
+	margin: 0 0 0 18px;
 	font-size: 16px;
-	line-height: 16px;
 }
 ul.u5 li {
-	margin: 14px 0 0 16px;
+	margin: 0 0 0 16px;
 	font-size: 14px;
-	line-height: 14px;
 }
 ul.u6 li {
-	margin: 12px 0 0 14px;
+	margin: 0 0 0 14px;
 	font-size: 12px;
-	line-height: 12px;
 }
 ul.square {
 	list-style-type: square;
@@ -428,7 +422,6 @@ nav section > ul > li:hover ul {
 .wrap {
 	margin: 40px 0;
 	text-align: justify;
-	word-break: break-all;
 	word-wrap: break-word;
 }
 
