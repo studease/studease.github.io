@@ -88,11 +88,16 @@ input, textarea {
 	border: none;
 }
 
+.white {
+	color: #FFFFFF;
+}
+
 .center {
 	text-align: center;
 }
 
-.line-through {
+.deletion {
+	color: #BDBDBD;
 	text-decoration: line-through;
 }
 
