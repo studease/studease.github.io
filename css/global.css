@@ -92,6 +92,10 @@ input, textarea {
 	text-align: center;
 }
 
+.line-through {
+	text-decoration: line-through;
+}
+
 .btn {
 	padding: 6px 14px;
 	font-style: normal;
