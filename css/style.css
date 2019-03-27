@@ -136,7 +136,8 @@
 }
 .features section > span a:active:not(.btn):link, 
 .features section > span a:focus:not(.btn):link, 
-.features section > span a:hover:not(.btn):link {
+.features section > span a:hover:not(.btn):link, 
+.features section > span a:hover:not(.btn) {
 	text-decoration: none;
 	box-shadow: inset 0 0 0 1px #AAB4C8;
 }
