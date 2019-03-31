@@ -81,6 +81,71 @@
 
 
 /**
+ * plan
+ */
+
+ul.plan {
+	margin: 0 -15px 0 15px;
+	padding: 0 15px;
+	list-style-type: none;
+}
+ul.plan li {
+	float: left;
+	margin: 0 0 0 15px;
+	width: 33.33%;
+	text-align: center;
+	border-top: 4px solid #454545;
+	background: #242424;
+}
+ul.plan li.current {
+	border-color: #0B7EF4;
+}
+ul.plan li:first-child {
+	margin-left: -30px;
+}
+ul.plan li p {
+	margin: 20px 10px;
+	height: 3.6em;
+	text-align: center;
+	overflow: hidden;
+}
+ul.plan li .pricing {
+	display: inline-block;
+}
+ul.plan li .pricing > * {
+	float: left;
+	line-height: 1em;
+}
+ul.plan li .pricing > strong {
+	font-size: 30px;
+	color: #FFFFFF;
+}
+ul.plan li .pricing > div {
+	margin: 0 0 0 5px;
+	height: 2em;
+}
+ul.plan li .btn {
+	float: none;
+	margin: 20px 0;
+}
+
+@media only screen and (max-width: 568px) {
+ul.plan {
+	margin: 0;
+	padding: 0;
+}
+ul.plan li {
+	float: none;
+	margin: 15px 0 0 0;
+	width: 100%;
+}
+ul.plan li:first-child {
+	margin: 0;
+}
+}
+
+
+/**
  * input-container
  */
 
