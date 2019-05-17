@@ -1,0 +1,258 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+	<title>CMS API Test</title>
+	
+	<meta charset="utf-8">
+	<meta name="robots" content="index, follow" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta name="author" content="Tony Lau" />
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta content="yes" name="apple-mobile-web-app-capable"/>
+	<meta content="yes" name="apple-touch-fullscreen"/>
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<meta name="App-Config" content="fullscreen=yes, useHistoryState=yes, transition=yes"/>
+	
+	<link rel="shortcut icon" href="image/favicon.ico">
+	
+	<!--[if lt IE 9]>
+	<script type='text/javascript'>
+		(function() {
+			if (!/*@cc_on!@*/0) {
+				return;
+			}
+			
+			var e = "abbr, article, aside, audio, canvas, datalist, details, dialog, eventsource, figure, footer, header, hgroup, mark, menu, meter, nav, output, progress, section, time, video".split(', ');
+			var i = e.length;
+			while (i--) {
+				document.createElement(e[i]);
+			}
+		})()
+	</script>
+	
+	<style type='text/css' media='screen'>
+		article, aside, dialog, footer, header, section, footer, nav, figure, menu {
+			display: block;
+		}
+	</style>
+	<![endif]-->
+	
+	<link type='text/css' rel='stylesheet' href='css/style.css' />
+	
+	<!--<script type='text/javascript' src='js/playease.min.js'></script>-->
+	<script type='text/javascript' src='js/cn/studease/playease.js'></script>
+	<script type='text/javascript' src='js/cn/studease/utils/playease.utils.js'></script>
+	<script type='text/javascript' src='js/cn/studease/utils/playease.utils.crypt.js'></script>
+	<script type='text/javascript' src='js/cn/studease/utils/playease.utils.endian.js'></script>
+	<script type='text/javascript' src='js/cn/studease/utils/playease.utils.buffer.js'></script>
+	<script type='text/javascript' src='js/cn/studease/utils/playease.utils.css.js'></script>
+	<script type='text/javascript' src='js/cn/studease/utils/playease.utils.amf.js'></script>
+	<script type='text/javascript' src='js/cn/studease/events/playease.events.js'></script>
+	<script type='text/javascript' src='js/cn/studease/events/playease.events.eventdispatcher.js'></script>
+	<script type='text/javascript' src='js/cn/studease/utils/playease.utils.filekeeper.js'></script>
+	<script type='text/javascript' src='js/cn/studease/utils/playease.utils.timer.js'></script>
+	<script type='text/javascript' src='js/cn/studease/utils/playease.utils.xml2json.js'></script>
+	<script type='text/javascript' src='js/cn/studease/utils/playease.utils.manifest.js'></script>
+	<script type='text/javascript' src='js/cn/studease/utils/matchers/playease.utils.matchers.js'></script>
+	<script type='text/javascript' src='js/cn/studease/utils/matchers/playease.utils.matchers.datetime.js'></script>
+	<script type='text/javascript' src='js/cn/studease/utils/matchers/playease.utils.matchers.duration.js'></script>
+	<script type='text/javascript' src='js/cn/studease/utils/matchers/playease.utils.matchers.numeric.js'></script>
+	<script type='text/javascript' src='js/cn/studease/utils/matchers/playease.utils.matchers.string.js'></script>
+	<script type='text/javascript' src='js/cn/studease/api/playease.api.js'></script>
+	<script type='text/javascript' src='js/cn/studease/io/playease.io.js'></script>
+	<script type='text/javascript' src='js/cn/studease/io/playease.io.fetch-stream-loader.js'></script>
+	<script type='text/javascript' src='js/cn/studease/io/playease.io.xhr-ms-stream-loader.js'></script>
+	<script type='text/javascript' src='js/cn/studease/io/playease.io.xhr-moz-stream-loader.js'></script>
+	<script type='text/javascript' src='js/cn/studease/io/playease.io.xhr-chunked-loader.js'></script>
+	<script type='text/javascript' src='js/cn/studease/io/playease.io.websocket-loader.js'></script>
+	<script type='text/javascript' src='js/cn/studease/muxer/playease.muxer.js'></script>
+	<script type='text/javascript' src='js/cn/studease/muxer/playease.muxer.SPS.js'></script>
+	<script type='text/javascript' src='js/cn/studease/muxer/playease.muxer.flv.js'></script>
+	<script type='text/javascript' src='js/cn/studease/muxer/playease.muxer.mp4.js'></script>
+	<script type='text/javascript' src='js/cn/studease/net/playease.net.js'></script>
+	<script type='text/javascript' src='js/cn/studease/net/playease.net.responder.js'></script>
+	<script type='text/javascript' src='js/cn/studease/net/playease.net.netstatus.js'></script>
+	<script type='text/javascript' src='js/cn/studease/net/playease.net.netconnection.js'></script>
+	<script type='text/javascript' src='js/cn/studease/net/playease.net.netstream.js'></script>
+	<script type='text/javascript' src='js/cn/studease/core/playease.core.js'></script>
+	<script type='text/javascript' src='js/cn/studease/core/playease.core.states.js'></script>
+	<script type='text/javascript' src='js/cn/studease/core/renders/playease.core.renders.js'></script>
+	<script type='text/javascript' src='js/cn/studease/core/renders/playease.core.renders.def.js'></script>
+	<script type='text/javascript' src='js/cn/studease/core/renders/playease.core.renders.flv.js'></script>
+	<script type='text/javascript' src='js/cn/studease/core/renders/playease.core.renders.fmp4.js'></script>
+	<script type='text/javascript' src='js/cn/studease/core/renders/playease.core.renders.wss.js'></script>
+	<script type='text/javascript' src='js/cn/studease/core/renders/playease.core.renders.dash.js'></script>
+	<script type='text/javascript' src='js/cn/studease/core/renders/playease.core.renders.flash.js'></script>
+	<script type='text/javascript' src='js/cn/studease/core/skins/playease.core.skins.js'></script>
+	<script type='text/javascript' src='js/cn/studease/core/skins/playease.core.skins.def.js'></script>
+	<script type='text/javascript' src='js/cn/studease/core/components/playease.core.components.js'></script>
+	<script type='text/javascript' src='js/cn/studease/core/components/playease.core.components.slider.js'></script>
+	<script type='text/javascript' src='js/cn/studease/core/components/playease.core.components.tooltip.js'></script>
+	<script type='text/javascript' src='js/cn/studease/core/components/playease.core.components.controlbar.js'></script>
+	<script type='text/javascript' src='js/cn/studease/core/components/playease.core.components.poster.js'></script>
+	<script type='text/javascript' src='js/cn/studease/core/components/playease.core.components.bulletcurtain.js'></script>
+	<script type='text/javascript' src='js/cn/studease/core/components/playease.core.components.display.js'></script>
+	<script type='text/javascript' src='js/cn/studease/core/components/playease.core.components.logo.js'></script>
+	<script type='text/javascript' src='js/cn/studease/core/components/playease.core.components.contextmenu.js'></script>
+	<script type='text/javascript' src='js/cn/studease/utils/playease.utils.playlist.js'></script>
+	<script type='text/javascript' src='js/cn/studease/core/playease.core.entity.js'></script>
+	<script type='text/javascript' src='js/cn/studease/core/playease.core.model.js'></script>
+	<script type='text/javascript' src='js/cn/studease/core/playease.core.view.js'></script>
+	<script type='text/javascript' src='js/cn/studease/core/playease.core.controller.js'></script>
+	<script type='text/javascript' src='js/cn/studease/embed/playease.embed.js'></script>
+	<script type='text/javascript' src='js/cn/studease/embed/playease.embed.config.js'></script>
+	<script type='text/javascript' src='js/cn/studease/embed/playease.embed.embedder.js'></script>
+</head>
+<body ontouchstart=''>
+	<header>
+		<div class='topbar'>
+		<section>
+			<ul class='info'>
+				<li><span class='icon-card'>Name: Tony Lau</span></li>
+				<li><span class='icon-phone'>Phone: +8618224088983</span></li>
+				<li><span class='icon-email'>Email: 670292548@qq.com</span></li>
+				<li><span class='icon-address'>Address: Chongqing, China</span></li>
+			</ul>
+		</section>
+		</div>
+		
+		<nav>
+		<section>
+			<ul>
+				<li class='current'><a href='#'>HOME</a></li>
+				<li><a href='#'>ABOUT</a></li>
+				<li><a href='#'>NEWS</a></li>
+				<li><a href='#'>SOLUTIONS</a></li>
+				<li>
+					<a href='#'>PROJECTS</a>
+					<ul>
+						<li><a href='#'>rtmpmate</a></li>
+						<li><a href='#'>playease.js</a></li>
+						<li><a href='#'>chatease.js</a></li>
+						<li><a href='#'>slicease.js</a></li>
+					</ul>
+				</li>
+				<li><a href='#'>CONTACT</a></li>
+				<li><a href='#'>BLOG</a></li>
+			</ul>
+		</section>
+		</nav>
+	</header>
+	
+	<div class='wrap'>
+		<div class='video-container'>
+		<section>
+			<ul>
+				<li><span id='player0'></span></li>
+				<li><span id='player1'></span></li>
+				<li><span id='player2'></span></li>
+				<li><span id='player3'></span></li>
+			</ul>
+		</section>
+		</div>
+	</div>
+	
+	<footer>
+		<div class='footerall'>
+		<section>
+			
+		</section>
+		</div>
+		
+		<div class='copyright'>
+		<section>
+			<span>Copyright &copy; 2019 studease.cn | All Rights Reserved</span>
+		</section>
+		</div>
+	</footer>
+	
+	<script type='text/javascript'>
+		var utils = playease.utils,
+			events = playease.events;
+		
+		var xhr = new XMLHttpRequest();
+		xhr.onload = onLoginInfo;
+		xhr.onerror = onXHRError;
+		xhr.open('GET', 'http://54.206.67.116/StandardApiAction_login.action?account=Subbies&password=0987654321', true);
+		xhr.send();
+		
+		function onLoginInfo(e) {
+			var data = eval('(' + e.target.response + ')');
+			if (data.result != 0) {
+				utils.log('Failed to login.');
+				return;
+			}
+			
+			xhr.onload = onVehicleInfo;
+			xhr.open('GET', 'http://54.206.67.116/StandardApiAction_queryUserVehicle.action?jsession='+data.jsession, true);
+			xhr.send();
+		}
+		
+		function onVehicleInfo(e) {
+			var data = eval('(' + e.target.response + ')');
+			if (data.result != 0) {
+				utils.log('Failed to get vehicle info.');
+				return;
+			}
+			
+			for (var i = 0; i < data.vehicles.length; i++) {
+				var v = data.vehicles[i];
+				if (v.nm == 'STH505') {
+					for (var j = 0; j < v.dl.length; j++) {
+						var d = v.dl[j];
+						if (d.id == '10') {
+							var arr = d.cn.split(',');
+							for (var k = 0; k < arr.length; k++) {
+								var b64 = window.btoa(',1,' + d.id + ',' + k + ',1,0,0');
+								initPlayer('player' + k, 'http://54.206.67.116:6604/rtmp/1534904919936/?' + b64);
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		function onXHRError(e) {
+			utils.log('XHR error: ' + e.message);
+		}
+		
+		function initPlayer(id, url) {
+			var player = playease(id);
+			player.addEventListener(events.PLAYEASE_FULLPAGE, onFullpage);
+			player.setup({
+				width: 540,
+				height: 337,
+				aspectratio: '16:9',
+				file: url,
+				mode: 'live',
+				autoplay: false,
+				logo: {
+					visible: false
+				},
+				fullpage: {
+					visible: true
+				},
+				loader: {
+					//name: 'xhr-chunked-loader',
+					//chunkSize: 4 * 1024 * 1024,
+					mode: 'cors'
+				},
+				render: {
+					name: 'flv',
+					//bufferLength: 4 * 1024 * 1024,
+					swf: '../swf/playease.swf'
+				}
+			});
+			
+			function onFullpage(e) {
+				var w = document.getElementById(id).parentElement;
+				w.style.width = e.exit ? '' : '100%';
+				w.style.height = e.exit ? '' : '100%';
+				w.style.position = e.exit ? '' : 'absolute';
+				w.style.zIndex = e.exit ? '' : '99';
+			}
+		}
+	</script>
+</body>
