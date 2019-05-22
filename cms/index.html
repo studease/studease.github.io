@@ -142,6 +142,13 @@
 	</header>
 	
 	<div class='wrap'>
+		<div class='control-container'>
+		<section>
+			<a class='btn red' onclick='playAllChannels();'>Play</a>
+			<a class='btn red' onclick='stopAllChannels();'>Stop</a>
+		</section>
+		</div>
+		
 		<div class='video-container'>
 		<section>
 			<ul>
@@ -170,7 +177,8 @@
 	
 	<script type='text/javascript'>
 		var utils = playease.utils,
-			events = playease.events;
+			events = playease.events,
+			players = [];
 		
 		var xhr = new XMLHttpRequest();
 		xhr.onload = onLoginInfo;
@@ -223,7 +231,7 @@
 			player.addEventListener(events.PLAYEASE_FULLPAGE, onFullpage);
 			player.setup({
 				width: 540,
-				height: 337,
+				height: 297,
 				aspectratio: '16:9',
 				file: url,
 				mode: 'live',
@@ -253,6 +261,22 @@
 				w.style.height = e.exit ? '' : '100%';
 				w.style.position = e.exit ? '' : 'absolute';
 				w.style.zIndex = e.exit ? '' : '99';
+			}
+			
+			players.push(player);
+		}
+		
+		function playAllChannels(e) {
+			for (var i = 0; i < players.length; i++) {
+				var player = players[i];
+				player.play();
+			}
+		}
+		
+		function stopAllChannels(e) {
+			for (var i = 0; i < players.length; i++) {
+				var player = players[i];
+				player.stop();
 			}
 		}
 	</script>

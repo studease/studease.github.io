@@ -176,19 +176,23 @@ ul.plan li:first-child {
 
 
 /**
- * features
+ * cms
  */
+
+.control-container {
+	margin: 0 0 10px 0;
+}
 
 .video-container ul {
 	width: 100%;
-	height: 679px;
+	height: 599px;
 	list-style-type: none;
 	position: relative;
 }
 .video-container section > ul > li {
 	float: left;
 	width: 540px;
-	height: 337px;
+	height: 297px;
 }
 .video-container section > ul > li:nth-child(odd) {
 	margin: 0 5px 5px 0;
