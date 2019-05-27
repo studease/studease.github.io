@@ -428,9 +428,9 @@ nav section > ul > li:hover ul {
  */
 
 .wrap {
-	margin: 40px 0;
 	text-align: justify;
 	word-wrap: break-word;
+	position: relative;
 }
 
 .wrap a:not(.btn):link, .wrap a:not(.btn):visited, .wrap a.note {

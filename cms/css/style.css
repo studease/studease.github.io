@@ -179,23 +179,52 @@ ul.plan li:first-child {
  * cms
  */
 
-.control-container {
-	margin: 0 0 10px 0;
-}
-
-.video-container section > ul {
-	width: 100%;
-	height: 613px;
-	list-style-type: none;
+.video-container section {
 	position: relative;
 }
-.video-container section > ul > li {
-	float: left;
-	width: 540px;
-	height: 304px;
+
+.video-container #video-list {
+	list-style-type: none;
 }
-.video-container section > ul > li:nth-child(odd) {
+.video-container #video-list > li {
+	float: left;
+	width: calc((100% - 5px) / 2);
+}
+.video-container #video-list > li:nth-child(odd) {
 	margin: 0 5px 5px 0;
+}
+.video-container #video-list > li:nth-last-child(2) {
+	margin-bottom: 0;
+}
+
+.video-container .toolbar {
+	top: 10px;
+	left: 10px;
+	position: absolute;
+	background: #171717;
+	z-index: 10;
+}
+.video-container .toolbar > * {
+	float: left;
+	margin-left: 8px;
+	padding: 0;
+	width: 26px;
+	height: 40px;
+}
+.video-container .toolbar > *:last-child {
+	margin-right: 8px;
+}
+.video-container .toolbar .play {
+	background-image: url(../image/skins/playButton.png);
+}
+.video-container .toolbar .play:hover {
+	background-image: url(../image/skins/playButtonOver.png);
+}
+.video-container .toolbar .stop {
+	background-image: url(../image/skins/stopButton.png);
+}
+.video-container .toolbar .stop:hover {
+	background-image: url(../image/skins/stopButtonOver.png);
 }
 
 

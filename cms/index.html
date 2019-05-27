@@ -41,8 +41,8 @@
 	
 	<link type='text/css' rel='stylesheet' href='css/style.css' />
 	
-	<script type='text/javascript' src='js/playease.min.js'></script>
-	<!--<script type='text/javascript' src='js/cn/studease/playease.js'></script>
+	<!--<script type='text/javascript' src='js/playease.min.js'></script>-->
+	<script type='text/javascript' src='js/cn/studease/playease.js'></script>
 	<script type='text/javascript' src='js/cn/studease/utils/playease.utils.js'></script>
 	<script type='text/javascript' src='js/cn/studease/utils/playease.utils.crypt.js'></script>
 	<script type='text/javascript' src='js/cn/studease/utils/playease.utils.endian.js'></script>
@@ -103,78 +103,65 @@
 	<script type='text/javascript' src='js/cn/studease/core/playease.core.controller.js'></script>
 	<script type='text/javascript' src='js/cn/studease/embed/playease.embed.js'></script>
 	<script type='text/javascript' src='js/cn/studease/embed/playease.embed.config.js'></script>
-	<script type='text/javascript' src='js/cn/studease/embed/playease.embed.embedder.js'></script>-->
+	<script type='text/javascript' src='js/cn/studease/embed/playease.embed.embedder.js'></script>
 </head>
 <body ontouchstart=''>
 	<div class='wrap'>
-		<div class='control-container'>
-		<section>
-			<a class='btn red' onclick='playAllChannels();'>Play</a>
-			<a class='btn red' onclick='stopAllChannels();'>Stop</a>
-		</section>
-		</div>
-		
 		<div class='video-container'>
 		<section>
-			<ul>
-				<li><span id='player0'></span></li>
-				<li><span id='player1'></span></li>
-				<li><span id='player2'></span></li>
-				<li><span id='player3'></span></li>
-			</ul>
+			<ul id='video-list'></ul>
+			
+			<div class='toolbar'>
+				<span class='btn play' onclick='playAllChannels()'></span>
+				<span class='btn stop' onclick='stopAllChannels()'></span>
+			</div>
 		</section>
 		</div>
 	</div>
 	
 	<script type='text/javascript'>
 		var utils = playease.utils,
-			events = playease.events,
-			players = [];
+			events = playease.events;
 		
-		var xhr = new XMLHttpRequest();
-		xhr.onload = onLoginInfo;
-		xhr.onerror = onXHRError;
-		xhr.open('GET', 'http://54.206.67.116/StandardApiAction_login.action?account=Subbies&password=0987654321', true);
-		xhr.send();
+		var ul = document.getElementById('video-list');
+		var params = {};
+		var players = [];
 		
-		function onLoginInfo(e) {
-			var data = eval('(' + e.target.response + ')');
-			if (data.result != 0) {
-				utils.log('Failed to login.');
+		initChannels();
+		
+		function initChannels() {
+			var str = window.location.search;
+			if (str.length == 0) {
+				utils.log('URL params not found.');
 				return;
 			}
 			
-			xhr.onload = onVehicleInfo;
-			xhr.open('GET', 'http://54.206.67.116/StandardApiAction_queryUserVehicle.action?jsession='+data.jsession, true);
-			xhr.send();
-		}
-		
-		function onVehicleInfo(e) {
-			var data = eval('(' + e.target.response + ')');
-			if (data.result != 0) {
-				utils.log('Failed to get vehicle info.');
-				return;
-			}
+			var reg = new RegExp('^(.+)=(.*)$', 'i');
+			var arr = str.substr(1).split('&');
 			
-			for (var i = 0; i < data.vehicles.length; i++) {
-				var v = data.vehicles[i];
-				if (v.nm == 'STH505') {
-					for (var j = 0; j < v.dl.length; j++) {
-						var d = v.dl[j];
-						if (d.id == '10') {
-							var arr = d.cn.split(',');
-							for (var k = 0; k < arr.length; k++) {
-								var b64 = window.btoa(',1,' + d.id + ',' + k + ',1,0,0');
-								initPlayer('player' + k, 'http://54.206.67.116:6604/rtmp/1534904919936/?' + b64);
-							}
-						}
-					}
+			for (var i = 0; i < arr.length; i++) {
+				var tmp = arr[i].match(reg);
+				if (tmp) {
+					var k = tmp[1];
+					var v = tmp[2];
+					params[k] = unescape(v);
 				}
 			}
-		}
-		
-		function onXHRError(e) {
-			utils.log('XHR error: ' + e.message);
+			
+			if (!params.id || !params.cn) {
+				utils.log('Necessary param[s] not found.');
+				return;
+			}
+			
+			arr = params.cn.split(',');
+			for (var j = 0; j < arr.length; j++) {
+				var li = utils.createElement('li');
+				li.innerHTML = '<span id="player' + j + '"></span>';
+				ul.appendChild(li);
+				
+				var b64 = window.btoa(',1,' + params.id + ',' + j + ',1,0,0');
+				initPlayer('player' + j, 'http://54.206.67.116:6604/rtmp/1534904919936/?' + b64);
+			}
 		}
 		
 		function initPlayer(id, url) {
@@ -209,8 +196,9 @@
 			
 			function onFullpage(e) {
 				var w = document.getElementById(id).parentElement;
+				w.style.margin = e.exit ? '' : '0';
 				w.style.width = e.exit ? '' : '100%';
-				w.style.height = e.exit ? '' : '100%';
+				w.style.height = e.exit ? '' : (ul.clientWidth - 5) * 0.5625 + 5 + 'px';
 				w.style.position = e.exit ? '' : 'absolute';
 				w.style.zIndex = e.exit ? '' : '99';
 			}
