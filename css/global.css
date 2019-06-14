@@ -121,40 +121,39 @@ input, textarea {
 	transition-property: background-color, color;
 }
 .btn.red {
-	color: #FFFFFF;
-	background-color: #FF0046;
+	color: #F0FFF0;
+	background-color: #DC143C;
 }
 .btn.red:hover {
-	background-color: #97052D;
+	background-color: #CD5C5C;
 }
 .btn.green {
-	color: #FFFFFF;
-	background-color: #4CAE4C;
-}
-.btn.green:hover {
+	color: #F0FFF0;
 	background-color: #449d44;
 }
+.btn.green:hover {
+	background-color: #4CAE4C;
+}
 .btn.blue {
-	color: #FFFFFF;
+	color: #F0FFF0;
 	background-color: #0B7EF4;
 }
 .btn.blue:hover {
-	background-color: #0966C3;
+	background-color: #00A1D7;
 }
 .btn.white {
-	color: #000000;
-	background-color: #FFFFFF;
+	color: #2F4F4F;
+	background-color: #D3D3D3;
 }
 .btn.white:hover {
-	background-color: #E0E0E0;
+	background-color: #F5F5F5;
 }
 .btn.gray {
-	color: #7fc77f;
-	background-color: #3D3D3D;
+	color: #F0FFF0;
+	background-color: #808080;
 }
 .btn.gray:hover {
-	color: #4CAE4C;
-	background-color: #303030;
+	background-color: #A9A9A9;
 }
 
 h1, h2, h3, h4, h5, h6 {
