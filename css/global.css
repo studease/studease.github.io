@@ -122,38 +122,38 @@ input, textarea {
 }
 .btn.red {
 	color: #F0FFF0;
-	background-color: #DC143C;
+	background-color: #D9534C;
 }
 .btn.red:hover {
-	background-color: #CD5C5C;
+	background-color: #DC143C;
 }
 .btn.green {
 	color: #F0FFF0;
-	background-color: #449d44;
+	background-color: #4CAE4C;
 }
 .btn.green:hover {
-	background-color: #4CAE4C;
+	background-color: #449d44;
 }
 .btn.blue {
 	color: #F0FFF0;
-	background-color: #0B7EF4;
+	background-color: #00A1D7;
 }
 .btn.blue:hover {
-	background-color: #00A1D7;
+	background-color: #0B7EF4;
 }
 .btn.white {
 	color: #2F4F4F;
-	background-color: #D3D3D3;
+	background-color: #F5F5F5;
 }
 .btn.white:hover {
-	background-color: #F5F5F5;
+	background-color: #D3D3D3;
 }
 .btn.gray {
 	color: #F0FFF0;
-	background-color: #808080;
+	background-color: #A9A9A9;
 }
 .btn.gray:hover {
-	background-color: #A9A9A9;
+	background-color: #808080;
 }
 
 h1, h2, h3, h4, h5, h6 {
