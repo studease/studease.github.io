@@ -180,36 +180,28 @@ ul.plan li:first-child {
  */
 
 .video-container section {
+	line-height: 0;
 	position: relative;
 }
 
-.video-container #video-list {
-	list-style-type: none;
-}
-.video-container #video-list > li {
-	float: left;
-	width: calc((100% - 5px) / 2);
-}
-.video-container #video-list > li:nth-child(odd) {
-	margin: 0 5px 5px 0;
-}
-.video-container #video-list > li:nth-last-child(2) {
-	margin-bottom: 0;
-}
-
 .video-container .toolbar {
-	top: 10px;
-	left: 10px;
-	position: absolute;
+	height: 40px;
 	background: #171717;
-	z-index: 10;
+	display: inline-block;
+}
+.video-container .toolbar:after {
+	content: "";
+	display: block;
+	height: 0;
+	visibility: hidden;  
+	clear: both;
 }
 .video-container .toolbar > * {
 	float: left;
 	margin-left: 8px;
 	padding: 0;
 	width: 26px;
-	height: 40px;
+	height: 100%;
 }
 .video-container .toolbar > *:last-child {
 	margin-right: 8px;
@@ -225,6 +217,22 @@ ul.plan li:first-child {
 }
 .video-container .toolbar .stop:hover {
 	background-image: url(../image/skins/stopButtonOver.png);
+}
+
+.video-container #video-list {
+	margin-top: 5px;
+	list-style-type: none;
+	display: inline-block;
+}
+.video-container #video-list > li {
+	float: left;
+	width: calc((100% - 5px) / 2);
+}
+.video-container #video-list > li:nth-child(odd) {
+	margin: 0 5px 5px 0;
+}
+.video-container #video-list > li:nth-last-child(2) {
+	margin-bottom: 0;
 }
 
 

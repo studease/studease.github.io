@@ -41,8 +41,8 @@
 	
 	<link type='text/css' rel='stylesheet' href='css/style.css' />
 	
-	<script type='text/javascript' src='js/playease.min.js'></script>
-	<!--<script type='text/javascript' src='js/cn/studease/playease.js'></script>
+	<!--<script type='text/javascript' src='js/playease.min.js'></script>-->
+	<script type='text/javascript' src='js/cn/studease/playease.js'></script>
 	<script type='text/javascript' src='js/cn/studease/utils/playease.utils.js'></script>
 	<script type='text/javascript' src='js/cn/studease/utils/playease.utils.crypt.js'></script>
 	<script type='text/javascript' src='js/cn/studease/utils/playease.utils.endian.js'></script>
@@ -103,18 +103,18 @@
 	<script type='text/javascript' src='js/cn/studease/core/playease.core.controller.js'></script>
 	<script type='text/javascript' src='js/cn/studease/embed/playease.embed.js'></script>
 	<script type='text/javascript' src='js/cn/studease/embed/playease.embed.config.js'></script>
-	<script type='text/javascript' src='js/cn/studease/embed/playease.embed.embedder.js'></script>-->
+	<script type='text/javascript' src='js/cn/studease/embed/playease.embed.embedder.js'></script>
 </head>
 <body ontouchstart=''>
 	<div class='wrap'>
 		<div class='video-container'>
 		<section>
-			<ul id='video-list'></ul>
-			
 			<div class='toolbar'>
 				<span class='btn play' onclick='playAllChannels()'></span>
 				<span class='btn stop' onclick='stopAllChannels()'></span>
 			</div>
+			
+			<ul id='video-list'></ul>
 		</section>
 		</div>
 	</div>
@@ -122,6 +122,8 @@
 	<script type='text/javascript'>
 		var utils = playease.utils,
 			events = playease.events;
+		
+		//http://54.206.67.116/StandardApiAction_getVideoFileInfo.action?DownType=2&DevIDNO=10&LOC=1&CHN=-1&YEAR=2019&MON=5&DAY=28&RECTYPE=-1&FILEATTR=2&BEG=0&END=86399&ARM1=0&ARM2=0&RES=0&STREAM=0&STORE=0&jsession=92b99837-aaf7-4d9e-aec2-e89540d4b17f
 		
 		var ul = document.getElementById('video-list');
 		var params = {};
