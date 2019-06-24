@@ -112,9 +112,13 @@
 			<div class='toolbar'>
 				<span class='btn play' onclick='playAllChannels()'></span>
 				<span class='btn stop' onclick='stopAllChannels()'></span>
-			</div>
+				<span class='sep'></span>
+				<span class='btn col-1' onclick='setColumns(1)'></span>
+				<span class='btn col-4' onclick='setColumns(4)'></span>
+				<span class='btn col-9' onclick='setColumns(9)'></span>
+			</div><br/>
 			
-			<ul id='video-list'></ul>
+			<ul class='col-4' id='video-list'></ul>
 		</section>
 		</div>
 	</div>
@@ -125,9 +129,9 @@
 		
 		//http://54.206.67.116/StandardApiAction_getVideoFileInfo.action?DownType=2&DevIDNO=10&LOC=1&CHN=-1&YEAR=2019&MON=5&DAY=28&RECTYPE=-1&FILEATTR=2&BEG=0&END=86399&ARM1=0&ARM2=0&RES=0&STREAM=0&STORE=0&jsession=92b99837-aaf7-4d9e-aec2-e89540d4b17f
 		
-		var ul = document.getElementById('video-list');
 		var params = {};
 		var players = [];
+		var ul = document.getElementById('video-list');
 		
 		initChannels();
 		
@@ -153,6 +157,10 @@
 			if (!params.id || !params.cn) {
 				utils.log('Necessary param[s] not found.');
 				return;
+			}
+			
+			if (params.cols) {
+				ul.className = params.cols;
 			}
 			
 			arr = params.cn.split(',');
@@ -198,11 +206,13 @@
 			
 			function onFullpage(e) {
 				var w = document.getElementById(id).parentElement;
-				w.style.margin = e.exit ? '' : '0';
+				w.style.margin = e.exit ? '' : '4px 0 0 0';
 				w.style.width = e.exit ? '' : '100%';
-				w.style.height = e.exit ? '' : (ul.clientWidth - 5) * 0.5625 + 5 + 'px';
+				w.style.height = e.exit ? '' : ul.clientWidth * 0.5625 + 'px';
 				w.style.position = e.exit ? '' : 'absolute';
 				w.style.zIndex = e.exit ? '' : '99';
+				
+				player.resize();
 			}
 			
 			players.push(player);
@@ -219,6 +229,15 @@
 			for (var i = 0; i < players.length; i++) {
 				var player = players[i];
 				player.stop();
+			}
+		}
+		
+		function setColumns(n) {
+			ul.className = 'col-' + n;
+			
+			for (var i = 0; i < players.length; i++) {
+				var player = players[i];
+				player.resize();
 			}
 		}
 	</script>
