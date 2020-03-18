@@ -170,12 +170,13 @@
 				ul.appendChild(li);
 				
 				var b64 = window.btoa(',1,' + params.id + ',' + j + ',1,0,0');
-				initPlayer('player' + j, 'http://54.206.67.116:6604/rtmp/1534904919936/?' + b64);
+				initPlayer('player' + j, 'http://13.236.169.56:6604/rtmp/1534904919936/?' + b64);
 			}
 		}
 		
 		function initPlayer(id, url) {
 			var player = playease(id);
+			player.addEventListener(events.PLAYEASE_PLAYING, onPlay);
 			player.addEventListener(events.PLAYEASE_FULLPAGE, onFullpage);
 			player.setup({
 				width: 540,
@@ -185,7 +186,7 @@
 				mode: 'live',
 				controls: false,
 				doubleClick: 'fullpage',
-				autoplay: false,
+				autoplay: true,
 				logo: {
 					visible: false
 				},
@@ -203,6 +204,16 @@
 					swf: '../swf/playease.swf'
 				}
 			});
+			
+			function onPlay(e) {
+				var timer = new utils.timer(15000, 1);
+				timer.addEventListener(events.PLAYEASE_TIMER, onTimer);
+				timer.start();
+			}
+			
+			function onTimer(e) {
+				player.stop();
+			}
 			
 			function onFullpage(e) {
 				var w = document.getElementById(id).parentElement;
