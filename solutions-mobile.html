@@ -107,23 +107,23 @@ a:active, a:focus, a:hover {
 			aspectratio: '16:9',
 			//file: '/vod/sample.mp4',
 			sources: [{
-				file: 'http://118.190.79.29/live/_definst_/stream02.flv',
+				file: 'http://39.98.40.193/live/_definst_/stream02.flv',
 				type: 'flv',
 				label: 'HTTP-FLV'
 			}, {
-				file: 'ws://118.190.79.29/live/_definst_/stream02',
+				file: 'ws://39.98.40.193/live/_definst_/stream02',
 				type: 'fmp4',
 				label: 'WS-FMP4'
 			}, {
-				file: 'http://118.190.79.29/live/_definst_/stream02/manifest.mpd',
+				file: 'http://39.98.40.193/live/_definst_/stream02/manifest.mpd',
 				type: 'dash',
 				label: 'MPEG-DASH'
 			}, {
-				file: 'rtmp://118.190.79.29/live/stream02',
+				file: 'rtmp://39.98.40.193/live/stream02',
 				type: 'flash',
 				label: 'RTMP-STREAM'
 			}, {
-				file: 'http://118.190.79.29/live/_definst_/stream02/index.m3u8',
+				file: 'http://39.98.40.193/live/_definst_/stream02/index.m3u8',
 				type: 'def',
 				label: 'HLS'
 			}],
@@ -185,7 +185,7 @@ a:active, a:focus, a:hover {
 		chat.addEventListener(events.CHATEASE_USER, onUser);
 		chat.addEventListener(events.CHATEASE_CLOSE, onClose);
 		chat.setup({
-			url: 'ws://118.190.79.29/chat/001' + window.location.search,
+			url: 'ws://39.98.40.193/chat/001' + window.location.search,
 			width: 320,
 			height: 400,
 			maxLength: 70,
