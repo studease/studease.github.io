@@ -1,0 +1,683 @@
+.pe-wrapper {
+    width: 100%;
+    height: 100%;
+    color: white;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    background: black;
+    position: relative;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.pe-wrapper * {
+    margin: 0px;
+    padding: 0px;
+    font-family: Microsoft YaHei, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 0px;
+    box-sizing: content-box;
+}
+
+.pe-ui-classic .pe-label {
+    white-space: nowrap;
+    cursor: default;
+}
+
+.pe-ui-classic .pe-slider {
+    cursor: pointer;
+}
+
+.pe-ui-classic .pe-slider .pe-slider-content {
+    height: 100%;
+}
+
+.pe-ui-classic .pe-slider .pe-slider-rail {
+    width: 0px;
+    height: 100%;
+    top: 0px;
+    position: absolute;
+}
+
+.pe-ui-classic .pe-slider .pe-slider-rail.background {
+    width: 100%;
+}
+
+.pe-ui-classic .pe-slider .pe-slider-thumb,
+.pe-ui-classic .pe-slider .pe-slider-thumb span {
+    position: absolute;
+}
+
+.pe-ui-classic .pe-slider .pe-slider-thumb {
+    height: 100%;
+}
+
+.pe-ui-classic .pe-tooltip {
+    padding: 0.6rem 1.2rem;
+    line-height: 1rem;
+    border-radius: 2px;
+    background: #454545;
+    left: 0px;
+    position: absolute;
+    cursor: default;
+    visibility: hidden;
+}
+
+.pe-ui-classic *:hover > .pe-tooltip {
+    visibility: visible;
+}
+
+.pe-ui-classic .pe-button,
+.pe-ui-classic .pe-select {
+    text-align: center;
+    white-space: nowrap;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+.pe-ui-classic .pe-select {
+    position: relative;
+}
+
+.pe-ui-classic .pe-select .pe-select-text {
+    padding: 3px 12px;
+    line-height: 40px;
+    border-radius: 2px;
+    background: #454545;
+}
+
+.pe-ui-classic .pe-select:hover .pe-select-text {
+    color: #00a0e9;
+}
+
+.pe-ui-classic .pe-select .pe-select-menu {
+    bottom: 100%;
+    position: absolute;
+    background: #454545;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+.pe-ui-classic .pe-select .pe-select-menu .pe-select-menu-option {
+    padding: 8px 4px;
+    line-height: 1rem;
+    white-space: nowrap;
+    display: block;
+}
+
+.pe-ui-classic .pe-select .pe-select-menu .pe-select-menu-option:hover,
+.pe-ui-classic .pe-select .pe-select-menu .pe-select-menu-option.selected {
+    background: #00a0e9;
+}
+
+.pe-ui-classic .pe-content,
+.pe-ui-classic[controls="always"] .pe-content {
+    width: 100%;
+    height: calc(100% - 40px);
+}
+
+.pe-ui-classic[controls="motion"] .pe-content,
+.pe-ui-classic[controls="never"] .pe-content {
+    height: 100%;
+}
+
+.pe-ui-classic .pe-content video,
+.pe-ui-classic .pe-content object {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.pe-ui-classic .pe-content video::-webkit-media-controls-start-playback-button {
+    display: none;
+}
+
+.pe-ui-classic .pe-poster,
+.pe-ui-classic .pe-danmu,
+.pe-ui-classic .pe-display,
+.pe-ui-classic .pe-ad,
+.pe-ui-classic .pe-share,
+.pe-ui-classic .pe-logo,
+.pe-ui-classic .pe-controlbar,
+.pe-ui-classic .pe-contextmenu,
+.pe-ui-classic[controls="always"] .pe-poster,
+.pe-ui-classic[controls="always"] .pe-danmu,
+.pe-ui-classic[controls="always"] .pe-display,
+.pe-ui-classic[controls="always"] .pe-ad,
+.pe-ui-classic[controls="always"] .pe-share,
+.pe-ui-classic[controls="always"] .pe-logo,
+.pe-ui-classic[controls="always"] .pe-controlbar {
+    top: 0px;
+    position: absolute;
+    display: block;
+}
+
+.pe-ui-classic .pe-controlbar,
+.pe-ui-classic[controls="always"] .pe-controlbar {
+    top: auto;
+}
+
+.pe-ui-classic .pe-poster,
+.pe-ui-classic .pe-display,
+.pe-ui-classic[controls="always"] .pe-poster,
+.pe-ui-classic[controls="always"] .pe-display {
+    width: 100%;
+    height: calc(100% - 40px);
+}
+
+.pe-ui-classic[controls="motion"] .pe-poster,
+.pe-ui-classic[controls="motion"] .pe-display,
+.pe-ui-classic[controls="never"] .pe-poster,
+.pe-ui-classic[controls="never"] .pe-display,
+.pe-ui-classic.fullscreen .pe-poster,
+.pe-ui-classic.fullscreen .pe-display {
+    height: 100%;
+}
+
+.pe-ui-classic .pe-poster {
+    background: black;
+}
+
+.pe-ui-classic[state="waiting"] .pe-poster,
+.pe-ui-classic[state="playing"] .pe-poster,
+.pe-ui-classic[state="pause"] .pe-poster,
+.pe-ui-classic[state="seeking"] .pe-poster,
+.pe-ui-classic[state="switching"] .pe-poster,
+.pe-ui-classic[state="error"] .pe-poster,
+.pe-ui-classic[state="stop"] .pe-poster {
+    display: none;
+}
+
+.pe-ui-classic .pe-poster img {
+    width: 100%;
+    height: 100%;
+}
+
+.pe-ui-classic .pe-display .pe-label,
+.pe-ui-classic .pe-display .pe-button {
+    position: absolute;
+}
+
+.pe-ui-classic .pe-display .pe-label {
+    padding: 8px 12px;
+    font-size: 14px;
+    color: red;
+    line-height: 32px;
+    display: none;
+}
+
+.pe-ui-classic[state="error"] .pe-display .pe-label {
+    display: block;
+}
+
+.pe-ui-classic[state="waiting"] .pe-display .pe-button,
+.pe-ui-classic[state="seeking"] .pe-display .pe-button {
+    cursor: default;
+}
+
+.pe-ui-classic[state="playing"] .pe-display .pe-button {
+    display: none;
+}
+
+.pe-ui-classic .pe-ad,
+.pe-ui-classic .pe-share {
+    display: none;
+}
+
+.pe-ui-classic .pe-logo {
+    margin: 3% 5%;
+    width: 36px;
+    height: 36px;
+    top: 0px;
+    right: 0px;
+}
+
+.pe-ui-classic .pe-logo a {
+    width: 100%;
+    height: 100%;
+    background: url(../../image/logo.png) center no-repeat;
+    background-size: 100% 100%;
+    display: inline-block;
+}
+
+.pe-ui-classic .pe-controlbar {
+    width: 100%;
+    height: 40px;
+    bottom: 0px;
+    background: #171717;
+}
+
+.pe-ui-classic[controls="motion"] .pe-controlbar,
+.pe-ui-classic[controls="never"] .pe-controlbar {
+    display: none;
+}
+
+.pe-ui-classic .pe-controlbar > div {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.pe-ui-classic .pe-controlbar .pe-slider.timebar {
+    width: 100%;
+    height: 2px;
+    top: -2px;
+    position: absolute;
+}
+
+.pe-ui-classic .pe-controlbar:hover .pe-slider.timebar {
+    height: 10px;
+    top: -10px;
+}
+
+.pe-ui-classic .pe-controlbar .pe-slider.timebar .preview {
+    padding: 0px;
+    width: 100%;
+    height: 80px;
+    bottom: 0px;
+    display: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.pe-ui-classic[fullscreen="true"] .pe-controlbar .pe-slider.timebar .preview {
+    height: 120px;
+}
+
+.pe-ui-classic .pe-controlbar .pe-slider.timebar .preview > div {
+    float: left;
+    height: 100%;
+    font-size: 0px;
+    overflow-y: hidden;
+    white-space: nowrap;
+    position: absolute;
+}
+
+.pe-ui-classic .pe-controlbar .pe-slider.timebar .preview > div img {
+    height: 100%;
+    display: inline-block;
+}
+
+.pe-ui-classic .pe-controlbar .pe-slider.timebar .value {
+    bottom: 11px;
+    display: block;
+    visibility: hidden;
+}
+
+.pe-ui-classic .pe-controlbar .pe-slider.timebar div:hover .value {
+    visibility: visible;
+}
+
+.pe-ui-classic .pe-controlbar .pe-slider.timebar .background {
+    filter: alpha(opacity=70);
+    opacity: 0.7;
+    background: #cccccc;
+}
+
+.pe-ui-classic .pe-controlbar .pe-slider.timebar .progress {
+    background: #707070;
+}
+
+.pe-ui-classic .pe-controlbar .pe-slider.timebar .position {
+    background: #00a0e9;
+}
+
+.pe-ui-classic .pe-controlbar .pe-slider.timebar .pe-slider-thumb {
+    display: none;
+}
+
+.pe-ui-classic .pe-controlbar .pe-slider.timebar div:hover .pe-slider-thumb {
+    display: inline-block;
+}
+
+.pe-ui-classic .pe-controlbar .pe-slider.timebar .pe-slider-thumb span {
+    width: 1px;
+    height: 100%;
+    left: -1px;
+    background: #000000;
+}
+
+.pe-ui-classic .pe-controlbar .pe-left,
+.pe-ui-classic .pe-controlbar .pe-center,
+.pe-ui-classic .pe-controlbar .pe-right,
+.pe-ui-classic .pe-controlbar .pe-left > *,
+.pe-ui-classic .pe-controlbar .pe-center > *,
+.pe-ui-classic .pe-controlbar .pe-right > * {
+    float: left;
+}
+
+.pe-ui-classic .pe-controlbar .pe-center {
+    text-align: center;
+}
+
+.pe-ui-classic .pe-controlbar .pe-right {
+    right: 0px;
+    position: absolute;
+}
+
+.pe-ui-classic .pe-controlbar .pe-left > *,
+.pe-ui-classic .pe-controlbar .pe-center > *,
+.pe-ui-classic .pe-controlbar .pe-right > * {
+    position: relative;
+}
+
+.pe-ui-classic .pe-controlbar .pe-left > * > .pe-tooltip,
+.pe-ui-classic .pe-controlbar .pe-center > * > .pe-tooltip,
+.pe-ui-classic .pe-controlbar .pe-right > * > .pe-tooltip {
+    bottom: 41px;
+}
+
+.pe-ui-classic .pe-controlbar .pe-slider.timebar,
+.pe-ui-classic .pe-controlbar .pe-button.pause,
+.pe-ui-classic .pe-controlbar .pe-button.stop,
+.pe-ui-classic .pe-controlbar .pe-label.time,
+.pe-ui-classic .pe-controlbar .pe-button.unmute,
+.pe-ui-classic .pe-controlbar .pe-button.danmuon,
+.pe-ui-classic .pe-controlbar .pe-button.exitfullpage,
+.pe-ui-classic .pe-controlbar .pe-button.exitfullscreen,
+.pe-ui-classic[mode="vod"] .pe-controlbar .pe-button.reload,
+.pe-ui-classic[mode="vod"] .pe-controlbar .pe-label.quote,
+.pe-ui-classic[state="ready"] .pe-controlbar .pe-button.pause,
+.pe-ui-classic[state="ready"] .pe-controlbar .pe-button.stop,
+.pe-ui-classic[state="waiting"] .pe-controlbar .pe-button.play,
+.pe-ui-classic[state="playing"] .pe-controlbar .pe-button.play,
+.pe-ui-classic[state="pause"] .pe-controlbar .pe-button.pause,
+.pe-ui-classic[state="seeking"] .pe-controlbar .pe-button.play,
+.pe-ui-classic[state="switching"] .pe-controlbar .pe-button.play,
+.pe-ui-classic[state="ended"] .pe-controlbar .pe-button.pause,
+.pe-ui-classic[state="error"] .pe-controlbar .pe-button.pause,
+.pe-ui-classic[muted="true"] .pe-controlbar .pe-button.mute,
+.pe-ui-classic[muted="false"] .pe-controlbar .pe-button.unmute,
+.pe-ui-classic[danmu="on"] .pe-controlbar .pe-button.danmuon,
+.pe-ui-classic[danmu="off"] .pe-controlbar .pe-button.danmuoff,
+.pe-ui-classic[fullpage="true"] .pe-controlbar .pe-button.fullpage,
+.pe-ui-classic[fullpage="false"] .pe-controlbar .pe-button.exitfullpage,
+.pe-ui-classic[fullscreen="true"] .pe-controlbar .pe-button.fullscreen,
+.pe-ui-classic[fullscreen="false"] .pe-controlbar .pe-button.exitfullscreen {
+    display: none;
+}
+
+.pe-ui-classic[mode="vod"] .pe-controlbar .pe-slider.timebar,
+.pe-ui-classic[mode="vod"] .pe-controlbar .pe-button.stop,
+.pe-ui-classic[mode="vod"] .pe-controlbar .pe-label.time,
+.pe-ui-classic[state="waiting"] .pe-controlbar .pe-button.pause,
+.pe-ui-classic[state="playing"] .pe-controlbar .pe-button.pause,
+.pe-ui-classic[state="seeking"] .pe-controlbar .pe-button.pause,
+.pe-ui-classic[state="switching"] .pe-controlbar .pe-button.pause,
+.pe-ui-classic[muted="true"] .pe-controlbar .pe-button.unmute,
+.pe-ui-classic[danmu="off"] .pe-controlbar .pe-button.danmuon,
+.pe-ui-classic[fullpage="true"] .pe-controlbar .pe-button.exitfullpage,
+.pe-ui-classic[fullscreen="true"] .pe-controlbar .pe-button.exitfullscreen {
+    display: block;
+}
+
+.pe-ui-classic .pe-controlbar .pe-button.play,
+.pe-ui-classic .pe-controlbar .pe-button.pause {
+    margin-left: 8px;
+    width: 26px;
+    height: 40px;
+}
+
+.pe-ui-classic .pe-controlbar .pe-button.play {
+    background-image: url(../../image/playButton.png);
+}
+
+.pe-ui-classic .pe-controlbar .pe-button.play:hover {
+    background-image: url(../../image/playButtonOver.png);
+}
+
+.pe-ui-classic .pe-controlbar .pe-button.pause {
+    background-image: url(../../image/pauseButton.png);
+}
+
+.pe-ui-classic .pe-controlbar .pe-button.pause:hover {
+    background-image: url(../../image/pauseButtonOver.png);
+}
+
+.pe-ui-classic .pe-controlbar .pe-button.stop,
+.pe-ui-classic .pe-controlbar .pe-button.reload {
+    margin-left: 4px;
+    width: 26px;
+    height: 40px;
+}
+
+.pe-ui-classic .pe-controlbar .pe-button.stop {
+    background-image: url(../../image/stopButton.png);
+}
+
+.pe-ui-classic .pe-controlbar .pe-button.stop:hover {
+    background-image: url(../../image/stopButtonOver.png);
+}
+
+.pe-ui-classic .pe-controlbar .pe-button.reload {
+    background-image: url(../../image/reloadButton.png);
+}
+
+.pe-ui-classic .pe-controlbar .pe-button.reload:hover {
+    background-image: url(../../image/reloadButtonOver.png);
+}
+
+.pe-ui-classic .pe-controlbar .pe-label.quote,
+.pe-ui-classic .pe-controlbar .pe-label.time {
+    margin-left: 8px;
+    line-height: 40px;
+}
+
+.pe-ui-classic .pe-controlbar .pe-label.time {
+    font-family: monospace;
+}
+
+.pe-ui-classic .pe-controlbar .pe-button.report {
+    margin-right: 8px;
+    width: 20px;
+    height: 40px;
+    background-image: url(../../image/reportButton.png);
+}
+
+.pe-ui-classic .pe-controlbar .pe-button.report:hover {
+    background-image: url(../../image/reportButtonOver.png);
+}
+
+.pe-ui-classic .pe-controlbar .pe-button.mute,
+.pe-ui-classic .pe-controlbar .pe-button.unmute {
+    margin-right: 4px;
+    width: 25px;
+    height: 40px;
+}
+
+.pe-ui-classic .pe-controlbar .pe-button.mute {
+    background-image: url(../../image/muteButton.png);
+}
+
+.pe-ui-classic .pe-controlbar .pe-button.mute:hover {
+    background-image: url(../../image/muteButtonOver.png);
+}
+
+.pe-ui-classic .pe-controlbar .pe-button.unmute {
+    background-image: url(../../image/unmuteButton.png);
+}
+
+.pe-ui-classic .pe-controlbar .pe-button.unmute:hover {
+    background-image: url(../../image/unmuteButtonOver.png);
+}
+
+.pe-ui-classic .pe-controlbar .pe-slider.volumebar {
+    margin: 15px 8px 0px 0px;
+    width: 60px;
+    height: 12px;
+    position: relative;
+}
+
+.pe-ui-classic .pe-controlbar .pe-slider.volumebar .value {
+    bottom: 28px;
+    display: block;
+    visibility: hidden;
+}
+
+.pe-ui-classic .pe-controlbar .pe-slider.volumebar:hover .value {
+    visibility: visible;
+}
+
+.pe-ui-classic .pe-controlbar .pe-slider.volumebar .pe-slider-rail {
+    width: 100%;
+    height: 4px;
+    top: 4px;
+    position: absolute;
+}
+
+.pe-ui-classic .pe-controlbar .pe-slider.volumebar .background {
+    background: #909090;
+}
+
+.pe-ui-classic .pe-controlbar .pe-slider.volumebar:hover .background {
+    background: #b0b0b0;
+}
+
+.pe-ui-classic .pe-controlbar .pe-slider.volumebar .position {
+    background: #e6e6e6;
+}
+
+.pe-ui-classic .pe-controlbar .pe-slider.volumebar:hover .position {
+    background: #ffffff;
+}
+
+.pe-ui-classic .pe-controlbar .pe-slider.volumebar .pe-slider-thumb span {
+    width: 10px;
+    height: 12px;
+    left: -5px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background: url(../../image/volumeSliderThumb.png);
+}
+
+.pe-ui-classic .pe-controlbar .pe-select.definition {
+    margin-right: 8px;
+}
+
+.pe-ui-classic .pe-controlbar .pe-select.definition .pe-select-menu .pe-select-menu-option {
+    min-width: 60px;
+}
+
+.pe-ui-classic .pe-controlbar .pe-button.danmuoff,
+.pe-ui-classic .pe-controlbar .pe-button.danmuon {
+    margin-right: 8px;
+    width: 58px;
+    height: 40px;
+}
+
+.pe-ui-classic .pe-controlbar .pe-button.danmuoff {
+    background-image: url(../../image/danmuoffButton.png);
+}
+
+.pe-ui-classic .pe-controlbar .pe-button.danmuon {
+    background-image: url(../../image/danmuonButton.png);
+}
+
+.pe-ui-classic .pe-controlbar .pe-button.fullpage {
+    margin-right: 8px;
+    width: 25px;
+    height: 40px;
+    background-image: url(../../image/fullpageButton.png);
+}
+
+.pe-ui-classic .pe-controlbar .pe-button.fullpage:hover {
+    background-image: url(../../image/fullpageButtonOver.png);
+}
+
+.pe-ui-classic .pe-controlbar .pe-button.exitfullpage {
+    margin-right: 8px;
+    width: 25px;
+    height: 40px;
+    background-image: url(../../image/exitfullpageButton.png);
+}
+
+.pe-ui-classic .pe-controlbar .pe-button.exitfullpage:hover {
+    background-image: url(../../image/exitfullpageButtonOver.png);
+}
+
+.pe-ui-classic .pe-controlbar .pe-button.fullscreen {
+    margin-right: 8px;
+    width: 25px;
+    height: 40px;
+    background-image: url(../../image/fullscreenButton.png);
+}
+
+.pe-ui-classic .pe-controlbar .pe-button.fullscreen:hover {
+    background-image: url(../../image/fullscreenButtonOver.png);
+}
+
+.pe-ui-classic .pe-controlbar .pe-button.exitfullscreen {
+    margin-right: 8px;
+    width: 25px;
+    height: 40px;
+    background-image: url(../../image/exitfullscreenButton.png);
+}
+
+.pe-ui-classic .pe-controlbar .pe-button.exitfullscreen:hover {
+    background-image: url(../../image/exitfullscreenButtonOver.png);
+}
+
+.pe-ui-classic .pe-contextmenu {
+    white-space: nowrap;
+    position: absolute;
+    display: none;
+}
+
+.pe-ui-classic .pe-contextmenu .pe-contextmenu-item {
+    padding: 8px 14px;
+    color: #E6E6E6;
+    line-height: 20px;
+    background: #454545;
+    display: block;
+    cursor: pointer;
+}
+
+.pe-ui-classic .pe-contextmenu .pe-contextmenu-item:hover {
+    background: #505050;
+}
+
+.pe-ui-classic .pe-contextmenu .pe-contextmenu-item.featured {
+    color: #BDBDBD;
+    background: #252525;
+}
+
+.pe-ui-classic .pe-contextmenu .pe-contextmenu-item.featured:hover {
+    background: #303030;
+}
+
+.pe-ui-classic .pe-contextmenu .pe-contextmenu-item td {
+    display: inline-block;
+}
+
+.pe-ui-classic .pe-contextmenu .pe-contextmenu-item .pe-contextmenu-item-icon {
+    margin-right: 10px;
+    padding-right: 10px;
+    border-right: 1px solid #BDBDBD;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.pe-ui-classic .pe-contextmenu .pe-contextmenu-item.featured .pe-contextmenu-item-icon {
+    border-right: 1px solid #E6E6E6;
+}
+
+.pe-ui-classic .pe-contextmenu .pe-contextmenu-item .pe-contextmenu-item-icon a {
+    width: 20px;
+    height: 20px;
+    background-position: left center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+.pe-ui-classic .pe-contextmenu .pe-contextmenu-item .pe-contextmenu-item-text {
+    color: #BDBDBD;
+}
+
+.pe-ui-classic .pe-contextmenu .pe-contextmenu-item.featured .pe-contextmenu-item-text {
+    color: #FFFFFF;
+}
