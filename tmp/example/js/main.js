@@ -4,7 +4,9 @@ var ui = playease.ui();
 //ui.addGlobalListener(console.log);
 ui.setup(player, {
     mode: '',
-    file: 'http://120.76.235.109:4022/flv?port=10077&app=live&stream=13751093611_channel_2',
+    // file: 'http://127.0.0.1/vod/sample.flv',
+    file: 'http://127.0.0.1/live/_definst_/stream02.flv',
+    // file: 'http://120.76.235.109:4022/flv?port=10077&app=live&stream=13751093611_channel_2',
     module: 'FLV',
     loader: {
         name: 'auto',
