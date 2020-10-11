@@ -1,22 +1,23 @@
 ﻿<!DOCTYPE HTML>
 <html>
+
 <head>
 	<title>Solutions - StudEase.cn</title>
-	
+
 	<meta charset="utf-8">
 	<meta name="robots" content="index, follow" />
 	<meta name="keywords" content="playease.js,chatease.js,rtmpmate,微信直播,弹幕直播" />
 	<meta name="description" content="" />
 	<meta name="author" content="Tony Lau" />
-	
+
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<meta content="yes" name="apple-mobile-web-app-capable"/>
-	<meta content="yes" name="apple-touch-fullscreen"/>
-	<meta content="telephone=no,email=no" name="format-detection"/>
-	<meta name="App-Config" content="fullscreen=yes, useHistoryState=yes, transition=yes"/>
-	
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="yes" name="apple-touch-fullscreen" />
+	<meta content="telephone=no,email=no" name="format-detection" />
+	<meta name="App-Config" content="fullscreen=yes, useHistoryState=yes, transition=yes" />
+
 	<link rel="shortcut icon" href="images/favicon.ico">
-	
+
 	<!--[if lt IE 9]>
 	<script type='text/javascript'>
 		(function() {
@@ -38,147 +39,151 @@
 		}
 	</style>
 	<![endif]-->
-	
+
 	<style type='text/css' media='screen'>
-html {
-	font-size: 10px;
-}
+		html {
+			font-size: 10px;
+		}
 
-body {
-	margin: 0;
-	font-family: Karbon, Helvetica, Arial, sans-serif;
-	font-style: normal;
-	font-size: 14px;
-	line-height: 18px;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	color: #E6E6E6;
-	background-color: #303030;
-}
+		body {
+			margin: 0;
+			font-family: Karbon, Helvetica, Arial, sans-serif;
+			font-style: normal;
+			font-size: 14px;
+			line-height: 18px;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+			color: #E6E6E6;
+			background-color: #303030;
+		}
 
-a {
-	color: #BDBDBD;
-	text-decoration: none;
-}
-a:active, a:focus, a:hover {
-	outline: 0;
-}
+		a {
+			color: #BDBDBD;
+			text-decoration: none;
+		}
 
-.ol-status {
-	padding: 0 8px 0 30px;
-	top: -20px;
-	right: 0;
-	position: absolute;
-	background-color: #606060;
-	background-image: url(images/icon/eye.png);
-	background-repeat: no-repeat;
-	background-position: 8px;
-	z-index: 9999;
-}
+		a:active,
+		a:focus,
+		a:hover {
+			outline: 0;
+		}
+
+		.ol-status {
+			padding: 0 8px 0 30px;
+			top: -20px;
+			right: 0;
+			position: absolute;
+			background-color: #606060;
+			background-image: url(images/icon/eye.png);
+			background-repeat: no-repeat;
+			background-position: 8px;
+			z-index: 9999;
+		}
 	</style>
-	
+	<link type='text/css' rel='stylesheet' href='css/classic.css' />
+
 	<script type='text/javascript' src='js/bscroll.min.js'></script>
 	<script type='text/javascript' src='js/playease.min.js'></script>
 	<script type='text/javascript' src='js/chatease.min.js'></script>
 </head>
+
 <body ontouchstart=''>
 	<div style='width:100%; height:100%; position: fixed;'>
 		<div id='ol-users' class='ol-status'>0</div>
-		<div id='playwrap' style='width:100%; top:0; left:0; position:relative;'>
-			<div id='player'></div>
-		</div>
+		<div id='playwrap' style='width: 100%; top: 0; left: 0; position: relative;'></div>
 		<div id='chatwrap' style='width: 100%; background: red;'>
 			<div id='chat'></div>
 		</div>
 	</div>
-	
+
 	<script type='text/javascript'>
-		var player, chat;
+		var ui, chat;
 		var users = document.getElementById('ol-users');
 		var pw = document.getElementById('playwrap');
 		var cw = document.getElementById('chatwrap');
-		var events = playease.events;
-		
-		player = playease('player');
-		player.addEventListener(events.RESIZE, onResize);
-		player.setup({
-			width: pw.clientWidth,
-			height: pw.clientWidth * 9 / 16 + 40,
-			aspectratio: '16:9',
-			//file: '/vod/sample.mp4',
+		var Event = playease.events.Event;
+		var UIEvent = playease.events.UIEvent;
+
+		pw.style.height = window.innerWidth * 9 / 16 + 'px';
+
+		ui = playease.ui();
+		ui.addEventListener(UIEvent.RESIZE, onResize);
+		ui.addEventListener(Event.ERROR, console.error);
+		ui.setup(playwrap, {
+			mode: 'live',
+			// file: 'http://127.0.0.1/vod/sample.flv',
+			// file: 'http://127.0.0.1/live/_definst_/stream02.flv',
+			// file: 'http://120.79.67.102:4022/flv?port=10077&app=live&stream=13751093611_channel_2',
+			// file: 'ws://120.79.67.102:4022/ws?port=10077&app=live&stream=64921778277_channel_1',
+			module: 'FLV',
+			loader: {
+				name: 'auto',
+				mode: 'cors',        // cors, no-cors, same-origin
+				credentials: 'omit', // omit, include, same-origin
+			},
 			sources: [{
 				file: 'http://39.98.40.193/live/_definst_/stream02.flv',
-				type: 'flv',
-				label: 'HTTP-FLV'
-			}, {
-				file: 'ws://39.98.40.193/live/_definst_/stream02',
-				type: 'fmp4',
-				label: 'WS-FMP4'
+				label: 'http-flv',
+				default: true,
 			}, {
 				file: 'http://39.98.40.193/live/_definst_/stream02/manifest.mpd',
-				type: 'dash',
-				label: 'MPEG-DASH'
+				label: 'mpeg-dash',
 			}, {
 				file: 'rtmp://39.98.40.193/live/stream02',
-				type: 'flash',
-				label: 'RTMP-STREAM'
+				label: 'rtmp-stream',
 			}, {
 				file: 'http://39.98.40.193/live/_definst_/stream02/index.m3u8',
-				type: 'def',
-				label: 'HLS'
+				label: 'hls',
 			}],
-			mode: 'live',
-			bufferTime: 2,
-			maxRetries: 0,
-			controls: true,
-			autoplay: false,
-			//poster: 'images/poster.png',
-			//report: true,
-			loader: {
-				/*name: 'xhr-chunked-loader',
-				chunkSize: 2 * 1024 * 1024,*/
-				mode: 'cors'
-			},
-			bulletCurtain: {
-				enable: true,
-				visible: true
-			},
-			fullpage: {
-				visible: !playease.utils.isMobile()
-			},
-			render: {
-				name: 'def',
-				swf: 'swf/playease.swf'
-			}
+			plugins: [{
+				kind: 'Poster',
+				file: 'images/content/poster.png',
+				objectfit: 'fill',
+				visibility: true,
+			}, {
+				kind: 'Display',
+				layout: '[Button:play=][Button:waiting=][Label:error=]',
+				visibility: true,
+			}, {
+				kind: 'Controlbar',
+				layout: '[Slider:timebar=Preview]|[Button:play=Play][Button:pause=Pause][Button:reload=Reload][Button:stop=Stop][Label:quote=Live broadcast][Label:time=00:00/00:00]||[Button:mute=Mute][Button:unmute=Unmute][Slider:volumebar=80][Select:definition=Definition][Button:danmuoff=Danmu Off][Button:danmuon=Danmu On][Button:fullscreen=Fullscreen][Button:exitfullscreen=Exit Fullscreen]',
+				autohide: true,
+				visibility: true,
+			}, {
+				kind: 'ContextMenu',
+				items: [{
+					mode: '',
+					icon: 'images/content/github.png',
+					text: 'github.com',
+					shortcut: '',
+					handler: function () { window.open('https://github.com/studease/playease'); },
+				}],
+			}],
 		});
-		
+
 		function onResize(e) {
-			if (playease.utils.isAndroid() && playease.utils.isQQBrowser()) {
-				var video = document.getElementById('player').firstChild.lastChild;
+			if (playease.OS.isAndroid && playease.Browser.isQQBrowser) {
+				var video = ui.element();
 				video.style.width = window.innerWidth + 'px';
 				video.style.height = window.innerHeight + 'px';
 				video.style['object-position'] = 'center top';
-				
-				var controlbar = document.getElementById('player').childNodes[1];
-				controlbar.style.top = e.height - 40 + 'px';
-				controlbar.style.position = 'absolute';
 			}
-			
-			users.style.top = e.height + 10 + 'px';
-			
+
+			users.style.top = e.data.height + 10 + 'px';
+
 			var next = document.getElementById('chatwrap');
-			next.style.top = e.height + 'px';
+			next.style.top = e.data.height + 'px';
 			next.style.bottom = '0px';
 			next.style.position = 'absolute';
 			next.style.zIndex = 999;
-			
+
 			if (chat) {
 				chat.resize();
 			}
 		}
-		
+
 		events = chatease.events;
-		
+
 		chat = chatease('chat');
 		chat.addEventListener(events.CHATEASE_INFO, onInfo);
 		chat.addEventListener(events.CHATEASE_MESSAGE, onMessage);
@@ -204,47 +209,23 @@ a:active, a:focus, a:hover {
 				name: 'def'
 			}
 		});
-		
+
 		function onInfo(e) {
 			users.innerText = e.channel.total;
 		}
-		
+
 		function onMessage(e) {
-			if (player) {
-				player.shoot(e.data);
+			if (ui) {
+				ui.shoot(e.data);
 			}
 		}
-		
+
 		function onUser(e) {
 			users.innerText = e.channel.total;
 		}
-		
+
 		function onClose(e) {
 			users.innerText = 0;
-		}
-		
-		if (playease.utils.isMobile()) {
-			var videoHeight = window.innerWidth * 9 / 16 + 40;
-			cw.style.height = (function() {
-				if (playease.utils.isMobile() && !playease.utils.isHorizontal()) {
-					var videoHeight = window.innerWidth * 9 / 16 + 40;
-					return window.innerHeight - videoHeight;
-				}
-				
-				return 400;
-			})() + 'px';
-			
-			window.addEventListener('resize', function(e) {
-				setTimeout(function() {
-					if (!playease.utils.isHorizontal()) {
-						var cw = document.getElementById('chatwrap');
-						var videoHeight = window.innerWidth * 9 / 16 + 40;
-						cw.style.height = (window.innerHeight - videoHeight) + 'px';
-					}
-					
-					player.fullscreen(!playease.utils.isHorizontal());
-				}, 500);
-			});
 		}
 	</script>
 </body>
