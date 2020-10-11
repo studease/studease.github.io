@@ -371,7 +371,7 @@
 		if (playease.OS.isMobile) {
 			var videoHeight = window.innerWidth * 9 / 16 + 40;
 			cw.style.height = (function () {
-				if (!playease.utils.isHorizontal()) {
+				if (!playease.OS.isHorizontal()) {
 					var videoHeight = window.innerWidth * 9 / 16 + 40;
 					return window.innerHeight - videoHeight;
 				}
@@ -380,12 +380,12 @@
 
 			window.addEventListener('resize', function (e) {
 				setTimeout(function () {
-					if (!playease.utils.isHorizontal()) {
+					if (!playease.OS.isHorizontal()) {
 						var cw = document.getElementById('chatwrap');
 						var videoHeight = window.innerWidth * 9 / 16 + 40;
 						cw.style.height = (window.innerHeight - videoHeight) + 'px';
 					}
-					ui.fullscreen(!playease.utils.isHorizontal());
+					ui.fullscreen(!playease.OS.isHorizontal());
 				}, 500);
 			});
 		}
