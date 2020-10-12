@@ -1,22 +1,23 @@
 ﻿<!DOCTYPE HTML>
 <html>
+
 <head>
 	<title>CMS API Test</title>
-	
+
 	<meta charset="utf-8">
 	<meta name="robots" content="index, follow" />
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
 	<meta name="author" content="Tony Lau" />
-	
+
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<meta content="yes" name="apple-mobile-web-app-capable"/>
-	<meta content="yes" name="apple-touch-fullscreen"/>
-	<meta content="telephone=no,email=no" name="format-detection"/>
-	<meta name="App-Config" content="fullscreen=yes, useHistoryState=yes, transition=yes"/>
-	
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="yes" name="apple-touch-fullscreen" />
+	<meta content="telephone=no,email=no" name="format-detection" />
+	<meta name="App-Config" content="fullscreen=yes, useHistoryState=yes, transition=yes" />
+
 	<link rel="shortcut icon" href="image/favicon.ico">
-	
+
 	<!--[if lt IE 9]>
 	<script type='text/javascript'>
 		(function() {
@@ -38,113 +39,52 @@
 		}
 	</style>
 	<![endif]-->
-	
+
 	<link type='text/css' rel='stylesheet' href='css/style.css' />
-	
+	<link type='text/css' rel='stylesheet' href='css/classic.css' />
+
 	<script type='text/javascript' src='js/playease.min.js'></script>
-	<!--<script type='text/javascript' src='js/cn/studease/playease.js'></script>
-	<script type='text/javascript' src='js/cn/studease/utils/playease.utils.js'></script>
-	<script type='text/javascript' src='js/cn/studease/utils/playease.utils.crypt.js'></script>
-	<script type='text/javascript' src='js/cn/studease/utils/playease.utils.endian.js'></script>
-	<script type='text/javascript' src='js/cn/studease/utils/playease.utils.buffer.js'></script>
-	<script type='text/javascript' src='js/cn/studease/utils/playease.utils.css.js'></script>
-	<script type='text/javascript' src='js/cn/studease/utils/playease.utils.amf.js'></script>
-	<script type='text/javascript' src='js/cn/studease/events/playease.events.js'></script>
-	<script type='text/javascript' src='js/cn/studease/events/playease.events.eventdispatcher.js'></script>
-	<script type='text/javascript' src='js/cn/studease/utils/playease.utils.filekeeper.js'></script>
-	<script type='text/javascript' src='js/cn/studease/utils/playease.utils.timer.js'></script>
-	<script type='text/javascript' src='js/cn/studease/utils/playease.utils.xml2json.js'></script>
-	<script type='text/javascript' src='js/cn/studease/utils/playease.utils.manifest.js'></script>
-	<script type='text/javascript' src='js/cn/studease/utils/matchers/playease.utils.matchers.js'></script>
-	<script type='text/javascript' src='js/cn/studease/utils/matchers/playease.utils.matchers.datetime.js'></script>
-	<script type='text/javascript' src='js/cn/studease/utils/matchers/playease.utils.matchers.duration.js'></script>
-	<script type='text/javascript' src='js/cn/studease/utils/matchers/playease.utils.matchers.numeric.js'></script>
-	<script type='text/javascript' src='js/cn/studease/utils/matchers/playease.utils.matchers.string.js'></script>
-	<script type='text/javascript' src='js/cn/studease/api/playease.api.js'></script>
-	<script type='text/javascript' src='js/cn/studease/io/playease.io.js'></script>
-	<script type='text/javascript' src='js/cn/studease/io/playease.io.fetch-stream-loader.js'></script>
-	<script type='text/javascript' src='js/cn/studease/io/playease.io.xhr-ms-stream-loader.js'></script>
-	<script type='text/javascript' src='js/cn/studease/io/playease.io.xhr-moz-stream-loader.js'></script>
-	<script type='text/javascript' src='js/cn/studease/io/playease.io.xhr-chunked-loader.js'></script>
-	<script type='text/javascript' src='js/cn/studease/io/playease.io.websocket-loader.js'></script>
-	<script type='text/javascript' src='js/cn/studease/muxer/playease.muxer.js'></script>
-	<script type='text/javascript' src='js/cn/studease/muxer/playease.muxer.SPS.js'></script>
-	<script type='text/javascript' src='js/cn/studease/muxer/playease.muxer.flv.js'></script>
-	<script type='text/javascript' src='js/cn/studease/muxer/playease.muxer.mp4.js'></script>
-	<script type='text/javascript' src='js/cn/studease/net/playease.net.js'></script>
-	<script type='text/javascript' src='js/cn/studease/net/playease.net.responder.js'></script>
-	<script type='text/javascript' src='js/cn/studease/net/playease.net.netstatus.js'></script>
-	<script type='text/javascript' src='js/cn/studease/net/playease.net.netconnection.js'></script>
-	<script type='text/javascript' src='js/cn/studease/net/playease.net.netstream.js'></script>
-	<script type='text/javascript' src='js/cn/studease/core/playease.core.js'></script>
-	<script type='text/javascript' src='js/cn/studease/core/playease.core.states.js'></script>
-	<script type='text/javascript' src='js/cn/studease/core/renders/playease.core.renders.js'></script>
-	<script type='text/javascript' src='js/cn/studease/core/renders/playease.core.renders.def.js'></script>
-	<script type='text/javascript' src='js/cn/studease/core/renders/playease.core.renders.flv.js'></script>
-	<script type='text/javascript' src='js/cn/studease/core/renders/playease.core.renders.fmp4.js'></script>
-	<script type='text/javascript' src='js/cn/studease/core/renders/playease.core.renders.wss.js'></script>
-	<script type='text/javascript' src='js/cn/studease/core/renders/playease.core.renders.dash.js'></script>
-	<script type='text/javascript' src='js/cn/studease/core/renders/playease.core.renders.flash.js'></script>
-	<script type='text/javascript' src='js/cn/studease/core/skins/playease.core.skins.js'></script>
-	<script type='text/javascript' src='js/cn/studease/core/skins/playease.core.skins.def.js'></script>
-	<script type='text/javascript' src='js/cn/studease/core/components/playease.core.components.js'></script>
-	<script type='text/javascript' src='js/cn/studease/core/components/playease.core.components.slider.js'></script>
-	<script type='text/javascript' src='js/cn/studease/core/components/playease.core.components.tooltip.js'></script>
-	<script type='text/javascript' src='js/cn/studease/core/components/playease.core.components.controlbar.js'></script>
-	<script type='text/javascript' src='js/cn/studease/core/components/playease.core.components.poster.js'></script>
-	<script type='text/javascript' src='js/cn/studease/core/components/playease.core.components.bulletcurtain.js'></script>
-	<script type='text/javascript' src='js/cn/studease/core/components/playease.core.components.display.js'></script>
-	<script type='text/javascript' src='js/cn/studease/core/components/playease.core.components.logo.js'></script>
-	<script type='text/javascript' src='js/cn/studease/core/components/playease.core.components.contextmenu.js'></script>
-	<script type='text/javascript' src='js/cn/studease/utils/playease.utils.playlist.js'></script>
-	<script type='text/javascript' src='js/cn/studease/core/playease.core.entity.js'></script>
-	<script type='text/javascript' src='js/cn/studease/core/playease.core.model.js'></script>
-	<script type='text/javascript' src='js/cn/studease/core/playease.core.view.js'></script>
-	<script type='text/javascript' src='js/cn/studease/core/playease.core.controller.js'></script>
-	<script type='text/javascript' src='js/cn/studease/embed/playease.embed.js'></script>
-	<script type='text/javascript' src='js/cn/studease/embed/playease.embed.config.js'></script>
-	<script type='text/javascript' src='js/cn/studease/embed/playease.embed.embedder.js'></script>-->
 </head>
+
 <body ontouchstart=''>
 	<div class='wrap'>
 		<div class='video-container'>
-		<section>
-			<div class='toolbar'>
-				<span class='btn play' onclick='playAllChannels()'></span>
-				<span class='btn stop' onclick='stopAllChannels()'></span>
-				<span class='sep'></span>
-				<span class='btn col-1' onclick='setColumns(1)'></span>
-				<span class='btn col-4' onclick='setColumns(4)'></span>
-				<span class='btn col-9' onclick='setColumns(9)'></span>
-			</div><br/>
-			
-			<ul class='col-4' id='video-list'></ul>
-		</section>
+			<section>
+				<div class='toolbar'>
+					<span class='btn play' onclick='playAllChannels()'></span>
+					<span class='btn stop' onclick='stopAllChannels()'></span>
+					<span class='sep'></span>
+					<span class='btn col-1' onclick='setColumns(1)'></span>
+					<span class='btn col-4' onclick='setColumns(4)'></span>
+					<span class='btn col-9' onclick='setColumns(9)'></span>
+				</div><br />
+
+				<ul class='col-9' id='video-list'></ul>
+			</section>
 		</div>
 	</div>
-	
+
 	<script type='text/javascript'>
-		var utils = playease.utils,
-			events = playease.events;
-		
-		//http://54.206.67.116/StandardApiAction_getVideoFileInfo.action?DownType=2&DevIDNO=10&LOC=1&CHN=-1&YEAR=2019&MON=5&DAY=28&RECTYPE=-1&FILEATTR=2&BEG=0&END=86399&ARM1=0&ARM2=0&RES=0&STREAM=0&STORE=0&jsession=92b99837-aaf7-4d9e-aec2-e89540d4b17f
-		
+		var utils = playease.utils;
+		var Event = playease.events.Event;
+		var UIEvent = playease.events.UIEvent;
+
 		var params = {};
 		var players = [];
 		var ul = document.getElementById('video-list');
-		
+
 		initChannels();
-		
+
 		function initChannels() {
 			var str = window.location.search;
 			if (str.length == 0) {
 				utils.log('URL params not found.');
 				return;
 			}
-			
+
 			var reg = new RegExp('^(.+)=(.*)$', 'i');
 			var arr = str.substr(1).split('&');
-			
+
 			for (var i = 0; i < arr.length; i++) {
 				var tmp = arr[i].match(reg);
 				if (tmp) {
@@ -153,103 +93,109 @@
 					params[k] = unescape(v);
 				}
 			}
-			
-			if (!params.id || !params.cn) {
-				utils.log('Necessary param[s] not found.');
-				return;
-			}
-			
-			if (params.cols) {
-				ul.className = params.cols;
-			}
-			
-			arr = params.cn.split(',');
-			for (var j = 0; j < arr.length; j++) {
+			params.n = Math.min(params.n, 32);
+
+			for (var j = 0; j < params.n; j++) {
 				var li = utils.createElement('li');
-				li.innerHTML = '<span id="player' + j + '"></span>';
+				li.id = 'player' + j;
 				ul.appendChild(li);
-				
-				var b64 = window.btoa(',1,' + params.id + ',' + j + ',1,0,0');
-				initPlayer('player' + j, 'http://13.236.169.56:6604/rtmp/1534904919936/?' + b64);
+
+				initPlayer(li, j);
 			}
 		}
-		
-		function initPlayer(id, url) {
-			var player = playease(id);
-			player.addEventListener(events.PLAYEASE_PLAYING, onPlay);
-			player.addEventListener(events.PLAYEASE_FULLPAGE, onFullpage);
-			player.setup({
-				width: 540,
-				height: 304,
-				aspectratio: '16:9',
-				file: url,
+
+		function initPlayer(container, index) {
+			var ui = playease.ui(index);
+			ui.addEventListener(UIEvent.FULLPAGE, onFullpage);
+			ui.addEventListener(Event.ERROR, console.error);
+			ui.setup(container, {
 				mode: 'live',
-				controls: false,
-				doubleClick: 'fullpage',
-				autoplay: true,
-				logo: {
-					visible: false
-				},
-				fullpage: {
-					visible: true
-				},
+				// file: 'http://127.0.0.1/vod/sample.flv',
+				// file: 'http://127.0.0.1/live/_definst_/stream02.flv',
+				// file: 'http://120.79.67.102:4022/flv?port=10077&app=live&stream=13751093611_channel_2',
+				// file: 'ws://120.79.67.102:4022/ws?port=10077&app=live&stream=64921778277_channel_1',
+				module: 'FLV',
 				loader: {
-					//name: 'xhr-chunked-loader',
-					//chunkSize: 4 * 1024 * 1024,
-					mode: 'cors'
+					name: 'auto',
+					mode: 'cors',        // cors, no-cors, same-origin
+					credentials: 'omit', // omit, include, same-origin
 				},
-				render: {
-					name: 'flv',
-					//bufferLength: 4 * 1024 * 1024,
-					swf: '../swf/playease.swf'
-				}
+				sources: [{
+					file: 'ws://39.98.40.193/live/_definst_/stream02.flv',
+					label: 'ws-flv',
+					default: true,
+				}, {
+					file: 'http://39.98.40.193/live/_definst_/stream02/manifest.mpd',
+					label: 'mpeg-dash',
+				}, {
+					file: 'rtmp://39.98.40.193/live/stream02',
+					label: 'rtmp-stream',
+				}, {
+					file: 'http://39.98.40.193/live/_definst_/stream02/index.m3u8',
+					label: 'hls',
+				}],
+				plugins: [{
+					kind: 'Poster',
+					file: 'images/content/poster.png',
+					objectfit: 'fill',
+					visibility: false,
+				}, {
+					kind: 'Display',
+					layout: '[Button:play=][Button:waiting=][Label:error=]',
+					ondoubleclick: 'fullpage',
+					visibility: true,
+				}, {
+					kind: 'Logo',
+					file: 'image/logo.png',
+					link: 'http://studease.cn/playease',
+					target: '_blank',
+					style: 'margin: 3% 5%; width: 36px; height: 36px; top: 0px; right: 0px;',
+					visibility: false,
+				}, {
+					kind: 'Controlbar',
+					layout: '[Slider:timebar=Preview]|[Button:play=播放][Button:pause=暂停][Button:reload=重新加载][Button:stop=停止][Label:quote=Live broadcast][Label:time=00:00/00:00]||[Button:mute=静音][Button:unmute=取消静音][Slider:volumebar=80][Select:definition=清晰度][Button:fullpage=网页全屏][Button:exitfullpage=退出网页全屏][Button:fullscreen=全屏][Button:exitfullscreen=退出全屏]',
+					autohide: true,
+					visibility: true,
+				}, {
+					kind: 'ContextMenu',
+					items: [{
+						mode: '',
+						icon: '../images/content/github.png',
+						text: 'github.com',
+						shortcut: '',
+						handler: function () { window.open('https://github.com/studease/playease'); },
+					}],
+				}],
 			});
-			
-			function onPlay(e) {
-				var timer = new utils.timer(15000, 1);
-				timer.addEventListener(events.PLAYEASE_TIMER, onTimer);
-				timer.start();
-			}
-			
-			function onTimer(e) {
-				player.stop();
-			}
-			
+
 			function onFullpage(e) {
-				var w = document.getElementById(id).parentElement;
-				w.style.margin = e.exit ? '' : '4px 0 0 0';
-				w.style.width = e.exit ? '' : '100%';
-				w.style.height = e.exit ? '' : ul.clientWidth * 0.5625 + 'px';
-				w.style.position = e.exit ? '' : 'absolute';
-				w.style.zIndex = e.exit ? '' : '99';
-				
-				player.resize();
+				var w = document.getElementById('player' + index);
+				w.style.margin = e.data.status ? '4px 0 0 0' : '';
+				w.style.width = e.data.status ? '100%' : '';
+				w.style.height = e.data.status ? ul.clientWidth * 0.5625 + 'px' : '';
+				w.style.position = e.data.status ? 'absolute' : '';
+				w.style.zIndex = e.data.status ? '99' : '';
 			}
-			
-			players.push(player);
+
+			players.push(ui);
 		}
-		
+
 		function playAllChannels(e) {
 			for (var i = 0; i < players.length; i++) {
 				var player = players[i];
 				player.play();
 			}
 		}
-		
+
 		function stopAllChannels(e) {
 			for (var i = 0; i < players.length; i++) {
 				var player = players[i];
 				player.stop();
 			}
 		}
-		
+
 		function setColumns(n) {
 			ul.className = 'col-' + n;
-			
-			for (var i = 0; i < players.length; i++) {
-				var player = players[i];
-				player.resize();
-			}
 		}
 	</script>
 </body>
