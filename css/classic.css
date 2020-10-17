@@ -15,7 +15,7 @@
 .pe-wrapper * {
     margin: 0px;
     padding: 0px;
-    font-family: Microsoft YaHei, Arial, sans-serif;
+    font-family: Courier New, Microsoft YaHei, Arial, sans-serif;
     font-size: 12px;
     font-weight: normal;
     line-height: 0px;
@@ -56,7 +56,8 @@
 }
 
 .pe-ui-classic .pe-tooltip {
-    padding: 6px 12px;
+    padding: 8px 12px 6px;
+    font-size: 10px;
     line-height: 10px;
     border-radius: 2px;
     background: #454545;
@@ -112,6 +113,11 @@
 .pe-ui-classic .pe-select .pe-select-menu .pe-select-menu-option:hover,
 .pe-ui-classic .pe-select .pe-select-menu .pe-select-menu-option.selected {
     background: #00a0e9;
+}
+
+.pe-ui-classic .pe-panel > div {
+    line-height: 14px;
+    white-space: pre-line;
 }
 
 .pe-ui-classic .pe-content,
@@ -225,16 +231,22 @@
 }
 
 .pe-ui-classic .pe-display .pe-label.error {
+    padding: 10px 0;
     width: 100%;
     font-size: 14px;
-    line-height: 32px;
+    line-height: 18px;
     color: red;
     text-align: center;
+    white-space: pre-line;
     display: none;
 }
 
 .pe-ui-classic[state="error"] .pe-display .pe-label.error {
     display: block;
+}
+
+.pe-ui-classic .pe-display .pe-panel {
+    display: none;
 }
 
 .pe-ui-classic .pe-display .pe-button.play {
@@ -512,9 +524,9 @@
     line-height: 40px;
 }
 
-.pe-ui-classic .pe-controlbar .pe-label.time {
+/* .pe-ui-classic .pe-controlbar .pe-label.time {
     font-family: monospace;
-}
+} */
 
 .pe-ui-classic .pe-controlbar .pe-button.report {
     margin-right: 8px;

@@ -272,22 +272,14 @@
 				visibility: true,
 			}, {
 				kind: 'Display',
-				layout: '[Button:play=][Button:waiting=][Label:error=]',
+				layout: '[Button:play=][Button:waiting=][Label:error=][Panel:info=][Panel:stats=]',
+				ondoubleclick: 'fullscreen',
 				visibility: true,
 			}, {
 				kind: 'Controlbar',
 				layout: '[Slider:timebar=Preview]|[Button:play=Play][Button:pause=Pause][Button:reload=Reload][Button:stop=Stop][Label:quote=Live broadcast][Label:time=00:00/00:00]||[Button:mute=Mute][Button:unmute=Unmute][Slider:volumebar=80][Select:definition=Definition][Button:danmuoff=Danmu Off][Button:danmuon=Danmu On][Button:fullpage=Fullpage][Button:exitfullpage=Exit Fullpage][Button:fullscreen=Fullscreen][Button:exitfullscreen=Exit Fullscreen]',
 				autohide: false,
 				visibility: true,
-			}, {
-				kind: 'ContextMenu',
-				items: [{
-					mode: '',
-					icon: 'images/content/github.png',
-					text: 'github.com',
-					shortcut: '',
-					handler: function () { window.open('https://github.com/studease/playease'); },
-				}],
 			}],
 		});
 

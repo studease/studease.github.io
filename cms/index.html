@@ -141,7 +141,7 @@
 					visibility: false,
 				}, {
 					kind: 'Display',
-					layout: '[Button:play=][Button:waiting=][Label:error=]',
+					layout: '[Button:play=][Button:waiting=][Label:error=][Panel:info=][Panel:stats=]',
 					ondoubleclick: 'fullpage',
 					visibility: true,
 				}, {
@@ -156,15 +156,6 @@
 					layout: '[Slider:timebar=Preview]|[Button:play=播放][Button:pause=暂停][Button:reload=重新加载][Button:stop=停止][Label:quote=Live broadcast][Label:time=00:00/00:00]||[Button:mute=静音][Button:unmute=取消静音][Slider:volumebar=80][Select:definition=清晰度][Button:fullpage=网页全屏][Button:exitfullpage=退出网页全屏][Button:fullscreen=全屏][Button:exitfullscreen=退出全屏]',
 					autohide: true,
 					visibility: true,
-				}, {
-					kind: 'ContextMenu',
-					items: [{
-						mode: '',
-						icon: '../images/content/github.png',
-						text: 'github.com',
-						shortcut: '',
-						handler: function () { window.open('https://github.com/studease/playease'); },
-					}],
 				}],
 			});
 
