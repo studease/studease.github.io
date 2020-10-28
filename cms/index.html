@@ -100,11 +100,11 @@
 				li.id = 'player' + j;
 				ul.appendChild(li);
 
-				initPlayer(li, j);
+				initPlayer(j, li, params.url);
 			}
 		}
 
-		function initPlayer(container, index) {
+		function initPlayer(index, container, url) {
 			var ui = playease.ui(index);
 			ui.addEventListener(UIEvent.FULLPAGE, onFullpage);
 			ui.addEventListener(Event.ERROR, console.error);
@@ -114,6 +114,7 @@
 				// file: 'http://127.0.0.1/live/_definst_/stream02.flv',
 				// file: 'http://120.79.67.102:4022/flv?port=10077&app=live&stream=13751093611_channel_2',
 				// file: 'ws://120.79.67.102:4022/ws?port=10077&app=live&stream=64921778277_channel_1',
+				file: url || '',
 				module: 'FLV',
 				loader: {
 					name: 'auto',
