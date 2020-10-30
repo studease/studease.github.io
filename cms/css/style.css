@@ -184,6 +184,10 @@ ul.plan li:first-child {
 	position: relative;
 }
 
+.video-container #version {
+	line-height: 24px;
+}
+
 .video-container .toolbar {
 	height: 40px;
 	background: #171717;

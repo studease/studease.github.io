@@ -50,6 +50,7 @@
 	<div class='wrap'>
 		<div class='video-container'>
 			<section>
+				<div id='version'></div>
 				<div class='toolbar'>
 					<span class='btn play' onclick='playAllChannels()'></span>
 					<span class='btn stop' onclick='stopAllChannels()'></span>
@@ -73,6 +74,7 @@
 		var players = [];
 		var ul = document.getElementById('video-list');
 
+		version.innerHTML = 'playease/' + playease.VERSION;
 		initChannels();
 
 		function initChannels() {
