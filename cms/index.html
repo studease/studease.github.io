@@ -79,11 +79,6 @@
 
 		function initChannels() {
 			var str = window.location.search;
-			if (str.length == 0) {
-				utils.log('URL params not found.');
-				return;
-			}
-
 			var reg = new RegExp('^(.+)=(.*)$', 'i');
 			var arr = str.substr(1).split('&');
 
@@ -95,7 +90,7 @@
 					params[k] = unescape(v);
 				}
 			}
-			params.n = Math.min(params.n, 32);
+			params.n = Math.min(params.n, 32) || 1;
 
 			for (var j = 0; j < params.n; j++) {
 				var li = utils.createElement('li');
