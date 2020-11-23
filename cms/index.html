@@ -104,8 +104,8 @@
 			}
 		}
 
-		function initPlayer(index, container, url) {
-			var ui = playease.ui(index);
+		function initPlayer(id, container, url) {
+			var ui = playease.ui(id);
 			ui.addEventListener(MediaEvent.SCREENSHOT, onScreenshot);
 			ui.addEventListener(UIEvent.FULLPAGE, onFullpage);
 			ui.addEventListener(Event.ERROR, console.error);
@@ -180,7 +180,7 @@
 			}
 
 			function onFullpage(e) {
-				var w = document.getElementById('player' + index);
+				var w = document.getElementById('player' + id);
 				w.style.margin = e.data.status ? '4px 0 0 0' : '';
 				w.style.width = e.data.status ? '100%' : '';
 				w.style.height = e.data.status ? ul.clientWidth * 0.5625 + 'px' : '';
