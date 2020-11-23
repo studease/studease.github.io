@@ -110,11 +110,14 @@
 		ui.addEventListener(UIEvent.RESIZE, onResize);
 		ui.addEventListener(Event.ERROR, console.error);
 		ui.setup(playwrap, {
-			mode: 'live',
+			bufferLength: 0.5,       // sec.
 			// file: 'http://127.0.0.1/vod/sample.flv',
 			// file: 'http://127.0.0.1/live/_definst_/stream02.flv',
 			// file: 'http://120.79.67.102:4022/flv?port=10077&app=live&stream=13751093611_channel_2',
 			// file: 'ws://120.79.67.102:4022/ws?port=10077&app=live&stream=64921778277_channel_1',
+			lowlatency: true,        // ll-dash, ll-hls, ll-flv/fmp4 (auto reduce latency due to cumulative ack of tcp)
+			maxBufferLength: 1.5,    // sec.
+			mode: 'live',
 			module: 'FLV',
 			loader: {
 				name: 'auto',
