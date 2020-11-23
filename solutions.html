@@ -232,10 +232,15 @@
 		var users = document.getElementById('ol-users');
 		var pw = document.getElementById('playwrap');
 		var cw = document.getElementById('chatwrap');
-		var Event = playease.events.Event;
-		var UIEvent = playease.events.UIEvent;
+		var utils = playease.utils,
+			events = playease.events,
+			Event = events.Event,
+			MediaEvent = events.MediaEven,
+			UIEvent = events.UIEvent,
+			index = 0;
 
 		ui = playease.ui();
+		ui.addEventListener(MediaEvent.SCREENSHOT, onScreenshot);
 		ui.addEventListener(UIEvent.FULLPAGE, onFullpage);
 		ui.addEventListener(UIEvent.RESIZE, onResize);
 		ui.addEventListener(Event.ERROR, console.error);
@@ -286,6 +291,20 @@
 			}],
 		});
 
+		function onScreenshot(e) {
+			var arr = e.data.image.split(',');
+			var ret = arr[0].match(/^data:(image\/(.+));base64$/);
+			if (ret === null) {
+				console.error('The string did not match the expected pattern.');
+				return;
+			}
+
+			var link = document.createElement('a');
+			link.href = e.data.image;
+			link.download = 'screenshot-' + utils.padStart(index++, 3, '0') + '.' + ret[2];
+			link.click();
+		}
+
 		function onFullpage(e) {
 			pw.style.position = e.data.status ? 'fixed' : '';
 			pw.style.zIndex = e.data.status ? 100 : '';
@@ -318,7 +337,7 @@
 			}
 		}
 
-		var events = chatease.events;
+		events = chatease.events;
 
 		chat = chatease('chat');
 		chat.addEventListener(events.CHATEASE_INFO, onInfo);
