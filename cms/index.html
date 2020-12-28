@@ -106,6 +106,8 @@
 
 		function initPlayer(id, container, url) {
 			var ui = playease.ui(id);
+			ui.addEventListener('ready', onReady);
+			ui.addEventListener('click', onClick);
 			ui.addEventListener(MediaEvent.SCREENSHOT, onScreenshot);
 			ui.addEventListener(UIEvent.FULLPAGE, onFullpage);
 			ui.addEventListener(Event.ERROR, console.error);
@@ -118,13 +120,20 @@
 				file: url || '',
 				lowlatency: true,        // ll-dash, ll-hls, ll-flv/fmp4 (auto reduce latency due to cumulative ack of tcp)
 				maxBufferLength: 1.5,    // sec.
-				mode: 'live',
+				maxRetries: 0,           // maximum number of retries while some types of error occurs. -1 means always
+				mode: 'live',            // live, vod
 				module: 'FLV',
 				objectfit: 'fill',
+				retrying: 0,             // ms. retrying interval
 				loader: {
 					name: 'auto',
 					mode: 'cors',        // cors, no-cors, same-origin
 					credentials: 'omit', // omit, include, same-origin
+				},
+				service: {
+					script: 'js/sw.js',
+					scope: 'js/',
+					enable: true,
 				},
 				sources: [{
 					file: 'ws://39.98.40.193/live/_definst_/stream02.flv',
@@ -159,11 +168,25 @@
 					visibility: false,
 				}, {
 					kind: 'Controlbar',
-					layout: '[Slider:timebar=Preview]|[Button:play=播放][Button:pause=暂停][Button:reload=重新加载][Button:stop=停止][Label:quote=Live broadcast][Label:time=00:00/00:00]||[Button:capture=截图][Button:mute=静音][Button:unmute=取消静音][Slider:volumebar=80][Select:definition=清晰度][Button:fullpage=网页全屏][Button:exitfullpage=退出网页全屏][Button:fullscreen=全屏][Button:exitfullscreen=退出全屏]',
+					layout: '[Slider:timebar=Preview]|[Button:play=播放][Button:pause=暂停][Button:reload=重新加载][Button:stop=停止][Label:quote=Live broadcast][Label:time=00:00/00:00]||[Button:report=反馈][Button:capture=截图][Button:download=下载][Button:mute=静音][Button:unmute=取消静音][Slider:volumebar=80][Select:definition=清晰度][Button:danmuoff=关闭弹幕][Button:danmuon=打开弹幕][Button:fullpage=网页全屏][Button:exitfullpage=退出网页全屏][Button:fullscreen=全屏][Button:exitfullscreen=退出全屏]',
 					autohide: true,
 					visibility: true,
 				}],
 			});
+
+			function onReady(e) {
+				// ui.record('fragmented.mp4');
+			}
+
+			function onClick(e) {
+				switch (e.data.name) {
+					case 'report':
+						if (playease.LOGGER) {
+							utils.logger.save();
+						}
+						break;
+				}
+			}
 
 			function onScreenshot(e) {
 				var arr = e.data.image.split(',');

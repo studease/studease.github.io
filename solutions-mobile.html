@@ -111,6 +111,8 @@
 		pw.style.height = window.innerWidth * 9 / 16 + 'px';
 
 		ui = playease.ui();
+		ui.addEventListener('ready', onReady);
+		ui.addEventListener('click', onClick);
 		ui.addEventListener(MediaEvent.SCREENSHOT, onScreenshot);
 		ui.addEventListener(UIEvent.RESIZE, onResize);
 		ui.addEventListener(Event.ERROR, console.error);
@@ -122,12 +124,20 @@
 			// file: 'ws://120.79.67.102:4022/ws?port=10077&app=live&stream=64921778277_channel_1',
 			lowlatency: true,        // ll-dash, ll-hls, ll-flv/fmp4 (auto reduce latency due to cumulative ack of tcp)
 			maxBufferLength: 1.5,    // sec.
-			mode: 'live',
+			maxRetries: 0,           // maximum number of retries while some types of error occurs. -1 means always
+			mode: 'live',            // live, vod
 			module: 'FLV',
+			objectfit: 'fill',
+			retrying: 0,             // ms. retrying interval
 			loader: {
 				name: 'auto',
 				mode: 'cors',        // cors, no-cors, same-origin
 				credentials: 'omit', // omit, include, same-origin
+			},
+			service: {
+				script: 'js/sw.js',
+				scope: 'js/',
+				enable: true,
 			},
 			sources: [{
 				file: 'http://39.98.40.193/live/_definst_/stream02.flv',
@@ -155,11 +165,25 @@
 				visibility: true,
 			}, {
 				kind: 'Controlbar',
-				layout: '[Slider:timebar=Preview]|[Button:play=Play][Button:pause=Pause][Button:reload=Reload][Button:stop=Stop][Label:quote=Live broadcast][Label:time=00:00/00:00]||[Button:capture=Capture][Button:mute=Mute][Button:unmute=Unmute][Slider:volumebar=80][Select:definition=Definition][Button:danmuoff=Danmu Off][Button:danmuon=Danmu On][Button:fullscreen=Fullscreen][Button:exitfullscreen=Exit Fullscreen]',
+				layout: '[Slider:timebar=Preview]|[Button:play=Play][Button:pause=Pause][Button:reload=Reload][Button:stop=Stop][Label:quote=Live broadcast][Label:time=00:00/00:00]||[Button:report=Report][Button:capture=Capture][Button:download=Download][Button:mute=Mute][Button:unmute=Unmute][Slider:volumebar=80][Select:definition=Definition][Button:danmuoff=Danmu Off][Button:danmuon=Danmu On][Button:fullscreen=Fullscreen][Button:exitfullscreen=Exit Fullscreen]',
 				autohide: true,
 				visibility: true,
 			}],
 		});
+
+		function onReady(e) {
+			// ui.record('fragmented.mp4');
+		}
+
+		function onClick(e) {
+			switch (e.data.name) {
+				case 'report':
+					if (playease.LOGGER) {
+						utils.logger.save();
+					}
+					break;
+			}
+		}
 
 		function onScreenshot(e) {
 			var arr = e.data.image.split(',');
