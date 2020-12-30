@@ -105,21 +105,21 @@
 		}
 
 		function initPlayer(id, container, url) {
-			var ui = playease.ui(id);
+			var ui = playease.ui(id, { mode: 'file' });
 			ui.addEventListener('ready', onReady);
 			ui.addEventListener('click', onClick);
 			ui.addEventListener(MediaEvent.SCREENSHOT, onScreenshot);
 			ui.addEventListener(UIEvent.FULLPAGE, onFullpage);
 			ui.addEventListener(Event.ERROR, console.error);
 			ui.setup(container, {
-				bufferLength: 0.5,       // sec.
+				bufferLength: 1.0,       // sec.
 				// file: 'http://127.0.0.1/vod/sample.flv',
 				// file: 'http://127.0.0.1/live/_definst_/stream02.flv',
 				// file: 'http://120.79.67.102:4022/flv?port=10077&app=live&stream=13751093611_channel_2',
 				// file: 'ws://120.79.67.102:4022/ws?port=10077&app=live&stream=64921778277_channel_1',
 				file: url || '',
 				lowlatency: true,        // ll-dash, ll-hls, ll-flv/fmp4 (auto reduce latency due to cumulative ack of tcp)
-				maxBufferLength: 1.5,    // sec.
+				maxBufferLength: 2.0,    // sec.
 				maxRetries: 0,           // maximum number of retries while some types of error occurs. -1 means always
 				mode: 'live',            // live, vod
 				module: 'FLV',
@@ -181,9 +181,7 @@
 			function onClick(e) {
 				switch (e.data.name) {
 					case 'report':
-						if (playease.LOGGER) {
-							utils.logger.save();
-						}
+						ui.logger.flush();
 						break;
 				}
 			}

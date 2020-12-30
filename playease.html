@@ -584,9 +584,7 @@ _eventMapping = {
 		function onClick(e) {
 			switch (e.data.name) {
 				case 'report':
-					if (playease.LOGGER) {
-						utils.logger.save();
-					}
+					ui.logger.flush();
 					break;
 			}
 		}
