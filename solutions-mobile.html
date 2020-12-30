@@ -110,7 +110,7 @@
 
 		pw.style.height = window.innerWidth * 9 / 16 + 'px';
 
-		ui = playease.ui();
+		ui = playease.ui.create({ mode: 'file' });
 		ui.addEventListener('ready', onReady);
 		ui.addEventListener('click', onClick);
 		ui.addEventListener(MediaEvent.SCREENSHOT, onScreenshot);

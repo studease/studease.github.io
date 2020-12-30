@@ -522,7 +522,7 @@ _eventMapping = {
 			UIEvent = events.UIEvent,
 			index = 0;
 
-		ui = playease.ui();
+		ui = playease.ui.create({ mode: 'file' });
 		ui.addEventListener('ready', onReady);
 		ui.addEventListener('click', onClick);
 		ui.addEventListener(MediaEvent.SCREENSHOT, onScreenshot);
