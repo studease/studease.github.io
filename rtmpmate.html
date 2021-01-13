@@ -1,23 +1,24 @@
 ﻿<!DOCTYPE HTML>
 <html>
+
 <head>
-	<title>rtmpmate - StudEase.cn</title>
-	
-	<meta charset="utf-8">
-	<meta name="robots" content="index, follow" />
-	<meta name="keywords" content="rtmpmate,rtmp,websocket,高并发,流媒体,直播,聊天室,服务器" />
-	<meta name="description" content="This is not only a websocket chat server, but also a functional media server." />
-	<meta name="author" content="Tony Lau" />
-	
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<meta content="yes" name="apple-mobile-web-app-capable"/>
-	<meta content="yes" name="apple-touch-fullscreen"/>
-	<meta content="telephone=no,email=no" name="format-detection"/>
-	<meta name="App-Config" content="fullscreen=yes, useHistoryState=yes, transition=yes"/>
-	
-	<link rel="shortcut icon" href="images/favicon.ico">
-	
-	<!--[if lt IE 9]>
+    <title>rtmpmate - StudEase.cn</title>
+
+    <meta charset="utf-8">
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="rtmpmate,rtmp,websocket,高并发,流媒体,直播,聊天室,服务器" />
+    <meta name="description" content="This is not only a functional media server, but also a websocket chat server." />
+    <meta name="author" content="Spencer Lau" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta content="telephone=no,email=no" name="format-detection" />
+    <meta name="App-Config" content="fullscreen=yes, useHistoryState=yes, transition=yes" />
+
+    <link rel="shortcut icon" href="images/favicon.ico">
+
+    <!--[if lt IE 9]>
 	<script type='text/javascript'>
 		(function() {
 			if (!/*@cc_on!@*/0) {
@@ -38,85 +39,87 @@
 		}
 	</style>
 	<![endif]-->
-	
-	<link type='text/css' rel='stylesheet' href='css/style.css' />
-	<link type='text/css' rel='stylesheet' href='css/prettify.min.css' />
-	
-	<script type='text/javascript' src='js/prettify/min/prettify.min.js'></script>
+
+    <link type='text/css' rel='stylesheet' href='css/style.css' />
+    <link type='text/css' rel='stylesheet' href='css/prettify.min.css' />
+
+    <script type='text/javascript' src='js/prettify/min/prettify.min.js'></script>
 </head>
+
 <body ontouchstart=''>
-	<header>
-		<div class='topbar'>
-		<section>
-			<ul class='info'>
-				<li><span class='icon-card'>Name: Tony Lau</span></li>
-				<li><span class='icon-phone'>Phone: +8618224088983</span></li>
-				<li><span class='icon-email'>Email: 670292548@qq.com</span></li>
-				<li><span class='icon-address'>Address: Chongqing, China</span></li>
-			</ul>
-		</section>
-		</div>
-		
-		<nav>
-		<section>
-			<span class='logo'>
-				<a href='.' title='studease.cn'>StudEase</a>
-			</span>
-			
-			<div class='menu-toggle'></div>
-			
-			<ul>
-				<li><a href='.'>HOME</a></li>
-				<li><a href='about.html'>ABOUT</a></li>
-				<li><a href='index.html#news'>NEWS</a></li>
-				<li><a href='solutions.html'>SOLUTIONS</a></li>
-				<li class='current'>
-					<a href='#'>PROJECTS</a>
-					<ul>
-						<li><a href='rtmpmate.html'>rtmpmate</a></li>
-						<li><a href='playease.html'>playease.js</a></li>
-						<li><a href='chatease.html'>chatease.js</a></li>
-						<li><a href='slicease.html'>slicease.js</a></li>
-					</ul>
-				</li>
-				<li><a href='contact.html'>CONTACT</a></li>
-				<li><a href='blog.html'>BLOG</a></li>
-			</ul>
-		</section>
-		</nav>
-	</header>
-	
-	<div class='wrap'>
-		<div>
-		<section>
-			<h2>rtmpmate</h2>
-			<p>
-				[source] <a href='https://github.com/studease/rtmpmate' target='_blank'>https://github.com/studease/rtmpmate</a><br/>
-				[中文] <a href='https://blog.csdn.net/icysky1989/article/details/88946642' target='_blank'>https://blog.csdn.net/icysky1989/article/details/88946642</a><br/>
-				公众号：STUDEASE<br/>
-				QQ群：528109813<br/>
-				Skype: live:670292548
-			</p>
-			
-			<p>
-				This is a modern live streaming server. It supports: 
-			</p>
-			<ul class='u5 circle'>
-				<li>RTMP, RTSP (TCP), HTTP/WS-FLV, HTTP/WS-fMP4, MPEG-DASH, HLS</li>
-				<li>FLV Recording (Remote Controllable), Live Playback</li>
-				<li>WebSocket Chat (Danmu)</li>
-				<li>Event Report</li>
-				<li>Origin-Edge, Proxy, Load Balancing</li>
-				<li>CORS Control (Origin Protection)</li>
-				<li>Customized Development (Extra Charge)</li>
-			</ul>
-			
-			<h3>News</h3>
-			<ul class='u5 square'>
-				<li><a href='rtmpmate.html'>Rtmpmate</a>, a websocket chat server & functional media server, beta released.<i> - Oct. 31, 2018</i></li>
-			</ul>
-			
-			<!--<h3>Pricing</h3>
+    <header>
+        <div class='topbar'>
+            <section>
+                <ul class='info'>
+                    <li><span class='icon-card'>Name: Spencer Lau</span></li>
+                    <li><span class='icon-phone'>Phone: +8618224088983</span></li>
+                    <li><span class='icon-email'>Email: 670292548@qq.com</span></li>
+                    <li><span class='icon-address'>Address: Guangzhou, China</span></li>
+                </ul>
+            </section>
+        </div>
+
+        <nav>
+            <section>
+                <span class='logo'>
+                    <a href='.' title='studease.cn'>StudEase</a>
+                </span>
+
+                <div class='menu-toggle'></div>
+
+                <ul>
+                    <li><a href='.'>HOME</a></li>
+                    <li><a href='about.html'>ABOUT</a></li>
+                    <li><a href='index.html#news'>NEWS</a></li>
+                    <li><a href='solutions.html'>SOLUTIONS</a></li>
+                    <li class='current'>
+                        <a href='#'>PROJECTS</a>
+                        <ul>
+                            <li><a href='rtmpmate.html'>rtmpmate</a></li>
+                            <li><a href='playease.html'>playease.js</a></li>
+                            <li><a href='chatease.html'>chatease.js</a></li>
+                            <li><a href='slicease.html'>slicease.js</a></li>
+                        </ul>
+                    </li>
+                    <li><a href='contact.html'>CONTACT</a></li>
+                    <li><a href='blog.html'>BLOG</a></li>
+                </ul>
+            </section>
+        </nav>
+    </header>
+
+    <div class='wrap'>
+        <div>
+            <section>
+                <h2>rtmpmate</h2>
+                <p>
+                    [source] <a href='https://github.com/studease/rtmpmate' target='_blank'>https://github.com/studease/rtmpmate</a><br />
+                    [中文] <a href='https://blog.csdn.net/icysky1989/article/details/88946642' target='_blank'>https://blog.csdn.net/icysky1989/article/details/88946642</a><br />
+                    公众号：STUDEASE<br />
+                    QQ群：528109813<br />
+                    Skype: live:670292548
+                </p>
+
+                <p>
+                    This is not only a modern Live Streaming Server, but also a WebSocket IM Framework and Distributed File Sync System. It supports:
+                </p>
+                <ul class='u5 circle'>
+                    <li>RTMP, RTSP (TCP), HTTP/WS-FLV, HTTP/WS-fMP4, MPEG-DASH, HLS</li>
+                    <li>FLV Recording (Remote Controllable)</li>
+                    <li>WebSocket Chat (Danmu)</li>
+                    <li>Event Report</li>
+                    <li>Origin-Edge, Proxy, Load Balancing</li>
+                    <li>CORS Control (Origin Protection)</li>
+                    <li>Customized Development (Extra Charge)</li>
+                </ul>
+
+                <h3>News</h3>
+                <ul class='u5 square'>
+                    <li>Start to refactor <a href='rtmpmate.html'>rtmpmate</a> v2 for business usage.<i> - Jun. 17, 2020</i></li>
+                    <li><a href='rtmpmate.html'>Rtmpmate</a>, a websocket chat server & functional media server, beta released.<i> - Oct. 31, 2018</i></li>
+                </ul>
+
+                <!--<h3>Pricing</h3>
 			<ul class='u5 plan'>
 				<li>
 					<h3 class='center'>Monthly</h3>
@@ -152,77 +155,77 @@
 					<a class='btn green' href='contact.html' target='_blank'>Buy it Now</a>
 				</li>
 			</ul>-->
-			
-			<h3 style='margin: 20px 0 0 0; display: inline-block;'>Static Builds</h3>
-			<p>
-				<a href='https://github.com/studease/rtmpmate/releases'>Download Page</a>
-			</p>
-			
-			<h3>CDKeys for Free</h3>
-			<ul class='u5 square white'>
-				<li class='deletion'>1031-9276-8109-8226-4292</li>
-				<li class='deletion'>1031-4292-0781-0315-6349</li>
-				<li class='deletion'>1031-9818-4656-4110-5434</li>
-				<li class='deletion'>1031-4564-1074-4211-6767</li>
-				<li class='deletion'>1031-3171-4745-6729-3840</li>
-				<li>1031-2627-3062-4770-3450</li>
-				<li>1031-5535-5137-8978-3598</li>
-				<li>1031-2465-6923-4816-6569</li>
-				<li>1031-8282-5020-9232-3192</li>
-				<li>1031-9992-5140-5134-4560</li>
-			</ul>
-			
-			<h3>Clients</h3>
-			<ul class='u5 square'>
-				<li><a href='playease.html' target='_blank'>playease.js</a></li>
-				<li><a href='chatease.html' target='_blank'>chatease.js</a></li>
-			</ul>
-		</section>
-		</div>
-	</div>
-	
-	<footer>
-		<div class='footerall'>
-		<section>
-			<ul>
-				<li>
-					<a href='faq.html' target='_blank'>
-						<strong>FAQ</strong>
-						<span>Check for the articles<br/>and known issues</span>
-					</a>
-				</li>
-				<li>
-					<a href='solutions.html' target='_blank'>
-						<strong>SOLUTIONS</strong>
-						<span>Low latency and<br/>cross-platform</span>
-					</a>
-				</li>
-				<li>
-					<a href='contact.html' target='_blank'>
-						<strong>CONTACT</strong>
-						<span>+8618224088983<br/>670292548@qq.com</span>
-					</a>
-				</li>
-				<li>
-					<a href='donate.html' target='_blank'>
-						<strong>DONATE</strong>
-						<span>Contribute by<br/>making a donation ￥</span>
-					</a>
-				</li>
-			</ul>
-		</section>
-		</div>
-		
-		<div class='copyright'>
-		<section>
-			<span>Copyright &copy; 2014-2018 studease.cn | All Rights Reserved</span>
-		</section>
-		</div>
-	</footer>
-	
-	<script type='text/javascript'>
-		window.onload = function() {
-			prettyPrint();
-		};
-	</script>
+
+                <h3 style='margin: 20px 0 0 0; display: inline-block;'>Static Builds</h3>
+                <p>
+                    <a href=''>Download Page</a>
+                </p>
+
+                <h3>CDKeys for Free</h3>
+                <ul class='u5 square white'>
+                    <li class='deletion'>1031-9276-8109-8226-4292</li>
+                    <li class='deletion'>1031-4292-0781-0315-6349</li>
+                    <li class='deletion'>1031-9818-4656-4110-5434</li>
+                    <li class='deletion'>1031-4564-1074-4211-6767</li>
+                    <li class='deletion'>1031-3171-4745-6729-3840</li>
+                    <li>1031-2627-3062-4770-3450</li>
+                    <li>1031-5535-5137-8978-3598</li>
+                    <li>1031-2465-6923-4816-6569</li>
+                    <li>1031-8282-5020-9232-3192</li>
+                    <li>1031-9992-5140-5134-4560</li>
+                </ul>
+
+                <h3>Clients</h3>
+                <ul class='u5 square'>
+                    <li><a href='playease.html' target='_blank'>playease.js</a></li>
+                    <li><a href='chatease.html' target='_blank'>chatease.js</a></li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        <div class='footerall'>
+            <section>
+                <ul>
+                    <li>
+                        <a href='faq.html' target='_blank'>
+                            <strong>FAQ</strong>
+                            <span>Check for the articles<br />and known issues</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href='solutions.html' target='_blank'>
+                            <strong>SOLUTIONS</strong>
+                            <span>Low latency and<br />cross-platform</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href='contact.html' target='_blank'>
+                            <strong>CONTACT</strong>
+                            <span>+8618224088983<br />670292548@qq.com</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href='donate.html' target='_blank'>
+                            <strong>DONATE</strong>
+                            <span>Contribute by<br />making a donation ￥</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+
+        <div class='copyright'>
+            <section>
+                <span>Copyright &copy; 2014-2021 studease.cn | All Rights Reserved</span>
+            </section>
+        </div>
+    </footer>
+
+    <script type='text/javascript'>
+        window.onload = function () {
+            prettyPrint();
+        };
+    </script>
 </body>

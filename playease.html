@@ -2,23 +2,23 @@
 <html>
 
 <head>
-	<title>playease.js - StudEase.cn</title>
+    <title>playease.js - StudEase.cn</title>
 
-	<meta charset="utf-8">
-	<meta name="robots" content="index, follow" />
-	<meta name="keywords" content="playease.js,html5 video player,html5 flv player,html5 dash player,html5播放器,ie8,ie9,flv,fmp4,dash,rtmp,hls" />
-	<meta name="description" content="This is a HTML5 video player for FLV/fMP4 live streaming." />
-	<meta name="author" content="Tony Lau" />
+    <meta charset="utf-8">
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="playease.js,html5 flv player,html5 dash player,html5播放器,flv,fmp4,dash,rtmp,hls" />
+    <meta name="description" content="This is a HTML5 video player for FLV/fMP4 live streaming." />
+    <meta name="author" content="Spencer Lau" />
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<meta content="yes" name="apple-mobile-web-app-capable" />
-	<meta content="yes" name="apple-touch-fullscreen" />
-	<meta content="telephone=no,email=no" name="format-detection" />
-	<meta name="App-Config" content="fullscreen=yes, useHistoryState=yes, transition=yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta content="telephone=no,email=no" name="format-detection" />
+    <meta name="App-Config" content="fullscreen=yes, useHistoryState=yes, transition=yes" />
 
-	<link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="shortcut icon" href="images/favicon.ico">
 
-	<!--[if lt IE 9]>
+    <!--[if lt IE 9]>
 	<script type='text/javascript'>
 		(function() {
 			if (!/*@cc_on!@*/0) {
@@ -40,638 +40,320 @@
 	</style>
 	<![endif]-->
 
-	<link type='text/css' rel='stylesheet' href='css/style.css' />
-	<link type='text/css' rel='stylesheet' href='css/prettify.css' />
-	<link type='text/css' rel='stylesheet' href='css/classic.css' />
+    <link type='text/css' rel='stylesheet' href='css/style.css' />
+    <link type='text/css' rel='stylesheet' href='css/prettify.css' />
+    <link type='text/css' rel='stylesheet' href='css/classic.css' />
 
-	<script type='text/javascript' src='js/prettify/min/prettify.min.js'></script>
-	<script type='text/javascript' src='js/bscroll.min.js'></script>
-	<script type='text/javascript' src='js/playease.min.js'></script>
-	<script type='text/javascript' src='js/chatease.min.js'></script>
+    <script type='text/javascript' src='js/prettify/min/prettify.min.js'></script>
+    <script type='text/javascript' src='js/bscroll.min.js'></script>
+    <script type='text/javascript' src='js/playease.min.js'></script>
+    <script type='text/javascript' src='js/chatease.min.js'></script>
 </head>
 
 <body ontouchstart=''>
-	<header>
-		<div class='topbar'>
-			<section>
-				<ul class='info'>
-					<li><span class='icon-card'>Name: Tony Lau</span></li>
-					<li><span class='icon-phone'>Phone: +8618224088983</span></li>
-					<li><span class='icon-email'>Email: 670292548@qq.com</span></li>
-					<li><span class='icon-address'>Address: Chongqing, China</span></li>
-				</ul>
-			</section>
-		</div>
+    <header>
+        <div class='topbar'>
+            <section>
+                <ul class='info'>
+                    <li><span class='icon-card'>Name: Spencer Lau</span></li>
+                    <li><span class='icon-phone'>Phone: +8618224088983</span></li>
+                    <li><span class='icon-email'>Email: 670292548@qq.com</span></li>
+                    <li><span class='icon-address'>Address: Guangzhou, China</span></li>
+                </ul>
+            </section>
+        </div>
 
-		<nav>
-			<section>
-				<span class='logo'>
-					<a href='.' title='studease.cn'>StudEase</a>
-				</span>
+        <nav>
+            <section>
+                <span class='logo'>
+                    <a href='.' title='studease.cn'>StudEase</a>
+                </span>
 
-				<div class='menu-toggle'></div>
+                <div class='menu-toggle'></div>
 
-				<ul>
-					<li><a href='.'>HOME</a></li>
-					<li><a href='about.html'>ABOUT</a></li>
-					<li><a href='index.html#news'>NEWS</a></li>
-					<li><a href='solutions.html'>SOLUTIONS</a></li>
-					<li class='current'>
-						<a href='#'>PROJECTS</a>
-						<ul>
-							<li><a href='rtmpmate.html'>rtmpmate</a></li>
-							<li><a href='playease.html'>playease.js</a></li>
-							<li><a href='chatease.html'>chatease.js</a></li>
-							<li><a href='slicease.html'>slicease.js</a></li>
-						</ul>
-					</li>
-					<li><a href='contact.html'>CONTACT</a></li>
-					<li><a href='blog.html'>BLOG</a></li>
-				</ul>
-			</section>
-		</nav>
-	</header>
+                <ul>
+                    <li><a href='.'>HOME</a></li>
+                    <li><a href='about.html'>ABOUT</a></li>
+                    <li><a href='index.html#news'>NEWS</a></li>
+                    <li><a href='solutions.html'>SOLUTIONS</a></li>
+                    <li class='current'>
+                        <a href='#'>PROJECTS</a>
+                        <ul>
+                            <li><a href='rtmpmate.html'>rtmpmate</a></li>
+                            <li><a href='playease.html'>playease.js</a></li>
+                            <li><a href='chatease.html'>chatease.js</a></li>
+                            <li><a href='slicease.html'>slicease.js</a></li>
+                        </ul>
+                    </li>
+                    <li><a href='contact.html'>CONTACT</a></li>
+                    <li><a href='blog.html'>BLOG</a></li>
+                </ul>
+            </section>
+        </nav>
+    </header>
 
-	<div class='wrap'>
-		<div>
-			<section>
-				<h2>playease.js</h2>
-				<p>
-					[source] <a href='https://github.com/studease/playease' target='_blank'>https://github.com/studease/playease</a><br />
-					[中文] <a href='http://blog.csdn.net/icysky1989/article/details/75094205' target='_blank'>http://blog.csdn.net/icysky1989/article/details/75094205</a><br />
-					公众号：STUDEASE<br />
-					QQ群：528109813<br />
-					Skype: live:670292548
-				</p>
+    <div class='wrap'>
+        <div>
+            <section>
+                <h2>playease.js</h2>
+                <p>
+                    [source] <a href='https://github.com/studease/playease' target='_blank'>https://github.com/studease/playease</a><br />
+                    [中文] <a href='http://blog.csdn.net/icysky1989/article/details/75094205' target='_blank'>http://blog.csdn.net/icysky1989/article/details/75094205</a><br />
+                    公众号：STUDEASE<br />
+                    QQ群：528109813<br />
+                    Skype: live:670292548
+                </p>
 
-				<p>
-					This is a HTML5 video player for modern live streaming. It supports:
-				</p>
-				<ul class='u5 circle'>
-					<li>RTMP (For MSIE8-10 with flash embed in)</li>
-					<li>HTTP/WebSocket-FLV</li>
-					<li>HTTP/WebSocket-fMP4</li>
-					<li>MPEG-DASH</li>
-					<li>HLS (on mobile)</li>
-					<li>Original HTML5 Media Resources (eg. Ogg, Mpeg4, WebM)</li>
-				</ul>
+                <p>
+                    This is a HTML5 video player for modern live streaming. It supports HTTP/WS-FLV, HTTP/WS-fMP4, MPEG-DASH, HLS and Original HTML5 Media Resources (eg. Ogg, Mpeg4, WebM).
+                </p>
+                <div class='ol-status' style='width: 100%; max-width: 640px;'>
+                    <label>Online: </label>
+                    <span id='ol-users'>0</span>
+                </div>
+                <div id='playwrap' style='width: 100%; max-width: 640px; height: 400px; top: 0; left: 0;'></div>
+                <div id='chatwrap' style='width: 100%; max-width: 640px; height: 400px; display: none;'>
+                    <div id='chat'></div>
+                </div>
+                <div class='input-container' style='width: 100%; max-width: 640px;'>
+                    <span>
+                        <input id='url-input' value='/vod/sample.mp4'>
+                    </span>
+                    <a class='btn red' onclick='playTheURL();'>Play</a>
+                </div>
 
-				<h3>News</h3>
-				<ul class='u5 square'>
-					<li>New feature of <a href='playease.html'>playease.js</a>: MPEG-DASH.<i> - Aug. 10, 2017</i></li>
-					<li>Introduced self-adaption display, and added flash render for MSIE 8, in <a href='playease.html'>playease.js</a> 1.0.33.<i> - Apr. 27, 2017</i></li>
-					<li>Added UI controls for <a href='playease.html'>playease.js</a> at version 1.0.08.<i> - Apr. 17, 2017</i></li>
-					<li><a href='playease.html'>Playease.js</a>, an HTML5 media player for FLV live streaming, beta released.<i> - Feb. 10, 2017</i></li>
-				</ul>
+                <h3>News</h3>
+                <ul class='u5 square'>
+                    <li>Start to build <a href='playease.html'>playease.js</a> v2 for business usage.<i> - Jun. 17, 2020</i></li>
+                    <li>New feature of <a href='playease.html'>playease.js</a>: MPEG-DASH.<i> - Aug. 10, 2017</i></li>
+                    <li>Introduced self-adaption display, and added flash render for MSIE 8, in <a href='playease.html'>playease.js</a> 1.0.33.<i> - Apr. 27, 2017</i></li>
+                    <li>Added UI controls for <a href='playease.html'>playease.js</a> at version 1.0.08.<i> - Apr. 17, 2017</i></li>
+                    <li><a href='playease.html'>Playease.js</a>, an HTML5 media player for FLV live streaming, beta released.<i> - Feb. 10, 2017</i></li>
+                </ul>
 
-				<h3>Example</h3>
-				<div class='ol-status' style='width: 100%; max-width: 640px;'>
-					<label>Online: </label>
-					<span id='ol-users'>0</span>
-				</div>
-				<div id='playwrap' style='width: 100%; max-width: 640px; height: 400px; top: 0; left: 0;'></div>
-				<div id='chatwrap' style='width: 100%; max-width: 640px; height: 400px; display: none;'>
-					<div id='chat'></div>
-				</div>
-				<div class='input-container' style='width: 100%; max-width: 640px;'>
-					<span>
-						<input id='url-input' value='/vod/sample.mp4'>
-					</span>
-					<a class='btn red' onclick='playTheURL();'>Play</a>
-				</div>
+                <h3>Documents</h3>
+                <ul class='u5 square'>
+                    <li><a href='https://github.com/studease/playease#roadmap' target='_blank'>Roadmap</a></li>
+                    <li><a href='https://github.com/studease/playease#solutions' target='_blank'>Solutions</a></li>
+                    <li><a href='https://github.com/studease/playease#example' target='_blank'>Example</a></li>
+                    <li><a href='https://github.com/studease/playease#configuration' target='_blank'>Configuration</a></li>
+                    <li><a href='https://github.com/studease/playease#api' target='_blank'>API</a></li>
+                    <li><a href='https://github.com/studease/playease#events' target='_blank'>Events</a></li>
+                </ul>
 
-				<p>
-					The example below shows how to play a flv vod. It will find the element with an id of "player" and render a player into it.</br>
-					Note: To play <a class='note'>flv live streams</a>, comment <a class='note'>line 50, 51, 63</a> out.
-				</p>
+                <h3>Software License</h3>
+                <ul class='u5 square'>
+                    <li><a href='https://github.com/studease/playease/blob/master/LICENSE' target='_blank'>BSD 3-Clause License</a></li>
+                    <li><a href='https://github.com/studease/playease/blob/master/NOTICE' target='_blank'>NOTICE</a></li>
+                </ul>
+            </section>
+        </div>
+    </div>
 
-				<?prettify lang=js linenums=true?>
-				<pre class='prettyprint'>
-&lt;div id='playwrap' style='margin: 0 auto; width: 100%; max-width: 640px; top: 0; left: 0;'&gt;
-	&lt;div id='player'&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id='others' style='width: 100%;'&gt;
-	...
-&lt;/div&gt;
-...
+    <footer>
+        <div class='footerall'>
+            <section>
+                <ul>
+                    <li>
+                        <a href='faq.html' target='_blank'>
+                            <strong>FAQ</strong>
+                            <span>Check for the articles<br />and known issues</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href='solutions.html' target='_blank'>
+                            <strong>SOLUTIONS</strong>
+                            <span>Low latency and<br />cross-platform</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href='contact.html' target='_blank'>
+                            <strong>CONTACT</strong>
+                            <span>+8618224088983<br />670292548@qq.com</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href='donate.html' target='_blank'>
+                            <strong>DONATE</strong>
+                            <span>Contribute by<br />making a donation ￥</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </div>
 
-var pw = document.getElementById('playwrap');
-var events = playease.events;
+        <div class='copyright'>
+            <section>
+                <span>Copyright &copy; 2014-2021 studease.cn | All Rights Reserved</span>
+            </section>
+        </div>
+    </footer>
 
-var player = playease('player');
-player.addEventListener(events.PLAYEASE_FULLPAGE, onFullpage);
-player.addEventListener(events.RESIZE, onResize);
-player.setup({
-    width: 640,
-    height: 400,
-    aspectratio: '16:9',
-    file: '/vod/sample.flv',
-    /*sources: [{
-        file: 'http://127.0.0.1/live/_definst_/sample.flv',
-        type: 'flv',
-        label: 'HTTP-FLV'
-    }, {
-        file: 'http://127.0.0.1/live/_definst_/sample',
-        type: 'fmp4',
-        label: 'HTTP-FMP4'
-    }, {
-        file: 'http://127.0.0.1/live/_definst_/sample/manifest.mpd',
-        type: 'dash',
-        label: 'MPEG-DASH'
-    }, {
-        file: 'rtmp://127.0.0.1/live/_definst_/sample',
-        type: 'flash',
-        label: 'RTMP-STREAM'
-    }, {
-        file: 'http://127.0.0.1/live/_definst_/sample/index.m3u8',
-        type: 'def',
-        label: 'HLS'
-    }],*/
-    mode: 'vod',
-    controls: true,
-    autoplay: false,
-    //poster: 'sample.png',
-    //report: true,
-    loader: {
-        name: 'xhr-chunked-loader', // For flv render in vod mode only. Otherwise, don't name it out.
-        chunkSize: 2 * 1024 * 1024, // For xhr-chunked-loader only
-        mode: 'cors'
-    },
-    bulletCurtain: {
-        enable: true,
-        visible: true
-    },
-    fullpage: {
-        visible: false
-    },
-    render: {
-        name: 'def',
-        bufferLength: 4 * 1024 * 1024, // For flv render in vod mode only
-        swf: '../swf/playease.swf'
-    }
-});
+    <script type='text/javascript'>
+        window.onload = function () {
+            prettyPrint();
+        };
 
-function onFullpage(e) {
-    pw.style.margin = e.exit ? '0 auto' : '0';
-    pw.style.height = e.exit ? '' : '100%';
-    pw.style.position = e.exit ? '' : 'fixed';
-    pw.style.maxWidth = e.exit ? '640px' : '100%';
-    pw.style.zIndex = e.exit ? '' : '99';
-}
+        var ui, chat;
+        var users = document.getElementById('ol-users');
+        var pw = document.getElementById('playwrap');
+        var utils = playease.utils,
+            events = playease.events,
+            Event = events.Event,
+            MediaEvent = events.MediaEvent,
+            UIEvent = events.UIEvent,
+            index = 0;
 
-function onResize(e) {
-    // x5-playsinline
-    if (playease.utils.isAndroid() && playease.utils.isQQBrowser()) {
-        var video = document.getElementById('player').firstChild.lastChild;
-        video.style.width = window.innerWidth + 'px';
-        video.style.height = window.innerHeight + 'px';
-        video.style['object-position'] = 'center top';
-        
-        var controlbar = document.getElementById('player').childNodes[1];
-        controlbar.style.top = e.height - 40 + 'px';
-        controlbar.style.position = 'absolute';
-        
-        var next = document.getElementById('others');
-        next.style.top = e.height + 'px';
-        next.style.bottom = '0px';
-        next.style.position = 'absolute';
-        next.style.zIndex = 999;
-    }
-    
-    // Something else
-}
-</pre>
-				<br />
+        ui = playease.ui.create({ mode: 'file' });
+        ui.addEventListener('ready', onReady);
+        ui.addEventListener('click', onClick);
+        ui.addEventListener(MediaEvent.SCREENSHOT, onScreenshot);
+        ui.addEventListener(UIEvent.FULLPAGE, onFullpage);
+        ui.addEventListener(Event.ERROR, console.error);
+        ui.setup(playwrap, {
+            bufferLength: 0.5,       // sec.
+            // file: 'http://127.0.0.1/vod/sample.flv',
+            // file: 'http://127.0.0.1/live/_definst_/stream02.flv',
+            // file: 'http://120.79.67.102:4022/flv?port=10077&app=live&stream=13751093611_channel_2',
+            // file: 'ws://120.79.67.102:4022/ws?port=10077&app=live&stream=64921778277_channel_1',
+            lowlatency: true,        // ll-dash, ll-hls, ll-flv/fmp4 (auto reduce latency due to cumulative ack of tcp)
+            maxBufferLength: 1.5,    // sec.
+            maxRetries: 0,           // maximum number of retries while some types of error occurs. -1 means always
+            mode: 'live',            // live, vod
+            module: 'FLV',
+            objectfit: 'fill',
+            retrying: 0,             // ms. retrying interval
+            loader: {
+                name: 'auto',
+                mode: 'cors',        // cors, no-cors, same-origin
+                credentials: 'omit', // omit, include, same-origin
+            },
+            service: {
+                script: 'js/sw.js',
+                scope: 'js/',
+                enable: false,
+            },
+            sources: [{
+                file: '/vod/sample.flv',
+                label: 'http-flv',
+                default: true,
+            }, {
+                file: '/vod/sample.mp4',
+                label: 'http-mp4',
+            }],
+            plugins: [{
+                kind: 'Poster',
+                file: 'images/content/poster.png',
+                objectfit: 'fill',
+                visibility: true,
+            }, {
+                kind: 'Display',
+                layout: '[Button:play=][Button:waiting=][Label:error=][Panel:info=][Panel:stats=]',
+                ondoubleclick: 'fullscreen',
+                visibility: true,
+            }, {
+                kind: 'Controlbar',
+                layout: '[Slider:timebar=Preview]|[Button:play=Play][Button:pause=Pause][Button:reload=Reload][Button:stop=Stop][Label:quote=Live broadcast][Label:time=00:00/00:00]||[Button:report=Report][Button:capture=Capture][Button:mute=Mute][Button:unmute=Unmute][Slider:volumebar=80][Select:definition=Definition][Button:danmuoff=Danmu Off][Button:danmuon=Danmu On][Button:fullpage=Fullpage][Button:exitfullpage=Exit Fullpage][Button:fullscreen=Fullscreen][Button:exitfullscreen=Exit Fullscreen]',
+                autohide: false,
+                visibility: true,
+            }],
+        });
 
-				<p>
-					For more configurations, please check
-					<a href='https://github.com/studease/playease/blob/master/cn/studease/embed/playease.embed.config.js#L18' target='_blank'>cn/studease/embed/playease.embed.config.js</a>.
-				</p>
+        function onReady(e) {
+            // ui.record('fragmented.mp4');
+        }
 
-				<?prettify lang=js linenums=true?>
-				<pre class='prettyprint'>
-_defaults = {
-    width: 640,
-    height: 400,
-    aspectratio: '16:9',
-    file: '',
-    sources: [],
-    mode: renderModes.VOD,
-    bufferTime: .1,
-    maxRetries: 0,
-    retryDelay: 3000,
-    controls: true,
-    autoplay: true,
-    airplay: 'allow',
-    playsinline: true,
-    poster: '',
-    report: false,
-    debug: false,
-    loader: {
-        //name: 'xhr-chunked-loader', // For flv render in vod mode only. Otherwise, don't name it out.
-        //chunkSize: 2 * 1024 * 1024, // For xhr-chunked-loader only
-        mode: io.modes.CORS
-    },
-    bulletCurtain: {
-        enable: true,
-        visible: false
-    },
-    fullpage: {
-        visible: false
-    },
-    render: {
-        name: renderTypes.DEFAULT,
-        //bufferLength: 4 * 1024 * 1024, // For flv render in vod mode only
-        swf: 'swf/playease.swf'
-    },
-    skin: {
-        name: skinTypes.DEFAULT
-    },
-    events: {
-        
-    }
-};
-</pre>
-				<br />
+        function onClick(e) {
+            switch (e.data.name) {
+                case 'report':
+                    ui.logger.flush();
+                    break;
+            }
+        }
 
-				<h3>Components</h3>
-				<ul class='u5 square'>
-					<li>Context Menu</li>
-				</ul>
+        function onScreenshot(e) {
+            var arr = e.data.image.split(',');
+            var ret = arr[0].match(/^data:(image\/(.+));base64$/);
+            if (ret === null) {
+                console.error('The string did not match the expected pattern.');
+                return;
+            }
 
-				<?prettify lang=js linenums=true?>
-				<pre class='prettyprint'>
-playease('player').setup({
-    ...
-    contextmenu: {
-        items: [{
-        	icon: '',
-        	text: 'Home',
-        	link: 'studease.cn',
-        	target: '_blank'
-        }]
-    }
-});
-</pre>
-				<br />
+            var link = document.createElement('a');
+            link.href = e.data.image;
+            link.download = 'screenshot-' + utils.padStart(index++, 3, '0') + '.' + ret[2];
+            link.click();
+        }
 
-				<ul class='u5 square'>
-					<li>Bullet Curtain</li>
-				</ul>
+        function onFullpage(e) {
+            pw.style.margin = e.data.status ? '0' : '0 auto';
+            pw.style.height = e.data.status ? '100%' : '400px';
+            pw.style.position = e.data.status ? 'fixed' : '';
+            pw.style.maxWidth = e.data.status ? '100%' : '640px';
+            pw.style.zIndex = e.data.status ? 100 : '';
 
-				<?prettify lang=js linenums=true?>
-				<pre class='prettyprint'>
-alphas = {
-    NONE: 1,
-    LOW:  0.75,
-    MID:  0.5,
-    HIGH: 0.25
-},
-positions = {
-    FULLSCREEN: 0,
-    TOP:        1,
-    BOTTOM:     2
-};
+            if (chat) {
+                chat.resize();
+            }
+        }
 
-playease('player').setup({
-    ...
-    bulletCurtain: {
-        width: 640,
-        height: 360,
-        enable: true,
-        fontSize: 14,
-        lineHeight: 20,
-        interval: 30,
-        duration: 10000,
-        alpha: alphas.LOW,
-        position: positions.FULLSCREEN,
-        visible: true
-    }
-});
-</pre>
-				<br />
+        var events = chatease.events;
 
-				<h3>Add Callbacks</h3>
+        chat = chatease('chat');
+        chat.addEventListener(events.CHATEASE_INFO, onInfo);
+        chat.addEventListener(events.CHATEASE_MESSAGE, onMessage);
+        chat.addEventListener(events.CHATEASE_USER, onUser);
+        chat.addEventListener(events.CHATEASE_CLOSE, onClose);
+        chat.setup({
+            url: 'ws://39.98.40.193:8080/chat/001' + window.location.search,
+            width: 320,
+            height: 400,
+            maxLength: 70,
+            maxRetries: -1,
+            smoothing: false,
+            debug: true,
+            render: {
+                name: 'none',
+                swf: 'swf/chatease.swf'
+            },
+            skin: {
+                name: chatease.utils.isMobile() ? 'mobile' : 'def'
+            },
+            bubble: {
+                name: 'def'
+            }
+        });
 
-				<?prettify lang=js linenums=true?>
-				<pre class='prettyprint'>
-playease('player').setup({
-    ...
-    events: {
-        onReady: function(e) {
-            console.log('onReady');
-        },
-        ...
-    }
-});
+        function onInfo(e) {
+            users.innerText = e.channel.total;
+        }
 
-// or
+        function onMessage(e) {
+            if (ui) {
+                ui.shoot(e.data);
+            }
+        }
 
-var events = playease.events;
-var player = playease('player');
-player.addEventListener(events.PLAYEASE_READY, onReady);
-player.setup({
-    ...
-});
+        function onUser(e) {
+            users.innerText = e.channel.total;
+        }
 
-function onReady(e) {
-    console.log('onReady');
-}
-</pre>
-				<br />
+        function onClose(e) {
+            users.innerText = 0;
+        }
 
-				<p>
-					For more events, please check cn/studease/api/playease.api.js.
-				</p>
+        if (playease.OS.isMobile) {
+            window.addEventListener('resize', function (e) {
+                setTimeout(function () {
+                    ui.fullscreen(!playease.OS.isHorizontal());
+                }, 500);
+            });
+        }
 
-				<?prettify lang=js linenums=true?>
-				<pre class='prettyprint'>
-_eventMapping = {
-    onError: events.ERROR,
-    onReady: events.PLAYEASE_READY,
-    onMetaData: events.PLAYEASE_METADATA,
-    onBuffering: events.PLAYEASE_BUFFERING,
-    onPlaying: events.PLAYEASE_PLAYING,
-    onPaused: events.PLAYEASE_PAUSED,
-    onReloading: events.PLAYEASE_RELOADING,
-    onSeeking: events.PLAYEASE_SEEKING,
-    onStopped: events.PLAYEASE_STOPPED,
-    onReport: events.PLAYEASE_REPORT,
-    onMute: events.PLAYEASE_MUTE,
-    onVolume: events.PLAYEASE_VOLUME,
-    onVideoOff: events.PLAYEASE_VIDEOOFF,
-    onHD: events.PLAYEASE_HD,
-    onBullet: events.PLAYEASE_BULLET,
-    onFullpage: events.PLAYEASE_FULLPAGE,
-    onFullscreen: events.PLAYEASE_FULLSCREEN,
-    onResize: events.RESIZE
-};
-</pre>
-				<br />
-
-				<h3>Interfaces</h3>
-				<ul class='u5 square'>
-					<li>
-						<a>play(url)</a>
-					</li>
-					<li>
-						<a>pause()</a>
-					</li>
-					<li>
-						<a>reload()</a>
-					</li>
-					<li>
-						<a>seek(offset)</a>
-					</li>
-					<li>
-						<a>stop()</a>
-					</li>
-					<li>
-						<a>report()</a>
-					</li>
-					<li>
-						<a>mute(mute)</a>
-					</li>
-					<li>
-						<a>volume(vol)</a>
-					</li>
-					<li>
-						<a>videoOff(off)</a>
-					</li>
-					<li>
-						<a>hd(index)</a>
-					</li>
-					<li>
-						<a>bullet(enable)</a>
-					</li>
-					<li>
-						<a>fullpage(exit)</a>
-					</li>
-					<li>
-						<a>fullscreen(exit)</a>
-					</li>
-					<li>
-						<a>shoot(text)</a>
-					</li>
-					<li>
-						<a>resize(width, height)</a>
-					</li>
-				</ul>
-				<br />
-
-				<h3>Software License</h3>
-				<ul class='u5 square'>
-					<li><a href='https://github.com/studease/playease/blob/master/LICENSE' target='_blank'>BSD 3-Clause License</a></li>
-					<li><a href='https://github.com/studease/playease/blob/master/NOTICE' target='_blank'>NOTICE</a></li>
-				</ul>
-			</section>
-		</div>
-	</div>
-
-	<footer>
-		<div class='footerall'>
-			<section>
-				<ul>
-					<li>
-						<a href='faq.html' target='_blank'>
-							<strong>FAQ</strong>
-							<span>Check for the articles<br />and known issues</span>
-						</a>
-					</li>
-					<li>
-						<a href='solutions.html' target='_blank'>
-							<strong>SOLUTIONS</strong>
-							<span>Low latency and<br />cross-platform</span>
-						</a>
-					</li>
-					<li>
-						<a href='contact.html' target='_blank'>
-							<strong>CONTACT</strong>
-							<span>+8618224088983<br />670292548@qq.com</span>
-						</a>
-					</li>
-					<li>
-						<a href='donate.html' target='_blank'>
-							<strong>DONATE</strong>
-							<span>Contribute by<br />making a donation ￥</span>
-						</a>
-					</li>
-				</ul>
-			</section>
-		</div>
-
-		<div class='copyright'>
-			<section>
-				<span>Copyright &copy; 2014-2018 studease.cn | All Rights Reserved</span>
-			</section>
-		</div>
-	</footer>
-
-	<script type='text/javascript'>
-		window.onload = function () {
-			prettyPrint();
-		};
-
-		var ui, chat;
-		var users = document.getElementById('ol-users');
-		var pw = document.getElementById('playwrap');
-		var utils = playease.utils,
-			events = playease.events,
-			Event = events.Event,
-			MediaEvent = events.MediaEvent,
-			UIEvent = events.UIEvent,
-			index = 0;
-
-		ui = playease.ui.create({ mode: 'file' });
-		ui.addEventListener('ready', onReady);
-		ui.addEventListener('click', onClick);
-		ui.addEventListener(MediaEvent.SCREENSHOT, onScreenshot);
-		ui.addEventListener(UIEvent.FULLPAGE, onFullpage);
-		ui.addEventListener(Event.ERROR, console.error);
-		ui.setup(playwrap, {
-			bufferLength: 0.5,       // sec.
-			// file: 'http://127.0.0.1/vod/sample.flv',
-			// file: 'http://127.0.0.1/live/_definst_/stream02.flv',
-			// file: 'http://120.79.67.102:4022/flv?port=10077&app=live&stream=13751093611_channel_2',
-			// file: 'ws://120.79.67.102:4022/ws?port=10077&app=live&stream=64921778277_channel_1',
-			lowlatency: true,        // ll-dash, ll-hls, ll-flv/fmp4 (auto reduce latency due to cumulative ack of tcp)
-			maxBufferLength: 1.5,    // sec.
-			maxRetries: 0,           // maximum number of retries while some types of error occurs. -1 means always
-			mode: 'live',            // live, vod
-			module: 'FLV',
-			objectfit: 'fill',
-			retrying: 0,             // ms. retrying interval
-			loader: {
-				name: 'auto',
-				mode: 'cors',        // cors, no-cors, same-origin
-				credentials: 'omit', // omit, include, same-origin
-			},
-			service: {
-				script: 'js/sw.js',
-				scope: 'js/',
-				enable: false,
-			},
-			sources: [{
-				file: '/vod/sample.flv',
-				label: 'http-flv',
-				default: true,
-			}, {
-				file: '/vod/sample.mp4',
-				label: 'http-mp4',
-			}],
-			plugins: [{
-				kind: 'Poster',
-				file: 'images/content/poster.png',
-				objectfit: 'fill',
-				visibility: true,
-			}, {
-				kind: 'Display',
-				layout: '[Button:play=][Button:waiting=][Label:error=][Panel:info=][Panel:stats=]',
-				ondoubleclick: 'fullscreen',
-				visibility: true,
-			}, {
-				kind: 'Controlbar',
-				layout: '[Slider:timebar=Preview]|[Button:play=Play][Button:pause=Pause][Button:reload=Reload][Button:stop=Stop][Label:quote=Live broadcast][Label:time=00:00/00:00]||[Button:report=Report][Button:capture=Capture][Button:mute=Mute][Button:unmute=Unmute][Slider:volumebar=80][Select:definition=Definition][Button:danmuoff=Danmu Off][Button:danmuon=Danmu On][Button:fullpage=Fullpage][Button:exitfullpage=Exit Fullpage][Button:fullscreen=Fullscreen][Button:exitfullscreen=Exit Fullscreen]',
-				autohide: false,
-				visibility: true,
-			}],
-		});
-
-		function onReady(e) {
-			// ui.record('fragmented.mp4');
-		}
-
-		function onClick(e) {
-			switch (e.data.name) {
-				case 'report':
-					ui.logger.flush();
-					break;
-			}
-		}
-
-		function onScreenshot(e) {
-			var arr = e.data.image.split(',');
-			var ret = arr[0].match(/^data:(image\/(.+));base64$/);
-			if (ret === null) {
-				console.error('The string did not match the expected pattern.');
-				return;
-			}
-
-			var link = document.createElement('a');
-			link.href = e.data.image;
-			link.download = 'screenshot-' + utils.padStart(index++, 3, '0') + '.' + ret[2];
-			link.click();
-		}
-
-		function onFullpage(e) {
-			pw.style.margin = e.data.status ? '0' : '0 auto';
-			pw.style.height = e.data.status ? '100%' : '400px';
-			pw.style.position = e.data.status ? 'fixed' : '';
-			pw.style.maxWidth = e.data.status ? '100%' : '640px';
-			pw.style.zIndex = e.data.status ? 100 : '';
-
-			if (chat) {
-				chat.resize();
-			}
-		}
-
-		var events = chatease.events;
-
-		chat = chatease('chat');
-		chat.addEventListener(events.CHATEASE_INFO, onInfo);
-		chat.addEventListener(events.CHATEASE_MESSAGE, onMessage);
-		chat.addEventListener(events.CHATEASE_USER, onUser);
-		chat.addEventListener(events.CHATEASE_CLOSE, onClose);
-		chat.setup({
-			url: 'ws://39.98.40.193:8080/chat/001' + window.location.search,
-			width: 320,
-			height: 400,
-			maxLength: 70,
-			maxRetries: -1,
-			smoothing: false,
-			debug: true,
-			render: {
-				name: 'none',
-				swf: 'swf/chatease.swf'
-			},
-			skin: {
-				name: chatease.utils.isMobile() ? 'mobile' : 'def'
-			},
-			bubble: {
-				name: 'def'
-			}
-		});
-
-		function onInfo(e) {
-			users.innerText = e.channel.total;
-		}
-
-		function onMessage(e) {
-			if (ui) {
-				ui.shoot(e.data);
-			}
-		}
-
-		function onUser(e) {
-			users.innerText = e.channel.total;
-		}
-
-		function onClose(e) {
-			users.innerText = 0;
-		}
-
-		if (playease.OS.isMobile) {
-			window.addEventListener('resize', function (e) {
-				setTimeout(function () {
-					ui.fullscreen(!playease.OS.isHorizontal());
-				}, 500);
-			});
-		}
-
-		function playTheURL() {
-			var input = document.getElementById('url-input');
-			var url = input.value;
-			ui.play(url);
-		}
-	</script>
+        function playTheURL() {
+            var input = document.getElementById('url-input');
+            var url = input.value;
+            ui.play(url);
+        }
+    </script>
 </body>

@@ -1,23 +1,24 @@
 ﻿<!DOCTYPE HTML>
 <html>
+
 <head>
-	<title>Home - StudEase.cn</title>
-	
-	<meta charset="utf-8">
-	<meta name="robots" content="index, follow" />
-	<meta name="keywords" content="slicease.js,playease.js,chatease.js,rtmpmate" />
-	<meta name="description" content="" />
-	<meta name="author" content="Tony Lau" />
-	
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<meta content="yes" name="apple-mobile-web-app-capable"/>
-	<meta content="yes" name="apple-touch-fullscreen"/>
-	<meta content="telephone=no,email=no" name="format-detection"/>
-	<meta name="App-Config" content="fullscreen=yes, useHistoryState=yes, transition=yes"/>
-	
-	<link rel="shortcut icon" href="images/favicon.ico">
-	
-	<!--[if lt IE 9]>
+    <title>Home - StudEase.cn</title>
+
+    <meta charset="utf-8">
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="slicease.js,playease.js,chatease.js,rtmpmate" />
+    <meta name="description" content="" />
+    <meta name="author" content="Spencer Lau" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta content="telephone=no,email=no" name="format-detection" />
+    <meta name="App-Config" content="fullscreen=yes, useHistoryState=yes, transition=yes" />
+
+    <link rel="shortcut icon" href="images/favicon.ico">
+
+    <!--[if lt IE 9]>
 	<script type='text/javascript'>
 		(function() {
 			if (!/*@cc_on!@*/0) {
@@ -38,159 +39,161 @@
 		}
 	</style>
 	<![endif]-->
-	
-	<link type='text/css' rel='stylesheet' href='css/style.css' />
-	
-	<script type='text/javascript' src='js/gl-matrix-min.js'></script>
-	<script type='text/javascript' src='js/slicease.min.js'></script>
+
+    <link type='text/css' rel='stylesheet' href='css/style.css' />
+
+    <script type='text/javascript' src='js/gl-matrix-min.js'></script>
+    <script type='text/javascript' src='js/slicease.min.js'></script>
 </head>
+
 <body ontouchstart=''>
-	<header>
-		<div class='topbar'>
-		<section>
-			<ul class='info'>
-				<li><span class='icon-card'>Name: Tony Lau</span></li>
-				<li><span class='icon-phone'>Phone: +8618224088983</span></li>
-				<li><span class='icon-email'>Email: 670292548@qq.com</span></li>
-				<li><span class='icon-address'>Address: Chongqing, China</span></li>
-			</ul>
-		</section>
-		</div>
-		
-		<nav>
-		<section>
-			<span class='logo'>
-				<a href='.' title='studease.cn'>StudEase</a>
-			</span>
-			
-			<div class='menu-toggle'></div>
-			
-			<ul>
-				<li class='current'><a href='.'>HOME</a></li>
-				<li><a href='about.html'>ABOUT</a></li>
-				<li><a href='index.html#news'>NEWS</a></li>
-				<li><a href='solutions.html'>SOLUTIONS</a></li>
-				<li>
-					<a href='#'>PROJECTS</a>
-					<ul>
-						<li><a href='rtmpmate.html'>rtmpmate</a></li>
-						<li><a href='playease.html'>playease.js</a></li>
-						<li><a href='chatease.html'>chatease.js</a></li>
-						<li><a href='slicease.html'>slicease.js</a></li>
-					</ul>
-				</li>
-				<li><a href='contact.html'>CONTACT</a></li>
-				<li><a href='blog.html'>BLOG</a></li>
-			</ul>
-		</section>
-		</nav>
-	</header>
-	
-	<div class='slider'>
-	<section>
-		<div id='slicer'></div>
-	</section>
-	</div>
-	
-	<div class='wrap'>
-		<div class='news'>
-		<section>
-			<div id='news'>
-				<h3>News</h3>
-				<ul class='u5 square'>
-					<li><a href='rtmpmate.html'>Rtmpmate</a>, a websocket chat server & functional media server, beta released.<i> - Oct. 31, 2018</i></li>
-					<li>Added UI controls for <a href='slicease.html'>slicease.js</a> at version 3.0.07.<i> - Jul. 27, 2018</i></li>
-					<li>The chatease-server was renamed as kiwichatd at version 2.0.<i> - Dec. 13, 2017</i></li>
-					<li>New feature of <a href='playease.html'>playease.js</a>: MPEG-DASH.<i> - Aug. 10, 2017</i></li>
-					<li>Added support for MSIE 8 & 9 of <a href='chatease.html'>chatease.js</a>, using flash.<i> - May 12, 2017</i></li>
-					<li>Planning to build an HTML5 live streaming server: <a href='rtmpmate.html'>rtmpmate</a>.<i> - Apr. 22, 2017</i></li>
-					<li>Introduced self-adaption display, and added flash render for MSIE 8, in <a href='playease.html'>playease.js</a> 1.0.33.<i> - Apr. 27, 2017</i></li>
-					<li>Added UI controls for <a href='playease.html'>playease.js</a> at version 1.0.08.<i> - Apr. 17, 2017</i></li>
-					<li>First stable version for websocket chat released: <a href='chatease.html'>chatease.js</a> 1.0.05, chatease-server 1.0.14.<i> - Apr. 13, 2017</i></li>
-					<li><a href='slicease.html'>Slicease.js</a> 3.0 released: Using WebGL.<i> - Feb. 20, 2017</i></li>
-					<li><a href='playease.html'>Playease.js</a>, an HTML5 media player for FLV live streaming, beta released.<i> - Feb. 10, 2017</i></li>
-					<li>Chatease-server, a websocket chat server coded in C, beta released.<i> - Aug. 4, 2016</i></li>
-					<li><a href='chatease.html'>Chatease.js</a>, a client-side script for websocket chat, beta released.<i> - Aug. 1, 2016</i></li>
-					<li><a href='slicease.html'>Slicease.js</a> 2.0 released: New features, e.g. MVC, event-driven, etc.<i> - Dec. 30, 2015</i></li>
-					<li>
-						<a href='slicease.html'>Slicease.js</a> won a glory of <b>"22 Best Weekly Web Design & Development Resources"</b> at 
-						<a href='http://www.jqueryscript.net/blog/Weekly-Web-Design-Development-News-Collective-59.html' target='_blank'>jqueryscript.net</a>, 
-						<a href='http://www.techinfine.com/Post/177077/22-Best-Weekly-Web-Design-Development-Resources-8' target='_blank'>techinfine.com</a>, 
-						<a href='http://www.open-open.com/news/view/19e9ce8' target='_blank'>open-open.com</a>, etc.<i> - Nov. 25, 2014</i>
-					</li>
-					<li><a href='slicease.html'>Slicease.js</a>, which is a 3D image rotator, 1.0 released.<i> - Sep. 28, 2014</i></li>
-					<li>This blog came to be available.<i> - Sep. 22, 2014</i></li>
-				</ul>
-			</div>
-		</section>
-		</div>
-	</div>
-	
-	<footer>
-		<div class='footerall'>
-		<section>
-			<ul>
-				<li>
-					<a href='faq.html' target='_blank'>
-						<strong>FAQ</strong>
-						<span>Check for the articles<br/>and known issues</span>
-					</a>
-				</li>
-				<li>
-					<a href='solutions.html' target='_blank'>
-						<strong>SOLUTIONS</strong>
-						<span>Low latency and<br/>cross-platform</span>
-					</a>
-				</li>
-				<li>
-					<a href='contact.html' target='_blank'>
-						<strong>CONTACT</strong>
-						<span>+8618224088983<br/>670292548@qq.com</span>
-					</a>
-				</li>
-				<li>
-					<a href='donate.html' target='_blank'>
-						<strong>DONATE</strong>
-						<span>Contribute by<br/>making a donation ￥</span>
-					</a>
-				</li>
-			</ul>
-		</section>
-		</div>
-		
-		<div class='copyright'>
-		<section>
-			<span>Copyright &copy; 2014-2018 studease.cn | All Rights Reserved</span>
-		</section>
-		</div>
-	</footer>
-	
-	<script type='text/javascript'>
-		var prt = document.getElementById('slicer').parentNode;
-		
-		var slicer = slicease('slicer').setup({
-			width: prt.clientWidth,
-			height: prt.clientHeight,
-			sources: [{
-				file: 'images/slider/img1.png',
-				link: 'http://studease.cn/slicease.html',
-				target: '_blank'
-			}, {
-				file: 'images/slider/img2.png',
-				link: 'http://studease.cn/playease.html',
-				target: '_blank'
-			}, {
-				file: 'images/slider/img3.png',
-				link: 'http://studease.cn/chatease.html',
-				target: '_blank'
-			}, {
-				file: 'images/slider/img4.png',
-				link: 'http://studease.cn/rtmpmate.html',
-				target: '_blank'
-			}],
-			range: '3-9',
-			cubic: '10,4',
-			distance: 12
-		});
-	</script>
+    <header>
+        <div class='topbar'>
+            <section>
+                <ul class='info'>
+                    <li><span class='icon-card'>Name: Spencer Lau</span></li>
+                    <li><span class='icon-phone'>Phone: +8618224088983</span></li>
+                    <li><span class='icon-email'>Email: 670292548@qq.com</span></li>
+                    <li><span class='icon-address'>Address: Guangzhou, China</span></li>
+                </ul>
+            </section>
+        </div>
+
+        <nav>
+            <section>
+                <span class='logo'>
+                    <a href='.' title='studease.cn'>StudEase</a>
+                </span>
+
+                <div class='menu-toggle'></div>
+
+                <ul>
+                    <li class='current'><a href='.'>HOME</a></li>
+                    <li><a href='about.html'>ABOUT</a></li>
+                    <li><a href='index.html#news'>NEWS</a></li>
+                    <li><a href='solutions.html'>SOLUTIONS</a></li>
+                    <li>
+                        <a href='#'>PROJECTS</a>
+                        <ul>
+                            <li><a href='rtmpmate.html'>rtmpmate</a></li>
+                            <li><a href='playease.html'>playease.js</a></li>
+                            <li><a href='chatease.html'>chatease.js</a></li>
+                            <li><a href='slicease.html'>slicease.js</a></li>
+                        </ul>
+                    </li>
+                    <li><a href='contact.html'>CONTACT</a></li>
+                    <li><a href='blog.html'>BLOG</a></li>
+                </ul>
+            </section>
+        </nav>
+    </header>
+
+    <div class='slider'>
+        <section>
+            <div id='slicer'></div>
+        </section>
+    </div>
+
+    <div class='wrap'>
+        <div class='news'>
+            <section>
+                <div id='news'>
+                    <h3>News</h3>
+                    <ul class='u5 square'>
+                        <li>Start to refactor <a href='rtmpmate.html'>rtmpmate</a> v2 for business usage.<i> - Jun. 17, 2020</i></li>
+                        <li>Start to build <a href='playease.html'>playease.js</a> v2 for business usage.<i> - Jun. 17, 2020</i></li>
+                        <li><a href='rtmpmate.html'>Rtmpmate</a>, a websocket chat server & functional media server, beta released.<i> - Oct. 31, 2018</i></li>
+                        <li>Added UI controls for <a href='slicease.html'>slicease.js</a> at version 3.0.07.<i> - Jul. 27, 2018</i></li>
+                        <li>New feature of <a href='playease.html'>playease.js</a>: MPEG-DASH.<i> - Aug. 10, 2017</i></li>
+                        <li>Added support for MSIE 8 & 9 of <a href='chatease.html'>chatease.js</a>, using flash.<i> - May 12, 2017</i></li>
+                        <li>Planning to build an HTML5 live streaming server: <a href='rtmpmate.html'>rtmpmate</a>.<i> - Apr. 22, 2017</i></li>
+                        <li>Introduced self-adaption display, and added flash render for MSIE 8, in <a href='playease.html'>playease.js</a> 1.0.33.<i> - Apr. 27, 2017</i></li>
+                        <li>Added UI controls for <a href='playease.html'>playease.js</a> at version 1.0.08.<i> - Apr. 17, 2017</i></li>
+                        <li>First stable version for websocket chat released: <a href='chatease.html'>chatease.js</a> 1.0.05, chatease-server 1.0.14.<i> - Apr. 13, 2017</i></li>
+                        <li><a href='slicease.html'>Slicease.js</a> 3.0 released: Using WebGL.<i> - Feb. 20, 2017</i></li>
+                        <li><a href='playease.html'>Playease.js</a>, an HTML5 media player for FLV live streaming, beta released.<i> - Feb. 10, 2017</i></li>
+                        <li>Chatease-server, a websocket chat server coded in C, beta released.<i> - Aug. 4, 2016</i></li>
+                        <li><a href='chatease.html'>Chatease.js</a>, a client-side script for websocket chat, beta released.<i> - Aug. 1, 2016</i></li>
+                        <li><a href='slicease.html'>Slicease.js</a> 2.0 released: New features, e.g. MVC, event-driven, etc.<i> - Dec. 30, 2015</i></li>
+                        <li>
+                            <a href='slicease.html'>Slicease.js</a> won a glory of <b>"22 Best Weekly Web Design & Development Resources"</b> at
+                            <a href='http://www.jqueryscript.net/blog/Weekly-Web-Design-Development-News-Collective-59.html' target='_blank'>jqueryscript.net</a>,
+                            <a href='http://www.techinfine.com/Post/177077/22-Best-Weekly-Web-Design-Development-Resources-8' target='_blank'>techinfine.com</a>,
+                            <a href='http://www.open-open.com/news/view/19e9ce8' target='_blank'>open-open.com</a>, etc.<i> - Nov. 25, 2014</i>
+                        </li>
+                        <li><a href='slicease.html'>Slicease.js</a>, which is a 3D image rotator, 1.0 released.<i> - Sep. 28, 2014</i></li>
+                        <li>This blog came to be available.<i> - Sep. 22, 2014</i></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        <div class='footerall'>
+            <section>
+                <ul>
+                    <li>
+                        <a href='faq.html' target='_blank'>
+                            <strong>FAQ</strong>
+                            <span>Check for the articles<br />and known issues</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href='solutions.html' target='_blank'>
+                            <strong>SOLUTIONS</strong>
+                            <span>Low latency and<br />cross-platform</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href='contact.html' target='_blank'>
+                            <strong>CONTACT</strong>
+                            <span>+8618224088983<br />670292548@qq.com</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href='donate.html' target='_blank'>
+                            <strong>DONATE</strong>
+                            <span>Contribute by<br />making a donation ￥</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+
+        <div class='copyright'>
+            <section>
+                <span>Copyright &copy; 2014-2021 studease.cn | All Rights Reserved</span>
+            </section>
+        </div>
+    </footer>
+
+    <script type='text/javascript'>
+        var prt = document.getElementById('slicer').parentNode;
+
+        var slicer = slicease('slicer').setup({
+            width: prt.clientWidth,
+            height: prt.clientHeight,
+            sources: [{
+                file: 'images/slider/img1.png',
+                link: 'http://studease.cn/slicease.html',
+                target: '_blank'
+            }, {
+                file: 'images/slider/img2.png',
+                link: 'http://studease.cn/playease.html',
+                target: '_blank'
+            }, {
+                file: 'images/slider/img3.png',
+                link: 'http://studease.cn/chatease.html',
+                target: '_blank'
+            }, {
+                file: 'images/slider/img4.png',
+                link: 'http://studease.cn/rtmpmate.html',
+                target: '_blank'
+            }],
+            range: '3-9',
+            cubic: '10,4',
+            distance: 12
+        });
+    </script>
 </body>
